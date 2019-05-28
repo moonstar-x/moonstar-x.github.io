@@ -1,0 +1,86 @@
+/* Tag Selectors */
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background-color: #e7eaf6;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+hr {
+  border-width: 3px;
+  border-color: #113f67;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Color Palette */
+.color1 { color: #e7eaf6; }
+.color2 { color: #a2a8d3; }
+.color3 { color: #38598b; }
+.color4 { color: #113f67; }
+
+.bg-color1 { background-color: #e7eaf6; }
+.bg-color2 { background-color: #a2a8d3; }
+.bg-color3 { background-color: #38598b; }
+.bg-color4 { background-color: #113f67; }
+
+.bg-color5 { background-color: #f6f6f6}
+
+/* Brand Colors */
+.color-git { color: #333; }
+.color-linkedin { color: #0077b5; }
+.color-stackex { color: #1e5397; }
+.color-twitter { color: #1da1f2; }
+.color-reddit { color: #ff4500; }
+.color-insta { color: #e1306c; }
+.color-lastfm { color: #d51007; }
+.color-steam { color: #000; }
+.color-discord { color: #7289da; }
+.color-twitch { color: #6441a5; }
+
+/* Fonts */
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+.font-open-sans { font-family: 'Open Sans', sans-serif !important; }
+
+/* Other Classes */
+.no-deco:hover { text-decoration: none; }
+.container-bottom-margin { margin-bottom: 7rem; }
+.btn-link { 
+  background-color: #38598b;
+  color: #fff;
+  border: none;
+}
+.btn-link:hover { 
+  background-color: #113f67;
+  color: #fff;
+  text-decoration: none;
+}
+.border-color3 { border: 1px solid #38598b; }
+.h-100 { height: 100%; }
+.image-box {
+  float: right;
+  margin: 5px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/me.jpg");
+}
+.no-bg { background-color: transparent; }
+.no-border { border: transparent; }
+.img-rounded {
+  border: transparent;
+  border-radius: 4px;
+}
+.social-links a:hover {
+  color: #38598b;
+}
