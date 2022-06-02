@@ -1,11 +1,12 @@
 <script lang="ts">
+  import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
+  import type { DropdownItem } from '../../../interfaces';
   import Fa from 'svelte-fa/src/fa.svelte';
   import { createEventDispatcher } from 'svelte';
-  import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
-
+  
   export let icon: IconDefinition | null = null;
   export let label: string = '';
-  export let items: Record<string, string>[];
+  export let items: DropdownItem[];
 
   const dispatch = createEventDispatcher();
 
