@@ -1,6 +1,6 @@
 <script lang="ts">
   import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
-  import Dropdown from './Dropdown.svelte';
+  import Dropdown from './ui/Dropdown.svelte';
   import { locale } from '../../stores/app';
   import { supportedLocales } from '../../i18n';
 
