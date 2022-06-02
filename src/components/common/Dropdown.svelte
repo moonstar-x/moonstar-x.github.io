@@ -48,7 +48,6 @@
   }
 
   button {
-    font-family: 'Lato', sans-serif;
     text-decoration: none;
     padding: 8px 12px;
     border: 2px transparent solid;

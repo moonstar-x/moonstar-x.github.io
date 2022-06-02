@@ -3,9 +3,10 @@
   import NavbarButton from './NavbarButton.svelte';
   import LocaleSwitcher from '../LocaleSwitcher.svelte';
   import { t } from '../../../i18n';
+  import { LINKS } from '../../../constants';
 
   const buttons = [
-    { text: 'GitHub', url: 'https://github.com/moonstar-x' },
+    { text: 'GitHub', url: LINKS.github },
     { text: t('navbar.projects'), url: '#projects' },
     { text: t('navbar.about'), url: '#about' },
     { text: t('navbar.contact'), url: '#contact' }

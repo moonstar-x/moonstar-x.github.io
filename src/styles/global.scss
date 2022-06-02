@@ -21,6 +21,16 @@ h1, h2, h3, h4, h5 {
 	font-family: 'Poppins', sans-serif;
 }
 
-button {
+button, a {
 	font-family: 'Lato', sans-serif;
+}
+
+.link.github {
+	color: $brand-github-color;
+	border-bottom: 2px solid $brand-github-color;
+
+	&:active, &:focus, &:hover, &:focus-visible {
+		color: $brand-github-color-alt;
+		border-bottom: 2px solid $brand-github-color-alt; 
+	}
 }

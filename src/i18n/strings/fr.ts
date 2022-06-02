@@ -6,7 +6,8 @@ const NAVBAR: Record<string, string> = {
 
 
 const FEATURE: Record<string, string> = {
-  'feature.title': 'Bonjour, je suis Christian, futur ingénieur logiciel avec une passion pour la programmation.'
+  'feature.title': 'Bonjour, je suis Christian, futur ingénieur logiciel avec une passion pour la programmation.',
+  'feature.description': "J'utilise mon temps libre à apprendre des nouvelles technologies et à développer des trucs sympas. Je commit mon code tout le temps sur <git>GitHub</git>."
 };
 
 const ALL: Record<string, string> = {
