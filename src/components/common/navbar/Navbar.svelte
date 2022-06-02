@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavbarBrand from './NavbarBrand.svelte';
   import NavbarButton from './NavbarButton.svelte';
+  import LocaleSwitcher from '../LocaleSwitcher.svelte';
 
   const buttons = [
     { text: 'GitHub', url: 'https://github.com/moonstar-x' },
@@ -22,6 +23,9 @@
         <NavbarButton text={text} url={url} />
       </li>
     {/each}
+    <li>
+      <LocaleSwitcher />
+    </li>
   </ul>
 </nav>
 
@@ -47,6 +51,7 @@
     display: inline-block;
     padding: 0;
     margin: 0;
+    align-self: center;
 
     &.right {
       text-align: right;

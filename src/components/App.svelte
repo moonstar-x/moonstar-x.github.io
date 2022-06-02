@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Navbar from './common/navbar/Navbar.svelte';
+	import Feature from './common/Feature.svelte';
 </script>
 
 <main>
 	<Navbar />
 	<div class="content">
-		<p>This section is empty.</p>
+		<Feature />
 	</div>
 </main>
 
