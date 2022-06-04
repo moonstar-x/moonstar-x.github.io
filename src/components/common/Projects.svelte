@@ -124,7 +124,7 @@
   ];
 </script>
 
-<div class="projects">
+<div class="projects" id="projects">
   <h1>
     {t('projects.title')}
   </h1>
