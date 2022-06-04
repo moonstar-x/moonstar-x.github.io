@@ -19,6 +19,7 @@
     max-height: 2rem;
     max-width: 2rem;
     vertical-align: middle;
+    margin-right: 0.5em;
   }
   
   h1 {
