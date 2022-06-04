@@ -17,14 +17,27 @@
   let buttons: LinkButtonWithIconOptions[] = Object.keys(data.links).map((key: LinkType) => {
     return { text: t(`projects.links.${key}.text`), url: data.links[key], icon: getIconForLinkType(key) };
   });
-
-  let stats = 'No stats available.';
 </script>
 
-<Card title={data.title} description={data.description} subtitle={data.technologies.join(', ')} footer={stats} color={statusColors[data.status]}>
-  {#each buttons as { text, url, icon }}
-    <LinkButton text={text} url={url}>
-      <Fa icon={icon} slot="pre" />
-    </LinkButton>
-  {/each}
+<Card title={data.title} description={data.description} subtitle={data.technologies.join(', ')} color={statusColors[data.status]}>
+  <div class="buttons-container">
+    {#each buttons as { text, url, icon }}
+      <LinkButton text={text} url={url}>
+        <Fa class="inline-icon" icon={icon} slot="pre" />
+      </LinkButton>
+    {/each}
+  </div>
 </Card>
+
+<style lang="scss">
+  .buttons-container {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  :global(.inline-icon) {
+    margin-right: 0.5em;
+  }
+</style>

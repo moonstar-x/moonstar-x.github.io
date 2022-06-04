@@ -14,6 +14,10 @@
 
 <style lang="scss">
 	@import './src/styles/variables.scss';
+
+	main {
+		padding-bottom: 2rem;
+	}
 	
 	div {
 

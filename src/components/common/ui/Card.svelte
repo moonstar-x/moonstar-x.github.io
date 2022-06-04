@@ -37,5 +37,26 @@
     border-radius: $std-border-radius;
     border-left-width: 8px;
     border-left-style: solid;
+    background-color: $bg-color-light;
+    padding: 1.5rem;
+
+    flex: 1 25%;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.5em;
+  }
+
+  h2 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: $text-color-muted;
+  }
+
+  footer {
+    margin-top: 1rem;
   }
 </style>
