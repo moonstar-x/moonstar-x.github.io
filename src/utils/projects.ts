@@ -1,4 +1,4 @@
-import type { LinkType } from '../interfaces';
+import type { LinkType } from '../types';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faNpm, faSteam, faDocker, faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';

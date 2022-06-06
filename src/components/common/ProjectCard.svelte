@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectData, LinkButtonWithIconOptions, LinkType, ProjectStatus } from '../../interfaces';
+  import type { ProjectData, LinkButtonWithIconOptions, LinkType, ProjectStatus } from '../../types';
   import Fa from 'svelte-fa/src/fa.svelte';
   import Card from './ui/Card.svelte';
   import LinkButton from './ui/LinkButton.svelte';

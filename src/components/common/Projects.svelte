@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectData } from '../../interfaces';
+  import type { ProjectData } from '../../types';
   import ProjectCard from './ProjectCard.svelte';
   import { t } from '../../i18n';
 

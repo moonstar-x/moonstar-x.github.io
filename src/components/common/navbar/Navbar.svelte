@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { LinkButtonOptions } from '../../../interfaces';
+  import type { LinkButtonOptions } from '../../../types';
   import NavbarBrand from './NavbarBrand.svelte';
   import NavbarButton from './NavbarButton.svelte';
   import LocaleSwitcher from '../LocaleSwitcher.svelte';

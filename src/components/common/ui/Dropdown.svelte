@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
-  import type { DropdownItem } from '../../../interfaces';
+  import type { DropdownItem } from '../../../types';
   import Fa from 'svelte-fa/src/fa.svelte';
   import { createEventDispatcher } from 'svelte';
   
