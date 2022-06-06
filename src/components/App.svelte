@@ -3,6 +3,8 @@
 	import Feature from './common/Feature.svelte';
 	import Projects from './common/Projects.svelte';
 	import About from './common/About.svelte';
+	import Contact from './common/Contact.svelte';
+	import Footer from './common/Footer.svelte';
 </script>
 
 <main>
@@ -14,6 +16,10 @@
 	<div class="content colored">
 		<About />
 	</div>
+	<div class="content">
+		<Contact />
+	</div>
+	<Footer />
 </main>
 
 <style lang="scss">

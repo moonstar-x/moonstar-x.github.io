@@ -36,8 +36,4 @@
     flex-wrap: wrap;
     gap: 1rem;
   }
-
-  :global(.inline-icon) {
-    margin-right: 0.5em;
-  }
 </style>

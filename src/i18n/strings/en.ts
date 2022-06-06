@@ -62,11 +62,23 @@ const ABOUT: Record<string, string> = {
   'about.description.3': "I can speak English, Spanish, French, a little Portuguese, and I'm now learning Korean."
 };
 
+const CONTACT: Record<string, string> = {
+  'contact.title': 'Wanna Reach Me?',
+  'contact.email': 'Send Me an Email',
+  'contact.linkedin': 'Connect with Me on LinkedIn'
+};
+
+const FOOTER: Record<string, string> = {
+
+};
+
 const ALL: Record<string, string> = {
   ...NAVBAR,
   ...FEATURE,
   ...PROJECTS,
-  ...ABOUT
+  ...ABOUT,
+  ...CONTACT,
+  ...FOOTER
 };
 
 export default ALL;

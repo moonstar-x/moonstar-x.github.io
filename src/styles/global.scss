@@ -25,6 +25,10 @@ button, a {
 	font-family: 'Lato', sans-serif;
 }
 
+.inline-icon {
+	margin-right: 0.25em;
+}
+
 .link.github {
 	color: $brand-github-color;
 	border-bottom: 2px solid $brand-github-color;
