@@ -2,6 +2,7 @@
 	import Navbar from './common/navbar/Navbar.svelte';
 	import Feature from './common/Feature.svelte';
 	import Projects from './common/Projects.svelte';
+	import About from './common/About.svelte';
 </script>
 
 <main>
@@ -9,6 +10,9 @@
 	<div class="content">
 		<Feature />
 		<Projects />
+	</div>
+	<div class="content colored">
+		<About />
 	</div>
 </main>
 
@@ -19,10 +23,11 @@
 		padding-bottom: 2rem;
 	}
 	
-	div {
+	.content {
+		padding: 0% $content-horizontal-margin;
 
-		&.content {
-			margin: 0% $content-horizontal-margin;
+		&.colored {
+			background-color: $bg-color-light;
 		}
 	}
 </style>

@@ -53,10 +53,20 @@ const PROJECTS: Record<string, string> = {
   'projects.links.discord.text': 'Add it to your Discord server'
 };
 
+const ABOUT: Record<string, string> = {
+  'about.title': 'A Little Bit About Myself',
+
+  'about.description.0': 'Hello! My name is Christian López, but my online nickname is moonstar-x.',
+  'about.description.1': "I'm a {age} year old computer science college student who loves anything related to computers. I'm from Quito, Ecuador and currently studying in the Universidad San Francisco de Quito.",
+  'about.description.2': 'Generally, I spend my free time working on small personal projects to learn as much as possible, this includes programming and designing. I work mostly with JavaScript and TypeScript, but I can make my way around Python, Java, Lua and C#.',
+  'about.description.3': "I can speak English, Spanish, French, a little Portuguese, and I'm now learning Korean."
+};
+
 const ALL: Record<string, string> = {
   ...NAVBAR,
   ...FEATURE,
-  ...PROJECTS
+  ...PROJECTS,
+  ...ABOUT
 };
 
 export default ALL;
