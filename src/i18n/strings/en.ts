@@ -69,7 +69,8 @@ const CONTACT: Record<string, string> = {
 };
 
 const FOOTER: Record<string, string> = {
-
+  'footer.info': 'Built with Svelte. Hosted on GitHub Pages.',
+  'footer.copyright': '© {year} - moonstar-x'
 };
 
 const ALL: Record<string, string> = {

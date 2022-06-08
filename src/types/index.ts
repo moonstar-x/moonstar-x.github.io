@@ -9,6 +9,11 @@ export interface LinkButtonWithIconOptions extends LinkButtonOptions {
   icon: IconDefinition
 }
 
+export interface SocialLinkOptions {
+  url: string,
+  icon: IconDefinition
+}
+
 export interface DropdownItem {
   text: string,
   value: string

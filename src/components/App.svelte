@@ -26,7 +26,7 @@
 	@import './src/styles/variables.scss';
 
 	main {
-		padding-bottom: 2rem;
+		padding: 0;
 	}
 	
 	.content {
