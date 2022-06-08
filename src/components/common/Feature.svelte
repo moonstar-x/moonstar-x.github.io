@@ -3,7 +3,7 @@
   import { LINKS } from '../../constants';
 
   const textInserts = {
-    git: (str) => `<a class="link github" href="${LINKS.github}">${str}</a>`
+    git: (str) => `<a class="link github" href="${LINKS.github}" target="_blank">${str}</a>`
   };
 </script>
 

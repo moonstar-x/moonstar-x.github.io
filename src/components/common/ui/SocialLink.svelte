@@ -6,7 +6,7 @@
   export let icon: IconDefinition;
 </script>
 
-<a href={url}>
+<a href={url} target="_blank">
   <Fa icon={icon} size="lg" />
 </a>
 

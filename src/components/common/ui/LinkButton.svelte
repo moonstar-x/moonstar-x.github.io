@@ -3,7 +3,7 @@
   export let url: string;
 </script>
 
-<a href={url}>
+<a href={url} target="_blank">
   <slot name="pre" />
   {text}
 </a>

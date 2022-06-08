@@ -2,16 +2,17 @@
   import type { SocialLinkOptions } from '../../types';
   import SocialLink from './ui/SocialLink.svelte';
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-  import { faLinkedin, faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
+  import { faLinkedin, faTwitter, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
   import { t } from '../../i18n';
   import { getCurrentYear } from '../../utils/date';
   import { LINKS } from '../../constants';
 
   const socials: SocialLinkOptions[] = [
     { icon: faEnvelope, url: LINKS.email },
+    { icon: faGithub, url: LINKS.github },
     { icon: faLinkedin, url: LINKS.linkedin },
     { icon: faTwitter, url: LINKS.twitter },
-    { icon: faDiscord, url: LINKS.discord },
+    { icon: faDiscord, url: LINKS.discord }
   ];
 </script>
 

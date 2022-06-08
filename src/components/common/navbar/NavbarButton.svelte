@@ -3,7 +3,7 @@
   export let url: string;
 </script>
 
-<a href={url}>
+<a href={url} target={url.startsWith('#') ? '_self' : '_blank'}>
   {text}
 </a>
 
