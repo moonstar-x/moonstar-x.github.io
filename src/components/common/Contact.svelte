@@ -13,7 +13,7 @@
   ];
 </script>
 
-<div class="contact">
+<div class="contact" id="contact">
   <h1>
     {t('contact.title')}
   </h1>
