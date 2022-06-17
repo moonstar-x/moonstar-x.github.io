@@ -4,8 +4,12 @@
 </script>
 
 <a href={url} target="_blank">
-  <slot name="pre" />
-  {text}
+  <div class="btn-inner">
+    <slot name="pre" />
+    <span>
+      {text}
+    </span>
+  </div>
 </a>
 
 <style lang="scss">
@@ -28,6 +32,12 @@
     &:active, &:focus, &:hover, &:focus-visible {
       background-color: $accent-color-light;
     }
+  }
+
+  .btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 2px;
   }
 </style>
 

@@ -66,4 +66,27 @@
     display: inline-block;
     margin: 0.75rem;
   }
+
+  @media (max-width: map-get($breakpoints, 'sm')) {
+    div {
+
+      &.left {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, 'md')) {
+    nav {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    ul {
+
+      &.right {
+        text-align: center;
+      }
+    }
+  }
 </style>

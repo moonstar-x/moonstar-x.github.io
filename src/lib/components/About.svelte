@@ -12,7 +12,7 @@
     {t('about.title')}
   </h1>
   <div class="about-inner">
-    <Image src="/img/me.jpg" rounded width={"25%"} />
+    <Image src="/img/me.jpg" rounded --width="25%" --mobile-width="75%" />
     <div class="text">
       {#each paragraphs as paragraph}
       <p>
@@ -24,6 +24,8 @@
 </div>
 
 <style lang="scss">
+  @import '../../lib/styles/variables.scss';
+
   .about {
     padding: 2rem 0;
   }
@@ -46,5 +48,12 @@
 
   p {
     font-size: 1.2em;
+  }
+
+  @media (max-width: map-get($breakpoints, 'md')) {
+    .about-inner {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 </style>

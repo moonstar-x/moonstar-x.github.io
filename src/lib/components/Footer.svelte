@@ -17,7 +17,7 @@
 </script>
 
 <footer>
-  <div>
+  <div class="info">
     <p>
       {t('footer.info')}
     </p>
@@ -25,7 +25,7 @@
       {t('footer.copyright', { year: getCurrentYear() })}
     </p>
   </div>
-  <div>
+  <div class="buttons">
     {#each socials as { icon, url }}
       <SocialLink icon={icon} url={url} />
     {/each}
@@ -37,7 +37,6 @@
 
   footer {
     padding: 0.5rem $content-horizontal-margin;
-;
     margin: 0;
     background-color: $bg-color-light;
     display: flex;
@@ -48,4 +47,20 @@
   p {
     margin: 0.5rem;
   }
+
+  @media (max-width: map-get($breakpoints, 'md')) {
+    footer {
+      flex-direction: column-reverse;
+    }
+
+    div {
+      width: 100%;
+    }
+
+    .buttons {
+      margin: 1rem;
+      display: flex;
+      justify-content: space-around;
+    }
+  } 
 </style>

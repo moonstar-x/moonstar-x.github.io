@@ -59,4 +59,10 @@
   footer {
     margin-top: 1rem;
   }
+
+  @media (max-width: map-get($breakpoints, 'md')) {
+    .card {
+      flex: 1 100%;
+    }
+  }
 </style>

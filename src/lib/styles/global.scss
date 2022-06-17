@@ -33,7 +33,16 @@ button, a {
 	margin-right: 0.25em;
 }
 
-.link.github {
+.link-in-text {
+	text-decoration: none;
+	padding-bottom: 1px;
+
+	&:visited {
+		text-decoration: none;
+	}
+}
+
+.link-in-text.github {
 	color: $brand-github-color;
 	border-bottom: 2px solid $brand-github-color;
 

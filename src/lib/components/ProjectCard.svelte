@@ -30,10 +30,20 @@
 </Card>
 
 <style lang="scss">
+  @import '../../lib/styles/variables.scss';
+
   .buttons-container {
     margin: 0.5rem 0;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  @media (max-width: map-get($breakpoints, 'md')) {
+    .buttons-container {
+      flex-direction: column;
+      flex-grow: 1;
+      text-align: center;
+    }
   }
 </style>

@@ -3,7 +3,7 @@
   import { LINKS } from '../constants';
 
   const textInserts = {
-    git: (str: string) => `<a class="link github" href="${LINKS.github}" target="_blank">${str}</a>`
+    git: (str: string) => `<a class="link-in-text github" href="${LINKS.github}" target="_blank">${str}</a>`
   };
 </script>
 
@@ -34,12 +34,9 @@
     max-width: 70%;
   }
 
-  :global(.link) {
-    text-decoration: none;
-    padding-bottom: 1px;
-
-    &:visited {
-      text-decoration: none;
+  @media (max-width: map-get($breakpoints, 'md')) {
+    h1, h2 {
+      max-width: 100%;
     }
   }
 </style>

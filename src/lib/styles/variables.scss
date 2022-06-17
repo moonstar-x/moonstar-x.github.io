@@ -18,3 +18,12 @@ $button-bg-color: transparent;
 
 $brand-github-color: #f5f5f5;
 $brand-github-color-alt: #4078c0;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
