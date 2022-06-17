@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SiteSEO from './common/SiteSEO.svelte';
 	import Navbar from './common/navbar/Navbar.svelte';
 	import Feature from './common/Feature.svelte';
 	import Projects from './common/Projects.svelte';
@@ -8,6 +9,7 @@
 </script>
 
 <main>
+	<SiteSEO title="hi there" description="what is this" />
 	<Navbar />
 	<div class="content">
 		<Feature />
