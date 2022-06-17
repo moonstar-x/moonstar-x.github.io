@@ -6,4 +6,7 @@ export const LINKS: Record<string, string> = {
   discord: 'https://discord.gg/mhj3Zsv'
 };
 
+export const CANONICAL_URL = 'https://moonstar-x.dev';
+export const TWITTER_HANDLE = '@moonstar_x99';
+
 export const BIRTHDAY = new Date(1999, 7, 29);
