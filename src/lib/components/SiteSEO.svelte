@@ -34,9 +34,9 @@
     }
   }
 
-  let openGraphKeys = Object.keys(openGraph || {}) as (keyof OpenGraphData)[];
-  let openGraphImageKeys = Object.keys(openGraphImage || {}) as (keyof OpenGraphImageData)[];
-  let twitterKeys = Object.keys(twitter || {}) as (keyof TwitterData)[];
+  const openGraphKeys = Object.keys(openGraph || {}) as (keyof OpenGraphData)[];
+  const openGraphImageKeys = Object.keys(openGraphImage || {}) as (keyof OpenGraphImageData)[];
+  const twitterKeys = Object.keys(twitter || {}) as (keyof TwitterData)[];
 </script>
 
 <svelte:head>
@@ -54,7 +54,7 @@
   {/if}
 
   {#if keywords}
-    <meta name="keywords" href={keywords.join(', ')} />
+    <meta name="keywords" content={keywords.join(', ')} />
   {/if}
 
   {#if canonical}

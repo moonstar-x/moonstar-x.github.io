@@ -1,4 +1,5 @@
 <script lang="ts">
+  /* eslint-disable no-extra-parens */
   import type { ProjectData, LinkButtonWithIconOptions, LinkType, ProjectStatus } from '../types';
   import Fa from 'svelte-fa/src/fa.svelte';
   import Card from './ui/Card.svelte';
@@ -14,7 +15,7 @@
     greencoast: '#8ac926'
   };
 
-  let buttons: LinkButtonWithIconOptions[] = (Object.keys(data.links) as LinkType[]).map((key: LinkType) => {
+  const buttons: LinkButtonWithIconOptions[] = (Object.keys(data.links) as LinkType[]).map((key: LinkType) => {
     return { text: t(`projects.links.${key}.text`), url: data.links[key]!, icon: getIconForLinkType(key) };
   });
 </script>

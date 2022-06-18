@@ -18,6 +18,9 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		"no-duplicate-imports": "off"
+		"no-duplicate-imports": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/no-inferrable-types": "off",
+		"one-var": "off"
 	}
 };

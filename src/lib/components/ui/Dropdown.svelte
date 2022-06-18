@@ -1,4 +1,5 @@
 <script lang="ts">
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
   import type { DropdownItem } from '../../types';
   import Fa from 'svelte-fa/src/fa.svelte';
