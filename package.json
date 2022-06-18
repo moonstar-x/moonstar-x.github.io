@@ -1,0 +1,41 @@
+{
+  "name": "moonstar-x-main-site",
+  "version": "1.0.0",
+  "private": true,
+  "author": "moonstar-x",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint:errors-only": "eslint src --quiet",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.34",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-greencoast": "^0.0.2",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "sass": "^1.52.1",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.7.1",
+    "svelte-preprocess": "^4.10.6",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "intl-messageformat": "^10.0.1",
+    "svelte-fa": "^2.4.0"
+  }
+}
