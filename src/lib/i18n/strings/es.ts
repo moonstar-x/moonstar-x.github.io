@@ -25,7 +25,7 @@ const PROJECTS: Record<string, string> = {
   'projects.discord-tts-bot.description': 'Un bot de Text-to-Speech con soporte multi-lenguaje a través de integraciones de Google Translate, Microsoft TTS, Amazon TTS y Moonbase Alpha (DECTalk).',
 
   'projects.react-twitch-embed.title': 'React Twitch Embeds',
-  'projects.react-twitch-embed.description': 'Embeds de Twitch como componentes de React.',
+  'projects.react-twitch-embed.description': 'Una colección de componentes para integrar Twitch.',
 
   'projects.react-mixer-embeds.title': 'React Mixer Embeds',
   'projects.react-mixer-embeds.description': 'Embeds de Mixer como componentes de React.',

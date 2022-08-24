@@ -53,12 +53,13 @@
     },
     {
       title: t('projects.react-twitch-embed.title'),
-      technologies: ['React'],
+      technologies: ['React', 'Typescript'],
       description: t('projects.react-twitch-embed.description'),
       status: 'maintained',
       links: {
         github: 'https://github.com/moonstar-x/react-twitch-embed',
-        npm: 'https://www.npmjs.com/package/react-twitch-embed'
+        npm: 'https://www.npmjs.com/package/react-twitch-embed',
+        website: 'https://docs.moonstar-x.dev/react-twitch-embed/'
       }
     },
     {
