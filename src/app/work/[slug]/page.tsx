@@ -1,12 +1,12 @@
 import React from 'react';
-import { getAllProjectsSlugs, getProjectBySlug } from '@lib/services/projects';
+import { getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
 
 interface Params {
   slug: string
 }
 
 export const generateStaticParams = async (): Promise<Params[]> => {
-  const slugs = await getAllProjectsSlugs();
+  const slugs = await getAllWorkSlugs();
 
   return slugs.map((slug) => {
     return { slug };
@@ -17,8 +17,8 @@ interface Props {
   params: Params
 }
 
-const ProjectPage: React.FC<Props> = async ({ params }) => {
-  const { metadata, content } = await getProjectBySlug(params.slug);
+const SingleWorkPage: React.FC<Props> = async ({ params }) => {
+  const { metadata, content } = await getWorkBySlug(params.slug);
 
   return (
     <div>
@@ -33,4 +33,4 @@ const ProjectPage: React.FC<Props> = async ({ params }) => {
   );
 };
 
-export default ProjectPage;
+export default SingleWorkPage;

@@ -1,20 +1,20 @@
 import path from 'path';
 import { getAllSlugs, getAllMetadata, getContent } from '@lib/services/markdown/content';
 
-const directory = path.join(process.cwd(), 'src/data/_projects');
+const directory = path.join(process.cwd(), 'src/data/_work');
 
 export interface ProjectMetadata {
   name: string
 }
 
-export const getAllProjectsSlugs = () => {
+export const getAllWorkSlugs = () => {
   return getAllSlugs(directory);
 };
 
-export const getAllProjectsMetadata = () => {
+export const getAllWorkMetadata = () => {
   return getAllMetadata<ProjectMetadata>(directory);
 };
 
-export const getProjectBySlug = (slug: string) => {
+export const getWorkBySlug = (slug: string) => {
   return getContent<ProjectMetadata>(directory, slug);
 };
