@@ -1,18 +1,19 @@
 {
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "build/types/**/*.ts"
+    "./**/*.ts",
+    "./**/*.tsx",
+    "build/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
   ],
-
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@data/*": ["src/data/*"],
       "@lib/*": ["src/lib/*"],
       "@styles/*": ["src/styles/*"]
     },
@@ -23,13 +24,11 @@
       "dom.iterable",
       "esnext"
     ],
-
     "allowJs": true,
     "declaration": false,
     "declarationMap": false,
     "outDir": "build-ts",
     "resolveJsonModule": true,
-
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -44,20 +43,16 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
-
     "emitDeclarationOnly": false,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-
     "jsx": "preserve",
     "isolatedModules": true,
     "noEmit": true,
     "incremental": true,
-
     "plugins": [
       {
         "name": "next"
