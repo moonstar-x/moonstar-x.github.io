@@ -1,41 +1,30 @@
 {
   "name": "moonstar-x-main-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "author": "moonstar-x",
-  "license": "MIT",
-  "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint:errors-only": "eslint src --quiet",
-    "lint": "eslint src"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-static": "^1.0.0-next.34",
-    "@sveltejs/kit": "next",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
-    "eslint": "^8.16.0",
-    "eslint-config-greencoast": "^0.0.2",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "sass": "^1.52.1",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.7.1",
-    "svelte-preprocess": "^4.10.6",
-    "tslib": "^2.3.1",
-    "typescript": "^4.7.2"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noemit && eslint . --ext .tsx,.ts,.js",
+    "lint:fix": "tsc --noemit && eslint . --ext .tsx,.ts,.js --fix"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "intl-messageformat": "^10.0.1",
-    "svelte-fa": "^2.4.0"
+    "autoprefixer": "^10.4.16",
+    "clsx": "^2.1.0",
+    "next": "^14.0.4",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-greencoast": "^0.0.5"
   }
 }
