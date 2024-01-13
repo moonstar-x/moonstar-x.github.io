@@ -8,6 +8,11 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    options: {
+      storySort: (a, b) => {
+        return a.title.localeCompare(b.title);
+      }
     }
   }
 };
