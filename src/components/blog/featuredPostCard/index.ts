@@ -1,0 +1,1 @@
+export { FeaturedPostCard } from './FeaturedPostCard';
