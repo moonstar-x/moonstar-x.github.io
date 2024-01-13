@@ -1,9 +1,14 @@
 import React from 'react';
+import { getAllPostsMetadata } from '@lib/services/blog';
 
-const BlogPage = () => {
+const BlogPage = async () => {
+  const posts = await getAllPostsMetadata();
+
   return (
     <div>
-      BLOG
+      <pre>
+        {JSON.stringify(posts, null, 2)}
+      </pre>
     </div>
   );
 };
