@@ -1,5 +1,6 @@
 {
   "extends": [
-    "greencoast/react-ts"
+    "greencoast/react-ts",
+    "plugin:storybook/recommended"
   ]
 }
