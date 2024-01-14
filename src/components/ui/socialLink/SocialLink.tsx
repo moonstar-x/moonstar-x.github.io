@@ -59,7 +59,7 @@ export const SocialLink: React.FC<Props> = ({
 
       {
         children && (
-          <span>
+          <span className="typography-button">
             {children}
           </span>
         )

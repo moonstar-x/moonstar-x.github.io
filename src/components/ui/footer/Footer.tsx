@@ -19,7 +19,6 @@ interface Props {
 }
 
 // TODO: Use a custom link component here instead.
-// TODO: Use custom typography here.
 export const Footer: React.FC<Props> = ({
   socials,
   owner,
@@ -35,7 +34,7 @@ export const Footer: React.FC<Props> = ({
       <div className="page-container">
         <SocialLinkList socials={socials} color={color} />
 
-        <p className="m-0 py-[1rem] text-center mx-auto text-gray">
+        <p className="m-0 py-[1rem] text-center mx-auto text-gray typography-caption">
           &copy; {year} All rights reserved. - <Link className="" href={RouteDefs.home}>Designed by {owner}</Link>
         </p>
       </div>

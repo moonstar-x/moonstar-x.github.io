@@ -1,3 +1,5 @@
+@import './typography.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +9,7 @@ html, body {
 }
 
 body {
+  @apply font-figtree;
   @apply flex;
   @apply flex-col;
   @apply min-h-[100vh];
