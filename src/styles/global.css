@@ -3,5 +3,22 @@
 @tailwind utilities;
 
 html, body {
-    scroll-behavior: smooth;
+  @apply scroll-smooth;
+}
+
+body {
+  @apply flex;
+  @apply flex-col;
+  @apply min-h-[100vh];
+  @apply min-h-[100svh];
+}
+
+body main {
+  @apply flex-1;
+}
+
+.page-container {
+  @apply container;
+  @apply px-[2.5rem];
+  @apply mx-auto;
 }

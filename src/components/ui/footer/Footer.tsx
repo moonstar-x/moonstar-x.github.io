@@ -31,12 +31,14 @@ export const Footer: React.FC<Props> = ({
   const year = new Date().getFullYear();
 
   return (
-    <footer className={clsx(bgClassName, className)}>
-      <SocialLinkList socials={socials} color={color} />
+    <footer className={clsx('py-[1rem]', bgClassName, className)}>
+      <div className="page-container">
+        <SocialLinkList socials={socials} color={color} />
 
-      <p className="m-0 pb-[2rem] pt-[1rem] text-center mx-auto text-gray">
-        &copy; {year} All rights reserved. - <Link className="" href={RouteDefs.home}>Designed by {owner}</Link>
-      </p>
+        <p className="m-0 py-[1rem] text-center mx-auto text-gray">
+          &copy; {year} All rights reserved. - <Link className="" href={RouteDefs.home}>Designed by {owner}</Link>
+        </p>
+      </div>
     </footer>
   );
 };
