@@ -23,3 +23,7 @@ body h5 {
 body h6 {
   @apply typography-h6;
 }
+
+body p {
+  @apply typography-body1;
+}

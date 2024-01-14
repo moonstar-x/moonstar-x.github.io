@@ -10,6 +10,11 @@ const tailwindConfig: Config = {
       figtree: ['Figtree', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif']
     },
+    extend: {
+      screens: {
+        desktop: '1024px'
+      }
+    },
     colors: {
       black: '#000',
       white: '#fff',
