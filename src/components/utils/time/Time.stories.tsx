@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Time } from './Time';
 
 const meta: Meta<typeof Time> = {
-  title: 'ui/Time',
+  title: 'utils/Time',
   component: Time,
   argTypes: {
     withTime: {
