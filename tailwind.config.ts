@@ -19,11 +19,17 @@ const tailwindConfig: Config = {
         4: 'rgba(0, 0, 0, 0.04)',
         50: 'rgba(0, 0, 0, 0.50)'
       }
-    },
-    extend: {
     }
   },
   plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.default-transition': {
+          transition: 'all ease 0.3s'
+        }
+      });
+    }),
+
     plugin(({ addUtilities }) => {
       const headingFont = ['Poppins', 'sans-serif'];
       const bodyFont = ['Figtree', 'sans-serif'];

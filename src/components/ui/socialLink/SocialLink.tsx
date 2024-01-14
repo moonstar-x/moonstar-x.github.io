@@ -45,7 +45,7 @@ export const SocialLink: React.FC<Props> = ({
     <span
       className={clsx(
         'inline-flex flex-row justify-start items-center w-auto px-[6px] py-[8px] rounded-[6px] gap-[1rem]',
-        '[&>*]:transition-all [&>*]:ease-in-out [&>*]:duration-300',
+        '[&>*]:default-transition',
         children ? 'hover:bg-transparent-4' : 'outline-none',
         childrenHoverClassName
       )}

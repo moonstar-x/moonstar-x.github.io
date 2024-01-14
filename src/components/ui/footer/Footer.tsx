@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import clsx from 'clsx';
 import { SocialLinkList } from '@components/ui/socialLinkList';
+import { Link } from '@components/ui/link';
 import { Socials } from '@lib/services/json';
 import { RouteDefs } from '@lib/constants/routes';
 
@@ -35,7 +35,7 @@ export const Footer: React.FC<Props> = ({
         <SocialLinkList socials={socials} color={color} />
 
         <p className="m-0 py-[1rem] text-center mx-auto text-gray typography-caption">
-          &copy; {year} All rights reserved. - <Link className="" href={RouteDefs.home}>Designed by {owner}</Link>
+          &copy; {year} All rights reserved. - <Link href={RouteDefs.home} color="white" withOpacity>Developed by {owner}</Link>
         </p>
       </div>
     </footer>
