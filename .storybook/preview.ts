@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import '@styles/global.css';
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +11,7 @@ const preview: Preview = {
       }
     },
     options: {
+      // @ts-ignore
       storySort: (a, b) => {
         return a.title.localeCompare(b.title);
       }

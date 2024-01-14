@@ -1,5 +1,4 @@
 import { Config } from 'tailwindcss';
-import defaultColors from 'tailwindcss/colors';
 
 const tailwindConfig: Config = {
   content: [
@@ -7,7 +6,13 @@ const tailwindConfig: Config = {
   ],
   theme: {
     colors: {
-      ...defaultColors
+      black: '#000',
+      white: '#fff',
+      primary: '#3340FF',
+      transparent: {
+        4: 'rgba(0, 0, 0, 0.04)',
+        50: 'rgba(0, 0, 0, 0.50)'
+      }
     },
     extend: {
     }
