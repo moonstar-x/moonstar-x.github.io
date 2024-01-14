@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 import { ENABLE_DEV_CONTENT } from '@lib/config';
 
 const getContentFiles = async (directory: string): Promise<string[]> => {
@@ -54,7 +52,7 @@ export const getAllMetadata = async <T extends object>(directory: string): Promi
 
 type Content<T extends object> = {
   metadata: ContentMetadata<T>
-  content: string
+  markdown: string
 }
 
 export const getContent = async <T extends object>(directory: string, slug: string): Promise<Content<T>> => {
@@ -63,7 +61,6 @@ export const getContent = async <T extends object>(directory: string, slug: stri
   const data = await readFileContent(filename);
 
   const matterResult = matter(data);
-  const processedContent = await remark().use(html).process(matterResult.content);
 
   const metadata: ContentMetadata<T> = {
     ...matterResult.data as T,
@@ -72,6 +69,6 @@ export const getContent = async <T extends object>(directory: string, slug: stri
 
   return {
     metadata,
-    content: processedContent.toString()
+    markdown: matterResult.content
   };
 };

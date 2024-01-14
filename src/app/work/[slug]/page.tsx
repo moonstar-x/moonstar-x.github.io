@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SingleWorkPage: React.FC<Props> = async ({ params }) => {
-  const { metadata, content } = await getWorkBySlug(params.slug);
+  const { metadata, markdown } = await getWorkBySlug(params.slug);
 
   return (
     <div>
@@ -28,7 +28,9 @@ const SingleWorkPage: React.FC<Props> = async ({ params }) => {
         {JSON.stringify(metadata, null, 2)}
       </pre>
 
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <pre>
+        {markdown}
+      </pre>
     </div>
   );
 };
