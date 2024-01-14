@@ -21,11 +21,13 @@ const colorMap: Record<Color, { className: string, color: IconColor }> = {
 interface Props {
   socials: Socials,
   color?: Color
+  className?: string
 }
 
 export const SocialLinkList: React.FC<Props> = ({
   socials,
-  color = 'dark'
+  color = 'dark',
+  className
 }) => {
   const { className: bgClassName, color: iconColor } = colorMap[color];
 
@@ -33,7 +35,8 @@ export const SocialLinkList: React.FC<Props> = ({
     <ul
       className={clsx(
         'w-full text-center',
-        bgClassName
+        bgClassName,
+        className
       )}
     >
       {

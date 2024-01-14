@@ -9,3 +9,8 @@ export type Socials = JsonData['socials']
 export const getSocials = (): Socials => {
   return data.socials;
 };
+
+export type Owner = JsonData['owner']
+export const getOwner = (): Owner => {
+  return data.owner;
+};

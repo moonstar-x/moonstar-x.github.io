@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Footer } from './Footer';
+import { getSocials } from '@lib/services/json';
 
 const meta: Meta<typeof Footer> = {
   title: 'ui/Footer',
@@ -10,5 +11,8 @@ export default meta;
 type Story = StoryObj<typeof Footer>;
 
 export const Default: Story = {
-  args: {}
+  args: {
+    socials: getSocials(),
+    owner: 'moonstar-x'
+  }
 };
