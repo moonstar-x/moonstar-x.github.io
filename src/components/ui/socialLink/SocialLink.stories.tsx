@@ -9,6 +9,15 @@ const meta: Meta<typeof SocialLink> = {
 export default meta;
 type Story = StoryObj<typeof SocialLink>;
 
-export const Default: Story = {
-  args: {}
+export const NoChildren: Story = {
+  args: {
+    type: 'email'
+  }
+};
+
+export const WithLabel: Story = {
+  args: {
+    type: 'discord',
+    children: 'Discord'
+  }
 };
