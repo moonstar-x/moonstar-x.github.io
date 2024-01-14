@@ -4,6 +4,9 @@ import tsConfig from '../tsconfig.json';
 
 const config: StorybookConfig = {
   stories: ['../src/components/**/*.mdx', '../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  staticDirs: [
+    '../public'
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

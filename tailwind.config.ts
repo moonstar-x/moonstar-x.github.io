@@ -50,7 +50,7 @@ const tailwindConfig: Config = {
         '.typography-h3': {
           fontFamily: headingFont,
           fontWeight: '400',
-          fontSize: '47',
+          fontSize: '47px',
           letterSpacing: '0px'
         },
         '.typography-h4': {

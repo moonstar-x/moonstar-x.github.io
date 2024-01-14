@@ -1,0 +1,4 @@
+.markdown p {
+  @apply mb-[2rem];
+  @apply text-justify;
+}

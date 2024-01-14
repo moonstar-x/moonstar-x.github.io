@@ -5,3 +5,8 @@ declare global {
     }
   }
 }
+
+declare module 'rehype-figure' {
+  function fn(): void;
+  export = fn;
+}
