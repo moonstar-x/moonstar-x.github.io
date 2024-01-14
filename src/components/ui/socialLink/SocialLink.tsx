@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { Icon, IconComponent, IconColor, IconSize } from '@components/ui/icon';
-import { Socials } from '@lib/services/json';
+import { Socials } from '@lib/services/data';
 import { EmailIcon } from '@components/ui/icon/library/EmailIcon';
 import { GitHubIcon } from '@components/ui/icon/library/GitHubIcon';
 import { LinkedInIcon } from '@components/ui/icon/library/LinkedInIcon';

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { SocialLinkList } from './SocialLinkList';
-import { getSocials } from '@lib/services/json';
+import { getSocials } from '@lib/services/data';
 
 const meta: Meta<typeof SocialLinkList> = {
   title: 'ui/SocialLinkList',

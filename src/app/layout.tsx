@@ -2,7 +2,7 @@ import '@styles/global.css';
 import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
-import { getOwner, getSocials } from '@lib/services/json';
+import { getOwner, getSocials } from '@lib/services/data';
 
 interface Props {
   children: React.ReactNode

@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { SocialLink } from '@components/ui/socialLink';
 import { IconColor } from '@components/ui/icon';
-import { Socials } from '@lib/services/json';
+import { Socials } from '@lib/services/data';
 
 type SocialType = keyof Socials;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { SocialLinkList } from '@components/ui/socialLinkList';
 import { Link } from '@components/ui/link';
-import { Socials } from '@lib/services/json';
+import { Socials } from '@lib/services/data';
 import { RouteDefs } from '@lib/constants/routes';
 
 type Color = 'light' | 'dark';
