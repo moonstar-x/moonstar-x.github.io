@@ -16,6 +16,7 @@ interface Props {
   children?: string
 }
 
+// TODO: Implement styling for this component.
 export const Markdown: React.FC<Props> = ({ children }) => {
   return (
     <ReactMarkdown

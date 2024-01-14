@@ -1,6 +1,7 @@
 import React from 'react';
 import { getAllWorkMetadata } from '@lib/services/work';
 
+// TODO: Implement this page.
 const WorkPage = async () => {
   const work = await getAllWorkMetadata();
 

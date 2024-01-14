@@ -1,6 +1,7 @@
 import React from 'react';
 import { getAllPostsMetadata } from '@lib/services/blog';
 
+// TODO: Implement this page.
 const BlogPage = async () => {
   const posts = await getAllPostsMetadata();
 

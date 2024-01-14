@@ -5,6 +5,8 @@ interface Props extends Omit<ImageProps, 'alt'> {
   alt?: string
 }
 
+// TODO: Add styling to this component. (Border, Background...)
+// TODO: Remove hardcoded string from alt prop.
 export const Image: React.FC<Props> = ({
   alt = 'Image with no description.',
   width = 2000,

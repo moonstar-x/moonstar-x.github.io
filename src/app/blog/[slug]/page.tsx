@@ -17,6 +17,7 @@ interface Props {
   params: Params
 }
 
+// TODO: Implement this page.
 const BlogPostPage: React.FC<Props> = async ({ params }) => {
   const { metadata, markdown } = await getPostBySlug(params.slug);
 

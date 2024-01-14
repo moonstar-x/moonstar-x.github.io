@@ -18,7 +18,7 @@ interface Props {
   className?: string
 }
 
-// TODO: Use a custom link component here instead.
+// TODO: Remove hardcoded strings from here.
 export const Footer: React.FC<Props> = ({
   socials,
   owner,

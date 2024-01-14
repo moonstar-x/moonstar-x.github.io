@@ -17,6 +17,7 @@ interface Props {
   params: Params
 }
 
+// TODO: Implement this page.
 const SingleWorkPage: React.FC<Props> = async ({ params }) => {
   const { metadata, markdown } = await getWorkBySlug(params.slug);
 

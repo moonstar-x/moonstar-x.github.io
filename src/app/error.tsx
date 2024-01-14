@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 
+// TODO: Implement this component.
 const RootError = () => {
   return (
     <div>

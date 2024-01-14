@@ -8,6 +8,7 @@ interface Props {
   children: React.ReactNode
 }
 
+// TODO: Add analytics headers here.
 const RootLayout: React.FC<Props> = ({ children }) => {
   const socials = getSocials();
   const owner = getOwner();

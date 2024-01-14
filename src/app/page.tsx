@@ -1,5 +1,6 @@
 import React from 'react';
 
+// TODO: Implement this page.
 const HomePage = () => {
   return (
     <div>
