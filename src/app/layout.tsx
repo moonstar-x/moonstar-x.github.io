@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
 import { getOwner, getSocials } from '@lib/services/data';
+import { CONTENT_LANG } from '@lib/config';
 
 interface Props {
   children: React.ReactNode
@@ -14,7 +15,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
   const owner = getOwner();
 
   return (
-    <html lang="en">
+    <html lang={CONTENT_LANG}>
       <body>
         <Header />
 

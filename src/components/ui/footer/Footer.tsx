@@ -4,6 +4,7 @@ import { SocialLinkList } from '@components/ui/socialLinkList';
 import { Link } from '@components/ui/link';
 import { Socials } from '@lib/services/data';
 import { RouteDefs } from '@lib/constants/routes';
+import { str } from '@lib/services/strings';
 
 type Color = 'light' | 'dark';
 const colorMap: Record<Color, string> = {
@@ -18,7 +19,6 @@ interface Props {
   className?: string
 }
 
-// TODO: Remove hardcoded strings from here.
 export const Footer: React.FC<Props> = ({
   socials,
   owner,
@@ -35,7 +35,7 @@ export const Footer: React.FC<Props> = ({
         <SocialLinkList socials={socials} color={color} />
 
         <p className="m-0 py-[1rem] text-center mx-auto text-gray typography-caption">
-          &copy; {year} All rights reserved. - <Link href={RouteDefs.home} color="white" withOpacity>Developed by {owner}</Link>
+          {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color="white" withOpacity>{str('ui.footer.signature', { name: owner })}</Link>
         </p>
       </div>
     </footer>
