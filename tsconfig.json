@@ -15,6 +15,7 @@
       "@components/*": ["src/components/*"],
       "@data/*": ["src/data/*"],
       "@lib/*": ["src/lib/*"],
+      "@public/*": ["public/*"],
       "@styles/*": ["src/styles/*"]
     },
     "target": "es5",
