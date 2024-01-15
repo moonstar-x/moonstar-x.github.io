@@ -12,6 +12,7 @@ const tailwindConfig: Config = {
     },
     extend: {
       screens: {
+        tablet: '768px',
         desktop: '1024px'
       }
     },
