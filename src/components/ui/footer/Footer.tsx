@@ -23,13 +23,15 @@ interface Props {
   owner: string
   color?: Color
   className?: string
+  onSignatureClick?: () => void
 }
 
 export const Footer: React.FC<Props> = ({
   socials,
   owner,
   color = 'dark',
-  className
+  className,
+  onSignatureClick
 }) => {
   const { bgColor: bgClassName, linkColor } = colorMap[color];
 
@@ -41,7 +43,7 @@ export const Footer: React.FC<Props> = ({
         <SocialLinkList socials={socials} color={color} />
 
         <p className="m-0 py-[1rem] text-center mx-auto text-gray typography-caption">
-          {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity>{str('ui.footer.signature', { name: owner })}</Link>
+          {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
         </p>
       </div>
     </footer>

@@ -15,6 +15,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.0",
+    "framer-motion": "^10.18.0",
     "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.0",
     "intl-messageformat": "^10.5.8",

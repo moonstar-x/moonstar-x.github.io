@@ -43,7 +43,7 @@ export const SocialLinkList: React.FC<Props> = ({
     >
       {
         Object.entries(socials).map(([type, href], idx) => (
-          <li key={idx} className="mx-[15px] inline-block">
+          <li key={idx} className="mx-[8px] dekstop:mx-[15px] inline-block">
             <SocialLink type={type as SocialType} href={href} color={iconColor} size="sm" baseOpacity={baseOpacity} />
           </li>
         ))
