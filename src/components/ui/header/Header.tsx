@@ -12,7 +12,7 @@ const links: Record<string, string> = {
   [RouteDefs.contact]: str('ui.header.links.contact')
 };
 
-interface Props {
+export interface Props {
   brand: string
   socials: Socials
   owner: string

@@ -6,7 +6,7 @@ import { Socials } from '@lib/services/data';
 import { RouteDefs } from '@lib/constants/routes';
 import { str } from '@lib/services/strings';
 
-type Color = 'light' | 'dark';
+export type Color = 'light' | 'dark';
 const colorMap: Record<Color, { bgColor: string, linkColor: LinkColor }> = {
   light: {
     bgColor: '',
@@ -18,7 +18,7 @@ const colorMap: Record<Color, { bgColor: string, linkColor: LinkColor }> = {
   }
 };
 
-interface Props {
+export interface Props {
   socials: Socials
   owner: string
   color?: Color

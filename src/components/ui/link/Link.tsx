@@ -9,7 +9,7 @@ const colorMap: Record<Color, string> = {
   white: 'text-white'
 };
 
-interface Props extends LinkProps {
+export interface Props extends LinkProps {
   color?: Color
   withUnderline?: boolean
   withOpacity?: boolean

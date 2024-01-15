@@ -12,7 +12,7 @@ import { Image } from '@components/ui/image';
 import { Link } from '@components/ui/link';
 import './styles.css';
 
-interface Props {
+export interface Props {
   children?: string
 }
 

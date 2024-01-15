@@ -5,13 +5,13 @@ import './styles.css';
 
 type ButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
-type Color = 'primary' | 'white';
+export type Color = 'primary' | 'white';
 const colorMap: Record<Color, string> = {
   primary: 'bg-primary text-white',
   white: 'bg-white text-primary'
 };
 
-type Size = 'sm' | 'md';
+export type Size = 'sm' | 'md';
 const sizeMap: Record<Size, string> = {
   sm: 'px-[16px] py-[5px]',
   md: 'px-[24px] py-[10px]'
@@ -23,7 +23,7 @@ type TagUnionProps = (ButtonProps & {
   href: string
 });
 
-type Props = Omit<TagUnionProps, 'color'> & {
+export type Props = Omit<TagUnionProps, 'color'> & {
   className?: string
   children?: React.ReactNode
   color?: Color

@@ -30,7 +30,7 @@ const baseOpacityMap: Record<BaseOpacity, string> = {
   50: 'opacity-50'
 };
 
-interface Props {
+export interface Props {
   type: SocialType
   href?: string
   color?: IconColor

@@ -18,7 +18,7 @@ const colorMap: Record<Color, string> = {
   white: 'fill-white'
 };
 
-interface Props extends SVGProps<SVGSVGElement> {
+export interface Props extends SVGProps<SVGSVGElement> {
   icon: IconComponent
   size?: Size
   color?: Color

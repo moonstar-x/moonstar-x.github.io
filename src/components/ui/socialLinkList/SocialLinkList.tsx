@@ -6,7 +6,7 @@ import { Socials } from '@lib/services/data';
 
 type SocialType = keyof Socials;
 
-type Color = 'light' | 'dark'
+export type Color = 'light' | 'dark'
 const colorMap: Record<Color, { className: string, color: IconColor, baseOpacity: SocialLinkBaseOpacity }> = {
   light: {
     className: '',
@@ -20,7 +20,7 @@ const colorMap: Record<Color, { className: string, color: IconColor, baseOpacity
   }
 };
 
-interface Props {
+export interface Props {
   socials: Socials,
   color?: Color
   className?: string

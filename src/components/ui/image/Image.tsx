@@ -3,7 +3,7 @@ import NextImage, { ImageProps } from 'next/image';
 import clsx from 'clsx';
 import { str } from '@lib/services/strings';
 
-interface Props extends Omit<ImageProps, 'alt'> {
+export interface Props extends Omit<ImageProps, 'alt'> {
   alt?: string
 }
 
