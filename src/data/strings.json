@@ -5,5 +5,7 @@
   "ui.header.links.contact": "Contact",
 
   "ui.footer.copyright": "© {year} All rights reserved.",
-  "ui.footer.signature": "Developed by {name}"
+  "ui.footer.signature": "Developed by {name}",
+
+  "ui.image.default_alt": "Image with no description."
 }
