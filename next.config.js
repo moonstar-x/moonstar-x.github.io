@@ -5,13 +5,7 @@ const nextConfig = {
   output: 'export',
   distDir: 'build',
   images: {
-    unoptimized: false,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '*'
-      }
-    ]
+    unoptimized: true
   }
 };
 
