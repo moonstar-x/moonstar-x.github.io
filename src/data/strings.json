@@ -1,4 +1,9 @@
 {
+  "ui.header.links.about": "About",
+  "ui.header.links.blog": "Blog",
+  "ui.header.links.work": "Work",
+  "ui.header.links.contact": "Contact",
+
   "ui.footer.copyright": "© {year} All rights reserved.",
   "ui.footer.signature": "Developed by {name}"
 }

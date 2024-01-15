@@ -9,6 +9,10 @@ html, body {
 }
 
 body {
+  @apply overflow-x-hidden;
+}
+
+body {
   @apply font-figtree;
   @apply flex;
   @apply flex-col;
