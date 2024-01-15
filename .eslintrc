@@ -2,5 +2,8 @@
   "extends": [
     "greencoast/react-ts",
     "plugin:storybook/recommended"
-  ]
+  ],
+  "rules": {
+    "jsx-a11y/media-has-caption": "off"
+  }
 }
