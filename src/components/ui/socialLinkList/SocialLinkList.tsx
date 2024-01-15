@@ -1,20 +1,22 @@
 import React from 'react';
 import clsx from 'clsx';
-import { SocialLink } from '@components/ui/socialLink';
+import { SocialLink, SocialLinkBaseOpacity } from '@components/ui/socialLink';
 import { IconColor } from '@components/ui/icon';
 import { Socials } from '@lib/services/data';
 
 type SocialType = keyof Socials;
 
 type Color = 'light' | 'dark'
-const colorMap: Record<Color, { className: string, color: IconColor }> = {
+const colorMap: Record<Color, { className: string, color: IconColor, baseOpacity: SocialLinkBaseOpacity }> = {
   light: {
     className: '',
-    color: 'black'
+    color: 'black',
+    baseOpacity: 30
   },
   dark: {
     className: 'bg-black',
-    color: 'white'
+    color: 'white',
+    baseOpacity: 50
   }
 };
 
@@ -29,7 +31,7 @@ export const SocialLinkList: React.FC<Props> = ({
   color = 'dark',
   className
 }) => {
-  const { className: bgClassName, color: iconColor } = colorMap[color];
+  const { className: bgClassName, color: iconColor, baseOpacity } = colorMap[color];
 
   return (
     <ul
@@ -42,7 +44,7 @@ export const SocialLinkList: React.FC<Props> = ({
       {
         Object.entries(socials).map(([type, href], idx) => (
           <li key={idx} className="mx-[15px] inline-block">
-            <SocialLink type={type as SocialType} href={href} color={iconColor} size="sm" />
+            <SocialLink type={type as SocialType} href={href} color={iconColor} size="sm" baseOpacity={baseOpacity} />
           </li>
         ))
       }

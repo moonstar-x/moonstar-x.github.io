@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import { NavBrand } from './NavBrand';
 import { DesktopNavLink } from './DesktopNavLink';
-import { NavBrand } from '@components/ui/header/NavBrand';
 
 interface Props {
   className?: string

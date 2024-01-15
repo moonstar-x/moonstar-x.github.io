@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply default-transition;
+}
+
 html, body {
   @apply scroll-smooth;
 }
@@ -26,6 +30,7 @@ body main {
 
 .page-container {
   @apply container;
-  @apply px-[2.5rem];
+  @apply px-[1rem];
+  @apply desktop:px-[2.5rem];
   @apply mx-auto;
 }

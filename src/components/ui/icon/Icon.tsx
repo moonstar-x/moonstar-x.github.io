@@ -3,16 +3,16 @@ import clsx from 'clsx';
 
 export type IconComponent = React.JSXElementConstructor<SVGProps<SVGSVGElement>>;
 
-export type IconSize = 'sm' | 'md' | '1x' | '2x';
-const sizeMap: Record<IconSize, number | string> = {
+export type Size = 'sm' | 'md' | '1x' | '2x';
+const sizeMap: Record<Size, number | string> = {
   sm: 20,
   md: 40,
   '1x': '1em',
   '2x': '2em'
 };
 
-export type IconColor = 'primary' | 'black' | 'white';
-const colorMap: Record<IconColor, string> = {
+export type Color = 'primary' | 'black' | 'white';
+const colorMap: Record<Color, string> = {
   primary: 'fill-primary',
   black: 'fill-black',
   white: 'fill-white'
@@ -20,8 +20,8 @@ const colorMap: Record<IconColor, string> = {
 
 interface Props extends SVGProps<SVGSVGElement> {
   icon: IconComponent
-  size?: IconSize
-  color?: IconColor
+  size?: Size
+  color?: Color
 }
 
 export const Icon: React.FC<Props> = ({

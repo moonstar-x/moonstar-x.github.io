@@ -17,7 +17,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
   return (
     <html lang={CONTENT_LANG}>
       <body>
-        <Header brand={owner.name} />
+        <Header brand={owner.name} socials={socials} owner={owner.name} />
 
         <main>
           {children}

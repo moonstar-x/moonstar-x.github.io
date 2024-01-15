@@ -24,11 +24,18 @@ const childrenColorMap: Record<IconColor, string> = {
   white: 'text-white'
 };
 
+export type BaseOpacity = 30 | 50;
+const baseOpacityMap: Record<BaseOpacity, string> = {
+  30: 'opacity-30',
+  50: 'opacity-50'
+};
+
 interface Props {
   type: SocialType
   href?: string
   color?: IconColor
   size?: IconSize
+  baseOpacity?: BaseOpacity
   children?: React.ReactNode
 }
 
@@ -37,21 +44,22 @@ export const SocialLink: React.FC<Props> = ({
   href,
   color = 'black',
   size,
+  baseOpacity = 50,
   children
 }) => {
   const childrenHoverClassName = childrenColorMap[color];
+  const baseOpacityClassName = baseOpacityMap[baseOpacity];
 
   const iconComponent = (
     <span
       className={clsx(
         'inline-flex flex-row justify-start items-center w-auto px-[6px] py-[8px] rounded-[6px] gap-[1rem]',
-        '[&>*]:default-transition',
         children ? 'hover:bg-transparent-4' : 'outline-none',
         childrenHoverClassName
       )}
     >
       <Icon
-        className={clsx(!children && 'outline-none opacity-50 hover:opacity-100')}
+        className={clsx(!children && `outline-none hover:opacity-100 ${baseOpacityClassName}`)}
         icon={iconMap[type]}
         color={color}
         size={size}

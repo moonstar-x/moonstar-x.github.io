@@ -2,7 +2,7 @@ import React from 'react';
 import NextLink, { LinkProps } from 'next/link';
 import clsx from 'clsx';
 
-type Color = 'primary' | 'black' | 'white';
+export type Color = 'primary' | 'black' | 'white';
 const colorMap: Record<Color, string> = {
   primary: 'text-primary',
   black: 'text-black',
@@ -30,7 +30,6 @@ export const Link: React.FC<Props> = ({
   return (
     <NextLink
       className={clsx(
-        'default-transition',
         withUnderline && 'hover:underline hover:underline-offset-1',
         withOpacity && 'opacity-50 hover:opacity-100',
         colorClassName,
