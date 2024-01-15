@@ -7,11 +7,13 @@ import { NavBrand } from './NavBrand';
 import { MobileNavLink } from './MobileNavLink';
 import { Footer } from '@components/ui/footer';
 import { useDisableBodyScroll } from '@components/hooks/useDisableBodyScroll';
-import { Socials } from '@lib/services/data';
+import { Settings, Socials } from '@lib/services/data';
+
+type BrandSettings = Settings['brand'];
 
 interface Props {
   className?: string
-  brand: string
+  brand: BrandSettings
   brandHref: string
   links: Record<string, string>
   socials: Socials
@@ -31,9 +33,7 @@ export const MobileHeader: React.FC<Props> = ({ className, brand, brandHref, lin
       <nav className={clsx('fixed w-full h-[50px] border-b border-solid border-transparent-4 z-20 bg-white', className)}>
         <div className="page-container h-full flex flex-row items-center">
           <div className="flex-1 h-full flex flex-row items-center">
-            <NavBrand href={brandHref} onClick={handleClose}>
-              {brand}
-            </NavBrand>
+            <NavBrand brand={brand} href={brandHref} onClick={handleClose} />
           </div>
 
           <Hamburger

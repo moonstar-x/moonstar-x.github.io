@@ -2,10 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import { NavBrand } from './NavBrand';
 import { DesktopNavLink } from './DesktopNavLink';
+import { Settings } from '@lib/services/data';
+
+type BrandSettings = Settings['brand'];
 
 interface Props {
   className?: string
-  brand: string
+  brand: BrandSettings
   brandHref: string
   links: Record<string, string>
 }
@@ -15,9 +18,7 @@ export const DesktopHeader: React.FC<Props> = ({ className, brand, brandHref, li
     <nav className={clsx('fixed w-full h-[50px] border-b border-solid border-transparent-4 z-20 bg-white', className)}>
       <div className="page-container h-full flex flex-row items-center">
         <div className="w-[20%] h-full flex items-center">
-          <NavBrand href={brandHref}>
-            {brand}
-          </NavBrand>
+          <NavBrand brand={brand} href={brandHref} />
         </div>
 
         <div className="w-[60%] h-full flex items-center">

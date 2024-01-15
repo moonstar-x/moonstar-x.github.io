@@ -14,3 +14,8 @@ export type Owner = JsonData['owner']
 export const getOwner = (): Owner => {
   return data.owner;
 };
+
+export type Settings = JsonData['settings'];
+export const getSettings = (): Settings => {
+  return data.settings;
+};

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
-import { getSocials } from '@lib/services/data';
+import { getSocials, getSettings } from '@lib/services/data';
 
 const meta: Meta<typeof Header> = {
   title: 'ui/Header',
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
   args: {
-    brand: 'moonstar-x',
+    brand: getSettings().brand,
     socials: getSocials(),
     owner: 'moonstar-x'
   }

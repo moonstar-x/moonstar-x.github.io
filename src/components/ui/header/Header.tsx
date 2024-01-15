@@ -3,7 +3,9 @@ import { DesktopHeader } from './DesktopHeader';
 import { MobileHeader } from './MobileHeader';
 import { str } from '@lib/services/strings';
 import { RouteDefs } from '@lib/constants/routes';
-import { Socials } from '@lib/services/data';
+import { Socials, Settings } from '@lib/services/data';
+
+type BrandSettings = Settings['brand'];
 
 const links: Record<string, string> = {
   [RouteDefs.work]: str('ui.header.links.work'),
@@ -13,7 +15,7 @@ const links: Record<string, string> = {
 };
 
 export interface Props {
-  brand: string
+  brand: BrandSettings
   socials: Socials
   owner: string
 }

@@ -8,5 +8,11 @@
   },
   "owner": {
     "name": "moonstar-x"
+  },
+  "settings": {
+    "brand": {
+      "image": true,
+      "value": "/img/logo.jpg"
+    }
   }
 }

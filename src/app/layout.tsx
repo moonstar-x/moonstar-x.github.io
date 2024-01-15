@@ -2,7 +2,7 @@ import '@styles/global.css';
 import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
-import { getOwner, getSocials } from '@lib/services/data';
+import { getOwner, getSocials, getSettings } from '@lib/services/data';
 import { CONTENT_LANG } from '@lib/config';
 
 interface Props {
@@ -13,11 +13,12 @@ interface Props {
 const RootLayout: React.FC<Props> = ({ children }) => {
   const socials = getSocials();
   const owner = getOwner();
+  const settings = getSettings();
 
   return (
     <html lang={CONTENT_LANG}>
       <body>
-        <Header brand={owner.name} socials={socials} owner={owner.name} />
+        <Header brand={settings.brand} socials={socials} owner={owner.name} />
 
         <main>
           {children}
