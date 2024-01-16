@@ -48,26 +48,38 @@ const tailwindConfig: Config = {
         '.typography-h1': {
           fontFamily: headingFont,
           fontWeight: '300',
-          fontSize: '93px',
-          letterSpacing: '-1.5px'
+          fontSize: '63px',
+          letterSpacing: '-1.5px',
+          '@media screen(desktop)': {
+            fontSize: '93px'
+          }
         },
         '.typography-h2': {
           fontFamily: headingFont,
           fontWeight: '300',
-          fontSize: '58px',
-          letterSpacing: '-0.5px'
+          fontSize: '48px',
+          letterSpacing: '-0.5px',
+          '@media screen(desktop)': {
+            fontSize: '58px'
+          }
         },
         '.typography-h3': {
           fontFamily: headingFont,
           fontWeight: '400',
-          fontSize: '47px',
-          letterSpacing: '0px'
+          fontSize: '37px',
+          letterSpacing: '0px',
+          '@media screen(desktop)': {
+            fontSize: '47px'
+          }
         },
         '.typography-h4': {
           fontFamily: headingFont,
           fontWeight: '400',
-          fontSize: '33px',
-          letterSpacing: '0.25px'
+          fontSize: '28px',
+          letterSpacing: '0.25px',
+          '@media screen(desktop)': {
+            fontSize: '33px'
+          }
         },
         '.typography-h5': {
           fontFamily: headingFont,

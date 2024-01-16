@@ -23,7 +23,7 @@ export const Code: React.FC<Props> = ({
   const multiLineClassName = '!hyphens-none !leading-normal !overflow-x-scroll !py-[1.6rem] !px-[2.4rem] !whitespace-pre !m-0';
 
   const codeComponent = (
-    <code className={clsx(sharedClassName, 'p-[0.4rem]', codeClassName)}>
+    <code className={clsx(sharedClassName, 'px-[0.4rem]', codeClassName)}>
       {children}
     </code>
   );

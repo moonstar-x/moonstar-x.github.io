@@ -4,6 +4,8 @@ import { Markdown } from './Markdown';
 const markdown = `
 # H1 Heading
 
+# H1 Heading
+
 ## H2 Heading
 
 ### H3 Heading
@@ -35,10 +37,12 @@ Text in ~~strikethrough~~
 ![This is an image.](https://www.shutterstock.com/image-photo/funny-cat-flying-photo-playful-600nw-2315020963.jpg)
 
 
-\`Inline code\`.
+\`Inline code\`. With text next to it, and \`another inline code\`. \`Inline code\`. With text next to it, and \`another inline code\`. \`Inline code\`. With text next to it, and \`another inline code\`. \`Inline code\`. With text next to it, and \`another inline code\`. \`Inline code\`. With text next to it, and \`another inline code\`.
 
 \`\`\`
 Regular code block.
+With multiple lines.
+What is this.
 \`\`\`
 
 \`\`\`js
@@ -72,6 +76,8 @@ Todo:
 - [ ] 456
 
 https://download.samplelib.com/mp4/sample-5s.mp4
+
+Something after the video.
 `;
 
 const meta: Meta<typeof Markdown> = {

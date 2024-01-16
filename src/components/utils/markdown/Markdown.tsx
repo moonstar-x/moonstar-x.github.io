@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import remarkGfm from 'remark-gfm';
 import remarkMdx from 'remark-mdx';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFigure from 'rehype-figure';
 import rehypeVideo from 'rehype-video';
+import { Blockquote } from '@components/ui/blockquote';
+import { Code } from '@components/ui/code';
+import { Divider } from '@components/ui/divider';
 import { Image } from '@components/ui/image';
 import { Link } from '@components/ui/link';
+import { Table } from '@components/ui/table';
+import { Video } from '@components/ui/video';
 import './styles.css';
 
 export interface Props {
@@ -24,22 +27,34 @@ export const Markdown: React.FC<Props> = ({ children }) => {
       remarkPlugins={[remarkGfm, remarkMdx]}
       rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }]]}
       components={{
-        code: ({ children, className, node, ref, ...props }) => {
-          const match = /language-(\w+)/.exec(className || '');
+        a: ({ color, href, node, ref, ...props }) => {
+          if (!href) {
+            return null;
+          }
 
-          return match ? (
-            <SyntaxHighlighter
-              {...props}
-              PreTag="div"
-              language={match[1]}
-              style={oneLight}
-            >
-              {String(children).replace(/\n$/, '')}
-            </SyntaxHighlighter>
-          ) : (
-            <code {...props} className={className}>
+          return (
+            <Link color="primary" withUnderline href={href} {...props} />
+          );
+        },
+        blockquote: ({ children, className, node, ref, ...props }) => {
+          return (
+            <Blockquote className={className} {...props}>
               {children}
-            </code>
+            </Blockquote>
+          );
+        },
+        code: ({ children, className, node, ref, ...props }) => {
+          const language = /language-(\w+)/.exec(className || '')?.[1];
+
+          return (
+            <Code language={language} className={className} {...props}>
+              {children}
+            </Code>
+          );
+        },
+        hr: ({ className, node, ref, ...props }) => {
+          return (
+            <Divider className={className} {...props} />
           );
         },
         img: ({ src, width, height, node, ref, ...props }) => {
@@ -51,13 +66,20 @@ export const Markdown: React.FC<Props> = ({ children }) => {
             <Image src={src} {...props} />
           );
         },
-        a: ({ color, href, node, ref, ...props }) => {
-          if (!href) {
+        table: ({ children, className, node, ref, ...props }) => {
+          return (
+            <Table className={className} {...props}>
+              {children}
+            </Table>
+          );
+        },
+        video: ({ src, width, height, node, ref, ...props }) => {
+          if (!src) {
             return null;
           }
 
           return (
-            <Link color="primary" withUnderline href={href} {...props} />
+            <Video src={src} {...props} />
           );
         }
       }}
