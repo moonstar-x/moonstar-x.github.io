@@ -7,5 +7,10 @@
   "ui.footer.copyright": "© {year} All rights reserved.",
   "ui.footer.signature": "Developed by {name}",
 
-  "ui.image.default_alt": "Image with no description."
+  "ui.image.default_alt": "Image with no description.",
+
+  "pages.titles.about": "About",
+  "pages.titles.blog": "Blog",
+  "pages.titles.work": "Work",
+  "pages.titles.not_found": "Page Not Found :("
 }

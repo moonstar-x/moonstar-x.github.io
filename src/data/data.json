@@ -21,6 +21,9 @@
     "brand": {
       "image": true,
       "value": "/img/logo.jpg"
+    },
+    "page": {
+      "baseTitle": "moonstar-x - Software Developer"
     }
   }
 }
