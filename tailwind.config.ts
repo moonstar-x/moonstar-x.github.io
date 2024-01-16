@@ -8,7 +8,8 @@ const tailwindConfig: Config = {
   theme: {
     fontFamily: {
       figtree: ['Figtree', 'sans-serif'],
-      poppins: ['Poppins', 'sans-serif']
+      poppins: ['Poppins', 'sans-serif'],
+      firaCode: ['Fira Code', 'monospace']
     },
     extend: {
       screens: {
@@ -21,6 +22,7 @@ const tailwindConfig: Config = {
       white: '#fff',
       gray: '#808080',
       lightGray: '#ddd',
+      codeGray: '#f6f6f6',
       primary: '#3340FF',
       transparent: {
         4: 'rgba(0, 0, 0, 0.04)',
@@ -38,8 +40,9 @@ const tailwindConfig: Config = {
     }),
 
     plugin(({ addUtilities }) => {
-      const headingFont = ['Poppins', 'sans-serif'];
-      const bodyFont = ['Figtree', 'sans-serif'];
+      const headingFont = ['Poppins', 'sans-serif'].join(', ');
+      const bodyFont = ['Figtree', 'sans-serif'].join(', ');
+      const codeFont = ['Fira Code', 'monospace'].join(', ');
 
       addUtilities({
         '.typography-h1': {
@@ -119,6 +122,12 @@ const tailwindConfig: Config = {
           fontWeight: '400',
           fontSize: '11px',
           letterSpacing: '1.5px'
+        },
+        '.typography-code': {
+          fontFamily: codeFont,
+          fontWeight: '400',
+          fontSize: '17px',
+          letterSpacing: '0.5px'
         }
       });
     })
