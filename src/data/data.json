@@ -9,6 +9,14 @@
   "owner": {
     "name": "moonstar-x"
   },
+  "blog": {
+    "author": {
+      "name": "Christian (moonstar-x)",
+      "bio": "Hi there, my name is Christian, also known as moonstar-x online. I write about the things I enjoy most about software development. Hope you enjoy (at least some) of my writing!",
+      "location": "Quito, Ecuador",
+      "avatar": "/img/logo.jpg"
+    }
+  },
   "settings": {
     "brand": {
       "image": true,

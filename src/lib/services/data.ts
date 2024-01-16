@@ -19,3 +19,8 @@ export type Settings = JsonData['settings'];
 export const getSettings = (): Settings => {
   return data.settings;
 };
+
+export type BlogData = JsonData['blog'];
+export const getBlogData = (): BlogData => {
+  return data.blog;
+};
