@@ -5,6 +5,7 @@ import { AuthorCard } from './AuthorCard';
 import { BlogPost } from '@lib/services/blog';
 import { BlogData } from '@lib/services/data';
 import { Divider } from '@components/ui/divider';
+import { ShareCard } from '@components/ui/shareCard';
 
 export interface Props {
   post: BlogPost
@@ -25,6 +26,8 @@ export const Post: React.FC<Props> = ({ post, author }) => {
       <div className="max-w-[768px]">
         <AuthorCard author={author} />
       </div>
+
+      <ShareCard className="max-w-[768px] my-[4rem]" />
     </article>
   );
 };

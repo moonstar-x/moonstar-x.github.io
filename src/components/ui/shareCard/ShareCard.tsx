@@ -44,7 +44,7 @@ export const ShareCard: React.FC<Props> = ({ url, className }) => {
         {str('ui.share_card.subtitle')}
       </p>
 
-      <div className="flex flex-col tablet:flex-row tablet:justify-center desktop:justify-start gap-[1rem] flex-wrap">
+      <div className="flex flex-col tablet:flex-row tablet:justify-center gap-[1rem] flex-wrap">
         <CopyToClipboard text={shareUrl}>
           <Button
             color="white"

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { Post } from '@components/blog/post';
 import { getAllPostSlugs, getPostBySlug } from '@lib/services/blog';
-import { getSettings } from '@lib/services/data';
+import { getSettings, getBlogData } from '@lib/services/data';
 
 interface Params {
   slug: string
@@ -33,22 +34,12 @@ interface Props {
   params: Params
 }
 
-// TODO: Implement this page.
 const BlogPostPage: React.FC<Props> = async ({ params }) => {
-  const { metadata, markdown } = await getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
+  const { author } = getBlogData();
 
   return (
-    <div>
-      BLOG POST
-
-      <pre>
-        {JSON.stringify(metadata, null, 2)}
-      </pre>
-
-      <pre>
-        {markdown}
-      </pre>
-    </div>
+    <Post post={post} author={author} />
   );
 };
 
