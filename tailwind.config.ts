@@ -21,7 +21,7 @@ const tailwindConfig: Config = {
       black: '#000',
       white: '#fff',
       gray: '#808080',
-      lightGray: '#ddd',
+      lightGray: '#e6e6e6',
       codeGray: '#f6f6f6',
       primary: '#3340FF',
       transparent: {

@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFigure from 'rehype-figure';
 import rehypeVideo from 'rehype-video';
+import clsx from 'clsx';
 import { Blockquote } from '@components/ui/blockquote';
 import { Code } from '@components/ui/code';
 import { Divider } from '@components/ui/divider';
@@ -54,7 +55,7 @@ export const Markdown: React.FC<Props> = ({ children }) => {
         },
         hr: ({ className, node, ref, ...props }) => {
           return (
-            <Divider className={className} {...props} />
+            <Divider className={clsx('mb-0', className)} {...props} />
           );
         },
         img: ({ src, width, height, node, ref, ...props }) => {
