@@ -5,6 +5,9 @@ const directory = path.join(process.cwd(), 'src/data/_blog');
 
 export interface BlogPostMetadata {
   title: string
+  description?: string
+  cover: string
+  date: string
 }
 
 export const getAllPostSlugs = () => {
