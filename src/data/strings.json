@@ -9,6 +9,13 @@
 
   "ui.image.default_alt": "Image with no description.",
 
+  "ui.share_card.title": "Like this content?",
+  "ui.share_card.subtitle": "Consider sharing this page with you friends.",
+  "ui.share_card.buttons.clipboard": "Copy to Clipboard",
+  "ui.share_card.buttons.twitter": "Share on X",
+  "ui.share_card.buttons.facebook": "Share on Facebook",
+  "ui.share_card.buttons.linkedin": "Share on LinkedIn",
+
   "blog.head.reading_time": "{time} min read",
   "blog.head.null_reading_time": "Quick read",
 

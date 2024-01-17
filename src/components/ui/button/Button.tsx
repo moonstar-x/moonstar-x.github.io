@@ -1,9 +1,10 @@
 import React from 'react';
-import Link, { LinkProps } from 'next/link';
+import Link, { LinkProps as NextLinkProps } from 'next/link';
 import clsx from 'clsx';
 import './styles.css';
 
 type ButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & NextLinkProps;
 
 export type Color = 'primary' | 'white';
 const colorMap: Record<Color, string> = {
@@ -17,13 +18,7 @@ const sizeMap: Record<Size, string> = {
   md: 'px-[24px] py-[10px]'
 };
 
-type TagUnionProps = (ButtonProps & {
-  href: never
-}) | (LinkProps & {
-  href: string
-});
-
-export type Props = Omit<TagUnionProps, 'color'> & {
+type CommonProps = {
   className?: string
   children?: React.ReactNode
   color?: Color
@@ -31,6 +26,13 @@ export type Props = Omit<TagUnionProps, 'color'> & {
   icon?: React.ReactNode
 };
 
+export type Props = CommonProps & (
+  (ButtonProps & {
+    href?: never
+  }) | (LinkProps & {
+    href: string
+  })
+);
 
 export const Button: React.FC<Props> = ({
   href,
@@ -46,13 +48,11 @@ export const Button: React.FC<Props> = ({
   const buttonClassName = 'w-auto h-auto inline-flex flex-row justify-start items-center gap-[1rem] typography-button rounded-[4px] border-none default-transition btn-shadow desktop:hover:-translate-y-px';
 
   if (href) {
-    const restOfProps = props as Omit<Exclude<TagUnionProps, { href: never }>, 'href'>;
-
     return (
       <Link
         href={href}
         className={clsx(buttonClassName, colorClassName, sizeClassName, className)}
-        {...restOfProps}
+        {...props as Omit<NextLinkProps, 'href'>}
       >
         {icon}
 
@@ -63,12 +63,10 @@ export const Button: React.FC<Props> = ({
     );
   }
 
-  const restOfProps = props as Extract<TagUnionProps, { href: never }>;
-
   return (
     <button
       className={clsx(buttonClassName, colorClassName, sizeClassName, className)}
-      {...restOfProps}
+      {...props as ButtonProps}
     >
       {icon}
 

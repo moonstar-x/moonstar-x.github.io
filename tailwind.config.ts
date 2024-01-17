@@ -28,9 +28,15 @@ const tailwindConfig: Config = {
       gray: {
         200: '#f6f6f6',
         300: '#e6e6e6',
+        400: '#dddddd',
         500: '#aaaaaa',
         600: '#808080',
         700: '#666666'
+      },
+      brands: {
+        facebook: '#1877f2',
+        twitter: '#14171a',
+        linkedin: '#0a66c2'
       }
     }
   },
