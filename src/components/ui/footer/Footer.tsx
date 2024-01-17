@@ -42,7 +42,7 @@ export const Footer: React.FC<Props> = ({
       <div className="page-container">
         <SocialLinkList socials={socials} color={color} />
 
-        <p className="m-0 py-[1rem] text-center mx-auto text-gray typography-caption">
+        <p className="m-0 py-[1rem] text-center mx-auto text-gray-500 typography-caption">
           {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
         </p>
       </div>

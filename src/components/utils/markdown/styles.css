@@ -103,7 +103,7 @@
 }
 
 .markdown pre:not(:has(div)) {
-  @apply bg-codeGray;
+  @apply bg-gray-200;
   @apply rounded-[4px];
   @apply hyphens-none;
   @apply leading-normal;

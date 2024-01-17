@@ -13,7 +13,7 @@ export const Video: React.FC<Props> = ({
 }) => {
   return (
     <video
-      className={clsx('rounded-[6px] bg-lightGray object-cover', forceVideoAspect && 'aspect-video', className)}
+      className={clsx('rounded-[6px] bg-gray-300 object-cover', forceVideoAspect && 'aspect-video', className)}
       controls={controls}
       {...props}
     />

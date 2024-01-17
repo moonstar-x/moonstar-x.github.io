@@ -19,7 +19,7 @@ export const Code: React.FC<Props> = ({
   codeClassName,
   ...props
 }) => {
-  const sharedClassName = '!bg-codeGray ![&_*]:bg-codeGray !rounded-[4px]';
+  const sharedClassName = '!bg-gray-200 ![&_*]:bg-gray-200 !rounded-[4px]';
   const multiLineClassName = '!hyphens-none !leading-normal !overflow-x-scroll !py-[1.6rem] !px-[2.4rem] !whitespace-pre !m-0';
 
   const codeComponent = (

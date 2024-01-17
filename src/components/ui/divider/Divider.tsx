@@ -6,6 +6,6 @@ export interface Props extends Omit<React.DetailedHTMLProps<React.HTMLAttributes
 }
 export const Divider: React.FC<Props> = ({ className, ...props }) => {
   return (
-    <hr className={clsx('text-lightGray my-[2rem]', className)} {...props} />
+    <hr className={clsx('text-gray-300 my-[2rem]', className)} {...props} />
   );
 };

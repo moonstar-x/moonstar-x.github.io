@@ -7,6 +7,6 @@ export interface Props extends React.DetailedHTMLProps<React.BlockquoteHTMLAttri
 
 export const Blockquote: React.FC<Props> = ({ className, ...props }) => {
   return (
-    <blockquote className={clsx('bg-codeGray rounded-[4px] px-[1rem] py-[0.25rem] border-l-[0.25rem] border-solid border-primary text-[#666]', className)} {...props} />
+    <blockquote className={clsx('bg-gray-200 rounded-[4px] px-[1rem] py-[0.25rem] border-l-[0.25rem] border-solid border-primary text-gray-600', className)} {...props} />
   );
 };

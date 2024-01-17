@@ -20,14 +20,17 @@ const tailwindConfig: Config = {
     colors: {
       black: '#000',
       white: '#fff',
-      grayMuted: '#aaa',
-      gray: '#808080',
-      lightGray: '#e6e6e6',
-      codeGray: '#f6f6f6',
       primary: '#3340FF',
       transparent: {
         4: 'rgba(0, 0, 0, 0.04)',
         50: 'rgba(0, 0, 0, 0.50)'
+      },
+      gray: {
+        200: '#f6f6f6',
+        300: '#e6e6e6',
+        500: '#aaaaaa',
+        600: '#808080',
+        700: '#666666'
       }
     }
   },

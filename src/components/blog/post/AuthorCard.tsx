@@ -22,7 +22,7 @@ export const AuthorCard: React.FC<Props> = ({ author }) => {
           {author.bio}
         </p>
 
-        <p className="text-grayMuted">
+        <p className="text-gray-500">
           {author.location}
         </p>
       </div>

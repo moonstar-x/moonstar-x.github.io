@@ -17,7 +17,7 @@ export const Image: React.FC<Props> = ({
 }) => {
   return (
     <NextImage
-      className={clsx('rounded-[6px] bg-lightGray object-cover', className)}
+      className={clsx('rounded-[6px] bg-gray-300 object-cover', className)}
       alt={alt}
       width={width}
       height={height}

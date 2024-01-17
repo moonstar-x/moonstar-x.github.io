@@ -24,7 +24,7 @@ export const PostHead: React.FC<Props> = ({ title, description, readingTime, dat
           {title}
         </h1>
 
-        <p className="typography-subtitle1 max-w-[768px] text-[#666] text-justify">
+        <p className="typography-subtitle1 max-w-[768px] text-gray-600 text-justify">
           {description}
         </p>
 
