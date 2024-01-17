@@ -1,5 +1,5 @@
 import path from 'path';
-import { getAllSlugs, getAllMetadata, getContent } from '@lib/services/markdown/content';
+import { getAllSlugs, getAllMetadata, getContent } from '@lib/services/markdown';
 
 const directory = path.join(process.cwd(), 'src/data/_blog');
 

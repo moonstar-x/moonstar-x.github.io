@@ -12,5 +12,7 @@
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",
-  "pages.titles.not_found": "Page Not Found :("
+  "pages.titles.not_found": "Page Not Found :(",
+
+  "services.markdown.fallback_description": "No description available."
 }
