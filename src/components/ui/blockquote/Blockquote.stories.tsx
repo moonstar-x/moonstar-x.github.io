@@ -10,5 +10,7 @@ export default meta;
 type Story = StoryObj<typeof Blockquote>;
 
 export const Default: Story = {
-  args: {}
+  args: {
+    children: 'This is a little block of text.'
+  }
 };
