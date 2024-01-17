@@ -18,13 +18,14 @@ import './styles.css';
 
 export interface Props {
   children?: string
+  className?: string
 }
 
 // TODO: Implement styling for this component.
-export const Markdown: React.FC<Props> = ({ children }) => {
+export const Markdown: React.FC<Props> = ({ children, className }) => {
   return (
     <ReactMarkdown
-      className="markdown"
+      className={clsx('markdown', className)}
       remarkPlugins={[remarkGfm, remarkMdx]}
       rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }]]}
       components={{

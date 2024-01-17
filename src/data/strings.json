@@ -9,6 +9,9 @@
 
   "ui.image.default_alt": "Image with no description.",
 
+  "blog.head.reading_time": "{time} min read",
+  "blog.head.null_reading_time": "Quick read",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",

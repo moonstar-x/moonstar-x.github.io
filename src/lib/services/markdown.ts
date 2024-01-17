@@ -32,13 +32,13 @@ const resolveFilenameFromSlug = (slug: string): string => {
   return `${slug}.md`;
 };
 
-type ContentMetadata<T extends object> = T & {
+export type ContentMetadata<T extends object> = T & {
   slug: string
   description: string
   readingTime: number
 }
 
-type Markdown<T extends object> = {
+export type Markdown<T extends object> = {
   metadata: ContentMetadata<T>
   markdown: string
 }

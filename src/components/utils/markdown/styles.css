@@ -97,6 +97,9 @@
 
 .markdown img, video {
   @apply mx-auto;
+  @apply max-w-[95%];
+  @apply tablet:max-w-[90%];
+  @apply desktop:max-w-[85%];
 }
 
 .markdown pre:not(:has(div)) {

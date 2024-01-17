@@ -1,0 +1,45 @@
+import React from 'react';
+import { Image } from '@components/ui/image';
+import { Time } from '@components/utils/time';
+import { BlogPost } from '@lib/services/blog';
+import { str } from '@lib/services/strings';
+import { Divider } from '@components/ui/divider';
+
+type Props = BlogPost['metadata'] & {
+
+}
+
+export const PostHead: React.FC<Props> = ({ title, description, readingTime, date, cover }) => {
+  return (
+    <section>
+      <Image
+        className="aspect-video"
+        src={cover}
+        priority
+        loading="eager"
+      />
+
+      <div className="max-w-[768px] mx-auto">
+        <h1>
+          {title}
+        </h1>
+
+        <p className="typography-subtitle1 max-w-[768px] text-[#666] text-justify">
+          {description}
+        </p>
+
+        <Divider />
+
+        <div className="mt-[2rem] flex flex-row justify-between">
+          <Time date={date} withTime />
+
+          <p>
+            {
+              readingTime > 0 ? str('blog.head.reading_time', { time: readingTime }) : str('blog.head.null_reading_time')
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
