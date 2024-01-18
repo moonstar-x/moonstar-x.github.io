@@ -19,10 +19,6 @@ export const PostCard: React.FC<Props> = ({
   className,
   ...props
 }) => {
-  const preventDefault = (e: React.MouseEvent) => {
-    e.preventDefault();
-  };
-
   return (
     <Link className={clsx('group flex flex-col gap-[0.5rem] tablet:gap-[1rem] desktop:gap-[2rem]', featured && 'tablet:flex-row tablet:justify-between tablet:w-full', className)} href={RouteDefs.postBySlug(post.slug)} {...props}>
       <Image className={clsx('aspect-video tablet:aspect-[4/3] group-hover:-translate-y-[2px]', featured && 'tablet:flex-1 desktop:!aspect-[5/3]')} src={post.cover} />
@@ -54,7 +50,7 @@ export const PostCard: React.FC<Props> = ({
           {
             featured && (
               <div className="mt-[20px] hidden tablet:block">
-                <Button color="white" onClick={preventDefault}>
+                <Button color="white">
                   {str('blog.card.buttons.read')}
                 </Button>
               </div>

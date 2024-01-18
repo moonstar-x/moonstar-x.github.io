@@ -18,7 +18,7 @@ const colorMap: Record<Color, { bgColor: string, linkColor: LinkColor }> = {
   }
 };
 
-export interface Props {
+export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   socials: Socials
   owner: string
   color?: Color
@@ -31,14 +31,15 @@ export const Footer: React.FC<Props> = ({
   owner,
   color = 'dark',
   className,
-  onSignatureClick
+  onSignatureClick,
+  ...props
 }) => {
   const { bgColor: bgClassName, linkColor } = colorMap[color];
 
   const year = new Date().getFullYear();
 
   return (
-    <footer className={clsx('py-[1rem]', bgClassName, className)}>
+    <footer className={clsx('py-[1rem]', bgClassName, className)} {...props}>
       <div className="page-container">
         <SocialLinkList socials={socials} color={color} />
 

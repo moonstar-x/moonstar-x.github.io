@@ -43,7 +43,7 @@ const BlogPostPage: React.FC<Props> = async ({ params }) => {
     <Fragment>
       <Post post={post} author={author} />
 
-      <ShareCard className="page-container my-[4rem] !max-w-[1024px]" />
+      <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
     </Fragment>
   );
 };
