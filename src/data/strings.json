@@ -20,6 +20,8 @@
   "blog.head.null_reading_time": "Quick read",
 
   "blog.card.buttons.read": "Read Article",
+  "blog.grid.no_posts.title": "No posts available 😢",
+  "blog.grid.no_posts.description": "Looks like I haven't added any posts here yet. Sorry about that! Be sure to check this page out soon.",
 
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",

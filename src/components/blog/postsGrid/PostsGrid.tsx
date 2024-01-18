@@ -12,7 +12,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 export const PostsGrid: React.FC<Props> = ({ posts, className, ...props }) => {
   if (!posts.length) {
     return (
-      <NoPostsAvailable />
+      <NoPostsAvailable className={className} {...props} />
     );
   }
 
