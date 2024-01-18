@@ -7,7 +7,7 @@ interface Props {
 
 export const PostBody: React.FC<Props> = ({ content }) => {
   return (
-    <Markdown className="max-w-[768px]">
+    <Markdown>
       {content}
     </Markdown>
   );

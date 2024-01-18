@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Metadata } from 'next';
 import { Post } from '@components/blog/post';
+import { ShareCard } from '@components/ui/shareCard';
 import { getAllPostSlugs, getPostBySlug } from '@lib/services/blog';
 import { getSettings, getBlogData } from '@lib/services/data';
 
@@ -39,7 +40,11 @@ const BlogPostPage: React.FC<Props> = async ({ params }) => {
   const { author } = getBlogData();
 
   return (
-    <Post post={post} author={author} />
+    <Fragment>
+      <Post post={post} author={author} />
+
+      <ShareCard className="page-container my-[4rem] !max-w-[1024px]" />
+    </Fragment>
   );
 };
 
