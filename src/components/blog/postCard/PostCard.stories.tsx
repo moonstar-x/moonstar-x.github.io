@@ -18,9 +18,17 @@ const meta: Meta<typeof PostCard> = {
 export default meta;
 type Story = StoryObj<typeof PostCard>;
 
-export const Default: Story = {
+export const Regular: Story = {
   args: {
     post: metadata,
     style: { maxWidth: 330 }
+  }
+};
+
+export const Featured: Story = {
+  args: {
+    post: metadata,
+    featured: true,
+    style: { maxWidth: 1366 }
   }
 };

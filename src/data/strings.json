@@ -19,6 +19,8 @@
   "blog.head.reading_time": "{time} min read",
   "blog.head.null_reading_time": "Quick read",
 
+  "blog.card.buttons.read": "Read Article",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",
