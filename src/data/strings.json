@@ -18,6 +18,7 @@
 
   "blog.head.reading_time": "{time} min read",
   "blog.head.null_reading_time": "Quick read",
+  "blog.more_like_this.title": "More Posts Like This",
 
   "blog.card.buttons.read": "Read Article",
   "blog.grid.no_posts.title": "No posts available 😢",

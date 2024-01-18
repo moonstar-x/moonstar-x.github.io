@@ -35,58 +35,60 @@ export const ShareCard: React.FC<Props> = ({ url, className }) => {
   }, []);
 
   return (
-    <div className={clsx('p-[1rem] border-solid border border-gray-400 rounded-[4px]', className)}>
-      <h5 className="mb-[0.5rem]">
-        {str('ui.share_card.title')}
-      </h5>
+    <div className={clsx(className)}>
+      <div className="p-[1rem] border-solid border border-gray-400 rounded-[4px]">
+        <h5 className="mb-[0.5rem]">
+          {str('ui.share_card.title')}
+        </h5>
 
-      <p className="text-gray-600 mb-[1rem]">
-        {str('ui.share_card.subtitle')}
-      </p>
+        <p className="text-gray-600 mb-[1rem]">
+          {str('ui.share_card.subtitle')}
+        </p>
 
-      <div className="flex flex-col tablet:flex-row tablet:justify-center gap-[1rem] flex-wrap">
-        <CopyToClipboard text={shareUrl}>
+        <div className="flex flex-col tablet:flex-row tablet:justify-center gap-[1rem] flex-wrap">
+          <CopyToClipboard text={shareUrl}>
+            <Button
+              color="white"
+              size="sm"
+              icon={<Icon icon={ClipboardIcon} color="primary" />}
+            >
+              {str('ui.share_card.buttons.clipboard')}
+            </Button>
+          </CopyToClipboard>
+
           <Button
-            color="white"
+            color="primary"
             size="sm"
-            icon={<Icon icon={ClipboardIcon} color="primary" />}
+            className="!bg-brands-twitter"
+            icon={<Icon icon={TwitterIcon} color="white" />}
+            href={createTwitterShareUrl(shareUrl)}
+            target="_blank"
           >
-            {str('ui.share_card.buttons.clipboard')}
+            {str('ui.share_card.buttons.twitter')}
           </Button>
-        </CopyToClipboard>
 
-        <Button
-          color="primary"
-          size="sm"
-          className="!bg-brands-twitter"
-          icon={<Icon icon={TwitterIcon} color="white" />}
-          href={createTwitterShareUrl(shareUrl)}
-          target="_blank"
-        >
-          {str('ui.share_card.buttons.twitter')}
-        </Button>
+          <Button
+            color="primary"
+            size="sm"
+            className="!bg-brands-facebook"
+            icon={<Icon icon={FacebookIcon} color="white" />}
+            href={createFacebookShareUrl(shareUrl)}
+            target="_blank"
+          >
+            {str('ui.share_card.buttons.facebook')}
+          </Button>
 
-        <Button
-          color="primary"
-          size="sm"
-          className="!bg-brands-facebook"
-          icon={<Icon icon={FacebookIcon} color="white" />}
-          href={createFacebookShareUrl(shareUrl)}
-          target="_blank"
-        >
-          {str('ui.share_card.buttons.facebook')}
-        </Button>
-
-        <Button
-          color="primary"
-          size="sm"
-          className="!bg-brands-linkedin"
-          icon={<Icon icon={LinkedInIcon} color="white" />}
-          href={createLinkedInShareUrl(shareUrl)}
-          target="_blank"
-        >
-          {str('ui.share_card.buttons.linkedin')}
-        </Button>
+          <Button
+            color="primary"
+            size="sm"
+            className="!bg-brands-linkedin"
+            icon={<Icon icon={LinkedInIcon} color="white" />}
+            href={createLinkedInShareUrl(shareUrl)}
+            target="_blank"
+          >
+            {str('ui.share_card.buttons.linkedin')}
+          </Button>
+        </div>
       </div>
     </div>
   );

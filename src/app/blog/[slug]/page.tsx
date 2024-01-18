@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import { Metadata } from 'next';
 import { Post } from '@components/blog/post';
+import { PostSuggestions } from '@components/blog/postSuggestions';
 import { ShareCard } from '@components/ui/shareCard';
-import { getAllPostSlugs, getPostBySlug } from '@lib/services/blog';
+import { getAllPostSlugs, getAllPostsMetadata, getPostBySlug } from '@lib/services/blog';
 import { getSettings, getBlogData } from '@lib/services/data';
 
 interface Params {
@@ -37,6 +38,7 @@ interface Props {
 
 const BlogPostPage: React.FC<Props> = async ({ params }) => {
   const post = await getPostBySlug(params.slug);
+  const allPosts = await getAllPostsMetadata();
   const { author } = getBlogData();
 
   return (
@@ -44,6 +46,8 @@ const BlogPostPage: React.FC<Props> = async ({ params }) => {
       <Post post={post} author={author} />
 
       <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
+
+      <PostSuggestions className="!max-w-[1024px] mt-[4rem]" allPosts={allPosts} currentPostSlug={params.slug} />
     </Fragment>
   );
 };

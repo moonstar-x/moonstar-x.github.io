@@ -17,7 +17,7 @@ const BlogPage = async () => {
   const posts = await getAllPostsMetadata();
 
   return (
-    <PostsGrid posts={posts} />
+    <PostsGrid posts={posts} withFeatured />
   );
 };
 
