@@ -75,7 +75,7 @@ const parseMarkdownData = async <T extends object>(data: string, slug: string): 
     metadata: {
       ...matterResult.data as T,
       slug,
-      description: unifiedResult.data.meta?.description ?? matterResult.data.description ?? str('services.markdown.fallback_description'),
+      description: matterResult.data.description ?? unifiedResult.data.meta?.description ?? str('services.markdown.fallback_description'),
       readingTime: resolveReadingTime(unifiedResult.data.meta?.readingTime)
     }
   };
