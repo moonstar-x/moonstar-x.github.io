@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { TechBadge, TYPES } from './TechBadge';
 
 const meta: Meta<typeof TechBadge> = {
-  title: 'ui/TechBadge',
+  title: 'work/TechBadge',
   component: TechBadge
 };
 
