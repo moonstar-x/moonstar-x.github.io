@@ -28,6 +28,14 @@ body p {
   @apply typography-body1;
 }
 
+body span {
+  @apply typography-body1;
+}
+
+body time {
+  @apply typography-body1;
+}
+
 body code {
   @apply typography-code;
 }
