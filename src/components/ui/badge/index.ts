@@ -1,5 +1,5 @@
 export { Badge } from './Badge';
 export type {
-  Props as BadgeProps,
-  Color as BadgeColor
+  Color as BadgeColor,
+  Props as BadgeProps
 } from './Badge';

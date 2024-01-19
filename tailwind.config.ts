@@ -61,7 +61,17 @@ const tailwindConfig: Config = {
         opencv: '#5C3EE8',
         flutter: '#02569B',
         dart: '#0175C2',
-        vite: '#646CFF'
+        vite: '#646CFF',
+        postgres: '#4169E1',
+        express: '#000000',
+        sqlite: '#003B57',
+        jest: '#C21325',
+        html: '#E34F26',
+        css: '#1572B6',
+        level: '#96DC75',
+        selenium: '#43B02A',
+        puppeteer: '#40B5A4',
+        mariadb: '#003545'
       }
     }
   },
