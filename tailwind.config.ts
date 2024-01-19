@@ -37,6 +37,31 @@ const tailwindConfig: Config = {
         facebook: '#1877f2',
         twitter: '#14171a',
         linkedin: '#0a66c2'
+      },
+      tech: {
+        nodejs: '#339933',
+        mongo: '#47A248',
+        docker: '#2496ED',
+        javascript: '#F7DF1E',
+        react: '#61DAFB',
+        typescript: '#3178C6',
+        svelte: '#FF3E00',
+        lua: '#2C2D72',
+        python: '#3776AB',
+        markdown: '#000000',
+        nextjs: '#000000',
+        redis: '#DC382D',
+        neo4j: '#4581C3',
+        flask: '#000000',
+        nginx: '#009639',
+        githubActions: '#2088FF',
+        jenkins: '#D24939',
+        tailwind: '#06B6D4',
+        sass: '#CC6699',
+        opencv: '#5C3EE8',
+        flutter: '#02569B',
+        dart: '#0175C2',
+        vite: '#646CFF'
       }
     }
   },
