@@ -3,11 +3,11 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { Icon, IconComponent, IconColor, IconSize } from '@components/ui/icon';
 import { Socials } from '@lib/services/data';
-import { EmailIcon } from '@components/ui/icon/library/EmailIcon';
-import { GitHubIcon } from '@components/ui/icon/library/GitHubIcon';
-import { LinkedInIcon } from '@components/ui/icon/library/LinkedInIcon';
-import { TwitterIcon } from '@components/ui/icon/library/TwitterIcon';
-import { DiscordIcon } from '@components/ui/icon/library/DiscordIcon';
+import { EmailIcon } from '@components/ui/icon/library/ui/EmailIcon';
+import { GitHubIcon } from '@components/ui/icon/library/brand/GitHubIcon';
+import { LinkedInIcon } from '@components/ui/icon/library/brand/LinkedInIcon';
+import { TwitterIcon } from '@components/ui/icon/library/brand/TwitterIcon';
+import { DiscordIcon } from '@components/ui/icon/library/brand/DiscordIcon';
 
 type SocialType = keyof Socials;
 const iconMap: Record<SocialType, IconComponent> = {

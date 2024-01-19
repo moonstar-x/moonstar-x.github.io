@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 import { Icon } from '@components/ui/icon';
-import { GitHubIcon } from '@components/ui/icon/library/GitHubIcon';
+import { GitHubIcon } from '@components/ui/icon/library/brand/GitHubIcon';
 
 const meta: Meta<typeof Button> = {
   title: 'ui/Button',

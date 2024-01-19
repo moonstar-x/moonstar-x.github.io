@@ -4,10 +4,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import clsx from 'clsx';
 import { Button } from '@components/ui/button';
 import { Icon } from '@components/ui/icon';
-import { ClipboardIcon } from '@components/ui/icon/library/ClipboardIcon';
-import { TwitterIcon } from '@components/ui/icon/library/TwitterIcon';
-import { FacebookIcon } from '@components/ui/icon/library/FacebookIcon';
-import { LinkedInIcon } from '@components/ui/icon/library/LinkedInIcon';
+import { ClipboardIcon } from '@components/ui/icon/library/ui/ClipboardIcon';
+import { TwitterIcon } from '@components/ui/icon/library/brand/TwitterIcon';
+import { FacebookIcon } from '@components/ui/icon/library/brand/FacebookIcon';
+import { LinkedInIcon } from '@components/ui/icon/library/brand/LinkedInIcon';
 import { str } from '@lib/services/strings';
 
 const createFacebookShareUrl = (url: string): string => {

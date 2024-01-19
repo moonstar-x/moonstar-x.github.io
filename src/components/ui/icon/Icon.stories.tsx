@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Icon } from './Icon';
-import { GitHubIcon } from '@components/ui/icon/library/GitHubIcon';
+import { GitHubIcon } from '@components/ui/icon/library/brand/GitHubIcon';
 
 const meta: Meta<typeof Icon> = {
   title: 'ui/Icon',
