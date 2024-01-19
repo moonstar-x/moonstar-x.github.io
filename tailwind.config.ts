@@ -34,9 +34,14 @@ const tailwindConfig: Config = {
         700: '#666666'
       },
       brands: {
-        facebook: '#1877f2',
-        twitter: '#14171a',
-        linkedin: '#0a66c2'
+        facebook: '#0866FF',
+        twitter: '#000000',
+        linkedin: '#0A66C2',
+        discord: '#5865F2',
+        github: '#181717',
+        dockerhub: '#2496ED',
+        steam: '#000000',
+        npm: '#CB3837'
       },
       tech: {
         nodejs: '#339933',
