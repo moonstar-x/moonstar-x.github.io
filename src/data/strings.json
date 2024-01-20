@@ -25,12 +25,21 @@
   "blog.grid.no_posts.description": "Looks like I haven't added any posts here yet. Sorry about that! Be sure to check this page out soon.",
   "blog.grid.no_posts.back_button": "Go Back",
 
+  "work.grid.no_posts.title": "No Work Available 😿",
+  "work.grid.no_posts.description": "Looks like I haven't added any work articles here yet. Sorry about that! Be sure to check this page out soon.",
+  "work.grid.no_posts.back_button": "Go Back",
+  "work.grid.title": "{type} Work:",
+
   "work.status.completed": "Completed",
   "work.status.maintained": "Maintained",
   "work.status.in_development": "In Development",
   "work.status.on_hold": "On Hold",
   "work.status.deprecated": "Deprecated",
   "work.status.abandoned": "Abandoned",
+
+  "work.type.hobby": "Hobby",
+  "work.type.art": "Art",
+  "work.type.research": "Research",
 
   "work.links.github": "See it on GitHub",
   "work.links.dockerhub": "See it on DockerHub",

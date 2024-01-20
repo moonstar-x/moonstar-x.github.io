@@ -18,12 +18,6 @@ const meta: Meta<typeof PostsGrid> = {
 export default meta;
 type Story = StoryObj<typeof PostsGrid>;
 
-export const NoCards: Story = {
-  args: {
-    posts: []
-  }
-};
-
 export const SingleCard: Story = {
   args: {
     posts: [metadata]

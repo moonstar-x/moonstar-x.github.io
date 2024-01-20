@@ -42,7 +42,7 @@ export const PostsGrid: React.FC<Props> = ({
 
       {
         restOfPosts.length >= 1 && (
-          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-x-[40px] gap-y-[40px] tablet.gap-y-[80px]">
+          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-x-[40px] gap-y-[40px] tablet:gap-y-[80px]">
             {
               restOfPosts.map((post, idx) => (
                 <PostCard key={idx} post={post} />
