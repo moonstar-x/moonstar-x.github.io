@@ -16,8 +16,14 @@ export const getAllPostSlugs = () => {
   return getAllSlugs(directory);
 };
 
-export const getAllPostsMetadata = () => {
-  return getAllMetadata<BlogPostMetadata>(directory);
+export const getAllPostsMetadata = async () => {
+  const posts = await getAllMetadata<BlogPostMetadata>(directory);
+  return posts.sort((a, b) => {
+    const aDate = new Date(a.date);
+    const bDate = new Date(b.date);
+
+    return bDate.getTime() - aDate.getTime();
+  });
 };
 
 export const getPostBySlug = (slug: string): Promise<BlogPost> => {

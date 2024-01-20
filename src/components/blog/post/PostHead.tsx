@@ -30,7 +30,7 @@ export const PostHead: React.FC<Props> = ({ title, description, readingTime, dat
 
         <Divider />
 
-        <div className="mt-[2rem] flex flex-row justify-between">
+        <div className="mt-[2rem] flex flex-row justify-between gap-[4rem]">
           <Time date={date} withTime />
 
           <p>

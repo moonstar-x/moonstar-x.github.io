@@ -21,18 +21,25 @@ export const PostCard: React.FC<Props> = ({
 }) => {
   return (
     <Link className={clsx('group flex flex-col gap-[0.5rem] tablet:gap-[1rem] desktop:gap-[2rem]', featured && 'tablet:flex-row tablet:justify-between tablet:w-full', className)} href={RouteDefs.postBySlug(post.slug)} {...props}>
-      <Image className={clsx('aspect-video tablet:aspect-[4/3] group-hover:-translate-y-[2px]', featured && 'tablet:flex-1 desktop:!aspect-[5/3]')} src={post.cover} />
+      <div className={clsx('aspect-video tablet:aspect-[4/3]', featured && 'tablet:basis-1/2 desktop:!aspect-[5/3]')}>
+        <Image
+          className={clsx('aspect-video tablet:aspect-[4/3] group-hover:-translate-y-[2px]', featured && 'desktop:!aspect-[5/3]')}
+          src={post.cover}
+          priority={featured}
+          loading={featured ? 'eager' : 'lazy'}
+        />
+      </div>
 
-      <div className={clsx(featured && 'tablet:flex-1')}>
+      <div className={clsx(featured && 'tablet:basis-1/2')}>
         <div className={clsx(featured && 'tablet:flex tablet:flex-col tablet:justify-center tablet:h-full')}>
-          <p className={clsx('typography-subtitle2 text-gray-500 flex flex-row gap-[0.5rem] mb-[8px]')}>
-            <Time className="!typography-subtitle2" date={post.date} />
+          <p className={clsx('text-gray-500 flex flex-row gap-[0.5rem] mb-[8px]')}>
+            <Time className="typography-subtitle2" date={post.date} />
 
-            <span>
+            <span className="typography-subtitle2">
               -
             </span>
 
-            <span>
+            <span className="typography-subtitle2">
               {
                 post.readingTime > 0 ? str('blog.head.reading_time', { time: post.readingTime }) : str('blog.head.null_reading_time')
               }
