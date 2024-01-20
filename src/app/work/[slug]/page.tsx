@@ -47,7 +47,7 @@ const SingleWorkPage: React.FC<Props> = async ({ params }) => {
 
       <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
 
-      <WorkSuggestions className="!max-w-[1024px] mt-[4rem]" allWork={allWorkForCurrentType} currentWorkSlug={params.slug} />
+      <WorkSuggestions className="!max-w-[1024px] mt-[4rem]" allWork={allWorkForCurrentType} currentSlug={params.slug} />
     </Fragment>
   );
 };

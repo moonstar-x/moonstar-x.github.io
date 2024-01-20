@@ -47,7 +47,7 @@ const BlogPostPage: React.FC<Props> = async ({ params }) => {
 
       <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
 
-      <PostSuggestions className="!max-w-[1024px] mt-[4rem]" allPosts={allPosts} currentPostSlug={params.slug} />
+      <PostSuggestions className="!max-w-[1024px] mt-[4rem]" allPosts={allPosts} currentSlug={params.slug} />
     </Fragment>
   );
 };

@@ -7,19 +7,19 @@ import { WorkArticle } from '@lib/services/work';
 
 export interface Props {
   allWork: WorkArticle['metadata'][]
-  currentWorkSlug: string
+  currentSlug: string
   count?: number
   className?: string
 }
 
 export const WorkSuggestions: React.FC<Props> = ({
   allWork,
-  currentWorkSlug,
+  currentSlug,
   count = 3,
   className
 }) => {
   const randomPostsForGrid = sampleSize(
-    allWork.filter((work) => work.slug !== currentWorkSlug),
+    allWork.filter((work) => work.slug !== currentSlug),
     count
   );
 

@@ -36,20 +36,20 @@ type Story = StoryObj<typeof WorkSuggestions>;
 export const NoCards: Story = {
   args: {
     allWork: [],
-    currentWorkSlug: '123'
+    currentSlug: '123'
   }
 };
 
 export const SingleCard: Story = {
   args: {
     allWork: [metadata],
-    currentWorkSlug: '123'
+    currentSlug: '123'
   }
 };
 
 export const MultipleCards: Story = {
   args: {
     allWork: new Array(11).fill(null).map(() => metadata),
-    currentWorkSlug: '123'
+    currentSlug: '123'
   }
 };

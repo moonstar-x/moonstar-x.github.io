@@ -7,19 +7,19 @@ import { BlogPost } from '@lib/services/blog';
 
 export interface Props {
   allPosts: BlogPost['metadata'][]
-  currentPostSlug: string
+  currentSlug: string
   count?: number
   className?: string
 }
 
 export const PostSuggestions: React.FC<Props> = ({
   allPosts,
-  currentPostSlug,
+  currentSlug,
   count = 3,
   className
 }) => {
   const randomPostsForGrid = sampleSize(
-    allPosts.filter((post) => post.slug !== currentPostSlug),
+    allPosts.filter((post) => post.slug !== currentSlug),
     count
   );
 

@@ -21,20 +21,20 @@ type Story = StoryObj<typeof PostSuggestions>;
 export const NoCards: Story = {
   args: {
     allPosts: [],
-    currentPostSlug: '123'
+    currentSlug: '123'
   }
 };
 
 export const SingleCard: Story = {
   args: {
     allPosts: [metadata],
-    currentPostSlug: '123'
+    currentSlug: '123'
   }
 };
 
 export const MultipleCards: Story = {
   args: {
     allPosts: new Array(11).fill(null).map(() => metadata),
-    currentPostSlug: '123'
+    currentSlug: '123'
   }
 };
