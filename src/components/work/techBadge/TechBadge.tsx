@@ -248,11 +248,7 @@ export interface Props extends BadgeProps {
   type: TechType
 }
 
-export const TechBadge: React.FC<Props> = ({
-  className,
-  type,
-  ...props
-}) => {
+export const TechBadge: React.FC<Props> = ({ className, type, ...props }) => {
   if (!typeMap[type]) {
     return null;
   }

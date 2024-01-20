@@ -77,6 +77,13 @@ const tailwindConfig: Config = {
         selenium: '#43B02A',
         puppeteer: '#40B5A4',
         mariadb: '#003545'
+      },
+      status: {
+        completed: '#6A4C93',
+        maintained: '#8AC926',
+        inDevelopment: '#FFCA3A',
+        deprecated: '#FF595E',
+        abandoned: '#333'
       }
     }
   },

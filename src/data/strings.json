@@ -25,6 +25,12 @@
   "blog.grid.no_posts.description": "Looks like I haven't added any posts here yet. Sorry about that! Be sure to check this page out soon.",
   "blog.grid.no_posts.back_button": "Go Back",
 
+  "work.status.completed": "Completed",
+  "work.status.maintained": "Maintained",
+  "work.status.in_development": "In Development",
+  "work.status.deprecated": "Deprecated",
+  "work.status.abandoned": "Abandoned",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",
