@@ -27,7 +27,7 @@ export const Avatar: React.FC<Props> = ({
 
   return (
     <Image
-      className={clsx(circle && '!rounded-[50%]', className)}
+      className={clsx(circle && '!rounded-[50%] aspect-square', className)}
       width={dimensions}
       height={dimensions}
       {...props}

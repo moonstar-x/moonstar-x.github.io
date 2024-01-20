@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Work } from './Work';
 import { TechType, WorkArticle, WorkStatus, WorkType } from '@lib/services/work';
+import { getWorkData } from '@lib/services/data';
 
 const metadata = {
   name: 'Testing',
@@ -94,6 +95,7 @@ type Story = StoryObj<typeof Work>;
 
 export const Default: Story = {
   args: {
-    work
+    work,
+    author: getWorkData().author
   }
 };
