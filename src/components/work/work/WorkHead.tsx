@@ -52,19 +52,19 @@ export const WorkHead: React.FC<Props> = ({ name, description, cover, type, stat
       />
 
       <div className="mx-auto">
-        {
-          typeName && (
-            <div className="mt-[10px] typography-body1 text-gray-500">
-              [{typeName}]
-            </div>
-          )
-        }
-
         <h1>
           {name}
         </h1>
 
         <p className="typography-subtitle1 text-gray-600 text-justify">
+          {
+            typeName && (
+              <span className="typography-subtitle1 text-gray-500 mr-[0.5rem]">
+                [{typeName}]
+              </span>
+            )
+          }
+          
           {description}
         </p>
 

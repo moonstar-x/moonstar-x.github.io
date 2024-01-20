@@ -1,6 +1,6 @@
 ---
 name: Testing
-description: A short description.
+#description: A short description.
 cover: https://cataas.com/cat
 technologies:
   - nodejs
