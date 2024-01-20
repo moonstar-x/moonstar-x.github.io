@@ -44,6 +44,9 @@
   "work.stats.github.open_issues": "Open Issues",
   "work.stats.dockerhub.stars": "Stars",
   "work.stats.dockerhub.pulls": "Pulls",
+  "work.stats.npm.downloads.last_week": "Downloads Last Week",
+  "work.stats.npm.downloads.last_month": "Downloads Last Month",
+  "work.stats.npm.downloads.last_year": "Downloads Last Year",
 
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
