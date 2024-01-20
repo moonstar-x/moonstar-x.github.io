@@ -25,6 +25,10 @@
   "blog.grid.no_posts.description": "Looks like I haven't added any posts here yet. Sorry about that! Be sure to check this page out soon.",
   "blog.grid.no_posts.back_button": "Go Back",
 
+  "work.head.status": "Status:",
+  "work.head.technologies": "Technologies:",
+  "work.head.links": "Links:",
+
   "work.grid.no_posts.title": "No Work Available 😿",
   "work.grid.no_posts.description": "Looks like I haven't added any work articles here yet. Sorry about that! Be sure to check this page out soon.",
   "work.grid.no_posts.back_button": "Go Back",
@@ -47,6 +51,10 @@
   "work.links.discord": "Invite it to your Discord Server",
   "work.links.npm": "See it on NPM",
   "work.links.steam": "See it on Steam",
+
+  "work.stats.github": "Stats from GitHub:",
+  "work.stats.dockerhub": "Stats from DockerHub:",
+  "work.stats.npm": "Stats from NPM:",
 
   "work.stats.github.stars": "Stars",
   "work.stats.github.forks": "Forks",

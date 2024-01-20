@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image } from '@components/ui/image';
 import { Time } from '@components/utils/time';
+import { Divider } from '@components/ui/divider';
 import { BlogPost } from '@lib/services/blog';
 import { str } from '@lib/services/strings';
-import { Divider } from '@components/ui/divider';
 
 type Props = BlogPost['metadata'] & {
 

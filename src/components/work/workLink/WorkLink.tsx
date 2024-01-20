@@ -20,13 +20,13 @@ export type WorkLinkObject = {
 const styleMap: Record<WorkLinkType, WorkLinkObject> = {
   github: {
     icon: GitHubIcon,
-    linkStyle: 'text-white bg-brands-github',
+    linkStyle: 'text-white !bg-brands-github',
     iconStyle: 'fill-white',
     text: str('work.links.github')
   },
   dockerhub: {
     icon: DockerHubIcon,
-    linkStyle: 'text-white bg-brands-dockerhub',
+    linkStyle: 'text-white !bg-brands-dockerhub',
     iconStyle: 'fill-white',
     text: str('work.links.dockerhub')
   },
@@ -38,19 +38,19 @@ const styleMap: Record<WorkLinkType, WorkLinkObject> = {
   },
   discord: {
     icon: DiscordIcon,
-    linkStyle: 'text-white bg-brands-discord',
+    linkStyle: 'text-white !bg-brands-discord',
     iconStyle: 'fill-white',
     text: str('work.links.discord')
   },
   npm: {
     icon: NpmIcon,
-    linkStyle: 'text-white bg-brands-npm',
+    linkStyle: 'text-white !bg-brands-npm',
     iconStyle: 'fill-white',
     text: str('work.links.npm')
   },
   steam: {
     icon: SteamIcon,
-    linkStyle: 'text-white bg-brands-steam',
+    linkStyle: 'text-white !bg-brands-steam',
     iconStyle: 'fill-white',
     text: str('work.links.steam')
   }

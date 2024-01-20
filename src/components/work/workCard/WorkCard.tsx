@@ -14,11 +14,11 @@ export const WorkCard: React.FC<Props> = ({ work, className, ...props }) => {
   return (
     <Link className={clsx('group flex flex-col gap-[0.5rem] desktop:gap-[1rem]', className)} href={RouteDefs.workBySlug(work.slug)} {...props}>
       <div className="aspect-video">
-        <Image className="aspect-video group-hover:translate-y-[2px]" src={work.cover} />
+        <Image className="aspect-video group-hover:-translate-y-[2px]" src={work.cover} />
       </div>
 
       <div>
-        <h4 className="text-justify mb-[10px]">
+        <h4 className="text-justify mb-[10px] group-hover:text-primary">
           {work.name}
         </h4>
 

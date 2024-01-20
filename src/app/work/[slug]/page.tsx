@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Metadata } from 'next';
+import { Work } from '@components/work/work';
 import { getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
 import { getSettings } from '@lib/services/data';
+import { ShareCard } from '@components/ui/shareCard';
 
 interface Params {
   slug: string
@@ -33,22 +35,15 @@ interface Props {
   params: Params
 }
 
-// TODO: Implement this page.
 const SingleWorkPage: React.FC<Props> = async ({ params }) => {
-  const { metadata, markdown } = await getWorkBySlug(params.slug);
+  const work = await getWorkBySlug(params.slug);
 
   return (
-    <div>
-      PROJECT
+    <Fragment>
+      <Work work={work} />
 
-      <pre>
-        {JSON.stringify(metadata, null, 2)}
-      </pre>
-
-      <pre>
-        {markdown}
-      </pre>
-    </div>
+      <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
+    </Fragment>
   );
 };
 

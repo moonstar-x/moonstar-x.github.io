@@ -2,9 +2,9 @@ import React from 'react';
 import { PostHead } from './PostHead';
 import { PostBody } from './PostBody';
 import { AuthorCard } from './AuthorCard';
+import { Divider } from '@components/ui/divider';
 import { BlogPost } from '@lib/services/blog';
 import { BlogData } from '@lib/services/data';
-import { Divider } from '@components/ui/divider';
 
 export interface Props {
   post: BlogPost
