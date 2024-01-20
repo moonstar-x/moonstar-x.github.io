@@ -3,21 +3,22 @@ name: Testing
 description: A short description.
 cover: https://cataas.com/cat
 technologies:
-  - Node.js
-  - Docker
+  - nodejs
+  - docker
+  - typescript
 status: maintained
 type: hobby
 links:
-  - github: https://github.com
-  - dockerhub: https://hub.docker.com
-  - website: https://moonstar-x.dev
-  - discord: https://discord.com
-  - npm: https://npmjs.com
-  - steam: https://steampowered.com
+  github: https://github.com
+  dockerhub: https://hub.docker.com
+  website: https://moonstar-x.dev
+  discord: https://discord.com
+  npm: https://npmjs.com
+  steam: https://steampowered.com
 stats:
-  - github: moonstar-x/discord-tts-bot
-  - dockerhub: moonstarx/discord-tts-bot
-  - npm: react-twitch-embed
+  github: moonstar-x/discord-tts-bot
+  dockerhub: moonstarx/discord-tts-bot
+  npm: react-twitch-embed
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lacus, pellentesque pulvinar felis id, venenatis porta diam. Integer nec diam erat. Sed erat urna, mollis sed gravida eget, tempus et enim. Nunc dapibus egestas augue non faucibus. Mauris consectetur neque et nulla rutrum, ac fermentum nibh convallis. Fusce at dictum erat. Morbi lacinia lectus porttitor tincidunt dictum. Nunc dictum augue eget massa scelerisque, a imperdiet arcu maximus.

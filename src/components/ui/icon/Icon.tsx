@@ -3,12 +3,13 @@ import clsx from 'clsx';
 
 export type IconComponent = React.JSXElementConstructor<SVGProps<SVGSVGElement>>;
 
-export type Size = 'sm' | 'md' | 'lg' | '1x' | '2x' | '3x';
+export type Size = 'sm' | 'md' | 'lg' | '1x' | '1.5x' | '2x' | '3x';
 const sizeMap: Record<Size, number | string> = {
   sm: 20,
   md: 40,
   lg: 60,
   '1x': '1em',
+  '1.5x': '1.5em',
   '2x': '2em',
   '3x': '3em'
 };
