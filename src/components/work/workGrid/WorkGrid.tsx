@@ -20,11 +20,11 @@ const typeStrings = (type: WorkType): string | null => {
 
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   work: WorkArticle['metadata'][]
-  type: WorkType
+  type?: WorkType
 }
 
 export const WorkGrid: React.FC<Props> = ({ work, type, className, ...props }) => {
-  const typeName = typeStrings(type);
+  const typeName = type ? typeStrings(type) : null;
 
   return (
     <section className={clsx('page-container', className)} {...props}>

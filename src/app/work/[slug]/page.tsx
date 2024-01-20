@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import { Metadata } from 'next';
 import { Work } from '@components/work/work';
 import { ShareCard } from '@components/ui/shareCard';
-import { getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
+import { WorkSuggestions } from '@components/work/workSuggestions';
+import { getAllWorkMetadataForType, getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
 import { getSettings, getWorkData } from '@lib/services/data';
 
 interface Params {
@@ -37,6 +38,7 @@ interface Props {
 
 const SingleWorkPage: React.FC<Props> = async ({ params }) => {
   const work = await getWorkBySlug(params.slug);
+  const allWorkForCurrentType = await getAllWorkMetadataForType(work.metadata.type);
   const { author } = getWorkData();
 
   return (
@@ -44,6 +46,8 @@ const SingleWorkPage: React.FC<Props> = async ({ params }) => {
       <Work work={work} author={author} />
 
       <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
+
+      <WorkSuggestions className="!max-w-[1024px] mt-[4rem]" allWork={allWorkForCurrentType} currentWorkSlug={params.slug} />
     </Fragment>
   );
 };
