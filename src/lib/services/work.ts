@@ -3,8 +3,22 @@ import { getAllSlugs, getAllMetadata, getContent, Markdown } from '@lib/services
 
 const directory = path.join(process.cwd(), 'src/data/_work');
 
-export type WorkStatus = 'completed' | 'maintained' | 'in-development' | 'deprecated' | 'abandoned';
-export type WorkType = 'hobby' | 'art' | 'research';
+export const TECH_TYPES = [
+  'nodejs', 'mongo', 'docker', 'javascript', 'react',
+  'typescript', 'svelte', 'lua', 'python', 'markdown',
+  'nextjs', 'redis', 'neo4j', 'flask', 'nginx',
+  'githubActions', 'jenkins', 'tailwind', 'sass', 'opencv',
+  'flutter', 'dart', 'vite', 'postgres', 'express',
+  'sqlite', 'jest', 'html', 'css', 'level',
+  'selenium', 'puppeteer', 'mariadb'
+] as const;
+export type TechType = typeof TECH_TYPES[number];
+
+export const WORK_STATUS_TYPES = ['completed', 'maintained', 'in-development', 'deprecated', 'abandoned'] as const;
+export type WorkStatus = typeof WORK_STATUS_TYPES[number];
+
+export const WORK_TYPE_TYPES = ['hobby', 'art', 'research'] as const;
+export type WorkType = typeof WORK_TYPE_TYPES[number];
 
 export type WorkLinkType = 'github' | 'dockerhub' | 'website' | 'discord' | 'npm' | 'steam';
 export type WorkStatsType = 'github' | 'dockerhub' | 'npm';

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { TechBadge, TYPES } from './TechBadge';
+import { TechBadge } from './TechBadge';
+import { TECH_TYPES } from '@lib/services/work';
 
 const meta: Meta<typeof TechBadge> = {
   title: 'work/TechBadge',
@@ -15,7 +16,7 @@ export const Default: Story = {
     return (
       <div className="flex flex-wrap gap-[0.5rem]">
         {
-          TYPES.map((type, idx) => (
+          TECH_TYPES.map((type, idx) => (
             <TechBadge key={idx} {...args} type={type} />
           ))
         }

@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Badge, BadgeProps } from '@components/ui/badge';
 import { Icon, IconComponent } from '@components/ui/icon';
+import { TechType } from '@lib/services/work';
 import { NodeJsIcon } from '@components/ui/icon/library/tech/NodeJsIcon';
 import { MongoIcon } from '@components/ui/icon/library/tech/MongoIcon';
 import { DockerIcon } from '@components/ui/icon/library/tech/DockerIcon';
@@ -36,24 +37,13 @@ import { SeleniumIcon } from '@components/ui/icon/library/tech/SeleniumIcon';
 import { PuppeteerIcon } from '@components/ui/icon/library/tech/PuppeteerIcon';
 import { MariaDbIcon } from '@components/ui/icon/library/tech/MariaDbIcon';
 
-export const TYPES = [
-  'nodejs', 'mongo', 'docker', 'javascript', 'react',
-  'typescript', 'svelte', 'lua', 'python', 'markdown',
-  'nextjs', 'redis', 'neo4j', 'flask', 'nginx',
-  'githubActions', 'jenkins', 'tailwind', 'sass', 'opencv',
-  'flutter', 'dart', 'vite', 'postgres', 'express',
-  'sqlite', 'jest', 'html', 'css', 'level',
-  'selenium', 'puppeteer', 'mariadb'
-] as const;
-
-export type Type = typeof TYPES[number];
 export type IconObject = {
   icon: IconComponent
   text: string
   badgeStyle: string
   iconStyle: string
 }
-const typeMap: Record<Type, IconObject> = {
+const typeMap: Record<TechType, IconObject> = {
   nodejs: {
     icon: NodeJsIcon,
     text: 'Node.js',
@@ -255,7 +245,7 @@ const typeMap: Record<Type, IconObject> = {
 };
 
 export interface Props extends BadgeProps {
-  type: Type
+  type: TechType
 }
 
 export const TechBadge: React.FC<Props> = ({
