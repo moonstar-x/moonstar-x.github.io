@@ -1,12 +1,5 @@
-import React from 'react';
-
-// TODO: Implement this component.
 const RootLoading = () => {
-  return (
-    <div>
-      LOADING
-    </div>
-  );
+  return null;
 };
 
 export default RootLoading;

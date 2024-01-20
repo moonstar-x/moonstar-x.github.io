@@ -45,7 +45,7 @@ export const Button: React.FC<Props> = ({
 }) => {
   const colorClassName = colorMap[color];
   const sizeClassName = sizeMap[size];
-  const buttonClassName = 'w-auto h-auto inline-flex flex-row justify-start items-center gap-[1rem] typography-button rounded-[4px] border-none default-transition btn-shadow desktop:hover:-translate-y-px';
+  const buttonClassName = 'btn w-auto h-auto inline-flex flex-row justify-start items-center gap-[1rem] typography-button rounded-[4px] border-none default-transition btn-shadow hover:brightness-110';
 
   if (href) {
     return (

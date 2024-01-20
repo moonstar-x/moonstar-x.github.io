@@ -69,7 +69,7 @@ export const MobileHeader: React.FC<Props> = ({ className, brand, brandHref, lin
                   </ul>
                 </div>
 
-                <Footer socials={socials} owner={owner} color="light" onSignatureClick={handleClose} />
+                <Footer socials={socials} owner={owner} color="light" onSignatureClick={handleClose} compact />
               </div>
             </motion.div>
           )

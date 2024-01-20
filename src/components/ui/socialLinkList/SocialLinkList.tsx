@@ -21,7 +21,7 @@ const colorMap: Record<Color, { className: string, color: IconColor, baseOpacity
 };
 
 export interface Props {
-  socials: Socials,
+  socials: Partial<Socials>,
   color?: Color
   className?: string
 }

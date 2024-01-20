@@ -2,6 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import { SocialLinkList } from '@components/ui/socialLinkList';
 import { Link, LinkColor } from '@components/ui/link';
+import { Button } from '@components/ui/button';
+import { Icon } from '@components/ui/icon';
+import { EmailIcon } from '@components/ui/icon/library/ui/EmailIcon';
 import { Socials } from '@lib/services/data';
 import { RouteDefs } from '@lib/constants/routes';
 import { str } from '@lib/services/strings';
@@ -21,6 +24,8 @@ const colorMap: Record<Color, { bgColor: string, linkColor: LinkColor }> = {
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   socials: Socials
   owner: string
+  letsConnectText?: string
+  compact?: boolean
   color?: Color
   className?: string
   onSignatureClick?: () => void
@@ -29,23 +34,46 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 export const Footer: React.FC<Props> = ({
   socials,
   owner,
+  letsConnectText,
+  compact = false,
   color = 'dark',
   className,
   onSignatureClick,
   ...props
 }) => {
   const { bgColor: bgClassName, linkColor } = colorMap[color];
-
   const year = new Date().getFullYear();
 
-  return (
-    <footer className={clsx('py-[1rem]', bgClassName, className)} {...props}>
-      <div className="page-container">
-        <SocialLinkList socials={socials} color={color} />
+  const { email, ...restOfSocials } = socials;
 
-        <p className="m-0 py-[1rem] text-center mx-auto text-gray-500 typography-caption">
-          {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
-        </p>
+  return (
+    <footer className={clsx('pb-[1rem]', compact ? 'pt-[1rem]' : 'pt-[4rem]', bgClassName, className)} {...props}>
+      <div className="page-container">
+        {
+          !compact && letsConnectText && (
+            <div id="contact" className="text-white text-center mb-[2rem] w-[90%] tablet:w-1/2 mx-auto">
+              <h2 className="mb-[1rem] tablet:mb-0 font-bold">
+                {str('ui.footer.contact.title')}
+              </h2>
+
+              <p className="font-light">
+                {letsConnectText}
+              </p>
+
+              <Button href={email} className="my-[2rem]" icon={<Icon icon={EmailIcon} color="white" />}>
+                {str('ui.footer.contact.links.email')}
+              </Button>
+            </div>
+          )
+        }
+
+        <div>
+          <SocialLinkList socials={restOfSocials} color={color} />
+
+          <p className="m-0 py-[1rem] text-center mx-auto text-gray-500 typography-caption">
+            {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
+          </p>
+        </div>
       </div>
     </footer>
   );

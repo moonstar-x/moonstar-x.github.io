@@ -64,7 +64,7 @@ export const WorkHead: React.FC<Props> = ({ name, description, cover, type, stat
               </span>
             )
           }
-          
+
           {description}
         </p>
 
