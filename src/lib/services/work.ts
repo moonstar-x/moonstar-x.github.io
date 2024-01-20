@@ -46,8 +46,32 @@ export const getAllWorkSlugs = () => {
   return getAllSlugs(directory);
 };
 
-export const getAllWorkMetadata = () => {
-  return getAllMetadata<WorkMetadata>(directory);
+export const getAllWorkMetadata = async () => {
+  const work = await getAllMetadata<WorkMetadata>(directory);
+  return work.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+};
+
+export const getAllWorkMetadataForType = async (type: WorkType) => {
+  const work = await getAllMetadata<WorkMetadata>(directory);
+  return work
+    .filter((data) => data.type === type)
+    .sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+};
+
+export const getAllWorkMetadataByType = async (): Promise<Record<WorkType, WorkArticle['metadata'][]>> => {
+  const work = await getAllWorkMetadata();
+  const initialResult = Object.fromEntries(
+    WORK_TYPE_TYPES.map((key) => [key, [] as WorkArticle['metadata'][]])
+  ) as Record<WorkType, WorkArticle['metadata'][]>;
+
+  return work.reduce((acc, cur) => {
+    acc[cur.type].push(cur);
+    return acc;
+  }, initialResult);
 };
 
 export const getWorkBySlug = (slug: string): Promise<WorkArticle> => {
