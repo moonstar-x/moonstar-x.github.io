@@ -25,6 +25,11 @@ const styleMap: Record<WorkStatus, StatusBadgeObject> = {
     text: str('work.status.in_development'),
     emoji: '💪🏻'
   },
+  'on-hold': {
+    badgeStyle: 'bg-status-onHold text-white',
+    text: str('work.status.on_hold'),
+    emoji: '😴'
+  },
   deprecated: {
     badgeStyle: 'bg-status-deprecated text-white',
     text: str('work.status.deprecated'),

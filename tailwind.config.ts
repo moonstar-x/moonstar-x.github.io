@@ -82,6 +82,7 @@ const tailwindConfig: Config = {
         completed: '#6A4C93',
         maintained: '#8AC926',
         inDevelopment: '#FFCA3A',
+        onHold: '#FF924C',
         deprecated: '#FF595E',
         abandoned: '#333'
       },

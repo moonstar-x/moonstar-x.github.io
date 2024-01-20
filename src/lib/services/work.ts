@@ -14,7 +14,7 @@ export const TECH_TYPES = [
 ] as const;
 export type TechType = typeof TECH_TYPES[number];
 
-export const WORK_STATUS_TYPES = ['completed', 'maintained', 'in-development', 'deprecated', 'abandoned'] as const;
+export const WORK_STATUS_TYPES = ['completed', 'maintained', 'in-development', 'on-hold', 'deprecated', 'abandoned'] as const;
 export type WorkStatus = typeof WORK_STATUS_TYPES[number];
 
 export const WORK_TYPE_TYPES = ['hobby', 'art', 'research'] as const;

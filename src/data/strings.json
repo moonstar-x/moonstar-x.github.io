@@ -28,6 +28,7 @@
   "work.status.completed": "Completed",
   "work.status.maintained": "Maintained",
   "work.status.in_development": "In Development",
+  "work.status.on_hold": "On Hold",
   "work.status.deprecated": "Deprecated",
   "work.status.abandoned": "Abandoned",
 
