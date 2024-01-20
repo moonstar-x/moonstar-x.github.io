@@ -29,7 +29,6 @@ export interface WorkMetadata {
   name: string
   description: string
   cover: string
-  data: string
   technologies: string[]
   status: WorkStatus
   type: WorkType

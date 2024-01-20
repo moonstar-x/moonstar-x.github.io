@@ -2,7 +2,6 @@
 name: Testing
 description: A short description.
 cover: https://cataas.com/cat
-date: 2024-01-17T04:15:35+0000
 technologies:
   - Node.js
   - Docker
