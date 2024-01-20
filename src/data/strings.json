@@ -31,6 +31,13 @@
   "work.status.deprecated": "Deprecated",
   "work.status.abandoned": "Abandoned",
 
+  "work.links.github": "See it on GitHub",
+  "work.links.dockerhub": "See it on DockerHub",
+  "work.links.website": "Visit the Website",
+  "work.links.discord": "Invite it to your Discord Server",
+  "work.links.npm": "See it on NPM",
+  "work.links.steam": "See it on Steam",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",

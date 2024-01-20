@@ -20,7 +20,9 @@ export type WorkStatus = typeof WORK_STATUS_TYPES[number];
 export const WORK_TYPE_TYPES = ['hobby', 'art', 'research'] as const;
 export type WorkType = typeof WORK_TYPE_TYPES[number];
 
-export type WorkLink = 'github' | 'dockerhub' | 'website' | 'discord' | 'npm' | 'steam';
+export const WORK_LINK_TYPES = ['github', 'dockerhub', 'website', 'discord', 'npm', 'steam'] as const;
+export type WorkLink = typeof WORK_LINK_TYPES[number];
+
 export type WorkStats = 'github' | 'dockerhub' | 'npm';
 
 export interface WorkMetadata {

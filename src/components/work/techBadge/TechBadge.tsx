@@ -257,8 +257,8 @@ export const TechBadge: React.FC<Props> = ({ className, type, ...props }) => {
 
   return (
     <Badge className={clsx('inline-flex gap-[0.25rem] items-center', badgeStyle, className)} pill {...props}>
-
       <Icon icon={icon} className={clsx('inline-block', iconStyle)} />
+
       {text}
     </Badge>
   );
