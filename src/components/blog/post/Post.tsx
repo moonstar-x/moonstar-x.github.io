@@ -1,7 +1,7 @@
 import React from 'react';
 import { PostHead } from './PostHead';
 import { PostBody } from './PostBody';
-import { AuthorCard } from './AuthorCard';
+import { AuthorCard } from '@components/ui/authorCard';
 import { Divider } from '@components/ui/divider';
 import { BlogPost } from '@lib/services/blog';
 import { BlogData } from '@lib/services/data';
@@ -23,7 +23,7 @@ export const Post: React.FC<Props> = ({ post, author }) => {
       <Divider />
 
       <div>
-        <AuthorCard author={author} />
+        <AuthorCard {...author} />
       </div>
     </article>
   );

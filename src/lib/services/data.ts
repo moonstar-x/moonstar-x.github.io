@@ -24,3 +24,8 @@ export type BlogData = JsonData['blog'];
 export const getBlogData = (): BlogData => {
   return data.blog;
 };
+
+export type WorkData = JsonData['work'];
+export const getWorkData = (): WorkData => {
+  return data.work;
+};
