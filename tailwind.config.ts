@@ -89,7 +89,8 @@ const tailwindConfig: Config = {
         stars: '#FFD97D',
         forks: '#957FEF',
         watchers: '#60D394',
-        issues: '#EE6055'
+        issues: '#EE6055',
+        pulls: '#7FC8F8'
       }
     }
   },

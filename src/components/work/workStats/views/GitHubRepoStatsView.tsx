@@ -17,8 +17,8 @@ export const GitHubRepoStatsView: React.FC<Props> = ({ data, className, ...props
   const { stars, forks, openIssues, watchers } = data;
 
   return (
-    <div className={clsx('grid grid-cols-2 tablet:grid-cols-4 desktop:grid-cols-4 gap-[4rem] desktop:gap-[6rem] border border-solid border-gray-400 rounded-[4px] px-[40px] py-[20px]', className)} {...props}>
-      <div className="flex flex-col items-center self-start'">
+    <div className={clsx('grid grid-cols-2 tablet:grid-cols-4 gap-[4rem] desktop:gap-[6rem] border border-solid border-gray-400 rounded-[4px] px-[40px] py-[20px]', className)} {...props}>
+      <div className="flex flex-col items-center self-start">
         <Icon icon={StarIcon} size="lg" className="fill-stats-stars" />
         <h4 className="text-center mt-[8px]">
           {compactNumber(stars)}
@@ -28,7 +28,7 @@ export const GitHubRepoStatsView: React.FC<Props> = ({ data, className, ...props
         </h5>
       </div>
 
-      <div className="flex flex-col items-center self-start'">
+      <div className="flex flex-col items-center self-start">
         <Icon icon={ForkIcon} size="lg" className="fill-stats-forks" />
         <h4 className="text-center mt-[8px]">
           {compactNumber(forks)}
@@ -38,7 +38,7 @@ export const GitHubRepoStatsView: React.FC<Props> = ({ data, className, ...props
         </h5>
       </div>
 
-      <div className="flex flex-col items-center self-start'">
+      <div className="flex flex-col items-center self-start">
         <Icon icon={EyeIcon} size="lg" className="fill-stats-watchers" />
         <h4 className="text-center mt-[8px]">
           {compactNumber(watchers)}
@@ -48,7 +48,7 @@ export const GitHubRepoStatsView: React.FC<Props> = ({ data, className, ...props
         </h5>
       </div>
 
-      <div className="flex flex-col items-center self-start'">
+      <div className="flex flex-col items-center self-start">
         <Icon icon={BugIcon} size="lg" className="fill-stats-issues" />
         <h4 className="text-center mt-[8px]">
           {compactNumber(openIssues)}

@@ -42,6 +42,8 @@
   "work.stats.github.forks": "Forks",
   "work.stats.github.watchers": "Watchers",
   "work.stats.github.open_issues": "Open Issues",
+  "work.stats.dockerhub.stars": "Stars",
+  "work.stats.dockerhub.pulls": "Pulls",
 
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",

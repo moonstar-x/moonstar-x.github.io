@@ -9,7 +9,7 @@ export type RepoData = {
   watchers: number
 };
 
-export type RawRepoData = {
+export type RawRepoData = Record<string, any> & {
   stargazers_count: number
   forks_count: number
   open_issues_count: number

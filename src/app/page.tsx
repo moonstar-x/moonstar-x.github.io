@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getSettings } from '@lib/services/data';
-import { GitHubRepoStats } from '@components/work/workStats/byService/GitHubRepoStats';
+import { DockerHubRepoStats } from '@components/work/workStats/byService/DockerHubRepoStats';
 
 // TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
@@ -18,7 +18,7 @@ const HomePage = () => {
     <div>
       HOME
 
-      <GitHubRepoStats identifier="moonstar-x/discord-tts-bot" />
+      <DockerHubRepoStats identifier="moonstarx/discord-tts-bot" />
     </div>
   );
 };
