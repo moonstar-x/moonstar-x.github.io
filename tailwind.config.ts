@@ -84,6 +84,12 @@ const tailwindConfig: Config = {
         inDevelopment: '#FFCA3A',
         deprecated: '#FF595E',
         abandoned: '#333'
+      },
+      stats: {
+        stars: '#FFD97D',
+        forks: '#957FEF',
+        watchers: '#60D394',
+        issues: '#EE6055'
       }
     }
   },

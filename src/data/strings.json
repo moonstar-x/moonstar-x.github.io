@@ -38,6 +38,11 @@
   "work.links.npm": "See it on NPM",
   "work.links.steam": "See it on Steam",
 
+  "work.stats.github.stars": "Stars",
+  "work.stats.github.forks": "Forks",
+  "work.stats.github.watchers": "Watchers",
+  "work.stats.github.open_issues": "Open Issues",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",
