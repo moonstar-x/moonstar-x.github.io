@@ -1,9 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { str } from '@lib/services/strings';
+import { PostsGrid } from '@components/blog/postsGrid';
 import { getSettings } from '@lib/services/data';
 import { getAllPostsMetadata } from '@lib/services/blog';
-import { PostsGrid } from '@components/blog/postsGrid';
+import { str } from '@lib/services/strings';
 
 // TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
