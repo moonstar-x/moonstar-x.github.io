@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Button } from '@components/ui/button';
+import { Image } from '@components/ui/image';
 import { str } from '@lib//services/strings';
 import { RouteDefs } from '@lib/constants/routes';
-import { Image } from '@components/ui/image';
 
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
 
