@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { str } from '@lib/services/strings';
+import { PageNotFoundError } from '@components/ui/pageNotFoundError';
 import { getSettings } from '@lib/services/data';
+import { str } from '@lib/services/strings';
 
 // TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
@@ -12,12 +13,9 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-// TODO: Implement this page.
 const NotFoundPage = () => {
   return (
-    <div className="bg-red-300 text-blue-300">
-      NOT FOUND PAGE
-    </div>
+    <PageNotFoundError />
   );
 };
 

@@ -18,6 +18,10 @@
   "ui.share_card.buttons.facebook": "Share on Facebook",
   "ui.share_card.buttons.linkedin": "Share on LinkedIn",
 
+  "ui.page_not_found_error.title": "Page Not Found",
+  "ui.page_not_found_error.description": "The page that you were looking for does not exist. Did you get lost? Don't fret, here's an image of a random cat to make you company.",
+  "ui.page_not_found_error.back_button": "Go Back",
+
   "blog.head.reading_time": "{time} min read",
   "blog.head.null_reading_time": "Quick read",
   "blog.more_like_this.title": "More Posts Like This",
