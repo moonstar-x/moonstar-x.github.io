@@ -6,10 +6,24 @@
     "x": "https://twitter.com/moonstar_x99",
     "discord": "https://discord.gg/mhj3Zsv"
   },
-  "owner": {
-    "name": "moonstar-x",
-    "letsConnect": "Are you seeking to work together? Do you have any questions that I can help with? Send me a message, I try to respond messages the same day I receive them."
-  },
+  "experience": [
+    {
+      "title": "Software Developer",
+      "company": "Devsu",
+      "description": "Lorem Ipsum.",
+      "location": "Quito, Ecuador",
+      "dateStart": "2023-10-30"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science, Engineering in Computer Science",
+      "university": "Universidad San Francisco de Quito",
+      "dateStart": "2017-08-01",
+      "dateEnd": "2023-02-01",
+      "grade": "Magna Cum Laude"
+    }
+  ],
   "blog": {
     "author": {
       "name": "Christian (moonstar-x)",
@@ -25,6 +39,10 @@
       "location": "Quito, Ecuador",
       "avatar": "/img/logo.jpg"
     }
+  },
+  "owner": {
+    "name": "moonstar-x",
+    "letsConnect": "Are you seeking to work together? Do you have any questions that I can help with? Send me a message, I try to respond messages the same day I receive them."
   },
   "settings": {
     "brand": {

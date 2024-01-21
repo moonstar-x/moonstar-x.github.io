@@ -29,3 +29,27 @@ export type WorkData = JsonData['work'];
 export const getWorkData = (): WorkData => {
   return data.work;
 };
+
+export type Experience = {
+  title?: string
+  company?: string
+  description?: string
+  location?: string
+  dateStart?: string
+  dateEnd?: string
+}
+export const getExperienceData = (): Experience[] => {
+  return data.experience;
+};
+
+export type Education = {
+  degree?: string
+  university?: string
+  description?: string
+  grade?: string
+  dateStart?: string
+  dateEnd?: string
+}
+export const getEducationData = (): Education[] => {
+  return data.education;
+};
