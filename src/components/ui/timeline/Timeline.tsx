@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import { TimelineItem } from './TimelineItem';
 import { TimelineOrigin } from './TimelineOrigin';
 
@@ -12,12 +11,13 @@ type Component = React.FC<Props> & {
   Origin: typeof TimelineOrigin
 }
 
-export const Timeline: Component = ({ className, ...props }) => {
+export const Timeline: Component = ({ children, ...props }) => {
   return (
-    <section
-      className={clsx('border-l-[2px] border-gray-500 border-dashed', className)}
-      {...props}
-    />
+    <section {...props}>
+      <div className="border-l-[2px] border-gray-500 border-dashed">
+        {children}
+      </div>
+    </section>
   );
 };
 

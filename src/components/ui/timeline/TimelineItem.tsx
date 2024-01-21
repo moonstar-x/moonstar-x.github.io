@@ -7,7 +7,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 
 export const TimelineItem: React.FC<Props> = ({ className, children, icon, ...props }) => {
   return (
-    <div className={clsx('relative w-full pb-[2rem]', className)} {...props}>
+    <div className="relative w-full pb-[2rem]" {...props}>
       <div className="absolute bg-primary w-[22px] h-[22px] rounded-[50%] left-[-12px]">
         {
           icon && (
@@ -18,7 +18,7 @@ export const TimelineItem: React.FC<Props> = ({ className, children, icon, ...pr
         }
       </div>
 
-      <div className="ml-[25px]">
+      <div className={clsx('ml-[25px]', className)}>
         {children}
       </div>
     </div>

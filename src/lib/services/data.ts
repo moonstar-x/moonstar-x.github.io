@@ -33,6 +33,7 @@ export const getWorkData = (): WorkData => {
 export type Experience = {
   title?: string
   company?: string
+  logo?: string
   description?: string
   location?: string
   dateStart?: string
@@ -45,6 +46,7 @@ export const getExperienceData = (): Experience[] => {
 export type Education = {
   degree?: string
   university?: string
+  logo?: string
   description?: string
   grade?: string
   dateStart?: string

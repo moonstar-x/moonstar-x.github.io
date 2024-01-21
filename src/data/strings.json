@@ -69,10 +69,15 @@
   "work.stats.npm.downloads.last_month": "Downloads Last Month",
   "work.stats.npm.downloads.last_year": "Downloads Last Year",
 
+  "variations.experience_timeline.position": "{title} at {company}",
+  "variations.experience_timeline.present": "Present",
+
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",
   "pages.titles.work": "Work",
   "pages.titles.not_found": "Page Not Found :(",
 
-  "services.markdown.fallback_description": "No description available."
+  "services.markdown.fallback_description": "No description available.",
+
+  "misc.humanize_duration.conjunction": " and "
 }
