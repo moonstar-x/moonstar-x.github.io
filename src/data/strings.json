@@ -71,6 +71,7 @@
 
   "variations.experience_timeline.position": "{title} at {company}",
   "variations.experience_timeline.present": "Present",
+  "variations.education_timeline.degree": "{degree} by {university}",
 
   "pages.titles.about": "About",
   "pages.titles.blog": "Blog",

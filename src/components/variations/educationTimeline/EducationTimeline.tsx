@@ -5,20 +5,20 @@ import { Timeline, TimelineProps } from '@components/ui/timeline';
 import { Time } from '@components/utils/time';
 import { Avatar } from '@components/ui/avatar';
 import { Icon } from '@components/ui/icon';
-import { BuildingIcon } from '@components/ui/icon/library/ui/BuldingIcon';
-import { Experience } from '@lib/services/data';
+import { GraduationIcon } from '@components/ui/icon/library/ui/GraduationIcon';
+import { Education } from '@lib/services/data';
 import { str } from '@lib/services/strings';
 import { CONTENT_LANG } from '@lib/config';
 
 export interface Props extends TimelineProps {
-  experience: Experience[]
+  education: Education[]
 }
 
-export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...props }) => {
+export const EducationTimeline: React.FC<Props> = ({ education, className, ...props }) => {
   return (
     <Timeline className={clsx('page-container', className)} {...props}>
       {
-        experience.map(({ title, company, logo, description, location, dateStart, dateEnd }, idx) => {
+        education.map(({ degree, university, logo, description, grade, dateStart, dateEnd }, idx) => {
           const startAsDate = dateStart ? new Date(dateStart) : null;
           const endAsDate = dateEnd ? new Date(dateEnd) : new Date();
 
@@ -44,7 +44,7 @@ export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...
                     <Avatar src={logo} className="w-full" />
                   ) : (
                     <div className="w-full h-full rounded-[6px] bg-gray-300">
-                      <Icon icon={BuildingIcon} className="w-1/2 h-1/2 translate-x-1/2 translate-y-1/2 fill-gray-500" />
+                      <Icon icon={GraduationIcon} className="w-1/2 h-1/2 translate-x-1/2 translate-y-1/2 fill-gray-500" />
                     </div>
                   )
                 }
@@ -52,17 +52,17 @@ export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...
 
               <div className="flex-1">
                 {
-                  title && (
+                  degree && (
                     <h5 className="text-[16px] font-[500]">
-                      {company ? str('variations.experience_timeline.position', { title, company }) : title}
+                      {university ? str('variations.education_timeline.degree', { degree, university }) : degree}
                     </h5>
                   )
                 }
 
                 {
-                  location && (
+                  grade && (
                     <h6 className="typography-body2 text-gray-500">
-                      {location}
+                      {grade}
                     </h6>
                   )
                 }
