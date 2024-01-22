@@ -26,6 +26,26 @@
       "grade": "Magna Cum Laude"
     }
   ],
+  "home": {
+    "hero": {
+      "title": "Software Engineer",
+      "description": "Software Developer with a passion for programming.",
+      "ctaPrimary": {
+        "text": "Keep Reading",
+        "url": "/#work"
+      },
+      "ctaSecondary": {
+        "text": "Check my GitHub",
+        "url": "https://github.com/moonstar-x"
+      },
+      "carousel": [
+        "https://cataas.com/cat",
+        "/img/logo.jpg"
+      ]
+    },
+    "workGridType": "hobby",
+    "articlesPreviewCount": 3
+  },
   "blog": {
     "author": {
       "name": "Christian (moonstar-x)",

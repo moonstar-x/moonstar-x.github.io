@@ -15,7 +15,7 @@ type Component = React.FC<Props> & {
 export const Hero: Component = ({ className, ...props }) => {
   return (
     <section
-      className={clsx('py-[50px] tablet:py-[100px] desktop:py-[150px] [&_*]:transition-none', className)}
+      className={clsx('page-container py-[50px] tablet:py-[100px] desktop:py-[150px] [&_*]:transition-none', className)}
       {...props}
     />
   );

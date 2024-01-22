@@ -14,6 +14,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
   pauseOnHover?: boolean
   dots?: boolean
   aspectRatio?: string
+  firstImagePriority?: boolean
 }
 
 export const ImageCarousel: React.FC<Props> = ({
@@ -25,6 +26,7 @@ export const ImageCarousel: React.FC<Props> = ({
   pauseOnHover = false,
   dots = false,
   aspectRatio = 'aspect-video',
+  firstImagePriority = false,
   ...props
 }) => {
   return (
@@ -50,6 +52,8 @@ export const ImageCarousel: React.FC<Props> = ({
               <Image
                 src={src}
                 className="w-full h-full"
+                priority={firstImagePriority && idx === 0}
+                loading={firstImagePriority && idx === 0 ? 'eager' : 'lazy'}
               />
             </div>
           ))

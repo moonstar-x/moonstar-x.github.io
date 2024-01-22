@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
@@ -16,7 +17,7 @@ export const DoubleContainerSide: React.FC<Props> = ({ className, children, orig
 
   return (
     <motion.div
-      className={clsx('basis-1/2', !children && 'hidden desktop:block', className)}
+      className={clsx('basis-1/2 w-full tablet:w-[50%]', !children && 'hidden desktop:block', className)}
       {...animationProps}
       {...props}
     >

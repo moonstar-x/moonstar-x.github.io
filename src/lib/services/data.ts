@@ -55,3 +55,8 @@ export type Education = {
 export const getEducationData = (): Education[] => {
   return data.education;
 };
+
+export type HomeData = JsonData['home'];
+export const getHomeData = (): HomeData => {
+  return data.home;
+};
