@@ -44,7 +44,27 @@
       ]
     },
     "workGridType": "hobby",
-    "articlesPreviewCount": 3
+    "articlesPreviewCount": 3,
+    "sections": {
+      "work": {
+        "title": "Some of my Work",
+        "subtitle": "I do some stuff, this is some of it.",
+        "cta": "Check out more of my work"
+      },
+      "experience": {
+        "title": "Experience",
+        "subtitle": "Places I've worked at."
+      },
+      "education": {
+        "title": "Education",
+        "subtitle": "Places I've studied at."
+      },
+      "blog": {
+        "title": "Latest Articles",
+        "subtitle": "I do some writing on the side about things that passionate me, wanna check'em out?",
+        "cta": "Read more articles"
+      }
+    }
   },
   "blog": {
     "author": {

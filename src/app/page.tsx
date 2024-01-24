@@ -7,9 +7,13 @@ import { EducationTimeline } from '@components/variations/educationTimeline';
 import { ImageCarousel } from '@components/ui/imageCarousel';
 import { Button } from '@components/ui/button';
 import { PostsGrid } from '@components/blog/postsGrid';
-import { getSettings, getHomeData, getExperienceData, getEducationData } from '@lib/services/data';
+import { ShortBio } from '@components/ui/shortBio';
+import { SectionHeader } from '@components/ui/sectionHeader';
+import { SectionCta } from '@components/sectionCta';
+import { getSettings, getHomeData, getExperienceData, getEducationData, getOwner } from '@lib/services/data';
 import { getAllWorkMetadataForType, WorkType } from '@lib/services/work';
 import { getAllPostsMetadata } from '@lib/services/blog';
+import { RouteDefs } from '@lib/constants/routes';
 
 // TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
@@ -20,11 +24,11 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-// TODO: Implement this page.
 const HomePage = async () => {
-  const { hero, workGridType, articlesPreviewCount } = getHomeData();
+  const { hero, workGridType, articlesPreviewCount, sections } = getHomeData();
   const experience = getExperienceData();
   const education = getEducationData();
+  const { shortBio } = getOwner();
   const work = (await getAllWorkMetadataForType(workGridType as WorkType)).slice(0, articlesPreviewCount);
   const posts = (await getAllPostsMetadata()).slice(0, articlesPreviewCount);
 
@@ -58,13 +62,21 @@ const HomePage = async () => {
         </Hero.Double>
       </Hero>
 
+      <SectionHeader title={sections.work.title} subtitle={sections.work.subtitle} />
       <WorkGrid id="work" work={work} />
+      <SectionCta href={RouteDefs.work} text={sections.work.cta} />
 
+      <SectionHeader title={sections.experience.title} subtitle={sections.experience.subtitle} />
       <ExperienceTimeline experience={experience} />
 
+      <SectionHeader title={sections.education.title} subtitle={sections.education.subtitle} />
       <EducationTimeline education={education} />
 
+      <SectionHeader title={sections.blog.title} subtitle={sections.blog.subtitle} />
       <PostsGrid posts={posts} withFeatured={false} />
+      <SectionCta href={RouteDefs.blog} text={sections.blog.cta} />
+
+      <ShortBio shortBio={shortBio} className="mt-[4rem]" />
     </Fragment>
   );
 };
