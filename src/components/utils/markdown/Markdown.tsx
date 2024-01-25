@@ -21,7 +21,6 @@ export interface Props {
   className?: string
 }
 
-// TODO: Implement styling for this component.
 export const Markdown: React.FC<Props> = ({ children, className }) => {
   return (
     <ReactMarkdown

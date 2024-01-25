@@ -117,3 +117,17 @@
 .markdown pre:not(:has(div)) code {
   @apply p-0;
 }
+
+.markdown ul:not(:has(input)) {
+  @apply list-disc;
+  @apply ml-[1em];
+}
+
+.markdown ol {
+  @apply list-decimal;
+  @apply ml-[1em];
+}
+
+.markdown input[type=checkbox] {
+  @apply mr-[0.25em];
+}
