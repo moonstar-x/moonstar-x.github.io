@@ -7,6 +7,7 @@ import { ShortBio } from '@components/ui/shortBio';
 import { SectionHeader } from '@components/ui/sectionHeader';
 import { ExperienceTimeline } from '@components/variations/experienceTimeline';
 import { EducationTimeline } from '@components/variations/educationTimeline';
+import { SectionBlock } from '@components/ui/sectionBlock';
 
 // TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
@@ -18,7 +19,7 @@ export const generateMetadata = (): Metadata => {
 };
 
 const AboutPage = () => {
-  const { shortBio } = getOwner();
+  const { shortBio, longerBioSections } = getOwner();
   const { sections } = getHomeData();
   const experience = getExperienceData();
   const education = getEducationData();
@@ -31,11 +32,19 @@ const AboutPage = () => {
         </Hero.Single>
       </Hero>
 
-      <SectionHeader title={sections.experience.title} subtitle={sections.experience.subtitle} />
-      <ExperienceTimeline experience={experience} />
+      <div className="flex flex-col gap-[4rem] page-container !max-w-[1024px]">
+        {
+          longerBioSections.map((section, idx) => (
+            <SectionBlock key={idx} title={section.title} subtitle={section.subtitle} paragraphs={section.paragraphs} />
+          ))
+        }
+      </div>
 
-      <SectionHeader title={sections.education.title} subtitle={sections.education.subtitle} />
-      <EducationTimeline education={education} />
+      <SectionHeader className="!max-w-[1024px]" title={sections.experience.title} subtitle={sections.experience.subtitle} />
+      <ExperienceTimeline className="!max-w-[1024px]" experience={experience} />
+
+      <SectionHeader className="!max-w-[1024px]" title={sections.education.title} subtitle={sections.education.subtitle} />
+      <EducationTimeline className="!max-w-[1024px]" education={education} />
     </Fragment>
   );
 };

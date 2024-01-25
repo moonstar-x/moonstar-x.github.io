@@ -22,7 +22,7 @@ export const ShortBio: React.FC<Props> = ({
             {shortBio.title}
           </h3>
 
-          <div className="flex flex-col gap-[1rem]">
+          <div className="flex flex-col gap-[2rem]">
             {
               shortBio.paragraphs.map((text, idx) => (
                 <p key={idx} className="text-justify">
