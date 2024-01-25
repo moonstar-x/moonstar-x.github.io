@@ -15,7 +15,7 @@ export const generateMetadata = (): Metadata => {
 };
 
 const WorkPage = async () => {
-  const workByType = await getAllWorkMetadataByType();
+  const workByType = await getAllWorkMetadataByType({ sort: 'name' });
   const count = Object.values(workByType)
     .reduce((acc, cur) => acc + cur.length, 0);
 

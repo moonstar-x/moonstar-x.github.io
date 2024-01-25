@@ -11,7 +11,7 @@ import { ShortBio } from '@components/ui/shortBio';
 import { SectionHeader } from '@components/ui/sectionHeader';
 import { SectionCta } from 'src/components/ui/sectionCta';
 import { getSettings, getHomeData, getExperienceData, getEducationData, getOwner } from '@lib/services/data';
-import { getAllWorkMetadataForType, WorkType } from '@lib/services/work';
+import { getAllWorkMetadata } from '@lib/services/work';
 import { getAllPostsMetadata } from '@lib/services/blog';
 import { RouteDefs } from '@lib/constants/routes';
 
@@ -25,11 +25,11 @@ export const generateMetadata = (): Metadata => {
 };
 
 const HomePage = async () => {
-  const { hero, workGridType, articlesPreviewCount, sections } = getHomeData();
+  const { hero, articlesPreviewCount, sections } = getHomeData();
   const experience = getExperienceData();
   const education = getEducationData();
   const { shortBio } = getOwner();
-  const work = (await getAllWorkMetadataForType(workGridType as WorkType)).slice(0, articlesPreviewCount);
+  const work = (await getAllWorkMetadata({ sort: 'date' })).slice(0, articlesPreviewCount);
   const posts = (await getAllPostsMetadata()).slice(0, articlesPreviewCount);
 
   return (
