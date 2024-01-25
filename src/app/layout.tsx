@@ -24,7 +24,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
           {children}
         </main>
 
-        <Footer socials={socials} owner={owner.name} letsConnectText={owner.letsConnect} className="mt-[4rem]" compact={false} />
+        <Footer socials={socials} owner={owner.name} letsConnectText={owner.letsConnect} compact={false} />
       </body>
     </html>
   );

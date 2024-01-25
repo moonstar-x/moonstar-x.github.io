@@ -26,6 +26,7 @@ const tailwindConfig: Config = {
         50: 'rgba(0, 0, 0, 0.50)'
       },
       gray: {
+        100: '#fcfcfc',
         200: '#f6f6f6',
         300: '#e6e6e6',
         400: '#dddddd',

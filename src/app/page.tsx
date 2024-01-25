@@ -9,7 +9,7 @@ import { Button } from '@components/ui/button';
 import { PostsGrid } from '@components/blog/postsGrid';
 import { ShortBio } from '@components/ui/shortBio';
 import { SectionHeader } from '@components/ui/sectionHeader';
-import { SectionCta } from '@components/sectionCta';
+import { SectionCta } from 'src/components/ui/sectionCta';
 import { getSettings, getHomeData, getExperienceData, getEducationData, getOwner } from '@lib/services/data';
 import { getAllWorkMetadataForType, WorkType } from '@lib/services/work';
 import { getAllPostsMetadata } from '@lib/services/blog';
@@ -76,7 +76,7 @@ const HomePage = async () => {
       <PostsGrid posts={posts} withFeatured={false} />
       <SectionCta href={RouteDefs.blog} text={sections.blog.cta} />
 
-      <ShortBio shortBio={shortBio} className="mt-[4rem]" />
+      <ShortBio shortBio={shortBio} withBackground />
     </Fragment>
   );
 };
