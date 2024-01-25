@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { PostsGrid } from '@components/blog/postsGrid';
+import { NoPostsAvailable, PostsGrid } from '@components/blog/postsGrid';
 import { getSettings } from '@lib/services/data';
 import { getAllPostsMetadata } from '@lib/services/blog';
 import { str } from '@lib/services/strings';
@@ -17,7 +17,15 @@ const BlogPage = async () => {
   const posts = await getAllPostsMetadata();
 
   return (
-    <PostsGrid posts={posts} withFeatured />
+    <div className="my-[4rem]">
+      {
+        posts.length < 1 ? (
+          <NoPostsAvailable />
+        ) : (
+          <PostsGrid posts={posts} withFeatured />
+        )
+      }
+    </div>
   );
 };
 

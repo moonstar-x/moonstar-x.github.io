@@ -41,11 +41,11 @@ const HomePage = async () => {
               {hero.title}
             </h1>
 
-            <h5 className="font-light">
+            <h5 className="mt-[2rem] font-light">
               {hero.description}
             </h5>
 
-            <div>
+            <div className="mt-[2rem] flex flex-col desktop:flex-row gap-[1rem] tablet:gap-[2rem]">
               <Button color="primary" href={hero.ctaPrimary.url}>
                 {hero.ctaPrimary.text}
               </Button>
@@ -62,21 +62,21 @@ const HomePage = async () => {
         </Hero.Double>
       </Hero>
 
-      <SectionHeader title={sections.work.title} subtitle={sections.work.subtitle} />
+      <SectionHeader className="pt-0" title={sections.work.title} subtitle={sections.work.subtitle} />
       <WorkGrid id="work" work={work} />
       <SectionCta href={RouteDefs.work} text={sections.work.cta} />
 
       <SectionHeader title={sections.experience.title} subtitle={sections.experience.subtitle} />
-      <ExperienceTimeline experience={experience} />
+      <ExperienceTimeline className="!max-w-[1024px]" experience={experience} />
 
       <SectionHeader title={sections.education.title} subtitle={sections.education.subtitle} />
-      <EducationTimeline education={education} />
+      <EducationTimeline className="!max-w-[1024px]" education={education} />
 
       <SectionHeader title={sections.blog.title} subtitle={sections.blog.subtitle} />
       <PostsGrid posts={posts} withFeatured={false} />
       <SectionCta href={RouteDefs.blog} text={sections.blog.cta} />
 
-      <ShortBio shortBio={shortBio} withBackground />
+      <ShortBio className="py-[4rem] mt-[2rem] tablet:mt-[4rem]" shortBio={shortBio} withBackground />
     </Fragment>
   );
 };

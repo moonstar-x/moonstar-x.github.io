@@ -1,9 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { PostCard } from '@components/blog/postCard';
-import { NoPostsAvailable } from './NoPostsAvailable';
 import { BlogPost } from '@lib/services/blog';
-
 
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   posts: BlogPost['metadata'][]
@@ -16,12 +14,6 @@ export const PostsGrid: React.FC<Props> = ({
   className,
   ...props
 }) => {
-  if (posts.length < 1) {
-    return (
-      <NoPostsAvailable className={className} {...props} />
-    );
-  }
-
   let firstPost: BlogPost['metadata'] | undefined;
   let restOfPosts: BlogPost['metadata'][] = [];
 

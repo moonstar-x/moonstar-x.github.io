@@ -43,11 +43,11 @@ const BlogPostPage: React.FC<Props> = async ({ params }) => {
 
   return (
     <Fragment>
-      <Post post={post} author={author} />
+      <Post className="mt-[4rem]" post={post} author={author} />
 
-      <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
+      <ShareCard className="page-container my-[2rem] tablet:my-[4rem] !max-w-[1024px]" />
 
-      <PostSuggestions className="!max-w-[1024px] mt-[4rem]" allPosts={allPosts} currentSlug={params.slug} />
+      <PostSuggestions className="!max-w-[1024px] mb-[4rem]" allPosts={allPosts} currentSlug={params.slug} />
     </Fragment>
   );
 };

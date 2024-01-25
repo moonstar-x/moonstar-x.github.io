@@ -14,7 +14,7 @@ type Component = React.FC<Props> & {
 export const Timeline: Component = ({ children, ...props }) => {
   return (
     <section {...props}>
-      <div className="border-l-[2px] border-gray-500 border-dashed">
+      <div className="border-l-[2px] border-gray-500 border-dashed ml-[10px]">
         {children}
       </div>
     </section>

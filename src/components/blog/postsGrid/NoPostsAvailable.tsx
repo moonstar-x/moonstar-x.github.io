@@ -4,7 +4,7 @@ import { Button } from '@components/ui/button';
 import { str } from '@lib//services/strings';
 import { RouteDefs } from '@lib/constants/routes';
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
 
 }
 

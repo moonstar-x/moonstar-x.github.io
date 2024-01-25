@@ -6,21 +6,31 @@ import { Owner } from '@lib/services/data';
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   shortBio: Owner['shortBio']
   withBackground?: boolean
+  priority?: boolean
 }
 
 export const ShortBio: React.FC<Props> = ({
   className,
   shortBio,
   withBackground = false,
+  priority = false,
   ...props
 }) => {
   return (
-    <section className={clsx('py-[4rem]', withBackground && 'bg-gray-100', className)} {...props}>
-      <div className="page-container flex flex-col-reverse tablet:flex-row gap-[2rem] tablet:gap-[3rem]">
-        <div className="basis-1/2">
-          <h3 className="font-bold mb-[20px]">
-            {shortBio.title}
-          </h3>
+    <section className={clsx(withBackground && 'bg-gray-100', className)} {...props}>
+      <div className="page-container flex flex-col-reverse desktop:flex-row gap-[2rem] tablet:gap-[6rem]">
+        <div className="flex-1">
+          {
+            priority ? (
+              <h1 className="typography-h3 font-bold mb-[20px]">
+                {shortBio.title}
+              </h1>
+            ) : (
+              <h3 className="font-bold mb-[20px]">
+                {shortBio.title}
+              </h3>
+            )
+          }
 
           <div className="flex flex-col gap-[2rem]">
             {
@@ -33,8 +43,8 @@ export const ShortBio: React.FC<Props> = ({
           </div>
         </div>
 
-        <div className="basis-1/2 flex items-center justify-center">
-          <Avatar src={shortBio.image} className="w-full max-w-[400px]" />
+        <div className="flex items-center justify-center desktop:justify-end">
+          <Avatar src={shortBio.image} className="w-full max-w-[400px]" priority={priority} loading={priority ? 'eager' : 'lazy'} />
         </div>
       </div>
     </section>

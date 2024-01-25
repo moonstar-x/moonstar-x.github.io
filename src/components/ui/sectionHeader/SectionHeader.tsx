@@ -8,7 +8,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 
 export const SectionHeader: React.FC<Props> = ({ className, title, subtitle, ...props }) => {
   return (
-    <div className={clsx('page-container text-center py-[4rem]', className)} {...props}>
+    <div className={clsx('page-container text-center py-[2rem] tablet:py-[4rem]', className)} {...props}>
       <h3 className="font-bold">
         {title}
       </h3>

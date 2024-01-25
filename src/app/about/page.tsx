@@ -28,11 +28,11 @@ const AboutPage = () => {
     <Fragment>
       <Hero>
         <Hero.Single>
-          <ShortBio shortBio={shortBio} />
+          <ShortBio shortBio={shortBio} priority />
         </Hero.Single>
       </Hero>
 
-      <div className="flex flex-col gap-[4rem] page-container !max-w-[1024px]">
+      <div className="flex flex-col gap-[2rem] tablet:gap-[4rem] page-container !max-w-[1024px]">
         {
           longerBioSections.map((section, idx) => (
             <SectionBlock key={idx} title={section.title} subtitle={section.subtitle} paragraphs={section.paragraphs} />
@@ -44,7 +44,7 @@ const AboutPage = () => {
       <ExperienceTimeline className="!max-w-[1024px]" experience={experience} />
 
       <SectionHeader className="!max-w-[1024px]" title={sections.education.title} subtitle={sections.education.subtitle} />
-      <EducationTimeline className="!max-w-[1024px]" education={education} />
+      <EducationTimeline className="!max-w-[1024px] mb-[4rem]" education={education} />
     </Fragment>
   );
 };

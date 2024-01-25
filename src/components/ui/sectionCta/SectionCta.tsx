@@ -11,7 +11,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 
 export const SectionCta: React.FC<Props> = ({ className, text, href, ...props }) => {
   return (
-    <div className={clsx('page-container text-center pt-[2rem] pb-[4rem]', className)} {...props}>
+    <div className={clsx('page-container text-center pt-[2rem] tablet:pt-[4rem]', className)} {...props}>
       <Button href={href} color="clear" iconPosition="right" icon={<Icon icon={AngleRightIcon} color="primary" size="1x" />}>
         {text}
       </Button>

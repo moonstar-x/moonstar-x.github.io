@@ -43,11 +43,11 @@ const SingleWorkPage: React.FC<Props> = async ({ params }) => {
 
   return (
     <Fragment>
-      <Work work={work} author={author} />
+      <Work className="mt-[4rem]" work={work} author={author} />
 
-      <ShareCard className="page-container mt-[4rem] !max-w-[1024px]" />
+      <ShareCard className="page-container my-[2rem] tablet:my-[4rem] !max-w-[1024px]" />
 
-      <WorkSuggestions className="!max-w-[1024px] mt-[4rem]" allWork={allWorkForCurrentType} currentSlug={params.slug} />
+      <WorkSuggestions className="!max-w-[1024px] mb-[4rem]" allWork={allWorkForCurrentType} currentSlug={params.slug} />
     </Fragment>
   );
 };

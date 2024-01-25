@@ -22,7 +22,7 @@ export interface Props {
 
 export const Header: React.FC<Props> = ({ brand, socials, owner }) => {
   return (
-    <header className="z-10 w-full h-[50px] mb-[4rem]">
+    <header className="z-10 w-full h-[50px]">
       <DesktopHeader
         className="hidden desktop:block"
         brand={brand}

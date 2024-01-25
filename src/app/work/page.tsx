@@ -20,7 +20,7 @@ const WorkPage = async () => {
     .reduce((acc, cur) => acc + cur.length, 0);
 
   return (
-    <div className="flex flex-col gap-[4rem]">
+    <div className="flex flex-col gap-[4rem] my-[4rem]">
       {
         count < 1 ? (
           <NoArticlesAvailable />
