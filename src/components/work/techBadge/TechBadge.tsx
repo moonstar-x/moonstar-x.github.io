@@ -42,7 +42,7 @@ export type IconObject = {
   text: string
   badgeStyle: string
   iconStyle: string
-}
+};
 const typeMap: Record<TechType, IconObject> = {
   nodejs: {
     icon: NodeJsIcon,

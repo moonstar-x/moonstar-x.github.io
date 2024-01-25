@@ -7,7 +7,7 @@ import { str } from '@lib/services/strings';
 
 type Props = BlogPost['metadata'] & {
 
-}
+};
 
 export const PostHead: React.FC<Props> = ({ title, description, readingTime, date, cover }) => {
   return (

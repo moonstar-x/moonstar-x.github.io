@@ -81,7 +81,7 @@
   @apply mt-[8px];
 }
 
-.markdown table:not(:first-child) {
+.markdown table:not(:first-child), div:has(table):not(:first-child) {
   @apply mt-[27.2px];
 }
 
@@ -96,7 +96,7 @@
   @apply text-gray-600;
 }
 
-.markdown img, video {
+.markdown img, video, div:has(table) {
   @apply mx-auto;
   @apply max-w-[95%];
   @apply tablet:max-w-[90%];

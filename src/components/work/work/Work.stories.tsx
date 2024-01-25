@@ -7,6 +7,7 @@ const metadata = {
   name: 'Testing',
   description: 'A short description.',
   cover: 'https://cataas.com/cat',
+  date: '2023-01-17T04:15:35+0000',
   technologies: [
     'nodejs',
     'docker',

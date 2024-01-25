@@ -10,7 +10,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 type Component = React.FC<Props> & {
   Single: typeof SingleContainer
   Double: typeof DoubleContainer
-}
+};
 
 export const Hero: Component = ({ className, ...props }) => {
   return (

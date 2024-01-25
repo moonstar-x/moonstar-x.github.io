@@ -3,7 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { ExperienceTimeline } from './ExperienceTimeline';
 import { Experience } from '@lib/services/data';
 
-const meta: Meta<Parameters<typeof ExperienceTimeline>[0] & Experience & { count: number }> = {
+type StoryComponent = React.FC<Parameters<typeof ExperienceTimeline>[0] & Experience & { count: number }>;
+
+const meta: Meta<StoryComponent> = {
   title: 'variations/ExperienceTimeline',
   component: ExperienceTimeline,
   args: {
@@ -19,7 +21,7 @@ const meta: Meta<Parameters<typeof ExperienceTimeline>[0] & Experience & { count
 };
 
 export default meta;
-type Story = StoryObj<Parameters<typeof ExperienceTimeline>[0] & Experience & { count: number }>;
+type Story = StoryObj<StoryComponent>;
 
 export const Default: Story = {
   render: ({ count, title, company, logo, description, location, dateStart, dateEnd, ...args }) => {

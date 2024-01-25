@@ -1,6 +1,6 @@
 import { REVALIDATE_TIME } from '@lib/config';
 
-type FetchOptions = Parameters<typeof fetch>[1]
+type FetchOptions = Parameters<typeof fetch>[1];
 
 export const fetchHttp = async <T>(url: string, searchParams?: Record<string, string>, options: FetchOptions = {}): Promise<T> => {
   const mergedOptions = {

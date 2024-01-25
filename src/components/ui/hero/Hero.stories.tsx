@@ -11,7 +11,9 @@ Curabitur ornare, urna id dapibus dignissim, lacus sapien aliquam enim, eget max
 Curabitur varius pulvinar purus. Suspendisse eros tellus, vehicula id orci vitae, lobortis tempor nulla. Ut in urna vitae ex mollis dictum at ac est. Cras pellentesque vitae dolor sed tempus. Aenean in pretium tellus. Cras eu magna diam. Nam et porta risus. Suspendisse potenti. Nam mollis, dolor eu ornare ultrices, dui ex tincidunt neque, id tincidunt leo ligula vitae mauris. Mauris dictum dignissim lorem, ut finibus ante dictum efficitur. Nunc at ex consectetur, convallis ipsum eget, ornare risus. Phasellus odio leo, rutrum sit amet tortor et, commodo dignissim mi. Proin condimentum cursus magna, ut pretium dui rutrum eget. Mauris fringilla dui eget est venenatis, non dapibus dui ullamcorper. Aenean porta nisi et ex gravida, ut pellentesque lectus tristique.
 `;
 
-const meta: Meta<Parameters<typeof Hero>[0] & { origin: Origin }> = {
+type StoryComponent = React.FC<Parameters<typeof Hero>[0] & { origin: Origin }>;
+
+const meta: Meta<StoryComponent> = {
   title: 'ui/Hero',
   component: Hero,
   args: {
@@ -26,7 +28,7 @@ const meta: Meta<Parameters<typeof Hero>[0] & { origin: Origin }> = {
 };
 
 export default meta;
-type Story = StoryObj<Parameters<typeof Hero>[0] & { origin: Origin }>;
+type Story = StoryObj<StoryComponent>;
 
 export const Single: Story = {
   render: ({ origin, ...args }) => (

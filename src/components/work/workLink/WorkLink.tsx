@@ -58,7 +58,7 @@ const styleMap: Record<WorkLinkType, WorkLinkObject> = {
 
 export type Props = ButtonProps & {
   link: WorkLinkType
-}
+};
 
 export const WorkLink: React.FC<Props> = ({ className, link, ...props }) => {
   if (!styleMap[link]) {

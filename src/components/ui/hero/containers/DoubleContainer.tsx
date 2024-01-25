@@ -8,7 +8,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 
 type Component = React.FC<Props> & {
   Side: typeof DoubleContainerSide
-}
+};
 
 export const DoubleContainer: Component = ({ className, ...props }) => {
   return (

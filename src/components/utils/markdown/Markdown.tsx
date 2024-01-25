@@ -69,7 +69,7 @@ export const Markdown: React.FC<Props> = ({ children, className }) => {
         },
         table: ({ children, className, node, ref, ...props }) => {
           return (
-            <Table className={className} {...props}>
+            <Table className={className} striped bordered large scrollable {...props}>
               {children}
             </Table>
           );

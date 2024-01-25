@@ -3,7 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { EducationTimeline } from './EducationTimeline';
 import { Education } from '@lib/services/data';
 
-const meta: Meta<Parameters<typeof EducationTimeline>[0] & Education & { count: number }> = {
+type StoryComponent = React.FC<Parameters<typeof EducationTimeline>[0] & Education & { count: number }>;
+
+const meta: Meta<StoryComponent> = {
   title: 'variations/EducationTimeline',
   component: EducationTimeline,
   args: {
@@ -19,7 +21,7 @@ const meta: Meta<Parameters<typeof EducationTimeline>[0] & Education & { count: 
 };
 
 export default meta;
-type Story = StoryObj<Parameters<typeof EducationTimeline>[0] & Education & { count: number }>;
+type Story = StoryObj<StoryComponent>;
 
 export const Default: Story = {
   render: ({ count, degree, university, logo, description, grade, dateStart, dateEnd, ...args }) => {

@@ -1,0 +1,57 @@
+.table-component {
+  @apply w-full;
+}
+
+.table-component > thead {
+  @apply bg-gray-100;
+}
+
+.table-component > tbody {
+  @apply bg-gray-100;
+}
+
+.table-component:not(.bordered) > thead th:first-child {
+  @apply rounded-tl-[4px];
+}
+
+.table-component:not(.bordered) > thead th:last-child {
+  @apply rounded-tr-[4px];
+}
+
+.table-component:not(.bordered) > tbody tr:last-child > td:first-child {
+  @apply rounded-bl-[4px];
+}
+
+.table-component:not(.bordered) > tbody tr:last-child > td:last-child {
+  @apply rounded-br-[4px];
+}
+
+.table-component > thead th, .table-component > tbody td {
+  @apply py-[5px];
+  @apply px-[10px];
+}
+
+.table-component.large > thead th, .table-component.large > tbody td {
+  @apply py-[10px];
+  @apply px-[20px];
+}
+
+.table-component.hoverable > tbody tr:hover {
+  @apply !bg-gray-400;
+}
+
+.table-component.striped > tbody tr:nth-child(odd) {
+  @apply bg-gray-200;
+}
+
+.table-component.bordered, .table-component.bordered th, .table-component.bordered td {
+  @apply border;
+  @apply border-solid;
+  @apply border-gray-500;
+}
+
+.table-component.bordered > thead {
+  @apply border-b-[2px];
+  @apply border-solid;
+  @apply border-b-gray-500;
+}
