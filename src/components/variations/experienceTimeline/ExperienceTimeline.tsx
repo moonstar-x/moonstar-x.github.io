@@ -1,14 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import humanizeDuration from 'humanize-duration';
-import { Timeline, TimelineProps } from '@components/ui/timeline';
+import { Timeline, TimelineProps, parseDatesToFriendlyDuration, timeFormat } from '@components/ui/timeline';
 import { Time } from '@components/utils/time';
 import { Avatar } from '@components/ui/avatar';
 import { Icon } from '@components/ui/icon';
 import { BuildingIcon } from '@components/ui/icon/library/ui/BuldingIcon';
 import { Experience } from '@lib/services/data';
 import { str } from '@lib/services/strings';
-import { CONTENT_LANG } from '@lib/config';
 
 export interface Props extends TimelineProps {
   experience: Experience[]
@@ -19,22 +17,7 @@ export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...
     <Timeline className={clsx('page-container', className)} {...props}>
       {
         experience.map(({ title, company, logo, description, location, dateStart, dateEnd }, idx) => {
-          const startAsDate = dateStart ? new Date(dateStart) : null;
-          const endAsDate = dateEnd ? new Date(dateEnd) : new Date();
-
-          const duration = startAsDate ? endAsDate.getTime() - startAsDate.getTime() : null;
-          const friendlyDuration = duration ?
-            humanizeDuration(duration, {
-              language: CONTENT_LANG,
-              units: ['y', 'mo'],
-              round: true,
-              conjunction: str('misc.humanize_duration.conjunction')
-            }) : null;
-
-          const timeFormat: Intl.DateTimeFormatOptions = {
-            year: 'numeric',
-            month: 'long'
-          };
+          const friendlyDuration = parseDatesToFriendlyDuration(dateStart, dateEnd);
 
           return (
             <Timeline.Item key={idx} className="flex tablet:flex-row gap-[1rem]">
