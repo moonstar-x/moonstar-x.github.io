@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import remarkMdx from 'remark-mdx';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFigure from 'rehype-figure';
 import rehypeVideo from 'rehype-video';
+import rehypeRaw from 'rehype-raw';
 import clsx from 'clsx';
 import { Blockquote } from '@components/ui/blockquote';
 import { Code } from '@components/ui/code';
@@ -25,8 +25,8 @@ export const Markdown: React.FC<Props> = ({ children, className }) => {
   return (
     <ReactMarkdown
       className={clsx('markdown', className)}
-      remarkPlugins={[remarkGfm, remarkMdx]}
-      rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }]]}
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }], rehypeRaw]}
       components={{
         a: ({ color, href, node, ref, ...props }) => {
           if (!href) {
@@ -82,6 +82,11 @@ export const Markdown: React.FC<Props> = ({ children, className }) => {
           return (
             <Video src={src} {...props} />
           );
+        },
+        iframe: (props) => {
+          return (
+            <iframe {...props} />
+          )
         }
       }}
     >

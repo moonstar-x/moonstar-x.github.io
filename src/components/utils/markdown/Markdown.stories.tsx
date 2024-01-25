@@ -78,6 +78,8 @@ Todo:
 https://download.samplelib.com/mp4/sample-5s.mp4
 
 Something after the video.
+
+<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/xD2BAcbP6ck?si=NuE46evkSaDOaRh-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 `;
 
 const meta: Meta<typeof Markdown> = {

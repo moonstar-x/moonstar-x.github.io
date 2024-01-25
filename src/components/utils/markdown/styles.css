@@ -69,6 +69,14 @@
   @apply !mt-[40.8px];
 }
 
+.markdown iframe {
+  @apply !mt-[40.8px];
+}
+
+.markdown iframe + * {
+  @apply !mt-[40.8px];
+}
+
 .markdown ol:not(:first-child) {
   @apply mt-[27.2px];
 }
@@ -130,4 +138,8 @@
 
 .markdown input[type=checkbox] {
   @apply mr-[0.25em];
+}
+
+.markdown iframe {
+  @apply mx-auto;
 }
