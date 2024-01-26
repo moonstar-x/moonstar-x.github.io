@@ -15,7 +15,7 @@ export const generateMetadata = (): Metadata => {
 
 const NotFoundPage = () => {
   return (
-    <PageNotFoundError />
+    <PageNotFoundError className="my-[4rem]" />
   );
 };
 
