@@ -18,7 +18,7 @@ export const WorkCard: React.FC<Props> = ({ work, className, ...props }) => {
       </div>
 
       <div>
-        <h4 className="text-justify mb-[10px] group-hover:text-primary">
+        <h4 className="mb-[10px] group-hover:text-primary">
           {work.name}
         </h4>
 

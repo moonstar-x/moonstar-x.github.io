@@ -46,7 +46,7 @@ export const PostCard: React.FC<Props> = ({
             </span>
           </p>
 
-          <h4 className="text-justify mb-[10px] group-hover:text-primary">
+          <h4 className="mb-[10px] group-hover:text-primary">
             {post.title}
           </h4>
 

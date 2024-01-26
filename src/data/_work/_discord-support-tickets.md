@@ -1,14 +1,14 @@
 ---
-name: ABC
+name: Discord Support Tickets
 #description: A short description.
 cover: https://cataas.com/cat
-date: 2023-01-17T04:15:35+0000
+date: 2024-01-08T12:00:00+0000
 technologies:
   - nodejs
   - docker
   - typescript
 status: maintained
-type: art
+type: hobby
 links:
   github: https://github.com
   dockerhub: https://hub.docker.com
