@@ -8,12 +8,16 @@ import { GitHubIcon } from '@components/ui/icon/library/brand/GitHubIcon';
 import { LinkedInIcon } from '@components/ui/icon/library/brand/LinkedInIcon';
 import { TwitterIcon } from '@components/ui/icon/library/brand/TwitterIcon';
 import { DiscordIcon } from '@components/ui/icon/library/brand/DiscordIcon';
+import { StackOverflowIcon } from '@components/ui/icon/library/brand/StackOverflowIcon';
+import { LeetCodeIcon } from '@components/ui/icon/library/brand/LeetCodeIcon';
 
 type SocialType = keyof Socials;
 const iconMap: Record<SocialType, IconComponent> = {
   email: EmailIcon,
   github: GitHubIcon,
   linkedin: LinkedInIcon,
+  stackoverflow: StackOverflowIcon,
+  leetcode: LeetCodeIcon,
   x: TwitterIcon,
   discord: DiscordIcon
 };
