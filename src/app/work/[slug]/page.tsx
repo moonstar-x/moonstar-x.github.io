@@ -4,7 +4,8 @@ import { Work } from '@components/work/work';
 import { ShareCard } from '@components/ui/shareCard';
 import { WorkSuggestions } from '@components/work/workSuggestions';
 import { getAllWorkMetadataForType, getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
-import { getSettings, getWorkData } from '@lib/services/data';
+import { getWorkData } from '@lib/services/data';
+import { resolveMetadataObject } from '@lib/utils/metadata';
 
 interface Params {
   slug: string
@@ -22,14 +23,16 @@ interface GenerateMetadataParameters {
   params: Params
 }
 
-// TODO: Implement metadata generation.
 export const generateMetadata = async ({ params }: GenerateMetadataParameters): Promise<Metadata> => {
   const { metadata } = await getWorkBySlug(params.slug);
-  const { page } = getSettings();
 
-  return {
-    title: `${metadata.name} - ${page.baseTitle}`
-  };
+  return resolveMetadataObject({
+    title: metadata.name,
+    description: metadata.description,
+    images: [metadata.cover],
+    type: 'article',
+    twitterCard: 'summary_large_image'
+  });
 };
 
 interface Props {

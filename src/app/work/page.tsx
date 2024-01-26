@@ -1,17 +1,17 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { NoArticlesAvailable, WorkGrid } from '@components/work/workGrid';
-import { getSettings } from '@lib/services/data';
-import { getAllWorkMetadataByType, WorkType } from '@lib/services/work';
+import { getAllWorkMetadata, getAllWorkMetadataByType, WorkType } from '@lib/services/work';
 import { str } from '@lib/services/strings';
+import { resolveMetadataObject } from '@lib/utils/metadata';
 
-// TODO: Implement metadata generation.
-export const generateMetadata = (): Metadata => {
-  const { page } = getSettings();
+export const generateMetadata = async (): Promise<Metadata> => {
+  const work = await getAllWorkMetadata({ sort: 'date' });
 
-  return {
-    title: `${str('pages.titles.work')} - ${page.baseTitle}`
-  };
+  return resolveMetadataObject({
+    title: str('pages.titles.work'),
+    images: work.map((work) => work.cover)
+  });
 };
 
 const WorkPage = async () => {

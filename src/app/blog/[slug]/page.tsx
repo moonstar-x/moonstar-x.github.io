@@ -4,7 +4,8 @@ import { Post } from '@components/blog/post';
 import { PostSuggestions } from '@components/blog/postSuggestions';
 import { ShareCard } from '@components/ui/shareCard';
 import { getAllPostSlugs, getAllPostsMetadata, getPostBySlug } from '@lib/services/blog';
-import { getSettings, getBlogData } from '@lib/services/data';
+import { getBlogData } from '@lib/services/data';
+import { resolveMetadataObject } from '@lib/utils/metadata';
 
 interface Params {
   slug: string
@@ -22,14 +23,16 @@ interface GenerateMetadataParameters {
   params: Params
 }
 
-// TODO: Implement metadata generation.
 export const generateMetadata = async ({ params }: GenerateMetadataParameters): Promise<Metadata> => {
   const { metadata } = await getPostBySlug(params.slug);
-  const { page } = getSettings();
 
-  return {
-    title: `${metadata.title} - ${page.baseTitle}`
-  };
+  return resolveMetadataObject({
+    title: metadata.title,
+    description: metadata.description,
+    images: [metadata.cover],
+    type: 'article',
+    twitterCard: 'summary_large_image'
+  });
 };
 
 interface Props {

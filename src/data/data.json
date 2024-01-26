@@ -119,7 +119,9 @@
       "value": "/img/logo.jpg"
     },
     "page": {
-      "baseTitle": "moonstar-x - Software Developer"
+      "baseTitle": "moonstar-x - Software Developer",
+      "defaultDescription": "moonstar-x - Software Developer",
+      "category": "technology"
     },
     "creationYear": 2021
   }

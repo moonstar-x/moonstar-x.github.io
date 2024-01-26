@@ -1,18 +1,19 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { NoPostsAvailable, PostsGrid } from '@components/blog/postsGrid';
-import { getSettings } from '@lib/services/data';
 import { getAllPostsMetadata } from '@lib/services/blog';
 import { str } from '@lib/services/strings';
+import { resolveMetadataObject } from '@lib/utils/metadata';
 
-// TODO: Implement metadata generation.
-export const generateMetadata = (): Metadata => {
-  const { page } = getSettings();
+export const generateMetadata = async (): Promise<Metadata> => {
+  const posts = await getAllPostsMetadata();
 
-  return {
-    title: `${str('pages.titles.blog')} - ${page.baseTitle}`
-  };
+  return resolveMetadataObject({
+    title: str('pages.titles.blog'),
+    images: posts.map((post) => post.cover)
+  });
 };
+
 const BlogPage = async () => {
   const posts = await getAllPostsMetadata();
 

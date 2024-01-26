@@ -10,18 +10,18 @@ import { PostsGrid } from '@components/blog/postsGrid';
 import { ShortBio } from '@components/ui/shortBio';
 import { SectionHeader } from '@components/ui/sectionHeader';
 import { SectionCta } from 'src/components/ui/sectionCta';
-import { getSettings, getHomeData, getExperienceData, getEducationData, getOwner } from '@lib/services/data';
+import { getHomeData, getExperienceData, getEducationData, getOwner } from '@lib/services/data';
 import { getAllWorkMetadata } from '@lib/services/work';
 import { getAllPostsMetadata } from '@lib/services/blog';
+import { resolveMetadataObject } from '@lib/utils/metadata';
 import { RouteDefs } from '@lib/constants/routes';
 
-// TODO: Implement metadata generation.
 export const generateMetadata = (): Metadata => {
-  const { page } = getSettings();
+  const { hero } = getHomeData();
 
-  return {
-    title: page.baseTitle
-  };
+  return resolveMetadataObject({
+    images: hero.carousel
+  });
 };
 
 const HomePage = async () => {
