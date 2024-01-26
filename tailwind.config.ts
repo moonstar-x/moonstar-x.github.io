@@ -20,7 +20,7 @@ const tailwindConfig: Config = {
     colors: {
       black: '#000',
       white: '#fff',
-      primary: '#3340FF',
+      primary: '#e04356',
       transparent: {
         4: 'rgba(0, 0, 0, 0.04)',
         50: 'rgba(0, 0, 0, 0.50)'
