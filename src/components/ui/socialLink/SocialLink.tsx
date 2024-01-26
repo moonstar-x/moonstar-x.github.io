@@ -81,7 +81,7 @@ export const SocialLink: React.FC<Props> = ({
 
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} target="_blank">
         {iconComponent}
       </Link>
     );

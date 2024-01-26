@@ -22,7 +22,7 @@ export const ShortBio: React.FC<Props> = ({
         <div className="flex-1">
           {
             priority ? (
-              <h1 className="typography-h3 font-bold mb-[20px]">
+              <h1 className="font-bold mb-[20px]">
                 {shortBio.title}
               </h1>
             ) : (

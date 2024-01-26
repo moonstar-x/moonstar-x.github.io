@@ -33,13 +33,16 @@ type CommonProps = {
 export type Props = CommonProps & (
   (ButtonProps & {
     href?: never
+    target?: never
   }) | (LinkProps & {
     href: string
+    target?: string
   })
 );
 
 export const Button: React.FC<Props> = ({
   href,
+  target,
   className,
   color = 'primary',
   size = 'md',
@@ -57,6 +60,7 @@ export const Button: React.FC<Props> = ({
       <Link
         href={href}
         className={clsx(buttonClassName, colorClassName, sizeClassName, className)}
+        target={target ?? href.startsWith('http') ? '_blank' : '_self'}
         {...props as Omit<NextLinkProps, 'href'>}
       >
         {

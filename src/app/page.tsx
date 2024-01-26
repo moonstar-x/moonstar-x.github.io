@@ -62,8 +62,8 @@ const HomePage = async () => {
         </Hero.Double>
       </Hero>
 
-      <SectionHeader className="pt-0" title={sections.work.title} subtitle={sections.work.subtitle} />
-      <WorkGrid id="work" work={work} />
+      <SectionHeader id="work" className="pt-0" title={sections.work.title} subtitle={sections.work.subtitle} />
+      <WorkGrid work={work} />
       <SectionCta href={RouteDefs.work} text={sections.work.cta} />
 
       <SectionHeader title={sections.experience.title} subtitle={sections.experience.subtitle} />

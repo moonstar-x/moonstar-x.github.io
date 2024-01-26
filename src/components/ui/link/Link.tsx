@@ -15,6 +15,8 @@ export interface Props extends LinkProps {
   withOpacity?: boolean
   className?: string
   children?: React.ReactNode
+  target?: string
+  href: string
 }
 
 export const Link: React.FC<Props> = ({
@@ -23,6 +25,8 @@ export const Link: React.FC<Props> = ({
   withOpacity = false,
   className,
   children,
+  href,
+  target,
   ...props
 }) => {
   const colorClassName = colorMap[color];
@@ -35,6 +39,8 @@ export const Link: React.FC<Props> = ({
         colorClassName,
         className
       )}
+      href={href}
+      target={target ?? href?.startsWith('http') ? '_blank' : '_self'}
       {...props}
     >
       {children}
