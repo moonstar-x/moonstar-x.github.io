@@ -82,11 +82,6 @@ export const Markdown: React.FC<Props> = ({ children, className }) => {
           return (
             <Video src={src} {...props} />
           );
-        },
-        iframe: (props) => {
-          return (
-            <iframe {...props} />
-          )
         }
       }}
     >

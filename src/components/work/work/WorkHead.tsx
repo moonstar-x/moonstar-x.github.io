@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { Image } from '@components/ui/image';
 import { Divider } from '@components/ui/divider';
-import { WorkArticle, WorkType, WorkLink as WorkLinkType, WorkStats as WorkStatsType } from '@lib/services/work';
-import { str } from '@lib/services/strings';
 import { TechBadge } from '@components/work/techBadge';
 import { WorkLink } from '@components/work/workLink';
 import { WorkStatusBadge } from '@components/work/workStatusBadge';
 import { WorkStats } from '@components/work/workStats';
+import { WorkArticle, WorkType, WorkLink as WorkLinkType, WorkStats as WorkStatsType } from '@lib/services/work';
+import { str } from '@lib/services/strings';
 
 const typeStrings = (type: WorkType): string | null => {
   switch (type) {
@@ -43,7 +43,7 @@ export const WorkHead: React.FC<Props> = ({ name, description, cover, type, stat
   const typeName = typeStrings(type);
 
   return (
-    <section>
+    <section className="animate__animated animate__fadeIn">
       <Image
         className="aspect-video"
         src={cover}

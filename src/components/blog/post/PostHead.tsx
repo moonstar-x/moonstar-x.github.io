@@ -11,7 +11,7 @@ type Props = BlogPost['metadata'] & {
 
 export const PostHead: React.FC<Props> = ({ title, description, readingTime, date, cover }) => {
   return (
-    <section>
+    <section className="animate__animated animate__fadeIn">
       <Image
         className="aspect-video"
         src={cover}

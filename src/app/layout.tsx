@@ -1,9 +1,10 @@
-import '@styles/global.css';
 import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
 import { getOwner, getSocials, getSettings } from '@lib/services/data';
 import { CONTENT_LANG } from '@lib/config';
+import '@styles/global.css';
+import 'animate.css/animate.min.css';
 
 interface Props {
   children: React.ReactNode
