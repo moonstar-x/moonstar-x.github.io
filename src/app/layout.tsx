@@ -18,13 +18,13 @@ const RootLayout: React.FC<Props> = ({ children }) => {
   return (
     <html lang={CONTENT_LANG}>
       <body>
-        <Header brand={settings.brand} socials={socials} owner={owner.name} />
+        <Header brand={settings.brand} socials={socials} owner={owner.name} creationYear={settings.creationYear} />
 
         <main>
           {children}
         </main>
 
-        <Footer socials={socials} owner={owner.name} letsConnectText={owner.letsConnect} compact={false} />
+        <Footer socials={socials} owner={owner.name} creationYear={settings.creationYear} letsConnectText={owner.letsConnect} compact={false} />
       </body>
     </html>
   );

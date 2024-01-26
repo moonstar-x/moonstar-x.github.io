@@ -4,7 +4,7 @@
   "ui.header.links.work": "Work",
   "ui.header.links.contact": "Contact",
 
-  "ui.footer.copyright": "© {year} All rights reserved.",
+  "ui.footer.copyright": "© {year}",
   "ui.footer.signature": "Developed by {name}",
   "ui.footer.contact.title": "Let's Connect",
   "ui.footer.contact.links.email": "Send me an Email",

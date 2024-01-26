@@ -18,9 +18,10 @@ export interface Props {
   brand: BrandSettings
   socials: Socials
   owner: string
+  creationYear: number
 }
 
-export const Header: React.FC<Props> = ({ brand, socials, owner }) => {
+export const Header: React.FC<Props> = ({ brand, socials, owner, creationYear }) => {
   return (
     <header className="z-10 w-full h-[50px]">
       <DesktopHeader
@@ -37,6 +38,7 @@ export const Header: React.FC<Props> = ({ brand, socials, owner }) => {
         links={links}
         socials={socials}
         owner={owner}
+        creationYear={creationYear}
       />
     </header>
   );

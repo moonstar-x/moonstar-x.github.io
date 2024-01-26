@@ -24,6 +24,7 @@ const colorMap: Record<Color, { bgColor: string, linkColor: LinkColor }> = {
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   socials: Socials
   owner: string
+  creationYear: number
   letsConnectText?: string
   compact?: boolean
   color?: Color
@@ -34,6 +35,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 export const Footer: React.FC<Props> = ({
   socials,
   owner,
+  creationYear,
   letsConnectText,
   compact = false,
   color = 'dark',
@@ -42,9 +44,10 @@ export const Footer: React.FC<Props> = ({
   ...props
 }) => {
   const { bgColor: bgClassName, linkColor } = colorMap[color];
-  const year = new Date().getFullYear();
-
   const { email, ...restOfSocials } = socials;
+
+  const currentYear = new Date().getFullYear();
+  const copyrightYear = creationYear === currentYear ? currentYear : `${creationYear} • ${currentYear}`;
 
   return (
     <footer className={clsx('pb-[1rem]', compact ? 'pt-[1rem]' : 'pt-[4rem]', bgClassName, className)} {...props}>
@@ -71,7 +74,7 @@ export const Footer: React.FC<Props> = ({
           <SocialLinkList socials={restOfSocials} color={color} />
 
           <p className="m-0 py-[1rem] text-center mx-auto text-gray-500 typography-caption">
-            {str('ui.footer.copyright', { year })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
+            {str('ui.footer.copyright', { year: copyrightYear })} - <Link href={RouteDefs.home} color={linkColor} withOpacity onClick={onSignatureClick}>{str('ui.footer.signature', { name: owner })}</Link>
           </p>
         </div>
       </div>

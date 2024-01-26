@@ -18,9 +18,10 @@ interface Props {
   links: Record<string, string>
   socials: Socials
   owner: string
+  creationYear: number
 }
 
-export const MobileHeader: React.FC<Props> = ({ className, brand, brandHref, links, socials, owner }) => {
+export const MobileHeader: React.FC<Props> = ({ className, brand, brandHref, links, socials, owner, creationYear }) => {
   const [open, setOpen] = useState<boolean>(false);
   useDisableBodyScroll(open);
 
@@ -69,7 +70,7 @@ export const MobileHeader: React.FC<Props> = ({ className, brand, brandHref, lin
                   </ul>
                 </div>
 
-                <Footer socials={socials} owner={owner} color="light" onSignatureClick={handleClose} compact />
+                <Footer socials={socials} owner={owner} creationYear={creationYear} color="light" onSignatureClick={handleClose} compact />
               </div>
             </motion.div>
           )
