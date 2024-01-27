@@ -16,7 +16,7 @@ export const EducationTimeline: React.FC<Props> = ({ education, className, ...pr
   return (
     <Timeline className={clsx('page-container', className)} {...props}>
       {
-        education.map(({ degree, university, logo, description, grade, dateStart, dateEnd }, idx) => {
+        education.map(({ degree, university, logo, description, bulletPoints, grade, dateStart, dateEnd }, idx) => {
           const friendlyDuration = parseDatesToFriendlyDuration(dateStart, dateEnd);
 
           return (
@@ -67,6 +67,20 @@ export const EducationTimeline: React.FC<Props> = ({ education, className, ...pr
                     <p className="mt-[0.5rem] text-justify">
                       {description}
                     </p>
+                  )
+                }
+
+                {
+                  bulletPoints && (
+                    <ul className="list-disc mt-[0.5rem] text-justify ml-[1em]">
+                      {
+                        bulletPoints.map((text, idx) => (
+                          <li key={idx} className="typography-body1">
+                            {text}
+                          </li>
+                        ))
+                      }
+                    </ul>
                   )
                 }
               </div>

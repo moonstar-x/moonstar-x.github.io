@@ -13,6 +13,11 @@ const meta: Meta<StoryComponent> = {
     degree: 'Bachelor of Science',
     university: 'My University',
     description: 'I worked by doing some stuff here.',
+    bulletPoints: [
+      'I did one thing.',
+      'I did another one.',
+      'I did another another one.'
+    ],
     grade: 'Magna Cum Laude',
     dateStart: '2020-01-01',
     dateEnd: '2022-02-01',
@@ -24,12 +29,13 @@ export default meta;
 type Story = StoryObj<StoryComponent>;
 
 export const Default: Story = {
-  render: ({ count, degree, university, logo, description, grade, dateStart, dateEnd, ...args }) => {
+  render: ({ count, degree, university, logo, description, bulletPoints, grade, dateStart, dateEnd, ...args }) => {
     const education = new Array(count).fill(null).map(() => ({
       degree,
       university,
       logo,
       description,
+      bulletPoints,
       grade,
       dateStart,
       dateEnd

@@ -35,6 +35,7 @@ export type Experience = {
   company?: string
   logo?: string
   description?: string
+  bulletPoints?: string[]
   location?: string
   dateStart?: string
   dateEnd?: string
@@ -48,6 +49,7 @@ export type Education = {
   university?: string
   logo?: string
   description?: string
+  bulletPoints?: string[]
   grade?: string
   dateStart?: string
   dateEnd?: string

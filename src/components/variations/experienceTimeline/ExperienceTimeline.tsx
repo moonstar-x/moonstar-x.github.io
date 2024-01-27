@@ -16,7 +16,7 @@ export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...
   return (
     <Timeline className={clsx('page-container', className)} {...props}>
       {
-        experience.map(({ title, company, logo, description, location, dateStart, dateEnd }, idx) => {
+        experience.map(({ title, company, logo, description, bulletPoints, location, dateStart, dateEnd }, idx) => {
           const friendlyDuration = parseDatesToFriendlyDuration(dateStart, dateEnd);
 
           return (
@@ -67,6 +67,20 @@ export const ExperienceTimeline: React.FC<Props> = ({ experience, className, ...
                     <p className="mt-[0.5rem] text-justify">
                       {description}
                     </p>
+                  )
+                }
+
+                {
+                  bulletPoints && (
+                    <ul className="list-disc mt-[0.5rem] text-justify ml-[1em]">
+                      {
+                        bulletPoints.map((text, idx) => (
+                          <li key={idx} className="typography-body1">
+                            {text}
+                          </li>
+                        ))
+                      }
+                    </ul>
                   )
                 }
               </div>
