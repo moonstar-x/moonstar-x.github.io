@@ -19,7 +19,7 @@ const BlogPage = async () => {
   const posts = await getAllPostsMetadata();
 
   return (
-    <div className="my-[4rem]">
+    <div className="my-[4rem] animate__animated animate__fadeIn">
       {
         posts.length < 1 ? (
           <NoPostsAvailable />
