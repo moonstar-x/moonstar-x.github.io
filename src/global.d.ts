@@ -5,6 +5,10 @@ declare global {
       NEXT_CONTENT_LANG?: string;
       NEXT_REVALIDATE_TIME?: string;
       NEXT_BASE_URL?: string;
+
+      NEXT_ANALYTICS_PLAUSIBLE_SRC?: string;
+      NEXT_ANALYTICS_PLAUSIBLE_DOMAIN?: string;
+      NEXT_ANALYTICS_GOOGLE_TAG?: string;
     }
   }
 }

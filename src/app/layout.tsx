@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
+import { PlausibleAnalytics, GoogleAnalytics } from '@components/utils/analytics';
 import { getOwner, getSocials, getSettings } from '@lib/services/data';
 import { CONTENT_LANG } from '@lib/config';
 import '@styles/global.css';
@@ -10,7 +11,6 @@ interface Props {
   children: React.ReactNode
 }
 
-// TODO: Add analytics headers here.
 const RootLayout: React.FC<Props> = ({ children }) => {
   const socials = getSocials();
   const owner = getOwner();
@@ -18,6 +18,11 @@ const RootLayout: React.FC<Props> = ({ children }) => {
 
   return (
     <html lang={CONTENT_LANG}>
+      <head>
+        <PlausibleAnalytics />
+        <GoogleAnalytics />
+      </head>
+
       <body>
         <Header brand={settings.brand} socials={socials} owner={owner.name} creationYear={settings.creationYear} />
 
