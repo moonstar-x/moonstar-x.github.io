@@ -9,11 +9,12 @@ import { ExperienceTimeline } from '@components/variations/experienceTimeline';
 import { EducationTimeline } from '@components/variations/educationTimeline';
 import { SectionBlock } from '@components/ui/sectionBlock';
 import { resolveMetadataObject } from '@lib/utils/metadata';
+import { RouteDefs } from '@lib/constants/routes';
 
 export const generateMetadata = (): Metadata => {
   const { shortBio } = getOwner();
 
-  return resolveMetadataObject({
+  return resolveMetadataObject(RouteDefs.about, {
     title: str('pages.titles.about'),
     description: shortBio.paragraphs[0],
     images: [shortBio.image]

@@ -5,7 +5,7 @@ import { str } from '@lib/services/strings';
 import { resolveMetadataObject } from '@lib/utils/metadata';
 
 export const generateMetadata = (): Metadata => {
-  return resolveMetadataObject({
+  return resolveMetadataObject('/404', {
     title: str('pages.titles.not_found')
   });
 };

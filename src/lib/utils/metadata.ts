@@ -13,7 +13,7 @@ interface Params {
   twitterCard?: 'summary' | 'summary_large_image'
 }
 
-export const resolveMetadataObject = (params: Params = {}): Metadata => {
+export const resolveMetadataObject = (path: string, params: Params = {}): Metadata => {
   const { page } = getSettings();
 
   const pageTitle = params.title ? `${params.title} | ${page.baseTitle}` : page.baseTitle;
@@ -24,6 +24,9 @@ export const resolveMetadataObject = (params: Params = {}): Metadata => {
     title: pageTitle,
     description: pageDescription,
     metadataBase: new URL(BASE_URL),
+    alternates: {
+      canonical: path
+    },
     openGraph: {
       title: pageTitle,
       description: pageDescription,

@@ -6,6 +6,7 @@ import { ShareCard } from '@components/ui/shareCard';
 import { getAllPostSlugs, getAllPostsMetadata, getPostBySlug } from '@lib/services/blog';
 import { getBlogData } from '@lib/services/data';
 import { resolveMetadataObject } from '@lib/utils/metadata';
+import { RouteDefs } from '@lib/constants/routes';
 
 interface Params {
   slug: string
@@ -26,7 +27,7 @@ interface GenerateMetadataParameters {
 export const generateMetadata = async ({ params }: GenerateMetadataParameters): Promise<Metadata> => {
   const { metadata } = await getPostBySlug(params.slug);
 
-  return resolveMetadataObject({
+  return resolveMetadataObject(RouteDefs.postBySlug(params.slug), {
     title: metadata.title,
     description: metadata.description,
     images: [metadata.cover],

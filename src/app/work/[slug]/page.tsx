@@ -6,6 +6,7 @@ import { WorkSuggestions } from '@components/work/workSuggestions';
 import { getAllWorkMetadataForType, getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
 import { getWorkData } from '@lib/services/data';
 import { resolveMetadataObject } from '@lib/utils/metadata';
+import { RouteDefs } from '@lib/constants/routes';
 
 interface Params {
   slug: string
@@ -26,7 +27,7 @@ interface GenerateMetadataParameters {
 export const generateMetadata = async ({ params }: GenerateMetadataParameters): Promise<Metadata> => {
   const { metadata } = await getWorkBySlug(params.slug);
 
-  return resolveMetadataObject({
+  return resolveMetadataObject(RouteDefs.workBySlug(params.slug), {
     title: metadata.name,
     description: metadata.description,
     images: [metadata.cover],

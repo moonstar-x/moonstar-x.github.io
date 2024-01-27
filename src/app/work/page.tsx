@@ -4,11 +4,12 @@ import { NoArticlesAvailable, WorkGrid } from '@components/work/workGrid';
 import { getAllWorkMetadata, getAllWorkMetadataByType, WorkType } from '@lib/services/work';
 import { str } from '@lib/services/strings';
 import { resolveMetadataObject } from '@lib/utils/metadata';
+import { RouteDefs } from '@lib/constants/routes';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const work = await getAllWorkMetadata({ sort: 'date' });
 
-  return resolveMetadataObject({
+  return resolveMetadataObject(RouteDefs.work, {
     title: str('pages.titles.work'),
     images: work.map((work) => work.cover)
   });

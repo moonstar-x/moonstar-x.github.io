@@ -19,7 +19,7 @@ import { RouteDefs } from '@lib/constants/routes';
 export const generateMetadata = (): Metadata => {
   const { hero } = getHomeData();
 
-  return resolveMetadataObject({
+  return resolveMetadataObject(RouteDefs.home, {
     images: hero.carousel
   });
 };
