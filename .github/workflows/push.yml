@@ -31,7 +31,7 @@ jobs:
 
       - name: Build Site
         run: npm run build
-        working-directory: ./moonstar-x.github.io
+        working-directory: /home/runner/work/moonstar-x.github.io
         env:
           NEXT_BASE_URL: ${{ secrets.NEXT_BASE_URL }}
           NEXT_ANALYTICS_PLAUSIBLE_SRC: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_SRC }}
