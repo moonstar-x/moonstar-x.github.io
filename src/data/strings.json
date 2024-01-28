@@ -1,0 +1,88 @@
+{
+  "ui.header.links.about": "About",
+  "ui.header.links.blog": "Blog",
+  "ui.header.links.work": "Work",
+  "ui.header.links.contact": "Contact",
+
+  "ui.footer.copyright": "© {year}",
+  "ui.footer.signature": "Developed by {name}",
+  "ui.footer.contact.title": "Let's Connect",
+  "ui.footer.contact.links.email": "Send me an Email",
+
+  "ui.image.default_alt": "Image with no description.",
+
+  "ui.share_card.title": "Like this content?",
+  "ui.share_card.subtitle": "Consider sharing this page with you friends.",
+  "ui.share_card.buttons.clipboard": "Copy to Clipboard",
+  "ui.share_card.buttons.twitter": "Share on X",
+  "ui.share_card.buttons.facebook": "Share on Facebook",
+  "ui.share_card.buttons.linkedin": "Share on LinkedIn",
+
+  "ui.page_not_found_error.title": "Page Not Found",
+  "ui.page_not_found_error.description": "The page that you were looking for does not exist. Did you get lost? Don't fret, here's an image of a random cat to make you company.",
+  "ui.page_not_found_error.back_button": "Go Back",
+
+  "blog.head.reading_time": "{time} min read",
+  "blog.head.null_reading_time": "Quick read",
+  "blog.more_like_this.title": "More Posts Like This",
+
+  "blog.card.buttons.read": "Read Article",
+  "blog.grid.no_posts.title": "No Posts Available 😿",
+  "blog.grid.no_posts.description": "Looks like I haven't added any posts here yet. Sorry about that! Be sure to check this page out soon.",
+  "blog.grid.no_posts.back_button": "Go Back",
+
+  "work.head.status": "Status:",
+  "work.head.technologies": "Technologies:",
+  "work.head.links": "Links:",
+  "work.more_like_this.title": "More Work Like This",
+
+  "work.grid.no_posts.title": "No Work Available 😿",
+  "work.grid.no_posts.description": "Looks like I haven't added any work articles here yet. Sorry about that! Be sure to check this page out soon.",
+  "work.grid.no_posts.back_button": "Go Back",
+  "work.grid.title": "{type} Work:",
+
+  "work.status.completed": "Completed",
+  "work.status.maintained": "Maintained",
+  "work.status.in_development": "In Development",
+  "work.status.on_hold": "On Hold",
+  "work.status.deprecated": "Deprecated",
+  "work.status.abandoned": "Abandoned",
+
+  "work.type.hobby": "Hobby",
+  "work.type.art": "Art",
+  "work.type.research": "Research",
+
+  "work.links.github": "See it on GitHub",
+  "work.links.dockerhub": "See it on DockerHub",
+  "work.links.website": "Visit the Website",
+  "work.links.discord": "Invite it to your Discord Server",
+  "work.links.npm": "See it on NPM",
+  "work.links.steam": "See it on Steam",
+
+  "work.stats.github": "Stats from GitHub:",
+  "work.stats.dockerhub": "Stats from DockerHub:",
+  "work.stats.npm": "Stats from NPM:",
+
+  "work.stats.github.stars": "Stars",
+  "work.stats.github.forks": "Forks",
+  "work.stats.github.watchers": "Watchers",
+  "work.stats.github.open_issues": "Open Issues",
+  "work.stats.dockerhub.stars": "Stars",
+  "work.stats.dockerhub.pulls": "Pulls",
+  "work.stats.npm.downloads.last_week": "Downloads Last Week",
+  "work.stats.npm.downloads.last_month": "Downloads Last Month",
+  "work.stats.npm.downloads.last_year": "Downloads Last Year",
+
+  "variations.experience_timeline.position": "{title} at {company}",
+  "variations.experience_timeline.present": "Present",
+  "variations.education_timeline.degree": "{degree} by {university}",
+
+  "pages.titles.about": "About",
+  "pages.titles.blog": "Blog",
+  "pages.titles.work": "Work",
+  "pages.titles.not_found": "Page Not Found :(",
+
+  "services.markdown.fallback_description": "No description available.",
+
+  "misc.humanize_duration.conjunction": " and "
+}

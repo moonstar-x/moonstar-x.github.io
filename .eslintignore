@@ -1,5 +1,4 @@
-node_modules/
-build/
-static/
-.svelte-kit/
-package/
+node_modules
+.next
+build
+next-env.d.ts

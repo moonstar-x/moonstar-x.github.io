@@ -1,0 +1,45 @@
+name: On Push (Master)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Run Tests
+    uses: ./.github/workflows/pr.yml
+
+  deploy:
+    name: Deploy Site
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    needs: test
+
+    steps:
+      - name: Checkout the Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.9.0
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Site
+        run: npm run build
+        env:
+          NEXT_BASE_URL: ${{ secrets.NEXT_BASE_URL }}
+          NEXT_ANALYTICS_PLAUSIBLE_SRC: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_SRC }}
+          NEXT_ANALYTICS_PLAUSIBLE_DOMAIN: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_DOMAIN }}
+          NEXT_ANALYTICS_GOOGLE_TAG: ${{ secrets.NEXT_ANALYTICS_GOOGLE_TAG }}
+
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          allow_empty_commit: true

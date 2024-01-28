@@ -1,0 +1,36 @@
+@import './typography.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply default-transition;
+}
+
+html, body {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply overflow-x-hidden;
+}
+
+body {
+  @apply font-figtree;
+  @apply flex;
+  @apply flex-col;
+  @apply min-h-[100vh];
+  @apply min-h-[100svh];
+}
+
+body main {
+  @apply flex-1;
+}
+
+.page-container {
+  @apply container;
+  @apply px-[1rem];
+  @apply desktop:px-[2.5rem];
+  @apply mx-auto;
+}

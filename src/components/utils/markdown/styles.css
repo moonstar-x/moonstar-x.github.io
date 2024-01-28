@@ -1,0 +1,145 @@
+/* Spacings */
+
+.markdown h1:not(:first-child) {
+  @apply mt-[51.2px];
+  @apply tablet:mt-[73.6px];
+}
+
+.markdown h2:not(:first-child) {
+  @apply mt-[43.52px];
+}
+
+.markdown h3:not(:first-child) {
+  @apply mt-[38.08px];
+}
+
+.markdown h4:not(:first-child) {
+  @apply mt-[35.2px];
+}
+
+.markdown h5:not(:first-child) {
+  @apply mt-[32px];
+}
+
+.markdown h6:not(:first-child) {
+  @apply mt-[28.8px];
+}
+
+.markdown p:not(:first-child) {
+  @apply mt-[13.6px];
+}
+
+.markdown hr:not(:first-child) {
+  @apply mt-[40.8px];
+}
+
+.markdown hr + * {
+  @apply !mt-[40.8px];
+}
+
+.markdown pre:not(:first-child) {
+  @apply mt-[27.2px];
+}
+
+.markdown blockquote:not(:first-child) {
+  @apply mt-[40.8px];
+}
+
+.markdown blockquote + * {
+  @apply !mt-[40.8px];
+}
+
+.markdown figure:not(:first-child) {
+  @apply mt-[40.8px];
+}
+
+.markdown figure + * {
+  @apply !mt-[40.8px];
+}
+
+.markdown figcaption:not(:first-child) {
+  @apply mt-[8px];
+}
+
+.markdown video:not(:first-child) {
+  @apply mt-[40.8px];
+}
+
+.markdown video + * {
+  @apply !mt-[40.8px];
+}
+
+.markdown iframe {
+  @apply !mt-[40.8px];
+}
+
+.markdown iframe + * {
+  @apply !mt-[40.8px];
+}
+
+.markdown ol:not(:first-child) {
+  @apply mt-[27.2px];
+}
+
+.markdown ul:not(:first-child) {
+  @apply mt-[27.2px];
+}
+
+.markdown li:not(:first-child) {
+  @apply mt-[8px];
+}
+
+.markdown table:not(:first-child), div:has(table):not(:first-child) {
+  @apply mt-[27.2px];
+}
+
+/* Styles */
+
+.markdown p {
+  @apply text-justify;
+}
+
+.markdown figcaption {
+  @apply text-center;
+  @apply text-gray-600;
+}
+
+.markdown img, video, div:has(table) {
+  @apply mx-auto;
+  @apply max-w-[95%];
+  @apply tablet:max-w-[90%];
+  @apply desktop:max-w-[85%];
+}
+
+.markdown pre:not(:has(div)) {
+  @apply bg-gray-200;
+  @apply rounded-[4px];
+  @apply hyphens-none;
+  @apply leading-normal;
+  @apply overflow-x-scroll;
+  @apply py-[1.6rem];
+  @apply px-[2.4rem];
+  @apply whitespace-pre;
+}
+
+.markdown pre:not(:has(div)) code {
+  @apply p-0;
+}
+
+.markdown ul:not(:has(input)) {
+  @apply list-disc;
+  @apply ml-[1em];
+}
+
+.markdown ol {
+  @apply list-decimal;
+  @apply ml-[1em];
+}
+
+.markdown input[type=checkbox] {
+  @apply mr-[0.25em];
+}
+
+.markdown iframe {
+  @apply mx-auto;
+}
