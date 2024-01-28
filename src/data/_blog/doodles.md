@@ -5,9 +5,9 @@ date: 2024-01-27T15:13:48.631Z
 ---
 
 At the time I was still learning how to program I came across an amazing YouTube channel called
-[The Coding Train](https://www.youtube.com/@TheCodingTrain), that featured a crazy but awesome teacher that
-with an interesting approach to teaching. His videos are mostly of him building projects using a JavaScript
-library called [p5.js](https://p5js.org/) which is a JavaScript variant of [Processing](https://processing.org/).
+[The Coding Train](https://www.youtube.com/@TheCodingTrain), that featured a crazy but awesome teacher with an interesting approach to teaching.
+His videos are mostly of him building projects using a JavaScript library called [p5.js](https://p5js.org/) which is a JavaScript
+variant of [Processing](https://processing.org/).
 
 This library is mostly used for _creative_ programming that allows you to build graphics through code.
 It's fairly simple to use and actually kinda fun.
@@ -33,7 +33,7 @@ settle for a more simplified version, which meant simulating it through a small 
 
 [Check it out here](https://edu.moonstar-x.dev/artificial-turtle/).
 
-<iframe src="https://edu.moonstar-x.dev/artificial-turtle/" title="Tortuga Artifical" width="100%" height="1620px"></iframe>
+![](/assets/blog/doodles/artificial-turtle.jpg)
 
 ## Game of Life
 
@@ -42,7 +42,7 @@ built with [p5.js](https://p5js.org/).
 
 [Check it out here](https://moonstar-x.dev/js-cellular-automata/).
 
-<iframe src="https://moonstar-x.dev/js-cellular-automata/" title="Tortuga Artifical" width="100%" height="820px"></iframe>
+![](/assets/blog/doodles/game-of-life.jpg)
 
 ## Etch-a-Sketch
 
@@ -50,7 +50,7 @@ A classic toy from when I was a kid. Incidentally, I never owned one myself, but
 
 [Check it out here](https://moonstar-x.dev/etch-a-sketch-js/).
 
-<iframe src="https://moonstar-x.dev/etch-a-sketch-js/" title="Tortuga Artifical" width="100%" height="700px"></iframe>
+![](/assets/blog/doodles/etch-a-sketch.jpg)
 
 ## Snake
 
@@ -58,5 +58,4 @@ This was the very first _doodle_ I made. Beware, it has bugs 🐛.
 
 [Check it out here](https://moonstar-x.dev/snake-game-js/).
 
-<iframe src="https://moonstar-x.dev/snake-game-js/" title="Tortuga Artifical" width="100%" height="750px"></iframe>
-
+![](/assets/blog/doodles/snake-game.jpg)

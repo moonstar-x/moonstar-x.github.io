@@ -31,26 +31,27 @@ during the project. When it comes to the project's theme, it is typically the st
 also suggest their own for the indecisive students.
 
 In my case, I decided I wanted to apply as many of software development best practices in my project, so I knew I wanted
-to build a complete piece of software as my final career project. This is when [Freenalytics](https://freenalytics.github.io)
-came into existence, nevermind the lame name (I am terrible at naming projects, you'll notice that if you read
-any of my other articles), a self-hosted log aggregation service for any type of application.
+to build a complete piece of software built with TDD and with a CI/CD system in place as my final career project.
+This is when [Freenalytics](https://freenalytics.github.io) came into existence (nevermind the lame name, I am terrible
+at naming projects, you'll notice that if you read any of my other articles), a self-hosted log aggregation service for
+any type of application.
 
 Freenalytics in its essence is a log aggregation service that stores data sent by other applications through a REST API.
 The structure of the data is defined through a JSON Schema, which also serves as a way to validate data coming in, and
-as a way to define how it is displayed in the Dashboard. Depending on the type of the data, you may find line or pie graphs,
+as a way to define how it is displayed in a Dashboard. Depending on the type of data, you may find line or pie graphs,
 tables or simple counters for each property saved.
 
 The Dashboard includes a table view of all data entries and an option to export as a CSV for further treatment.
 
-The service features predefined templates for certain types of applications (in this case, websites), that can work
+The service features predefined templates for certain types of applications (in this case, web applications), that can work
 alongside connector libraries that facilitate the integration with this service. Currently only the website connector
 library exists, which was also written in TypeScript.
 
-As an example, I wrote an example tool written in Python that leverages Selenium to generate a heatmap of user clicks in
-a web page, to display the power of log aggregation that this service can provide.
+As an example, I wrote an example tool written in Python that leverages Selenium to generate a visualization of user clicks in
+a web page, to display the power of data analysis that this service can provide.
 
-If you're curious about the final document I had to give in, you can check it out
-[here](https://repositorio.usfq.edu.ec/handle/23000/12091).
+If you're curious about the final document I had to give in, you can read it
+[here](https://repositorio.usfq.edu.ec/handle/23000/12091) (written in Spanish).
 
 ## Architecture
 
@@ -60,7 +61,7 @@ myself. In this case, each part of the service is independent:
 * The backend is an Express REST API written in TypeScript.
 * The frontend is a React SPA (built with `create-react-app`), also written in TypeScript.
 * MongoDB was used for the main database for all the service's data.
-* A Redis cached is also used to store the data that would be constantly queried to make it faster.
+* A Redis cache is also used to store the data that would be constantly queried to make its retrieval faster.
 * Both the backend and frontend are built into a Docker image, so the complete service could easily be hosted using Docker Compose.
 
 As part of the challenge, both the frontend and backend were built with TTD or Test Driven Development, where basically
@@ -71,7 +72,7 @@ and publishing the Docker image on GitHub Packages on commit pushes.
 
 ## Screenshots
 
-Are you curious about how this application looks like? Here's some screenshots.
+Here's some screenshots that depict what the application looks like.
 
 ![This page allows you to view your current applications and create new ones.](https://freenalytics.github.io/assets/home/applications.png)
 
@@ -92,9 +93,10 @@ by the service. Here's what the tool can generate:
 
 ## Conclusion
 
-Building this application was a very fulfilling experience because I learned how to integrate multiple aspects of software
+Building this application was a very interesting experience because I learned how to integrate multiple aspects of software
 development all in a single application. While the application is no longer receiving maintenance, I'm still pretty satisfied
-with how it ended up as.
+with what it ended up as.
 
-If you're curious about this project, check out it's [documentation](https://freenalytics.github.io/) for more detailed
-information about its inner workings.
+I won't go much into detail in here, but if you're curious about this project, check out it's
+[documentation](https://freenalytics.github.io/) for more detailed information about the way it works and how you can
+start using it yourself.

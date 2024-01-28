@@ -93,8 +93,8 @@
     "shortBio": {
       "title": "Nice to Meet You",
       "paragraphs": [
-        "I'm Christian López, a software engineer based in Quito, Ecuador. I recently graduated as a Bachelor of Science in Computer Science Engineering from the Universidad San Francisco de Quito and I'm currently working full-time as a Jr. Software Developer in Devsu.",
-        "During my free time, I enjoy working on various types of projects involving technology one way or another. From simple hobby projects that people can use, to research assistance projects in my university, to implementing artistic ideas for art collectives.",
+        "I'm Christian López, a software engineer based in Quito, Ecuador. I recently graduated as a Bachelor of Science in Computer Science Engineering from the Universidad San Francisco de Quito and I'm currently working full-time as a Jr. Software Developer at Devsu.",
+        "During my free time, I enjoy working on various types of projects involving technology one way or another. From simple hobby projects that people can use, to research assistance for my university, to implementing artistic ideas for art collectives.",
         "I also enjoy learning languages. I can speak English, Spanish, French, a bit of Portuguese and I'm now learning Korean."
       ],
       "image": "/img/profile-picture.jpg"
@@ -114,13 +114,13 @@
     ]
   },
   "socials": {
-    "email": "mailto:christian.lopez99@outlook.com",
     "github": "https://github.com/moonstar-x",
-    "linkedin": "https://www.linkedin.com/in/moonstar-x/",
     "stackoverflow": "https://stackoverflow.com/users/11200608/moonstar-x",
     "leetcode": "https://leetcode.com/moonstar-x/",
+    "linkedin": "https://www.linkedin.com/in/moonstar-x/",
     "x": "https://twitter.com/moonstar_x99",
-    "discord": "https://discord.gg/mhj3Zsv"
+    "discord": "https://discord.gg/mhj3Zsv",
+    "email": "mailto:christian.lopez99@outlook.com"
   },
   "blog": {
     "author": {
