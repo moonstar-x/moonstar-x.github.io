@@ -29,9 +29,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: List Files
+        run: ls src/data/_work/ && ls src/data/_blog
+
       - name: Build Site
         run: npm run build
-        working-directory: /home/runner/work/moonstar-x.github.io
         env:
           NEXT_BASE_URL: ${{ secrets.NEXT_BASE_URL }}
           NEXT_ANALYTICS_PLAUSIBLE_SRC: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_SRC }}
