@@ -1,7 +1,7 @@
 import path from 'path';
 import { getAllSlugs, getAllMetadata, getContent, Markdown, ContentMetadata } from '@lib/services/markdown';
 
-const directory = path.resolve('src/data/_work');
+const directory = path.join(process.cwd(), 'src/data/_work');
 
 export const TECH_TYPES = [
   'nodejs', 'mongo', 'docker', 'javascript', 'react',
