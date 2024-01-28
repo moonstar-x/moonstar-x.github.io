@@ -1,7 +1,7 @@
 import path from 'path';
 import { getAllSlugs, getAllMetadata, getContent, Markdown } from '@lib/services/markdown';
 
-const directory = path.join(process.cwd(), 'src/data/_blog');
+const directory = path.resolve('src/data/_blog');
 
 interface BlogPostMetadata {
   title: string
