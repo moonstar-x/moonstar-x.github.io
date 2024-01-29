@@ -47,7 +47,7 @@ export const ExpandableImage: React.FC<Props> = ({
         {
           open && (
             <motion.div
-              className="fixed top-0 right-0 bottom-0 left-0 bg-transparent-80 z-10"
+              className="fixed top-0 right-0 bottom-0 left-0 bg-transparent-80 z-10 transition-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
