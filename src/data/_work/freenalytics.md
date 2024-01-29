@@ -13,6 +13,7 @@ technologies:
   - docker
   - python
   - selenium
+  - githubActions
 status: completed
 type: research
 links:
