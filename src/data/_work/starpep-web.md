@@ -14,8 +14,8 @@ technologies:
   - neo4j
   - redis
   - nginx
-  - jenkins
   - docker
+  - jenkins
 status: in-development
 type: research
 ---
