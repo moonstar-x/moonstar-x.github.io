@@ -19,3 +19,10 @@ technologies:
 status: in-development
 type: research
 ---
+
+StarPep Web is a non-redundant database of over 45000 antimicrobial peptides (AMPs) recompiled and normalized
+from various sources. The idea is to have a central place for researchers to find information regarding
+antimicrobial peptides.
+
+This project is still under development. This article will remain empty until the project is finally
+released to the public.
