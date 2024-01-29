@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import { Blockquote } from '@components/ui/blockquote';
 import { Code } from '@components/ui/code';
 import { Divider } from '@components/ui/divider';
-import { Image } from '@components/ui/image';
+import { ExpandableImage } from '@components/ui/image';
 import { Link } from '@components/ui/link';
 import { Table } from '@components/ui/table';
 import { Video } from '@components/ui/video';
@@ -64,7 +64,7 @@ export const Markdown: React.FC<Props> = ({ children, className }) => {
           }
 
           return (
-            <Image src={src} {...props} />
+            <ExpandableImage src={src} {...props} />
           );
         },
         table: ({ children, className, node, ref, ...props }) => {
