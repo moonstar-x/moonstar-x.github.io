@@ -18,3 +18,5 @@ stats:
   github: greencoast-studios/djs-extended-voice
 #  npm: '@greencoast/djs-extended-voice'
 ---
+
+This module is still under development. This article will be updated once the module is made publicly available.

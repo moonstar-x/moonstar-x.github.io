@@ -18,3 +18,5 @@ stats:
   github: greencoast-studios/djs-extended-third-party
 #  npm: '@greencoast/djs-extended-third-party'
 ---
+
+This module is still under development. This article will be updated once the module is made publicly available.
