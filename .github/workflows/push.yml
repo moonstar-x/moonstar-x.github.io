@@ -33,8 +33,8 @@ jobs:
         run: npm run build
         env:
           NEXT_BASE_URL: ${{ secrets.NEXT_BASE_URL }}
-          NEXT_ANALYTICS_PLAUSIBLE_SRC: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_SRC }}
-          NEXT_ANALYTICS_PLAUSIBLE_DOMAIN: ${{ secrets.NEXT_ANALYTICS_PLAUSIBLE_DOMAIN }}
+          NEXT_ANALYTICS_UMAMI_SRC: ${{ secrets.NEXT_ANALYTICS_UMAMI_SRC }}
+          NEXT_ANALYTICS_UMAMI_WEBSITE_ID: ${{ secrets.NEXT_ANALYTICS_UMAMI_WEBSITE_ID }}
           NEXT_ANALYTICS_GOOGLE_TAG: ${{ secrets.NEXT_ANALYTICS_GOOGLE_TAG }}
 
       - name: Deploy to GH-Pages
