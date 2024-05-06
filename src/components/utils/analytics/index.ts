@@ -1,2 +1,2 @@
-export { PlausibleAnalytics } from './PlausibleAnalytics';
+export { UmamiAnalytics } from './UmamiAnalytics';
 export { GoogleAnalytics } from './GoogleAnalytics';

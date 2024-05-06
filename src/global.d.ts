@@ -6,8 +6,8 @@ declare global {
       NEXT_REVALIDATE_TIME?: string;
       NEXT_BASE_URL?: string;
 
-      NEXT_ANALYTICS_PLAUSIBLE_SRC?: string;
-      NEXT_ANALYTICS_PLAUSIBLE_DOMAIN?: string;
+      NEXT_ANALYTICS_UMAMI_SRC?: string;
+      NEXT_ANALYTICS_UMAMI_WEBSITE_ID?: string;
       NEXT_ANALYTICS_GOOGLE_TAG?: string;
     }
   }

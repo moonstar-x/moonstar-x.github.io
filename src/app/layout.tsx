@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '@components/ui/header';
 import { Footer } from '@components/ui/footer';
-import { PlausibleAnalytics, GoogleAnalytics } from '@components/utils/analytics';
+import { UmamiAnalytics, GoogleAnalytics } from '@components/utils/analytics';
 import { getOwner, getSocials, getSettings } from '@lib/services/data';
 import { CONTENT_LANG } from '@lib/config';
 import '@styles/global.css';
@@ -19,7 +19,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
   return (
     <html lang={CONTENT_LANG}>
       <head>
-        <PlausibleAnalytics />
+        <UmamiAnalytics />
         <GoogleAnalytics />
       </head>
 
