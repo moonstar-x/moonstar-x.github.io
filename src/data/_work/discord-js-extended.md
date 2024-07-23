@@ -8,7 +8,7 @@ technologies:
   - typescript
   - jest
   - githubActions
-status: maintained
+status: deprecated
 type: hobby
 links:
   github: https://github.com/greencoast-studios/discord.js-extended

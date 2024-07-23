@@ -9,12 +9,11 @@ technologies:
   - jest
   - docker
   - githubActions
-status: on-hold
+status: deprecated
 type: hobby
 links:
   github: https://github.com/moonstar-x/discord-music-24-7
   dockerhub: https://hub.docker.com/r/moonstarx/discord-music-24-7
-  website: https://docs.moonstar-x.dev/discord-music-24-7/
 stats:
   github: moonstar-x/discord-music-24-7
   dockerhub: moonstarx/discord-music-24-7

@@ -9,7 +9,7 @@ technologies:
   - jest
   - redis
   - githubActions
-status: maintained
+status: deprecated
 type: hobby
 links:
   github: https://github.com/greencoast-studios/djs-extended-data-provider-redis
