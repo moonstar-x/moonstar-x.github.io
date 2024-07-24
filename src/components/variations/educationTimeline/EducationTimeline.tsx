@@ -1,10 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Timeline, TimelineProps, parseDatesToFriendlyDuration, timeFormat } from '@components/ui/timeline';
+import { Timeline, TimelineProps, timeFormat } from '@components/ui/timeline';
 import { Time } from '@components/utils/time';
 import { Avatar } from '@components/ui/avatar';
 import { Icon } from '@components/ui/icon';
 import { GraduationIcon } from '@components/ui/icon/library/ui/GraduationIcon';
+import { FriendlyDuration } from '@components/utils/friendlyDuration/FriendlyDuration';
 import { Education } from '@lib/services/data';
 import { str } from '@lib/services/strings';
 
@@ -17,8 +18,6 @@ export const EducationTimeline: React.FC<Props> = ({ education, className, ...pr
     <Timeline className={clsx('page-container', className)} {...props}>
       {
         education.map(({ degree, university, logo, description, bulletPoints, grade, dateStart, dateEnd }, idx) => {
-          const friendlyDuration = parseDatesToFriendlyDuration(dateStart, dateEnd);
-
           return (
             <Timeline.Item key={idx} className="flex tablet:flex-row gap-[1rem]">
               <div className="w-[50px] h-[50px]">
@@ -57,7 +56,7 @@ export const EducationTimeline: React.FC<Props> = ({ education, className, ...pr
                         dateEnd ? (
                           <Time date={dateEnd} format={timeFormat} />
                         ) : str('variations.experience_timeline.present')
-                      } · {friendlyDuration}
+                      } · <FriendlyDuration start={dateStart} end={dateEnd} />
                     </h6>
                   )
                 }

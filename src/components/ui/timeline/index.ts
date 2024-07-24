@@ -4,6 +4,5 @@ export type {
 } from './Timeline';
 
 export {
-  parseDatesToFriendlyDuration,
   timeFormat
 } from './utils';
