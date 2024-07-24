@@ -1,6 +1,6 @@
 {
   "extends": [
-    "greencoast/react-ts",
+    "@moonstar-x/eslint-config/rules/react/typescript",
     "plugin:storybook/recommended"
   ],
   "rules": {
