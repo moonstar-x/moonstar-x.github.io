@@ -12,7 +12,10 @@
         "url": "https://github.com/moonstar-x"
       },
       "carousel": [
-        "/img/logo.jpg"
+        "/img/hero/hero_1.webp",
+        "/img/hero/hero_2.webp",
+        "/img/hero/hero_3.webp",
+        "/img/hero/hero_4.webp"
       ]
     },
     "articlesPreviewCount": 3,
@@ -39,12 +42,21 @@
   },
   "experience": [
     {
-      "title": "Jr. Software Developer",
+      "title": "Semi Senior Software Developer",
       "company": "Devsu",
       "logo": "/assets/experience/devsu.jpeg",
-      "description": "Currently working as a Jr. Software Developer remotely.",
+      "description": "Currently working as a Semi Senior Software Developer remotely.",
       "location": "Quito, Ecuador",
-      "dateStart": "2023-10-30"
+      "dateStart": "2024-10-30"
+    },
+    {
+      "title": "Junior Software Developer",
+      "company": "Devsu",
+      "logo": "/assets/experience/devsu.jpeg",
+      "description": "Worked in multiple projects both internal and for clients with an emphasis on web technologies such as Next.js, Remix, and AWS.",
+      "location": "Quito, Ecuador",
+      "dateStart": "2023-10-30",
+      "dateEnd": "2024-10-30"
     },
     {
       "title": "Full-stack Developer",
@@ -93,11 +105,11 @@
     "shortBio": {
       "title": "Nice to Meet You",
       "paragraphs": [
-        "I'm Christian López, a software engineer based in Quito, Ecuador. I recently graduated as a Bachelor of Science in Computer Science Engineering from the Universidad San Francisco de Quito and I'm currently working full-time as a Jr. Software Developer at Devsu.",
+        "I'm Christian López, a software engineer based in Quito, Ecuador. I recently graduated as a Bachelor of Science in Computer Science Engineering from the Universidad San Francisco de Quito and I'm currently working full-time as a Semi Senior Software Developer at Devsu.",
         "During my free time, I enjoy working on various types of projects involving technology one way or another. From simple hobby projects that people can use, to research assistance for my university, to implementing artistic ideas for art collectives.",
         "I also enjoy learning languages. I can speak English, Spanish, French, a bit of Portuguese and I'm now learning Korean."
       ],
-      "image": "/img/profile-picture.jpg"
+      "image": "/img/profile-picture.webp"
     },
     "longerBioSections": [
       {
@@ -127,7 +139,7 @@
       "name": "Christian (moonstar-x)",
       "bio": "Hi there, my name is Christian, also known as moonstar-x online. I write about the things I enjoy most about software development. Hope you enjoy (at least some) of my writing!",
       "location": "Quito, Ecuador",
-      "avatar": "/img/logo.jpg"
+      "avatar": "/img/logo.webp"
     }
   },
   "work": {
@@ -135,13 +147,13 @@
       "name": "Christian (moonstar-x)",
       "bio": "Hi there, my name is Christian, also known as moonstar-x online. I enjoy working on a variety of diverse projects, from implementing artistic ideas, contributing in some way to scientific research, or creating simple applications that people can use. I hope you enjoy reading about these projects as much as I enjoy building them!",
       "location": "Quito, Ecuador",
-      "avatar": "/img/logo.jpg"
+      "avatar": "/img/logo.webp"
     }
   },
   "settings": {
     "brand": {
       "image": true,
-      "value": "/img/logo.jpg"
+      "value": "/img/logo.webp"
     },
     "page": {
       "shortTitle": "moonstar-x",
