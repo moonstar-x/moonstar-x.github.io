@@ -2,7 +2,7 @@
 name: Free Games Crawler
 description: A crawler service that scrapes free game offers from multiple game storefronts like Steam and Epic Games and publishes them on Redis.
 cover: /assets/work/free-games-crawler/cover.jpg
-date: 2021-01-15T12:00:00+0000
+date: 2024-07-24T12:00:00+0000
 technologies:
   - python
   - redis
