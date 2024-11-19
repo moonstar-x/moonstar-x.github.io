@@ -14,3 +14,12 @@ links:
   playstore: https://play.google.com/store/apps/details?id=com.tricentenario.tricentenario
 ---
 
+**DISCLAIMER: I do not claim ownership of this project. The artistic work behind this project is all credited
+to [Andrés Marcial](https://marcialcoba.carbonmade.com).**
+
+After completing the [Continuum](../continuum) project, I worked with [Andrés Marcial](https://marcialcoba.carbonmade.com)
+to release a new project with the similar concept, a new one called Tricentenario which featured the same BLE beacon based
+localization method to display different videos depending on the user's position in the museum.
+
+For more information, please visit [Andrés' publication](https://marcialcoba.carbonmade.com/projects/7274171) in his portfolio
+which has a more details regarding the artistic value of the project.

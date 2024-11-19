@@ -17,3 +17,9 @@ stats:
   github: moonstar-x/node-logger
   npm: '@moonstar-x/logger'
 ---
+
+This is one of the first libraries I had ever made to be published on NPM. A fairly simple one as well,
+some logging utilities that use Chalk to get some colorful console messages depending on the log level.
+
+Initially published as [@greencoast/logger](https://www.npmjs.com/package/@greencoast/logger), I decided to migrate this
+to my own account for easier maintainability.
