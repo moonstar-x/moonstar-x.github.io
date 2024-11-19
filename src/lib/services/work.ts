@@ -10,7 +10,8 @@ export const TECH_TYPES = [
   'githubActions', 'jenkins', 'tailwind', 'sass', 'opencv',
   'flutter', 'dart', 'vite', 'postgres', 'express',
   'sqlite', 'jest', 'html', 'css', 'level',
-  'selenium', 'puppeteer', 'mariadb'
+  'selenium', 'puppeteer', 'mariadb', 'pytest', 'strapi',
+  'fastapi', 'ruby'
 ] as const;
 export type TechType = typeof TECH_TYPES[number];
 
@@ -20,7 +21,7 @@ export type WorkStatus = typeof WORK_STATUS_TYPES[number];
 export const WORK_TYPE_TYPES = ['art', 'hobby', 'research'] as const;
 export type WorkType = typeof WORK_TYPE_TYPES[number];
 
-export const WORK_LINK_TYPES = ['github', 'dockerhub', 'website', 'discord', 'npm', 'steam'] as const;
+export const WORK_LINK_TYPES = ['github', 'dockerhub', 'website', 'discord', 'npm', 'steam', 'appstore', 'playstore'] as const;
 export type WorkLink = typeof WORK_LINK_TYPES[number];
 
 export type WorkStats = 'github' | 'dockerhub' | 'npm';

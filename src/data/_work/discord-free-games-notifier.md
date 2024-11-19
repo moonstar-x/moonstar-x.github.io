@@ -5,12 +5,13 @@ cover: /assets/work/discord-free-games-notifier/cover.jpg
 date: 2021-01-15T12:00:00+0000
 technologies:
   - nodejs
-  - javascript
-  - level
+  - typescript
+  - postgres
+  - redis
   - jest
   - docker
   - githubActions
-status: on-hold
+status: maintained
 type: hobby
 links:
   github: https://github.com/moonstar-x/discord-free-games-notifier

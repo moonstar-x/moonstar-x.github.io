@@ -43,7 +43,9 @@ const tailwindConfig: Config = {
         github: '#181717',
         dockerhub: '#2496ED',
         steam: '#000000',
-        npm: '#CB3837'
+        npm: '#CB3837',
+        apple: '#000000',
+        google: '#34a853'
       },
       tech: {
         nodejs: '#339933',
@@ -78,7 +80,11 @@ const tailwindConfig: Config = {
         level: '#96DC75',
         selenium: '#43B02A',
         puppeteer: '#40B5A4',
-        mariadb: '#003545'
+        mariadb: '#003545',
+        pytest: '#0A9EDC',
+        strapi: '#4945FF',
+        fastapi: '#009688',
+        ruby: '#CC342D'
       },
       status: {
         completed: '#6A4C93',

@@ -58,6 +58,8 @@
   "work.links.discord": "Invite it to your Discord Server",
   "work.links.npm": "See it on NPM",
   "work.links.steam": "See it on Steam",
+  "work.links.appstore": "Get it on the App Store",
+  "work.links.playstore": "Get it on the Play Store",
 
   "work.stats.github": "Stats from GitHub:",
   "work.stats.dockerhub": "Stats from DockerHub:",

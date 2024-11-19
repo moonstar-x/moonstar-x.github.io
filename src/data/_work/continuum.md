@@ -5,6 +5,7 @@ cover: /assets/work/continuum/cover.jpg
 date: 2023-09-15T12:00:00+0000
 technologies:
   - nodejs
+  - javascript
   - typescript
   - react
   - vite
@@ -15,10 +16,12 @@ technologies:
   - docker
   - dart
   - flutter
-status: in-development
+status: completed
 type: art
 links:
-  website: https://collcontinuum.com
+  website: https://collectivo-continuum.github.io
+  appstore: https://apps.apple.com/ec/app/collectivo-continuum/id6473882988
+  playstore: https://play.google.com/store/apps/details?id=com.collcontinuum.continuum
 ---
 
 After I graduated from college I received a message from one of my teachers that taught me a course named

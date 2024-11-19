@@ -10,6 +10,8 @@ import { ExternalLinkIcon } from '@components/ui/icon/library/ui/ExternalLinkIco
 import { DiscordIcon } from '@components/ui/icon/library/brand/DiscordIcon';
 import { SteamIcon } from '@components/ui/icon/library/brand/SteamIcon';
 import { NpmIcon } from '@components/ui/icon/library/brand/NpmIcon';
+import { AppleIcon } from '@components/ui/icon/library/brand/AppleIcon';
+import { GooglePlayIcon } from '@components/ui/icon/library/brand/GooglePlayIcon';
 
 export type WorkLinkObject = {
   icon: IconComponent
@@ -53,6 +55,18 @@ const styleMap: Record<WorkLinkType, WorkLinkObject> = {
     linkStyle: 'text-white !bg-brands-steam',
     iconStyle: 'fill-white',
     text: str('work.links.steam')
+  },
+  appstore: {
+    icon: AppleIcon,
+    linkStyle: 'text-white !bg-brands-apple',
+    iconStyle: 'fill-white',
+    text: str('work.links.appstore')
+  },
+  playstore: {
+    icon: GooglePlayIcon,
+    linkStyle: 'text-white !bg-brands-google',
+    iconStyle: 'fill-white',
+    text: str('work.links.playstore')
   }
 };
 

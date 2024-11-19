@@ -36,6 +36,10 @@ import { LevelIcon } from '@components/ui/icon/library/tech/LevelIcon';
 import { SeleniumIcon } from '@components/ui/icon/library/tech/SeleniumIcon';
 import { PuppeteerIcon } from '@components/ui/icon/library/tech/PuppeteerIcon';
 import { MariaDbIcon } from '@components/ui/icon/library/tech/MariaDbIcon';
+import { PytestIcon } from '@components/ui/icon/library/tech/PytestIcon';
+import { StrapiIcon } from '@components/ui/icon/library/tech/StrapiIcon';
+import { FastApiIcon } from '@components/ui/icon/library/tech/FastApiIcon';
+import { RubyIcon } from '@components/ui/icon/library/tech/RubyIcon';
 
 export type IconObject = {
   icon: IconComponent
@@ -240,6 +244,30 @@ const typeMap: Record<TechType, IconObject> = {
     icon: MariaDbIcon,
     text: 'MariaDB',
     badgeStyle: 'text-white bg-tech-mariadb',
+    iconStyle: 'fill-white'
+  },
+  pytest: {
+    icon: PytestIcon,
+    text: 'Pytest',
+    badgeStyle: 'text-white bg-tech-pytest',
+    iconStyle: 'fill-white'
+  },
+  strapi: {
+    icon: StrapiIcon,
+    text: 'Strapi',
+    badgeStyle: 'text-white bg-tech-strapi',
+    iconStyle: 'fill-white'
+  },
+  fastapi: {
+    icon: FastApiIcon,
+    text: 'FastAPI',
+    badgeStyle: 'text-white bg-tech-fastapi',
+    iconStyle: 'fill-white'
+  },
+  ruby: {
+    icon: RubyIcon,
+    text: 'Ruby',
+    badgeStyle: 'text-white bg-tech-ruby',
     iconStyle: 'fill-white'
   }
 };

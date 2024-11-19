@@ -10,7 +10,7 @@ technologies:
   - level
   - docker
   - githubActions
-status: maintained
+status: deprecated
 type: hobby
 links:
   github: https://github.com/moonstar-x/automation-service
