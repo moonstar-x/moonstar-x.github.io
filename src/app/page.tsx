@@ -56,7 +56,7 @@ const HomePage = async () => {
             </div>
           </Hero.Double.Side>
 
-          <Hero.Double.Side>
+          <Hero.Double.Side className="self-center">
             <ImageCarousel images={hero.carousel} firstImagePriority aspectRatio="aspect-square" />
           </Hero.Double.Side>
         </Hero.Double>
