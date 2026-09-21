@@ -9,7 +9,6 @@ import {
   stylisticJsx,
   typescript
 } from '@moonstar-x/eslint-config';
-import storybook from 'eslint-plugin-storybook';
 
 export default [
   ...ignores,
