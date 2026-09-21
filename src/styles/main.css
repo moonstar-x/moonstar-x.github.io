@@ -1,15 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=League+Spartan:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-  /* Fonts */
-  --font-league-spartan: "League Spartan", sans-serif;
-  --font-hanken-grotesk: "Hanken Grotesk", sans-serif;
-
   /* Colors */
   --color-border: #D3D1C8;
+  --color-accent: #6B3BFF;
+}
+
+@theme inline {
+  /* Fonts */
+  --font-body: var(--font-hanken-grotesk);
+  --font-title: var(--font-league-spartan);
 }
 
 body {
   font-family: var(--font-hanken-grotesk), sans-serif;
+  color: var(--color-black);
 }
