@@ -1,63 +1,29 @@
 {
-  "include": [
-    "next-env.d.ts",
-    "./**/*.ts",
-    "./**/*.tsx",
-    "build/types/**/*.ts",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "extends": "@moonstar-x/tsconfig/react",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@data/*": ["src/data/*"],
-      "@lib/*": ["src/lib/*"],
-      "@public/*": ["public/*"],
-      "@styles/*": ["src/styles/*"]
+      "@core/*": ["src/core/*"],
+      "@data/*": ["data/*"],
+      "@styles/*": ["src/styles/*"],
     },
-    "target": "es5",
-    "module": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "declaration": false,
-    "declarationMap": false,
     "outDir": "build-ts",
-    "resolveJsonModule": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "useUnknownInCatchVariables": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "emitDeclarationOnly": false,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "isolatedModules": true,
+
     "noEmit": true,
+    "moduleResolution": "node",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  }
+    "plugins": [{
+      "name": "next"
+    }]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "build-ts",
+  ]
 }
