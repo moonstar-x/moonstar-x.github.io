@@ -1,14 +1,15 @@
 import { RouteDefs, RouteHashDefs } from '@core/routes/routes';
+import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'div'> {
+interface Props extends ComponentProps<'section'> {
   subCta: string;
   subtitle: string;
 }
 
-export const Hero: FC<Props> = ({ subtitle, subCta, ...props }) => (
-  <div className="pt-15.5 px-10 pb-10.5" {...props}>
+export const Hero: FC<Props> = ({ subtitle, subCta, className, ...props }) => (
+  <section className={clsx('pt-15.5 px-10 pb-10.5', className)} {...props}>
     <h1 className="m-0 font-title font-black text-[172px] leading-[0.78] tracking-[-0.055em] uppercase">
       I build software
       {' '}
@@ -30,5 +31,5 @@ export const Hero: FC<Props> = ({ subtitle, subCta, ...props }) => (
         </span>
       </div>
     </div>
-  </div>
+  </section>
 );
