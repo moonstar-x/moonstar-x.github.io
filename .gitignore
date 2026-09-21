@@ -130,5 +130,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Build
 build
 build-ts
+
+# Old Versions
+_old

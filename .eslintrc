@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "@moonstar-x/eslint-config/rules/react/typescript",
-    "plugin:storybook/recommended"
-  ],
-  "rules": {
-    "jsx-a11y/media-has-caption": "off"
-  }
-}
