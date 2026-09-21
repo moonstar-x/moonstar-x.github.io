@@ -1,4 +1,4 @@
-import { Hero } from '@components/ui/Hero';
+import { HomeHero } from '@components/home/HomeHero';
 import { TechnologiesMarquee } from '@components/ui/TechnologiesMarquee';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata } from '@core/services/data/work';
@@ -12,7 +12,7 @@ const HomePage: FC = async () => {
 
   return (
     <Fragment>
-      <Hero subCta={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} subtitle={config.profile.shortBio} />
+      <HomeHero subCta={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} subtitle={config.profile.shortBio} />
       <TechnologiesMarquee technologies={workTechnologies} />
     </Fragment>
   );
