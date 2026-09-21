@@ -28,12 +28,5 @@ export default [
   ...a11y(),
   ...stylistic,
   ...stylisticJsx,
-  ...sorted,
-  {
-    name: 'storybook',
-    files: [
-      'src/**/*.stories.tsx'
-    ],
-    ...storybook.configs.recommended
-  }
+  ...sorted
 ];
