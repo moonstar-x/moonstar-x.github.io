@@ -3,14 +3,24 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix"
   },
   "author": "moonstar-x <christian.lopez99@outlook.com>",
+  "dependencies": {
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
   "devDependencies": {
     "@moonstar-x/eslint-config": "^2.0.0",
     "@moonstar-x/tsconfig": "^1.0.1",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "eslint": "^10.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-storybook": "^10.6.0",
