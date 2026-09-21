@@ -3,7 +3,7 @@ export const RouteDefs = {
 } as const;
 
 export const RouteHashDefs = {
-  projects: '#projects',
+  work: '#work',
   experience: '#experience',
   contact: '#contact'
 } as const;
