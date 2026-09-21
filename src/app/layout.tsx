@@ -27,15 +27,15 @@ const RootLayout: FC<Props> = async ({ children }) => {
   const config = await getConfig();
   const navbarLinks: NavbarLink[] = [
     {
-      label: 'Projects',
+      label: config.navbar.links.projects,
       href: `${RouteDefs.home}${RouteHashDefs.projects}`
     },
     {
-      label: 'Experience',
+      label: config.navbar.links.experience,
       href: `${RouteDefs.home}${RouteHashDefs.experience}`
     },
     {
-      label: "Let's Connect",
+      label: config.navbar.links.contact,
       href: `${RouteDefs.home}${RouteHashDefs.contact}`,
       accented: true
     }

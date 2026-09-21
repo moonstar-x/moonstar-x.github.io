@@ -1,2 +1,6 @@
 navbar:
   title: moonstar-x
+  links:
+    projects: Projects
+    experience: Experience
+    contact: Let's Connect
