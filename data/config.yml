@@ -4,3 +4,16 @@ navbar:
     projects: Projects
     experience: Experience
     contact: Let's Connect
+
+footer:
+  greeting: Nice to meet you
+  contact: Let's connect
+  links:
+    - url: mailto:christian.lopez99@outlook.com
+      label: Email
+    - url: https://github.com/moonstar-x
+      label: GitHub
+    - url: https://www.linkedin.com/in/moonstar-x
+      label: LinkedIn
+    - url: https://twitter.com/moonstar_x99
+      label: Twitter

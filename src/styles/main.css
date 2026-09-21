@@ -2,8 +2,11 @@
 
 @theme {
   /* Colors */
-  --color-border: #D3D1C8;
   --color-accent: #6B3BFF;
+  --color-text: #1D1D1B;
+
+  --color-border: #D3D1C8;
+  --color-muted: #78766D;
 }
 
 @theme inline {
@@ -14,5 +17,5 @@
 
 body {
   font-family: var(--font-hanken-grotesk), sans-serif;
-  color: var(--color-black);
+  color: var(--color-text);
 }
