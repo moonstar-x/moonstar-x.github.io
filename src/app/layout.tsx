@@ -29,7 +29,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
   const navbarLinks: NavbarLink[] = [
     {
       label: 'Work',
-      href: `${RouteDefs.home}${RouteHashDefs.work}`
+      href: RouteDefs.work
     },
     {
       label: 'Experience',

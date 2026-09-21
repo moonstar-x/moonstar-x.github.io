@@ -1,9 +1,13 @@
 export const RouteDefs = {
-  home: '/'
+  home: '/',
+  work: '/work'
+} as const;
+
+export const DynamicRouteDefs = {
+  workBySlug: (slug: string): string => `${RouteDefs.work}/${slug}`
 } as const;
 
 export const RouteHashDefs = {
-  work: '#work',
   experience: '#experience',
   contact: '#contact'
 } as const;

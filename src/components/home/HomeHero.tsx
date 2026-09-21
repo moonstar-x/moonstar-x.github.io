@@ -17,9 +17,9 @@ export const HomeHero: FC<Props> = ({ subtitle, subCta, className, ...props }) =
     </h1>
 
     <div className="mt-11 flex flex-row gap-4 items-start justify-between">
-      <h2 className="m-0 text-[21px] font-light leading-[1.55] max-w-[44ch] text-light">
+      <p className="m-0 text-[21px] font-light leading-[1.55] max-w-[44ch] text-light">
         {subtitle}
-      </h2>
+      </p>
 
       <div className="flex flex-col gap-2.5 items-end shrink-0">
         <Link className="font-title font-bold text-[16px] tracking-[0.06em] uppercase bg-text text-background pt-4 pb-2.75 px-7.5" href={`${RouteDefs.home}${RouteHashDefs.contact}`}>
