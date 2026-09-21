@@ -3,10 +3,13 @@
 @theme {
   /* Colors */
   --color-accent: #6B3BFF;
-  --color-text: #1D1D1B;
 
-  --color-border: #D3D1C8;
+  --color-text: #1D1D1B;
+  --color-light: #45443E;
   --color-muted: #78766D;
+
+  --color-background: #F2F1EB;
+  --color-border: #D3D1C8;
 }
 
 @theme inline {
@@ -18,4 +21,5 @@
 body {
   font-family: var(--font-hanken-grotesk), sans-serif;
   color: var(--color-text);
+  background-color: var(--color-background);
 }

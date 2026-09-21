@@ -1,6 +1,11 @@
 navbar:
   title: moonstar-x
 
+hero:
+  subtitle: |
+    A software engineer with a passion for programming and delivering quality software. Based in Quito, Ecuador — currently Semi Senior Software Developer at Devsu.
+  subCta: Quito · GMT−5 · EN / ES / FR / PT
+
 footer:
   links:
     - url: mailto:christian.lopez99@outlook.com

@@ -12,6 +12,10 @@ export interface Config {
       url: string;
     }>;
   };
+  hero: {
+    subCta: string;
+    subtitle: string;
+  };
   navbar: {
     title: string;
   };
@@ -23,6 +27,10 @@ const ConfigSchema: z.ZodType<Config> = z.object({
       url: z.string(),
       label: z.string()
     }))
+  }),
+  hero: z.object({
+    subtitle: z.string(),
+    subCta: z.string()
   }),
   navbar: z.object({
     title: z.string()
