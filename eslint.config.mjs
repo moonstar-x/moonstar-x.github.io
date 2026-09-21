@@ -13,6 +13,14 @@ import storybook from 'eslint-plugin-storybook';
 
 export default [
   ...ignores,
+  {
+    name: 'ignores',
+    ignores: [
+      '.next',
+      'build',
+      'next-env.d.ts'
+    ]
+  },
   ...base,
   ...typescript,
   ...browser,

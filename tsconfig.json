@@ -9,6 +9,7 @@
       "@styles/*": ["src/styles/*"],
     },
     "outDir": "build-ts",
+    "types": ["node"],
 
     "noEmit": true,
     "moduleResolution": "node",
@@ -19,7 +20,10 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "build/dev/**/*.ts"
   ],
   "exclude": [
     "node_modules",
