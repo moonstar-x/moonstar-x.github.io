@@ -1,5 +1,6 @@
 import { APP_CONTENT_LANG } from '@core/config/app';
 import type { FC, ReactNode } from 'react';
+import '@styles/main.css';
 
 interface Props {
   children: ReactNode;
