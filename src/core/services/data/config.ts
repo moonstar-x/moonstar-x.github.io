@@ -6,34 +6,30 @@ import yaml from 'yaml';
 import { z } from 'zod';
 
 export interface Config {
-  footer: {
-    links: Array<{
+  profile: {
+    alias: string;
+    languages: string;
+    location: string;
+    shortBio: string;
+    socials: Array<{
       label: string;
       url: string;
     }>;
-  };
-  hero: {
-    subCta: string;
-    subtitle: string;
-  };
-  navbar: {
-    title: string;
+    timezone: string;
   };
 }
 
 const ConfigSchema: z.ZodType<Config> = z.object({
-  footer: z.object({
-    links: z.array(z.object({
-      url: z.string(),
-      label: z.string()
-    }))
-  }),
-  hero: z.object({
-    subtitle: z.string(),
-    subCta: z.string()
-  }),
-  navbar: z.object({
-    title: z.string()
+  profile: z.object({
+    alias: z.string(),
+    languages: z.string(),
+    location: z.string(),
+    shortBio: z.string(),
+    socials: z.array(z.object({
+      label: z.string(),
+      url: z.string()
+    })),
+    timezone: z.string()
   })
 });
 

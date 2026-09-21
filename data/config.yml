@@ -1,18 +1,15 @@
-navbar:
-  title: moonstar-x
-
-hero:
-  subtitle: |
-    A software engineer with a passion for programming and delivering quality software. Based in Quito, Ecuador — currently Semi Senior Software Developer at Devsu.
-  subCta: Quito · GMT−5 · EN / ES / FR / PT
-
-footer:
-  links:
-    - url: mailto:christian.lopez99@outlook.com
-      label: Email
-    - url: https://github.com/moonstar-x
-      label: GitHub
-    - url: https://www.linkedin.com/in/moonstar-x
-      label: LinkedIn
-    - url: https://x.com/moonstar_x99
-      label: x.com
+profile:
+  alias: moonstar-x
+  socials:
+    - label: Email
+      url: mailto:christian.lopez99@outlook.com
+    - label: GitHub
+      url: https://github.com/moonstar-x
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/moonstar-x
+    - label: x.com
+      url: https://x.com/moonstar_x99
+  shortBio: A software engineer with a passion for programming and delivering quality software. Based in Quito, Ecuador — currently Semi Senior Software Developer at Devsu.
+  location: Quito
+  timezone: GMT-5
+  languages: EN / ES / FR / PT

@@ -6,7 +6,7 @@ const HomePage: FC = async () => {
   const config = await getConfig();
 
   return (
-    <Hero subCta={config.hero.subCta} subtitle={config.hero.subtitle} />
+    <Hero subCta={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} subtitle={config.profile.shortBio} />
   );
 };
 
