@@ -7,7 +7,11 @@ interface Props extends ComponentProps<typeof Marquee> {
 }
 
 export const TechnologiesMarquee: FC<Props> = ({ technologies, className, ...props }) => {
-  const uniqueTechnologies = technologies;
+  const technologyCounts = technologies.reduce<Record<string, number>>((counts, technology) => ({
+    ...counts,
+    [technology]: (counts[technology] ?? 0) + 1
+  }), {});
+  const uniqueTechnologies = Object.keys(technologyCounts).toSorted((a, b) => (technologyCounts[b] ?? 0) - (technologyCounts[a] ?? 0));
 
   return (
     <Marquee className={clsx('bg-text text-background pt-3 pb-2 overflow-hidden whitespace-nowrap', className)} {...props}>
