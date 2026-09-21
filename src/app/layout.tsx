@@ -28,15 +28,15 @@ const RootLayout: FC<Props> = async ({ children }) => {
   const config = await getConfig();
   const navbarLinks: NavbarLink[] = [
     {
-      label: config.navbar.links.projects,
+      label: 'Projects',
       href: `${RouteDefs.home}${RouteHashDefs.projects}`
     },
     {
-      label: config.navbar.links.experience,
+      label: 'Experience',
       href: `${RouteDefs.home}${RouteHashDefs.experience}`
     },
     {
-      label: config.navbar.links.contact,
+      label: "Let's Connect",
       href: `${RouteDefs.home}${RouteHashDefs.contact}`,
       accented: true
     }
@@ -49,7 +49,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
         <main className="flex-1">
           {children}
         </main>
-        <Footer contactText={config.footer.contact} greetingText={config.footer.greeting} links={config.footer.links} />
+        <Footer contactText="Let's Connect" greetingText="Nice to meet you" links={config.footer.links} />
       </body>
     </html>
   );
