@@ -10,7 +10,10 @@
   --color-muted: #78766D;
 
   --color-background: #F2F1EB;
+  --color-background-dark: #E4E2D9;
   --color-border: #D3D1C8;
+  --color-border-light: #E2E0D8;
+  --color-border-lighter: #CFCDC3;
 }
 
 @theme inline {
