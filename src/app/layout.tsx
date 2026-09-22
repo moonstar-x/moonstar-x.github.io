@@ -28,9 +28,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
     <html className={`${hankenGrotesk.variable} ${leagueSpartan.variable}`} lang={APP_CONTENT_LANG}>
       <body className="flex flex-col min-h-svh">
         <Navbar title={config.profile.alias} />
-        <main>
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

@@ -14,8 +14,10 @@ const WorkPage: FC = async () => {
 
   return (
     <Fragment>
-      <WorkHero items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
-      <FilteringWorkList items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+      <main className="flex-1">
+        <WorkHero items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+        <FilteringWorkList items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+      </main>
       <WorkFooter links={config.profile.socials} />
     </Fragment>
   );

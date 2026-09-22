@@ -15,10 +15,12 @@ const HomePage: FC = async () => {
 
   return (
     <Fragment>
-      <HomeHero subCta={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} subtitle={config.profile.shortBio} />
-      <TechnologiesMarquee technologies={workTechnologies} />
-      <HomeWorkSection items={workMetadata} />
-      <HomeExperienceEducationSection education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
+      <main className="flex-1">
+        <HomeHero subCta={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} subtitle={config.profile.shortBio} />
+        <TechnologiesMarquee technologies={workTechnologies} />
+        <HomeWorkSection items={workMetadata} />
+        <HomeExperienceEducationSection education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
+      </main>
       <HomeFooter links={config.profile.socials} />
     </Fragment>
   );
