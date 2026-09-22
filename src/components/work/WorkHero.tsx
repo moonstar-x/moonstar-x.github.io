@@ -1,13 +1,14 @@
-import type { WorkMetadata } from '@core/services/data/work';
+import type { WorkMetadata, WorkType } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
 interface Props extends ComponentProps<'section'> {
   items: Array<ContentMetadata<WorkMetadata>>;
+  orderedWorkTypes: WorkType[];
 }
 
-export const WorkHero: FC<Props> = ({ items, className, ...props }) => {
+export const WorkHero: FC<Props> = ({ items, orderedWorkTypes, className, ...props }) => {
   const countsByType = items.reduce<Record<string, number>>((accumulator, current) => ({
     ...accumulator,
     [current.type]: (accumulator[current.type] ?? 0) + 1
@@ -28,10 +29,10 @@ export const WorkHero: FC<Props> = ({ items, className, ...props }) => {
       </div>
 
       <div className="shrink-0 flex flex-row gap-7.5 text-right">
-        {Object.entries(countsByType).map(([type, count]) => (
+        {orderedWorkTypes.map((type) => (
           <div className="flex flex-col gap-0.75" key={type}>
             <span className="font-title font-black text-[52px] leading-none text-accent">
-              {count}
+              {countsByType[type]}
             </span>
             <span className="text-xs font-medium tracking-[0.12em] uppercase text-muted">
               {type}
