@@ -13,7 +13,7 @@ interface Props extends ComponentProps<'footer'> {
   links: FooterLink[];
 }
 
-export const Footer: FC<Props> = ({ greetingText, contactText, links, className, ...props }) => (
+export const HomeFooter: FC<Props> = ({ greetingText, contactText, links, className, ...props }) => (
   <footer className={clsx('py-8.5 px-10 flex flex-row items-center justify-between', className)} {...props}>
     <div className="flex flex-col gap-2">
       <span className="text-sm font-medium tracking-[0.16em] uppercase text-muted">

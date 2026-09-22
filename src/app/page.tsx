@@ -1,4 +1,5 @@
 import { HomeExperienceEducationSection } from '@components/home/HomeExperienceEducationSection';
+import { HomeFooter } from '@components/home/HomeFooter';
 import { HomeHero } from '@components/home/HomeHero';
 import { HomeWorkSection } from '@components/home/HomeWorkSection';
 import { TechnologiesMarquee } from '@components/ui/TechnologiesMarquee';
@@ -18,6 +19,7 @@ const HomePage: FC = async () => {
       <TechnologiesMarquee technologies={workTechnologies} />
       <HomeWorkSection items={workMetadata} />
       <HomeExperienceEducationSection education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
+      <HomeFooter contactText="Let's Connect" greetingText="Nice to meet you" links={config.profile.socials} />
     </Fragment>
   );
 };

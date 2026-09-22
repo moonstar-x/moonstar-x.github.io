@@ -1,4 +1,3 @@
-import { Footer } from '@components/ui/Footer';
 import { Navbar } from '@components/ui/Navbar';
 import type { NavbarLink } from '@components/ui/Navbar';
 import { APP_CONTENT_LANG } from '@core/config/app';
@@ -46,10 +45,9 @@ const RootLayout: FC<Props> = async ({ children }) => {
     <html className={`${hankenGrotesk.variable} ${leagueSpartan.variable}`} lang={APP_CONTENT_LANG}>
       <body className="flex flex-col min-h-svh">
         <Navbar links={navbarLinks} title={config.profile.alias} />
-        <main className="flex-1">
+        <main>
           {children}
         </main>
-        <Footer contactText="Let's Connect" greetingText="Nice to meet you" links={config.profile.socials} />
       </body>
     </html>
   );
