@@ -25,13 +25,13 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
             <p className="text-[16px] font-light leading-[1.55] text-lighter max-w-[64ch]">
               {item.description}
             </p>
-            <div className="flex flex-row flex-wrap gap-1.5">
+            <ul className="flex flex-row flex-wrap gap-1.5">
               {item.technologies.map((technology) => (
-                <span className="text-xs font-medium border border-solid border-border-lighter py-0.75 px-2.25 text-lighter uppercase" key={technology}>
+                <li className="text-xs font-medium border border-solid border-border-lighter py-0.75 px-2.25 text-lighter uppercase" key={technology}>
                   {technology}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div className="shrink-0 flex flex-col items-end gap-2">
             {
