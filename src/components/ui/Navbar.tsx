@@ -1,22 +1,37 @@
 'use client';
-import { RouteDefs } from '@core/routes/routes';
+import { RouteDefs, RouteHashDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { ComponentProps, FC } from 'react';
 
-export interface NavbarLink {
+interface NavbarLink {
   accented?: boolean;
   href: string;
   label: string;
 }
 
+const links: NavbarLink[] = [
+  {
+    label: 'Work',
+    href: RouteDefs.work
+  },
+  {
+    label: 'Experience',
+    href: `${RouteDefs.home}${RouteHashDefs.experience}`
+  },
+  {
+    label: "Let's Connect",
+    href: RouteDefs.contact,
+    accented: true
+  }
+];
+
 interface Props extends ComponentProps<'header'> {
-  links: NavbarLink[];
   title: string;
 }
 
-export const Navbar: FC<Props> = ({ title, links, className, ...props }) => {
+export const Navbar: FC<Props> = ({ title, className, ...props }) => {
   const pathname = usePathname();
 
   return (
