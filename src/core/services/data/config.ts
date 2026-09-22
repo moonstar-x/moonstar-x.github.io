@@ -31,6 +31,7 @@ export interface Config {
   experience: ExperienceItem[];
   profile: {
     alias: string;
+    email: string;
     languages: string;
     location: string;
     shortBio: string;
@@ -45,6 +46,7 @@ export interface Config {
 const ConfigSchema: z.ZodType<Config> = z.object({
   profile: z.object({
     alias: z.string(),
+    email: z.string(),
     languages: z.string(),
     location: z.string(),
     shortBio: z.string(),
