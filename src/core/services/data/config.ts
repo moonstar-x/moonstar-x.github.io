@@ -5,7 +5,30 @@ import path from 'node:path';
 import yaml from 'yaml';
 import { z } from 'zod';
 
+export interface EducationItem {
+  bulletPoints: string[];
+  dateEnd?: Date | undefined;
+  dateStart: Date;
+  degree: string;
+  grade: string;
+  university: string;
+}
+
+export interface ExperienceItem {
+  company: string;
+  dateEnd?: Date | undefined;
+  dateStart: Date;
+  description: string;
+  location: string;
+  title: string;
+}
+
 export interface Config {
+  education: EducationItem[];
+  educationLanguages: {
+    blurb: string;
+  };
+  experience: ExperienceItem[];
   profile: {
     alias: string;
     languages: string;
@@ -30,6 +53,25 @@ const ConfigSchema: z.ZodType<Config> = z.object({
       url: z.string()
     })),
     timezone: z.string()
+  }),
+  experience: z.array(z.object({
+    title: z.string(),
+    company: z.string(),
+    description: z.string(),
+    location: z.string(),
+    dateStart: z.coerce.date(),
+    dateEnd: z.coerce.date().optional()
+  })),
+  education: z.array(z.object({
+    degree: z.string(),
+    university: z.string(),
+    bulletPoints: z.array(z.string()),
+    dateStart: z.coerce.date(),
+    dateEnd: z.coerce.date().optional(),
+    grade: z.string()
+  })),
+  educationLanguages: z.object({
+    blurb: z.string()
   })
 });
 
