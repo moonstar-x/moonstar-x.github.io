@@ -19,7 +19,7 @@ const HomePage: FC = async () => {
       <TechnologiesMarquee technologies={workTechnologies} />
       <HomeWorkSection items={workMetadata} />
       <HomeExperienceEducationSection education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
-      <HomeFooter contactText="Let's Connect" greetingText="Nice to meet you" links={config.profile.socials} />
+      <HomeFooter links={config.profile.socials} />
     </Fragment>
   );
 };

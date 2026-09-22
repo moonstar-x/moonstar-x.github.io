@@ -1,6 +1,7 @@
 export const RouteDefs = {
   home: '/',
-  work: '/work'
+  work: '/work',
+  contact: '/contact'
 } as const;
 
 export const DynamicRouteDefs = {
@@ -8,6 +9,5 @@ export const DynamicRouteDefs = {
 } as const;
 
 export const RouteHashDefs = {
-  experience: '#experience',
-  contact: '#contact'
+  experience: '#experience'
 } as const;

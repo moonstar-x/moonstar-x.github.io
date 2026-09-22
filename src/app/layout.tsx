@@ -36,7 +36,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
     },
     {
       label: "Let's Connect",
-      href: `${RouteDefs.home}${RouteHashDefs.contact}`,
+      href: RouteDefs.contact,
       accented: true
     }
   ];
