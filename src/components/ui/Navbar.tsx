@@ -18,7 +18,7 @@ const links: NavbarLink[] = [
   },
   {
     label: 'Experience',
-    href: `${RouteDefs.home}${RouteHashDefs.experience}`
+    href: `${RouteDefs.home}#${RouteHashDefs.experience}`
   },
   {
     label: "Let's Connect",

@@ -1,3 +1,4 @@
+import { RouteHashDefs } from '@core/routes/routes';
 import type { EducationItem, ExperienceItem } from '@core/services/data/config';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -9,7 +10,7 @@ interface Props extends ComponentProps<'section'> {
 }
 
 export const HomeExperienceEducationSection: FC<Props> = ({ experience, education, educationLanguagesBlurb, className, ...props }) => (
-  <section className={clsx('py-9 px-10 border-b border-solid border-border flex flex-row gap-12.5', className)} {...props}>
+  <section className={clsx('py-9 px-10 border-b border-solid border-border flex flex-row gap-12.5', className)} id={RouteHashDefs.experience} {...props}>
     <div className="flex grow flex-col gap-4">
       <span className="font-title font-black text-[26px] tracking-[-0.02em] uppercase">
         Experience

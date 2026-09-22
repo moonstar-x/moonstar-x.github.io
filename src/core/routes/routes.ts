@@ -9,5 +9,5 @@ export const DynamicRouteDefs = {
 } as const;
 
 export const RouteHashDefs = {
-  experience: '#experience'
+  experience: 'experience'
 } as const;
