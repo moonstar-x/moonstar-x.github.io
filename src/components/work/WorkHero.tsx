@@ -4,15 +4,14 @@ import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
 interface Props extends ComponentProps<'section'> {
-  items: Array<ContentMetadata<WorkMetadata>>;
+  items: Record<WorkType, Array<ContentMetadata<WorkMetadata>>>;
   orderedWorkTypes: WorkType[];
 }
 
 export const WorkHero: FC<Props> = ({ items, orderedWorkTypes, className, ...props }) => {
-  const countsByType = items.reduce<Record<string, number>>((accumulator, current) => ({
-    ...accumulator,
-    [current.type]: (accumulator[current.type] ?? 0) + 1
-  }), {});
+  const countsByType = Object.fromEntries(
+    Object.entries(items).map(([type, innerItems]) => [type, innerItems.length])
+  );
 
   return (
     <section className={clsx('px-10 pt-11.5 pb-8.5 border-b border-solid border-border flex flex-row items-end justify-between gap-10', className)} {...props}>

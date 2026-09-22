@@ -1,4 +1,5 @@
 'use client';
+import { TypedWorkList } from '@components/work/TypedWorkList';
 import type { WorkMetadata, WorkType } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
@@ -6,7 +7,7 @@ import { useState } from 'react';
 import type { ComponentProps, FC } from 'react';
 
 interface Props extends ComponentProps<'section'> {
-  items: Array<ContentMetadata<WorkMetadata>>;
+  items: Record<WorkType, Array<ContentMetadata<WorkMetadata>>>;
   orderedWorkTypes: WorkType[];
 }
 
@@ -30,6 +31,20 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
           </button>
         ))}
       </div>
+
+      {
+        filter === null
+          ? (
+              <>
+                {orderedWorkTypes.map((type) => (
+                  <TypedWorkList items={items[type]} key={type} type={type} />
+                ))}
+              </>
+            )
+          : (
+              <TypedWorkList items={items[filter]} type={filter} />
+            )
+      }
     </section>
   );
 };
