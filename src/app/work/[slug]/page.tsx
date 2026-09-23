@@ -1,6 +1,10 @@
+import { Breadcrumb } from '@components/ui/Breadcrumb';
+import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
 import { WorkFooter } from '@components/work/WorkFooter';
+import { RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
+import { capitalize } from '@core/utils/string';
 import { Fragment } from 'react';
 import type { FC } from 'react';
 
@@ -16,10 +20,27 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   const awaitedParams = await params;
   const config = await getConfig();
   const article = await getWorkBySlug(awaitedParams.slug);
+  const breadcrumbItems: BreadcrumbItem[] = [
+    {
+      id: 'work',
+      label: 'Work',
+      href: RouteDefs.work
+    },
+    {
+      id: article.metadata.type,
+      label: capitalize(article.metadata.type)
+    },
+    {
+      id: article.metadata.slug,
+      label: article.metadata.name,
+      active: true
+    }
+  ];
 
   return (
     <Fragment>
       <main className="flex-1">
+        <Breadcrumb items={breadcrumbItems} />
         <pre>
           {JSON.stringify(article, null, 2)}
         </pre>
