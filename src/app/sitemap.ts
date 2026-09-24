@@ -26,4 +26,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   ];
 };
 
+export const dynamic = 'force-static';
+
 export default sitemap;
