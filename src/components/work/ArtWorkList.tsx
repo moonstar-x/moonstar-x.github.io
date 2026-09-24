@@ -15,16 +15,16 @@ export const ArtWorkList: FC<Props> = ({ items, className, ...props }) => (
   <div className={clsx('py-6.5 px-10 flex flex-col gap-4 border-b border-solid border-border', className)} {...props}>
     <WorkListTitle count={items.length} title="Art Work" />
     <div className="grid grid-cols-3 gap-5">
-      {items.map((item) => (
-        <Link className="text-text flex flex-col gap-2.75 border-t-[3px] border-solid border-text pt-3.5" href={DynamicRouteDefs.workBySlug(item.slug)} key={item.slug}>
+      {items.map(({ slug, cover, name, description }) => (
+        <Link className="text-text flex flex-col gap-2.75 border-t-[3px] border-solid border-text pt-3.5" href={DynamicRouteDefs.workBySlug(slug)} key={slug}>
           <div className="w-full h-35 relative">
-            <Image fill alt={item.slug} className="object-cover" src={item.cover} />
+            <Image fill alt={slug} className="object-cover" src={cover} />
           </div>
           <h3 className="font-title font-black text-[28px] leading-[0.98] tracking-[-0.03em] uppercase">
-            {item.name}
+            {name}
           </h3>
           <p className="text-[15px] font-light leading-[1.55] text-lighter">
-            {item.description}
+            {description}
           </p>
         </Link>
       ))}

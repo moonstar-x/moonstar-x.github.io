@@ -15,18 +15,18 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
   <div className={clsx('pt-7.5 px-10 pb-6.5 flex flex-col gap-4 border-b border-solid border-border', className)} {...props}>
     <WorkListTitle count={items.length} title="Research Work" />
     {
-      items.map((item) => (
-        <Link className="text-text flex flex-row gap-6.5 items-center pt-8 pb-3.5 border-t border-solid border-border-light" href={DynamicRouteDefs.workBySlug(item.slug)} key={item.slug}>
-          <Image alt={item.slug} className="shrink-0 object-cover" height={128} src={item.cover} width={210} />
+      items.map(({ slug, name, description, technologies, cover, status }) => (
+        <Link className="text-text flex flex-row gap-6.5 items-center pt-8 pb-3.5 border-t border-solid border-border-light" href={DynamicRouteDefs.workBySlug(slug)} key={slug}>
+          <Image alt={slug} className="shrink-0 object-cover" height={128} src={cover} width={210} />
           <div className="grow flex flex-col gap-2.25">
             <h3 className="font-title font-black text-[44px] leading-[0.95] tracking-[-0.035em] uppercase">
-              {item.name}
+              {name}
             </h3>
             <p className="text-[16px] font-light leading-[1.55] text-lighter max-w-[64ch]">
-              {item.description}
+              {description}
             </p>
             <ul className="flex flex-row flex-wrap gap-1.5">
-              {item.technologies.map((technology) => (
+              {technologies.map((technology) => (
                 <li className="text-xs font-medium border border-solid border-border-lighter py-0.75 px-2.25 text-lighter uppercase" key={technology}>
                   {technology}
                 </li>
@@ -35,7 +35,7 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
           </div>
           <div className="shrink-0 flex flex-col items-end gap-2">
             {
-              item.status === 'in-development' && (
+              status === 'in-development' && (
                 <span className="text-[11px] font-semibold tracking-widest uppercase bg-accent text-background py-1 px-2.5">
                   In Development
                 </span>

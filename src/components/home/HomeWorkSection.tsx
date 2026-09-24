@@ -31,24 +31,24 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
       </div>
 
       <div className="flex flex-col">
-        {slicedItems.map((item, index) => {
-          const status = item.status === 'in-development'
+        {slicedItems.map(({ status, type, technologies, slug, name, description }, index) => {
+          const statusText = status === 'in-development'
             ? 'In Development'
-            : item.technologies.slice(0, maxTechnologiesInStatus).join('·');
-          const completeStatus = status.length > 0 ? `${item.type} · ${status}` : item.type;
+            : technologies.slice(0, maxTechnologiesInStatus).join('·');
+          const completeStatus = statusText.length > 0 ? `${type} · ${statusText}` : type;
 
           return (
-            <Link className="min-h-54.75 grow flex flex-row items-center gap-7.5 px-10 pt-6 pb-4 border-b border-solid border-border" href={DynamicRouteDefs.workBySlug(item.slug)} key={item.slug}>
+            <Link className="min-h-54.75 grow flex flex-row items-center gap-7.5 px-10 pt-6 pb-4 border-b border-solid border-border" href={DynamicRouteDefs.workBySlug(slug)} key={slug}>
               <span className="font-title font-black text-[20px] text-accent w-15 shrink-0">
                 {String(index + 1).padStart(2, '0')}
               </span>
 
               <div className="flex flex-col grow gap-2">
                 <span className="font-title font-black text-[54px] leading-[0.92] tracking-[-0.04em] uppercase">
-                  {item.name}
+                  {name}
                 </span>
                 <p className="text-[16px] font-light leading-normal text-lighter max-w-[70ch]">
-                  {item.description}
+                  {description}
                 </p>
               </div>
 

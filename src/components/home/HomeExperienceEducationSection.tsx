@@ -17,20 +17,20 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
       </span>
 
       <div className="flex flex-col gap-2.75 text-[15px]">
-        {experience.map((item) => (
-          <div className="flex flex-row gap-5.5 border-solid border-border not-last:border-b pb-2.5" key={`${item.company}-${item.title}`}>
+        {experience.map(({ company, title, dateEnd, dateStart }) => (
+          <div className="flex flex-row gap-5.5 border-solid border-border not-last:border-b pb-2.5" key={`${company}-${title}`}>
             <span className="w-32.5 shrink-0 text-muted font-medium">
-              {item.dateStart.getFullYear()}
-              {item.dateEnd?.getFullYear() === item.dateStart.getFullYear() ? '' : ` — ${item.dateEnd?.getFullYear().toString() ?? 'now'}`}
+              {dateStart.getFullYear()}
+              {dateEnd?.getFullYear() === dateStart.getFullYear() ? '' : ` — ${dateEnd?.getFullYear().toString() ?? 'now'}`}
             </span>
 
             <div>
               <span className="font-semibold">
-                {item.title}
+                {title}
               </span>
               ,
               {' '}
-              {item.company}
+              {company}
             </div>
           </div>
         ))}
@@ -43,24 +43,24 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
       </span>
 
       <div className="flex flex-col gap-4">
-        {education.map((item) => (
-          <div className="flex flex-col gap-2 text-[15px] leading-[1.6]" key={`${item.university}-${item.degree}`}>
+        {education.map(({ university, degree, dateEnd, dateStart, grade }) => (
+          <div className="flex flex-col gap-2 text-[15px] leading-[1.6]" key={`${university}-${degree}`}>
             <span className="font-semibold">
-              {item.degree}
+              {degree}
             </span>
 
             <p className="text-lighter">
-              {item.university}
+              {university}
               <br />
 
-              {item.dateStart.getFullYear()}
+              {dateStart.getFullYear()}
               {' '}
               —
-              {item.dateEnd?.getFullYear() ?? 'now'}
+              {dateEnd?.getFullYear() ?? 'now'}
             </p>
 
             <span className="inline-block self-start mt-1 font-title font-bold text-[13px] tracking-[0.08em] uppercase bg-accent text-background pt-1.5 pb-1 px-3">
-              {item.grade}
+              {grade}
             </span>
           </div>
         ))}
