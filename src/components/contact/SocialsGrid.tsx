@@ -1,3 +1,4 @@
+import { simplifyUrl } from '@core/utils/string';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
@@ -20,7 +21,7 @@ export const SocialsGrid: FC<Props> = ({ socials, className, ...props }) => (
         </h2>
         <div className="flex flex-row items-end justify-between">
           <span className="text-[15px] font-light text-lighter">
-            {item.url.replace(/https:\/\/(?:www.)?/u, '')}
+            {simplifyUrl(item.url)}
           </span>
           <span className="text-[26px] text-accent">
             ↗

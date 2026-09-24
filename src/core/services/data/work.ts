@@ -2,6 +2,7 @@
 import path from 'node:path';
 import { ContentMetadataSchema, getAllMetadata, getAllSlugs, getContent } from '@core/services/markdown';
 import type { ContentMetadata, Markdown } from '@core/services/markdown';
+import { objectFromEntries } from '@core/utils/object';
 import { betterZodParse } from '@core/utils/zod';
 import { z } from 'zod';
 
@@ -31,11 +32,14 @@ export type WorkLink = typeof WORK_LINK_TYPES[number];
 export const WORK_STATS_TYPES = ['dockerhub', 'github', 'npm'] as const;
 export type WorkStats = typeof WORK_STATS_TYPES[number];
 
-export interface WorkFact {
+export type WorkFact = {
   label: string;
   type: 'featured';
   value: string;
-}
+} | {
+  role: string;
+  type: 'role';
+};
 
 export interface WorkMetadata {
   cover: string;
@@ -54,11 +58,17 @@ const WorkMetadataSchema: z.ZodType<ContentMetadata<WorkMetadata>> = z.object({
   cover: z.string(),
   date: z.coerce.date(),
   description: z.string(),
-  facts: z.array(z.object({
-    type: z.literal(['featured']),
-    label: z.string(),
-    value: z.string()
-  })).optional(),
+  facts: z.array(z.union([
+    z.object({
+      type: z.literal(['featured']),
+      label: z.string(),
+      value: z.string()
+    }),
+    z.object({
+      type: z.literal(['role']),
+      role: z.string()
+    })
+  ])).optional(),
   links: z.partialRecord(z.literal(WORK_LINK_TYPES), z.string()).optional(),
   name: z.string(),
   stats: z.partialRecord(z.literal(WORK_STATS_TYPES), z.string()).optional(),
@@ -113,7 +123,7 @@ export const getAllWorkMetadataForType = async (type: WorkType, options: Partial
 
 export const getAllWorkMetadataByType = async (options: Partial<GetAllWorkMetadataOptions> = {}): Promise<Record<WorkType, Array<WorkArticle['metadata']>>> => {
   const work = await getAllWorkMetadata(options);
-  const initialResult = Object.fromEntries(
+  const initialResult = objectFromEntries(
     WORK_TYPE_TYPES.map((key) => {
       const values: Array<WorkArticle['metadata']> = [];
       return [key, values];

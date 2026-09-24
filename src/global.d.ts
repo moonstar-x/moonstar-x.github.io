@@ -4,9 +4,3 @@ declare namespace NodeJS {
     NEXT_SHOW_DRAFT_CONTENT?: string;
   }
 }
-
-interface ObjectConstructor {
-  fromEntries<K extends PropertyKey, V>(
-    entries: Iterable<readonly [K, V]>
-  ): Record<K, V>;
-}

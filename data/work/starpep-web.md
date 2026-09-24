@@ -22,6 +22,12 @@ status: in-development
 type: research
 links:
   github: https://github.com/starpep-web
+facts:
+  - type: featured
+    label: Peptides Indexed
+    value: 45,000+
+  - type: role
+    role: Full-stack Developer and Architect
 ---
 
 StarPep Web is a non-redundant database of over 45000 antimicrobial peptides (AMPs) recompiled and normalized

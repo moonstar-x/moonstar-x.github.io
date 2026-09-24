@@ -1,5 +1,6 @@
 import { Breadcrumb } from '@components/ui/Breadcrumb';
 import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
+import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
 import { WorkArticleHero } from '@components/work/WorkArticleHero';
 import { WorkFooter } from '@components/work/WorkFooter';
 import { RouteDefs } from '@core/routes/routes';
@@ -43,6 +44,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
       <main className="flex-1">
         <Breadcrumb items={breadcrumbItems} />
         <WorkArticleHero metadata={article.metadata} />
+        <WorkArticleFacts metadata={article.metadata} />
         <pre>
           {JSON.stringify(article, null, 2)}
         </pre>
