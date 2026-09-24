@@ -6,6 +6,8 @@ import { NotFoundMarquee } from '@components/404/NotFoundMarquee';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata } from '@core/services/data/work';
+import { createPageMetadata } from '@core/utils/metadata';
+import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import type { FC } from 'react';
 
@@ -44,5 +46,9 @@ const NotFoundPage: FC = async () => {
     </Fragment>
   );
 };
+
+export const generateMetadata = async (): Promise<Metadata> => await createPageMetadata('/404', {
+  title: 'Not Found'
+});
 
 export default NotFoundPage;

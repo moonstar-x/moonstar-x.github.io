@@ -3,10 +3,12 @@ import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
 import { WorkArticleHero } from '@components/work/WorkArticleHero';
 import { WorkFooter } from '@components/work/WorkFooter';
-import { RouteDefs } from '@core/routes/routes';
+import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
+import { createPageMetadata } from '@core/utils/metadata';
 import { capitalize } from '@core/utils/string';
+import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import type { FC } from 'react';
 
@@ -57,6 +59,19 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
 export const generateStaticParams = async (): Promise<Params[]> => {
   const slugs = await getAllWorkSlugs();
   return slugs.map((slug) => ({ slug }));
+};
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const awaitedParams = await params;
+  const article = await getWorkBySlug(awaitedParams.slug);
+
+  return await createPageMetadata(DynamicRouteDefs.workBySlug(article.metadata.slug), {
+    title: article.metadata.name,
+    description: article.metadata.description,
+    images: [article.metadata.cover],
+    twitterCard: 'summary_large_image',
+    type: 'article'
+  });
 };
 
 export default WorkArticleBySlugPage;

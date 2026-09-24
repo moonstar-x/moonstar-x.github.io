@@ -3,8 +3,11 @@ import { HomeFooter } from '@components/home/HomeFooter';
 import { HomeHero } from '@components/home/HomeHero';
 import { HomeWorkSection } from '@components/home/HomeWorkSection';
 import { TechnologiesMarquee } from '@components/ui/TechnologiesMarquee';
+import { RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata } from '@core/services/data/work';
+import { createPageMetadata } from '@core/utils/metadata';
+import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import type { FC } from 'react';
 
@@ -25,5 +28,9 @@ const HomePage: FC = async () => {
     </Fragment>
   );
 };
+
+export const generateMetadata = async (): Promise<Metadata> => await createPageMetadata(RouteDefs.home, {
+  title: ''
+});
 
 export default HomePage;

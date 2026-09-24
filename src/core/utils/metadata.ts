@@ -14,7 +14,7 @@ export interface Params {
   type?: 'article' | 'website';
 }
 
-export const resolveMetadataObject = async (path: string, params: Params = {}): Promise<Metadata> => {
+export const createPageMetadata = async (path: string, params: Params = {}): Promise<Metadata> => {
   const config = await getConfig();
 
   const pageTitle = params.title !== undefined && params.title !== '' ? `${params.title} | ${config.profile.pageTitle}` : config.profile.pageTitle;
