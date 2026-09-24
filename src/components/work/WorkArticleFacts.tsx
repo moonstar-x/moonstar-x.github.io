@@ -9,7 +9,24 @@ import { simplifyUrl } from '@core/utils/string';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import type { ComponentProps, FC } from 'react';
+import type { ComponentProps, FC, ReactNode } from 'react';
+
+const ITEM_CLASS_NAME = 'py-5 px-6.5 not-last:border-r border-solid border-border flex flex-col gap-1.25';
+const LABEL_CLASS_NAME = 'text-[11px] font-semibold tracking-[0.16em] uppercase text-muted';
+const FEATURED_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-accent';
+const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-text';
+const VALUE_CLASS_NAME = 'text-[17px] font-medium leading-[1.35]';
+
+const LINK_TYPE_TO_LABEL: Record<WorkLink, string> = {
+  github: 'Repository',
+  dockerhub: 'Docker Image',
+  website: 'Website',
+  discord: 'Discord',
+  npm: 'NPM',
+  steam: 'Steam',
+  appstore: 'App Store',
+  playstore: 'Play Store'
+};
 
 type AggregatedWorkFact = (WorkFact | {
   linkType: WorkLink;
@@ -23,202 +40,125 @@ type AggregatedWorkFact = (WorkFact | {
   id: string;
 };
 
-interface StatsWorkFactItemProps {
+interface WorkFactItemContainerProps {
+  children: ReactNode;
   className?: string | undefined;
-  labelClassName?: string | undefined;
-  resource: string;
+  label: string;
 }
 
-const DockerHubStatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, labelClassName, resource }) => {
-  const data = await getDockerHubRepoData(resource);
-  if (!data) {
-    return null;
-  }
+const WorkFactItemContainer: FC<WorkFactItemContainerProps> = ({ children, className, label }) => (
+  <div className={clsx(ITEM_CLASS_NAME, className)}>
+    <span className={LABEL_CLASS_NAME}>
+      {label}
+    </span>
+    {children}
+  </div>
+);
 
-  return (
-    <Fragment>
-      <div className={className}>
-        <span className={labelClassName}>
-          Docker Stars
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.stars)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          Docker Pulls
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.pulls)}
-        </span>
-      </div>
-    </Fragment>
-  );
+type ResolvedStats = Array<[label: string, value: number]>;
+
+const resolveStats = async (type: WorkStats, resource: string): Promise<null | ResolvedStats> => {
+  switch (type) {
+    case 'dockerhub': {
+      const data = await getDockerHubRepoData(resource);
+      if (!data) {
+        return null;
+      }
+
+      return [
+        ['Docker Stars', data.stars],
+        ['Docker Pulls', data.pulls]
+      ];
+    }
+    case 'github': {
+      const data = await getGitHubRepoData(resource);
+      if (!data) {
+        return null;
+      }
+
+      return [
+        ['GitHub Stars', data.stars],
+        ['GitHub Forks', data.forks],
+        ['GitHub Open Issues', data.openIssues],
+        ['GitHub Watchers', data.watchers]
+      ];
+    }
+    case 'npm': {
+      const data = await getNpmPackageData(resource);
+      if (!data?.downloads) {
+        return null;
+      }
+
+      return [
+        ['NPM Last Week Downloads', data.downloads.lastWeek],
+        ['NPM Last Month Downloads', data.downloads.lastMonth],
+        ['NPM Last Year Downloads', data.downloads.lastYear]
+      ];
+    }
+  }
 };
 
-const NpmStatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, labelClassName, resource }) => {
-  const data = await getNpmPackageData(resource);
-  if (!data?.downloads) {
-    return null;
-  }
-
-  return (
-    <Fragment>
-      <div className={className}>
-        <span className={labelClassName}>
-          NPM Last Week Downloads
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.downloads.lastWeek)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          NPM Last Month Downloads
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.downloads.lastMonth)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          NPM Last Year Downloads
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.downloads.lastYear)}
-        </span>
-      </div>
-    </Fragment>
-  );
-};
-
-const GitHubStatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, labelClassName, resource }) => {
-  const data = await getGitHubRepoData(resource);
-  if (!data) {
-    return null;
-  }
-
-  return (
-    <Fragment>
-      <div className={className}>
-        <span className={labelClassName}>
-          GitHub Stars
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.stars)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          GitHub Forks
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.forks)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          GitHub Open Issues
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.openIssues)}
-        </span>
-      </div>
-      <div className={className}>
-        <span className={labelClassName}>
-          GitHub Watchers
-        </span>
-        <span className="font-title font-black text-[42px] leading-none text-accent">
-          {compactNumber(data.watchers)}
-        </span>
-      </div>
-    </Fragment>
-  );
-};
-
-interface StatFetchingWorkFactItemProps {
-  className?: string;
-  labelClassName?: string;
+interface StatsWorkFactItemProps {
+  className?: string | undefined;
   resource: string;
   type: WorkStats;
 }
 
-const StatFetchingWorkFactItem: FC<StatFetchingWorkFactItemProps> = ({ type, resource, className, labelClassName }) => {
-  switch (type) {
-    case 'dockerhub':
-      return (
-        <DockerHubStatsWorkFactItem className={className} labelClassName={labelClassName} resource={resource} />
-      );
-    case 'github':
-      return (
-        <GitHubStatsWorkFactItem className={className} labelClassName={labelClassName} resource={resource} />
-      );
-    case 'npm':
-      return (
-        <NpmStatsWorkFactItem className={className} labelClassName={labelClassName} resource={resource} />
-      );
+const StatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, resource, type }) => {
+  const stats = await resolveStats(type, resource);
+  if (!stats) {
+    return null;
   }
+
+  return (
+    <Fragment>
+      {stats.map(([label, value]) => (
+        <WorkFactItemContainer className={className} key={label} label={label}>
+          <span className={STAT_VALUE_CLASS_NAME}>
+            {compactNumber(value)}
+          </span>
+        </WorkFactItemContainer>
+      ))}
+    </Fragment>
+  );
 };
 
 interface WorkFactItemProps {
-  className?: string;
+  className?: string | undefined;
   fact: AggregatedWorkFact;
 }
 
 const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
-  const sharedClassName = 'py-5 px-6.5 not-last:border-r border-solid border-border flex flex-col gap-1.25';
-  const labelClassName = 'text-[11px] font-semibold tracking-[0.16em] uppercase text-muted';
-  const linkTypeToLabel: Record<WorkLink, string> = {
-    github: 'Repository',
-    dockerhub: 'Docker Image',
-    website: 'Website',
-    discord: 'Discord',
-    npm: 'NPM',
-    steam: 'Steam',
-    appstore: 'App Store',
-    playstore: 'Play Store'
-  };
-
   switch (fact.type) {
     case 'featured':
       return (
-        <div className={clsx(sharedClassName, className)}>
-          <span className={labelClassName}>
-            {fact.label}
-          </span>
-          <span className="font-title font-black text-[42px] leading-none text-accent">
+        <WorkFactItemContainer className={className} label={fact.label}>
+          <span className={FEATURED_VALUE_CLASS_NAME}>
             {fact.value}
           </span>
-        </div>
+        </WorkFactItemContainer>
       );
     case 'link':
       return (
-        <div className={clsx(sharedClassName, className)}>
-          <span className={labelClassName}>
-            {linkTypeToLabel[fact.linkType]}
-          </span>
-          <Link className="text-[17px] font-medium leading-[1.35] text-accent" href={fact.url}>
+        <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
+          <Link className={clsx(VALUE_CLASS_NAME, 'text-accent')} href={fact.url}>
             {simplifyUrl(fact.url)}
             {' '}
             ↗
           </Link>
-        </div>
+        </WorkFactItemContainer>
       );
     case 'role':
       return (
-        <div className={clsx(sharedClassName, className)}>
-          <span className={labelClassName}>
-            Role
-          </span>
-          <span className="text-[17px] font-medium leading-[1.35]">
+        <WorkFactItemContainer className={className} label="Role">
+          <span className={VALUE_CLASS_NAME}>
             {fact.role}
           </span>
-        </div>
+        </WorkFactItemContainer>
       );
     case 'unfetched_stats':
       return (
-        <StatFetchingWorkFactItem className={clsx(sharedClassName, className)} labelClassName={labelClassName} resource={fact.resource} type={fact.statsType} />
+        <StatsWorkFactItem className={className} resource={fact.resource} type={fact.statsType} />
       );
   }
 };
