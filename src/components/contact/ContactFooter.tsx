@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'footer'> {
+interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
   blurb: string;
 }
 

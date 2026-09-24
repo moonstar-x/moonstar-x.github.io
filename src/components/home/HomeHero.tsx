@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   subCta: string;
   subtitle: string;
 }

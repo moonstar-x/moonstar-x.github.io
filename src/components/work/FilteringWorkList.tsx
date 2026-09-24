@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import { useState } from 'react';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   items: Record<WorkType, Array<ContentMetadata<WorkMetadata>>>;
   orderedWorkTypes: WorkType[];
 }

@@ -33,7 +33,7 @@ export interface BreadcrumbItem {
   label: string;
 }
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   items: BreadcrumbItem[];
 }
 

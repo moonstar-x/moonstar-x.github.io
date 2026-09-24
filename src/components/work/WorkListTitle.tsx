@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'div'> {
+interface Props extends Omit<ComponentProps<'div'>, 'children'> {
   count: number;
   title: string;
 }

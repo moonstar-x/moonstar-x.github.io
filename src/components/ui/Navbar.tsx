@@ -27,7 +27,7 @@ const links: NavbarLink[] = [
   }
 ];
 
-interface Props extends ComponentProps<'header'> {
+interface Props extends Omit<ComponentProps<'header'>, 'children'> {
   title: string;
 }
 

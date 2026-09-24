@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import Marquee from 'react-fast-marquee';
 
-interface Props extends ComponentProps<typeof Marquee> {
+interface Props extends Omit<ComponentProps<typeof Marquee>, 'children'> {
   technologies: string[];
 }
 

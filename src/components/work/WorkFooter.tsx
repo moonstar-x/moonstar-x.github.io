@@ -8,7 +8,7 @@ export interface FooterLink {
   url: string;
 }
 
-interface Props extends ComponentProps<'footer'> {
+interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
   links: FooterLink[];
 }
 

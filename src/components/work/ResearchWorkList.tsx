@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'div'> {
+interface Props extends Omit<ComponentProps<'div'>, 'children'> {
   items: Array<ContentMetadata<WorkMetadata>>;
 }
 

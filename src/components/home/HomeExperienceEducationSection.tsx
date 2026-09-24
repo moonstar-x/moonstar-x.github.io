@@ -3,7 +3,7 @@ import type { EducationItem, ExperienceItem } from '@core/services/data/config';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   education: EducationItem[];
   educationLanguagesBlurb: string;
   experience: ExperienceItem[];

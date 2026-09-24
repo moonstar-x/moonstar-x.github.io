@@ -163,7 +163,7 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
   }
 };
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   metadata: ContentMetadata<WorkMetadata>;
 }
 

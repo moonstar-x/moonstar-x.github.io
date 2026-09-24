@@ -8,7 +8,7 @@ export interface SocialLink {
   url: string;
 }
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   socials: SocialLink[];
 }
 

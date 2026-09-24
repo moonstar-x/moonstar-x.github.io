@@ -5,7 +5,7 @@ import type { WorkMetadata, WorkType } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'div'> {
+interface Props extends Omit<ComponentProps<'div'>, 'children'> {
   items: Array<ContentMetadata<WorkMetadata>>;
   type: WorkType;
 }

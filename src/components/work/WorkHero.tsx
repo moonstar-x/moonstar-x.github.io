@@ -3,7 +3,7 @@ import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
-interface Props extends ComponentProps<'section'> {
+interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   items: Record<WorkType, Array<ContentMetadata<WorkMetadata>>>;
   orderedWorkTypes: WorkType[];
 }
