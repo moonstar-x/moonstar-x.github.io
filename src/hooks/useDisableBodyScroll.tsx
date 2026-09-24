@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-export const useDisableBodyScroll = (enabled: boolean = true) => {
+export const useDisableBodyScroll = (isEnabled = true): void => {
   useEffect(() => {
-    if (enabled) {
+    if (isEnabled) {
       document.body.style.overflowY = 'hidden';
     } else {
       document.body.style.overflowY = 'unset';
     }
-  }, [enabled]);
+  }, [isEnabled]);
 };
