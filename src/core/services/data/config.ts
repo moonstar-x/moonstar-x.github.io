@@ -34,6 +34,7 @@ export interface Config {
     email: string;
     languages: string;
     location: string;
+    pageTitle: string;
     shortBio: string;
     socials: Array<{
       label: string;
@@ -54,7 +55,8 @@ const ConfigSchema: z.ZodType<Config> = z.object({
       label: z.string(),
       url: z.string()
     })),
-    timezone: z.string()
+    timezone: z.string(),
+    pageTitle: z.string()
   }),
   experience: z.array(z.object({
     title: z.string(),
