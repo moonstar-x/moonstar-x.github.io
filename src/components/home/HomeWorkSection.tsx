@@ -38,7 +38,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           const completeStatus = status.length > 0 ? `${item.type} · ${status}` : item.type;
 
           return (
-            <Link className="min-h-54.75 grow flex flex-row items-center gap-7.5 px-10 py-6 border-b border-solid border-border" href={DynamicRouteDefs.workBySlug(item.slug)} key={item.slug}>
+            <Link className="min-h-54.75 grow flex flex-row items-center gap-7.5 px-10 pt-6 pb-4 border-b border-solid border-border" href={DynamicRouteDefs.workBySlug(item.slug)} key={item.slug}>
               <span className="font-title font-black text-[20px] text-accent w-15 shrink-0">
                 {String(index + 1).padStart(2, '0')}
               </span>

@@ -1,15 +1,19 @@
 import { NotFoundEscapeLinks } from '@components/404/NotFoundEscapeLinks';
 import type { EscapeLink } from '@components/404/NotFoundEscapeLinks';
+import { NotFoundFooter } from '@components/404/NotFoundFooter';
 import { NotFoundHero } from '@components/404/NotFoundHero';
 import { NotFoundMarquee } from '@components/404/NotFoundMarquee';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
+import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata } from '@core/services/data/work';
+import { Fragment } from 'react';
 import type { FC } from 'react';
 
 const NotFoundPage: FC = async () => {
+  const config = await getConfig();
   const workMetadata = await getAllWorkMetadata({ sort: 'date' });
   const firstWorkMetadata = workMetadata[0];
-  const links: EscapeLink[] = [
+  const escapeLinks: EscapeLink[] = [
     {
       label: 'The Work',
       description: 'Many projects — research systems, art projects and hobby repositories.',
@@ -30,11 +34,14 @@ const NotFoundPage: FC = async () => {
   ];
 
   return (
-    <main className="flex-1">
-      <NotFoundHero />
-      <NotFoundMarquee />
-      <NotFoundEscapeLinks links={links} />
-    </main>
+    <Fragment>
+      <main className="flex-1">
+        <NotFoundHero />
+        <NotFoundMarquee />
+        <NotFoundEscapeLinks links={escapeLinks} />
+      </main>
+      <NotFoundFooter links={config.profile.socials} />
+    </Fragment>
   );
 };
 
