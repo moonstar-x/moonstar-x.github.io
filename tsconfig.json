@@ -5,6 +5,7 @@
       "@components/*": ["./src/components/*"],
       "@core/*": ["./src/core/*"],
       "@data/*": ["./data/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@styles/*": ["./src/styles/*"],
     },
     "outDir": "build-ts",
