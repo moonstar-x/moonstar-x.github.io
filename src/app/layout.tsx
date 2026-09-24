@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from '@components/analytics/GoogleAnalytics';
+import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
 import { Navbar } from '@components/ui/Navbar';
 import { APP_CONTENT_LANG } from '@core/config/app';
 import { getConfig } from '@core/services/data/config';
@@ -26,6 +28,10 @@ const RootLayout: FC<Props> = async ({ children }) => {
 
   return (
     <html className={`${hankenGrotesk.variable} ${leagueSpartan.variable}`} lang={APP_CONTENT_LANG}>
+      <head>
+        <GoogleAnalytics />
+        <UmamiAnalytics />
+      </head>
       <body className="flex flex-col min-h-svh">
         <Navbar title={config.profile.alias} />
         {children}
