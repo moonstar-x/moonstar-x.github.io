@@ -2,13 +2,13 @@ import {
   MarkdownA, MarkdownBlockquote,
   MarkdownCode,
   MarkdownDel,
-  MarkdownEm,
+  MarkdownEm, MarkdownFigCaption,
   MarkdownH1,
   MarkdownH2,
   MarkdownH3,
-  MarkdownH4, MarkdownInput, MarkdownKbd, MarkdownLi, MarkdownOl,
+  MarkdownH4, MarkdownHr, MarkdownImg, MarkdownInput, MarkdownKbd, MarkdownLi, MarkdownOl,
   MarkdownP, MarkdownPre,
-  MarkdownStrong, MarkdownSup, MarkdownTable, MarkdownTBody, MarkdownTd, MarkdownTh, MarkdownTHead, MarkdownTr, MarkdownUl
+  MarkdownStrong, MarkdownSup, MarkdownTable, MarkdownTBody, MarkdownTd, MarkdownTh, MarkdownTHead, MarkdownTr, MarkdownUl, MarkdownVideo
 } from '@components/markdown/MarkdownStyledComponents';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -26,7 +26,7 @@ export interface Props extends Omit<ComponentProps<'article'>, 'children'> {
 }
 
 export const Markdown: FC<Props> = ({ children, className, ...props }) => (
-  <article className={clsx(className)} {...props}>
+  <article className={clsx('max-w-3xl mx-auto', className)} {...props}>
     <ReactMarkdown
       rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }], rehypeRaw]}
       remarkPlugins={[remarkGfm]}
@@ -153,6 +153,26 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
           <MarkdownTd {...innerProps}>
             {innerChildren}
           </MarkdownTd>
+        ),
+        img: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownImg {...innerProps}>
+            {innerChildren}
+          </MarkdownImg>
+        ),
+        figcaption: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownFigCaption {...innerProps}>
+            {innerChildren}
+          </MarkdownFigCaption>
+        ),
+        video: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownVideo {...innerProps}>
+            {innerChildren}
+          </MarkdownVideo>
+        ),
+        hr: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownHr {...innerProps}>
+            {innerChildren}
+          </MarkdownHr>
         )
       }}
       //   hr: ({ className, node, ref, ...props }) => (

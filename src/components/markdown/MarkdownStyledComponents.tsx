@@ -157,3 +157,23 @@ export const MarkdownTd: FC<ComponentProps<'td'>> = ({ className, children, ...p
     {children}
   </td>
 );
+
+export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, ...props }) => (
+  <img alt={alt ?? 'image'} className={clsx('w-full h-auto object-cover', className)} {...props} />
+);
+
+export const MarkdownFigCaption: FC<ComponentProps<'figcaption'>> = ({ className, children, ...props }) => (
+  <figcaption className={clsx('text-sm font-light leading-[1.55] text-muted', className)} {...props}>
+    {children}
+  </figcaption>
+);
+
+export const MarkdownVideo: FC<ComponentProps<'video'>> = ({ className, ...props }) => (
+  // eslint-disable-next-line jsx-a11y/media-has-caption
+  <video className={clsx('w-full h-auto aspect-video object-contain bg-text', className)} {...props} />
+);
+
+export const MarkdownHr: FC<ComponentProps<'hr'>> = ({ className, children, ...props }) => (
+  <hr className={clsx('h-100 border-none after:flex after:items-center after:justify-center after:w-full after:h-full after:content-["* * *"] after:text-[16px] after:text-accent', className)} {...props} />
+);
+

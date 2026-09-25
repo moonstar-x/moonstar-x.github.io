@@ -77,15 +77,14 @@ export const dedupe = (rows: Row[]): Peptide[] => {
 
 ## Images
 
-![Search interface of the peptide database](/work/starpep-web/search.png)
+![Search interface of the peptide database](/assets/work/starpep-web/cover.jpg)
 *Captions sit left under the image, one size down. Alt text is required and is not the caption.*
 
-![First of a paired image](/work/starpep-web/detail-a.png)
-![Second of a paired image](/work/starpep-web/detail-b.png)
+![First of a paired image](/assets/work/continuum/cover.jpg)
 
 ## Video
 
-::video[/work/starpep-web/walkthrough.mp4]{poster="/work/starpep-web/poster.jpg"}
+<video controls="1" poster="/assets/work/continuum/cover.jpg" src="/assets/work/continuum/hologram-preview.mp4"></video>
 
 *Video sits in the same 16:9 frame as images, never autoplays with sound, and always has a poster frame.*
 
