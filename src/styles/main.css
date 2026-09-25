@@ -59,6 +59,13 @@ body {
   }
 }
 
+@utility grid-flat-right-4 {
+  & > :nth-child(4n),
+  & > :last-child {
+    border-right-width: 0;
+  }
+}
+
 /* Checkmark for GFM task-list checkboxes. Drawn as a background image because an `<input>` is a
    replaced element: it cannot render children, and pseudo-elements on it are not reliable.
    The stroke color is --color-background, which a data URI cannot reference by variable. */

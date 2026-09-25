@@ -48,7 +48,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
         <Breadcrumb items={breadcrumbItems} />
         <WorkArticleHero metadata={article.metadata} />
         <WorkArticleFacts metadata={article.metadata} />
-        <Markdown>
+        <Markdown className="mb-8">
           {article.markdown}
         </Markdown>
       </main>

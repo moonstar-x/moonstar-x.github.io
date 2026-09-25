@@ -11,11 +11,11 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 import type { ComponentProps, FC, ReactNode } from 'react';
 
-const ITEM_CLASS_NAME = 'py-5 px-6.5 not-last:border-r border-solid border-border flex flex-col gap-1.25';
+const ITEM_CLASS_NAME = 'py-5 px-6.5 min-w-0 border-r border-b border-solid border-border flex flex-col justify-between gap-3';
 const LABEL_CLASS_NAME = 'text-[11px] font-semibold tracking-[0.16em] uppercase text-muted';
-const FEATURED_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-accent';
-const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-text';
-const VALUE_CLASS_NAME = 'text-[17px] font-medium leading-[1.35]';
+const FEATURED_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-accent break-words';
+const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[42px] leading-none text-text break-words';
+const VALUE_CLASS_NAME = 'text-[17px] font-medium leading-[1.35] break-words';
 
 const LINK_TYPE_TO_LABEL: Record<WorkLink, string> = {
   github: 'Repository',
@@ -141,10 +141,13 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
     case 'link':
       return (
         <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
-          <Link className={clsx(VALUE_CLASS_NAME, 'text-accent')} href={fact.url}>
-            {simplifyUrl(fact.url)}
-            {' '}
-            ↗
+          <Link className={clsx(VALUE_CLASS_NAME, 'text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url}>
+            <span className="truncate">
+              {simplifyUrl(fact.url)}
+            </span>
+            <span className="shrink-0">
+              ↗
+            </span>
           </Link>
         </WorkFactItemContainer>
       );
@@ -188,7 +191,7 @@ export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) =
   ];
 
   return (
-    <section className={clsx('grid grid-cols-4 border-t border-b border-solid border-border', className)} {...props}>
+    <section className={clsx('grid grid-cols-4 border-t border-b border-solid border-border grid-flat-bottom-4 grid-flat-right-4', className)} {...props}>
       {facts.map((fact) => (
         <WorkFactItem fact={fact} key={fact.id} />
       ))}
