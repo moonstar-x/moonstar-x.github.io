@@ -8,7 +8,7 @@ import {
   MarkdownH3,
   MarkdownH4, MarkdownInput, MarkdownKbd, MarkdownLi, MarkdownOl,
   MarkdownP, MarkdownPre,
-  MarkdownStrong, MarkdownSup, MarkdownUl
+  MarkdownStrong, MarkdownSup, MarkdownTable, MarkdownTBody, MarkdownTd, MarkdownTh, MarkdownTHead, MarkdownTr, MarkdownUl
 } from '@components/markdown/MarkdownStyledComponents';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -123,7 +123,37 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
               {onlyText(innerChildren).replace(/\n$/u, '')}
             </MarkdownPre>
           );
-        }
+        },
+        table: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTable {...innerProps}>
+            {innerChildren}
+          </MarkdownTable>
+        ),
+        thead: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTHead {...innerProps}>
+            {innerChildren}
+          </MarkdownTHead>
+        ),
+        th: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTh {...innerProps}>
+            {innerChildren}
+          </MarkdownTh>
+        ),
+        tbody: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTBody {...innerProps}>
+            {innerChildren}
+          </MarkdownTBody>
+        ),
+        tr: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTr {...innerProps}>
+            {innerChildren}
+          </MarkdownTr>
+        ),
+        td: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownTd {...innerProps}>
+            {innerChildren}
+          </MarkdownTd>
+        )
       }}
       //   hr: ({ className, node, ref, ...props }) => (
       //     <Divider className={clsx('mb-0', className)} {...props} />

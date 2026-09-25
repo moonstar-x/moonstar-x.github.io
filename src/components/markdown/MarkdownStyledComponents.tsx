@@ -121,3 +121,39 @@ export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { classN
     </div>
   );
 };
+
+export const MarkdownTable: FC<ComponentProps<'table'>> = ({ className, children, ...props }) => (
+  <table className={clsx('w-full border-collapse text-[16px]', className)} {...props}>
+    {children}
+  </table>
+);
+
+export const MarkdownTHead: FC<ComponentProps<'thead'>> = ({ className, children, ...props }) => (
+  <thead className={clsx('bg-text text-background', className)} {...props}>
+    {children}
+  </thead>
+);
+
+export const MarkdownTh: FC<ComponentProps<'th'>> = ({ className, children, ...props }) => (
+  <th className={clsx('text-left font-title font-black text-[13px] tracking-[0.14em] uppercase py-2.75 px-4', className)} {...props}>
+    {children}
+  </th>
+);
+
+export const MarkdownTBody: FC<ComponentProps<'tbody'>> = ({ className, children, ...props }) => (
+  <tbody className={clsx('font-light text-article [&_tr]:border-b [&_tr]:nth-[2n]:bg-background-table-alt', className)} {...props}>
+    {children}
+  </tbody>
+);
+
+export const MarkdownTr: FC<ComponentProps<'tr'>> = ({ className, children, ...props }) => (
+  <tr className={clsx('border-solid border-border', className)} {...props}>
+    {children}
+  </tr>
+);
+
+export const MarkdownTd: FC<ComponentProps<'td'>> = ({ className, children, ...props }) => (
+  <td className={clsx('py-2.75 px-4', className)} {...props}>
+    {children}
+  </td>
+);
