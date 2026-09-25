@@ -107,8 +107,17 @@ export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { classN
   const language = /language-(?<lang>\w+)/u.exec(className ?? '')?.groups?.['lang'];
 
   return (
-    <SyntaxHighlighter className={clsx('', className)} language={language} PreTag="pre" {...props} style={oneDark}>
-      {children}
-    </SyntaxHighlighter>
+    <div className={clsx('bg-text flex flex-col', className)}>
+      <div className="py-2.5 px-4.5 border-b border-solid border-code flex items-center justify-end">
+        <span className="font-code text-[11px] tracking-widest uppercase text-accent-light">
+          {language}
+        </span>
+      </div>
+      <div className="m-0 font-code text-sm leading-[1.75] text-code overflow-hidden **:bg-text!">
+        <SyntaxHighlighter language={language} PreTag="pre" {...props} style={oneDark}>
+          {children}
+        </SyntaxHighlighter>
+      </div>
+    </div>
   );
 };

@@ -3,6 +3,8 @@
 @theme {
   /* Colors */
   --color-accent: #6B3BFF;
+  --color-accent-light: #C9B6FF;
+  --color-code: #E8E6E0;
 
   --color-text: #1D1D1B;
   --color-light: #45443E;
@@ -19,6 +21,7 @@
   --color-border-light: #E2E0D8;
   --color-border-lighter: #CFCDC3;
   --color-border-dark: #C4C2B8;
+  --color-border-code: #33322E;
 }
 
 @theme inline {

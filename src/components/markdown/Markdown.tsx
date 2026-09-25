@@ -114,11 +114,16 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
             {innerChildren}
           </MarkdownBlockquote>
         ),
-        pre: ({ children: innerChildren, className: innerClassName, node: _node }) => (
-          <MarkdownPre className={innerClassName}>
-            {onlyText(innerChildren).replace(/n$/u, '')}
-          </MarkdownPre>
-        )
+        pre: ({ children: innerChildren, node }) => {
+          const codeChild = node?.children.find((child) => child.type === 'element' && child.tagName === 'code');
+          const codeClassName = codeChild?.type === 'element' ? codeChild.properties.className : undefined;
+
+          return (
+            <MarkdownPre className={clsx(codeClassName)}>
+              {onlyText(innerChildren).replace(/\n$/u, '')}
+            </MarkdownPre>
+          );
+        }
       }}
       //   hr: ({ className, node, ref, ...props }) => (
       //     <Divider className={clsx('mb-0', className)} {...props} />
