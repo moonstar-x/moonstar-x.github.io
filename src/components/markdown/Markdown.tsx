@@ -7,7 +7,7 @@ import {
   MarkdownH2,
   MarkdownH3,
   MarkdownH4, MarkdownHr, MarkdownImg, MarkdownInput, MarkdownKbd, MarkdownLi, MarkdownOl,
-  MarkdownP, MarkdownPre,
+  MarkdownP, MarkdownPre, MarkdownSection,
   MarkdownStrong, MarkdownSup, MarkdownTable, MarkdownTBody, MarkdownTd, MarkdownTh, MarkdownTHead, MarkdownTr, MarkdownUl, MarkdownVideo
 } from '@components/markdown/MarkdownStyledComponents';
 import { clsx } from 'clsx';
@@ -173,11 +173,13 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
           <MarkdownHr {...innerProps}>
             {innerChildren}
           </MarkdownHr>
+        ),
+        section: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownSection {...innerProps}>
+            {innerChildren}
+          </MarkdownSection>
         )
       }}
-      //   hr: ({ className, node, ref, ...props }) => (
-      //     <Divider className={clsx('mb-0', className)} {...props} />
-      //   ),
       //   img: ({ src, width, height, node, ref, ...props }) => {
       //     if (!src) {
       //       return null;
@@ -187,21 +189,6 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
       //       <ExpandableImage src={src} {...props} />
       //     );
       //   },
-      //   table: ({ children, className, node, ref, ...props }) => (
-      //     <Table bordered large scrollable striped className={className} {...props}>
-      //       {children}
-      //     </Table>
-      //   ),
-      //   video: ({ src, width, height, node, ref, ...props }) => {
-      //     if (!src) {
-      //       return null;
-      //     }
-      //
-      //     return (
-      //       <Video src={src} {...props} />
-      //     );
-      //   }
-      // }}
     >
       {children}
     </ReactMarkdown>

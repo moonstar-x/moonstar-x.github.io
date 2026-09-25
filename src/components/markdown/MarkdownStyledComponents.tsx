@@ -173,7 +173,21 @@ export const MarkdownVideo: FC<ComponentProps<'video'>> = ({ className, ...props
   <video className={clsx('w-full h-auto aspect-video object-contain bg-text', className)} {...props} />
 );
 
-export const MarkdownHr: FC<ComponentProps<'hr'>> = ({ className, children, ...props }) => (
+export const MarkdownHr: FC<ComponentProps<'hr'>> = ({ className, ...props }) => (
   <hr className={clsx('h-0 pt-3 pb-7 font-code border-none flex items-center justify-center after:content-["..."] after:text-[32px] after:leading-none after:text-accent', className)} {...props} />
+);
+
+export const MarkdownSection: FC<ComponentProps<'section'>> = ({ className, children, ...props }) => (
+  <section
+    className={clsx(
+      '[&[data-footnotes]_h2]:text-xs [&[data-footnotes]_h2]:font-semibold [&[data-footnotes]_h2]:tracking-[0.16em] [&[data-footnotes]_h2]:uppercase [&[data-footnotes]_h2]:text-muted',
+      '[&[data-footnotes]_ol]:flex [&[data-footnotes]_ol]:gap-2.5 [&[data-footnotes]_ol]:text-[15px] [&[data-footnotes]_ol]:font-light [&[data-footnotes]_ol]:leading-[1.65] [&[data-footnotes]_ol]:text-light',
+      '[&[data-footnotes]_li]:marker:text-accent [&[data-footnotes]_li]:marker:font-semibold',
+      '[&[data-footnotes]_li_p]:ms-2',
+      className)}
+    {...props}
+  >
+    {children}
+  </section>
 );
 
