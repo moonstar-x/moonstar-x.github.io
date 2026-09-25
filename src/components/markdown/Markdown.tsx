@@ -25,8 +25,26 @@ export interface Props extends Omit<ComponentProps<'article'>, 'children'> {
   children?: string;
 }
 
+const articleSpacing = clsx(
+  '[&>*]:mt-4',
+  '[&>h1]:mt-10',
+  '[&>h2]:mt-9',
+  '[&>h3]:mt-6',
+  '[&>h4]:mt-5',
+  '[&>p]:mt-3.5',
+  '[&>ul]:mt-3.5',
+  '[&>ol]:mt-3.5',
+  '[&>blockquote]:mt-5',
+  '[&>div]:mt-5',
+  '[&>table]:mt-5',
+  '[&>figure]:mt-5',
+  '[&>video]:mt-5',
+  '[&>hr]:mt-2',
+  '[&>section]:mt-7'
+);
+
 export const Markdown: FC<Props> = ({ children, className, ...props }) => (
-  <article className={clsx('max-w-3xl mx-auto', className)} {...props}>
+  <article className={clsx('max-w-3xl mx-auto', articleSpacing, className)} {...props}>
     <ReactMarkdown
       rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }], rehypeRaw]}
       remarkPlugins={[remarkGfm]}
@@ -180,15 +198,6 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
           </MarkdownSection>
         )
       }}
-      //   img: ({ src, width, height, node, ref, ...props }) => {
-      //     if (!src) {
-      //       return null;
-      //     }
-      //
-      //     return (
-      //       <ExpandableImage src={src} {...props} />
-      //     );
-      //   },
     >
       {children}
     </ReactMarkdown>
