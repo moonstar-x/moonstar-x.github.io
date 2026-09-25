@@ -1,3 +1,4 @@
+import { ExpandableImage } from '@components/ui/ExpandableImage';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -158,9 +159,24 @@ export const MarkdownTd: FC<ComponentProps<'td'>> = ({ className, children, ...p
   </td>
 );
 
-export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, ...props }) => (
-  <img alt={alt ?? 'image'} className={clsx('w-full h-auto object-cover', className)} {...props} />
-);
+export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => {
+  const parseImgDimension = (value: ComponentProps<'img'>['width']): number => {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+
+  return (
+    <ExpandableImage
+      alt={alt ?? 'image'}
+      className={clsx('w-full h-auto object-cover', className)}
+      height={parseImgDimension(height)}
+      sizes="100vw"
+      src={typeof src === 'string' ? src : ''}
+      width={parseImgDimension(width)}
+      {...props}
+    />
+  );
+};
 
 export const MarkdownFigCaption: FC<ComponentProps<'figcaption'>> = ({ className, children, ...props }) => (
   <figcaption className={clsx('text-sm font-light leading-[1.55] text-muted', className)} {...props}>
