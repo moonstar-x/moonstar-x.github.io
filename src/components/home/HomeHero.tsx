@@ -1,7 +1,14 @@
+import { SlidingText } from '@components/ui/SlidingText';
 import { RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
+
+const HEADING_OPTIONS: string[] = [
+  'that lasts.',
+  'that scales.',
+  'that rocks.'
+];
 
 interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   subCta: string;
@@ -10,10 +17,10 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
 
 export const HomeHero: FC<Props> = ({ subtitle, subCta, className, ...props }) => (
   <section className={clsx('pt-15.5 px-10 pb-10.5', className)} {...props}>
-    <h1 className="m-0 font-title font-black text-[172px] leading-[0.78] tracking-[-0.055em] uppercase">
+    <h1 className="m-0 font-title font-black text-[160px] leading-[0.78] tracking-[-0.055em] uppercase">
       I build software
       {' '}
-      <span className="text-accent">that lasts.</span>
+      <SlidingText className="text-accent" options={HEADING_OPTIONS} />
     </h1>
 
     <div className="mt-11 flex flex-row gap-4 items-start justify-between">
