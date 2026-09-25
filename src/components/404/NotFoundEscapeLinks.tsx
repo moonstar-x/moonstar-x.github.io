@@ -1,3 +1,4 @@
+import { padNumber } from '@core/utils/number';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
@@ -24,7 +25,7 @@ export const NotFoundEscapeLinks: FC<Props> = ({ links, className, ...props }) =
       {links.map(({ href, label, description }, index) => (
         <Link className="min-h-48.5 grow text-text pt-5 pb-4 px-10 border-b border-solid border-border flex flex-row items-center gap-7.5" href={href} key={href}>
           <span className="font-title font-black text-[20px] text-accent w-15 shrink-0">
-            {String(index + 1).padStart(2, '0')}
+            {padNumber(index + 1)}
           </span>
           <div className="grow flex flex-col gap-1.5">
             <h3 className="font-title font-black text-[50px] leading-[0.92] tracking-[-0.04em] uppercase">
