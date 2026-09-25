@@ -1,3 +1,4 @@
+import { Markdown } from '@components/markdown/Markdown';
 import { Breadcrumb } from '@components/ui/Breadcrumb';
 import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
@@ -47,9 +48,9 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
         <Breadcrumb items={breadcrumbItems} />
         <WorkArticleHero metadata={article.metadata} />
         <WorkArticleFacts metadata={article.metadata} />
-        <pre>
-          {JSON.stringify(article, null, 2)}
-        </pre>
+        <Markdown>
+          {article.markdown}
+        </Markdown>
       </main>
       <WorkFooter links={config.profile.socials} />
     </Fragment>

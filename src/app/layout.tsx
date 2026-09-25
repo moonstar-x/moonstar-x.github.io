@@ -3,7 +3,8 @@ import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
 import { Navbar } from '@components/ui/Navbar';
 import { APP_CONTENT_LANG } from '@core/config/app';
 import { getConfig } from '@core/services/data/config';
-import { Hanken_Grotesk as HankenGrotesk, League_Spartan as LeagueSpartan } from 'next/font/google';
+import { clsx } from 'clsx';
+import { Hanken_Grotesk as HankenGrotesk, JetBrains_Mono as JetbrainsMono, League_Spartan as LeagueSpartan } from 'next/font/google';
 import type { FC, ReactNode } from 'react';
 import '@styles/main.css';
 
@@ -19,6 +20,12 @@ const leagueSpartan = LeagueSpartan({
   display: 'swap'
 });
 
+const jetbrainsMono = JetbrainsMono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap'
+});
+
 interface Props {
   children: ReactNode;
 }
@@ -27,7 +34,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
   const config = await getConfig();
 
   return (
-    <html className={`${hankenGrotesk.variable} ${leagueSpartan.variable}`} lang={APP_CONTENT_LANG}>
+    <html className={clsx(hankenGrotesk.variable, leagueSpartan.variable, jetbrainsMono.variable)} lang={APP_CONTENT_LANG}>
       <head>
         <GoogleAnalytics />
         <UmamiAnalytics />

@@ -9,3 +9,8 @@ declare namespace NodeJS {
     NEXT_SHOW_DRAFT_CONTENT?: string;
   }
 }
+
+declare module 'rehype-figure' {
+  function function_(): void;
+  export = function_;
+}

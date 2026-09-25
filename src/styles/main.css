@@ -9,19 +9,23 @@
   --color-lighter: #5C5A52;
   --color-muted: #78766D;
   --color-dark: #8C8A81;
+  --color-article: #35342F;
 
   --color-background: #F2F1EB;
   --color-background-light: #FAF9F5;
   --color-background-dark: #E4E2D9;
+
   --color-border: #D3D1C8;
   --color-border-light: #E2E0D8;
   --color-border-lighter: #CFCDC3;
+  --color-border-dark: #C4C2B8;
 }
 
 @theme inline {
   /* Fonts */
   --font-body: var(--font-hanken-grotesk);
   --font-title: var(--font-league-spartan);
+  --font-code: var(--font-jetbrains-mono);
 }
 
 body {
