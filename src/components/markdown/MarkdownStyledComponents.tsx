@@ -174,6 +174,6 @@ export const MarkdownVideo: FC<ComponentProps<'video'>> = ({ className, ...props
 );
 
 export const MarkdownHr: FC<ComponentProps<'hr'>> = ({ className, children, ...props }) => (
-  <hr className={clsx('h-100 border-none after:flex after:items-center after:justify-center after:w-full after:h-full after:content-["* * *"] after:text-[16px] after:text-accent', className)} {...props} />
+  <hr className={clsx('h-0 pt-3 pb-7 font-code border-none flex items-center justify-center after:content-["..."] after:text-[32px] after:leading-none after:text-accent', className)} {...props} />
 );
 
