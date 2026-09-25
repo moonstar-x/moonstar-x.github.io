@@ -1,5 +1,7 @@
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export const MarkdownH1: FC<ComponentProps<'h1'>> = ({ className, children, ...props }) => (
   <h1 className={clsx('font-title font-black text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>
@@ -56,7 +58,7 @@ export const MarkdownCode: FC<ComponentProps<'code'>> = ({ className, children, 
 );
 
 export const MarkdownA: FC<ComponentProps<'a'>> = ({ className, children, ...props }) => (
-  <a className={clsx('m-0 [&:not(sup_&)]:text-[17px] font-light leading-[1.75] text-accent [&:not(sup_&)]:border-b-2 border-solid border-accent', className)} {...props}>
+  <a className={clsx('m-0 text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent', className)} {...props}>
     {children}
   </a>
 );
@@ -68,7 +70,7 @@ export const MarkdownKbd: FC<ComponentProps<'kbd'>> = ({ className, children, ..
 );
 
 export const MarkdownSup: FC<ComponentProps<'sup'>> = ({ className, children, ...props }) => (
-  <sup className={clsx('m-0 text-[11px] font-semibold leading-[1.75] text-accent', className)} {...props}>
+  <sup className={clsx('m-0 font-semibold leading-[1.75] text-accent [&_a]:border-none [&_a]:text-[11px]', className)} {...props}>
     {children}
   </sup>
 );
@@ -86,11 +88,27 @@ export const MarkdownOl: FC<ComponentProps<'ol'>> = ({ className, children, ...p
 );
 
 export const MarkdownLi: FC<ComponentProps<'li'>> = ({ className, children, ...props }) => (
-  <li className={clsx('m-0 text-[17px] font-light leading-[1.85] text-article [&.task-list-item]:gap-2.5 [&.task-list-item]:items-start', className)} {...props}>
+  <li className={clsx('m-0 text-[17px] font-light leading-[1.85] text-article [&.task-list-item]:flex [&.task-list-item]:gap-2.5 [&.task-list-item]:items-start', className)} {...props}>
     {children}
   </li>
 );
 
 export const MarkdownInput: FC<ComponentProps<'input'>> = ({ className, checked, ...props }) => (
-  <input checked={checked} className={clsx('size-4.5 shrink-0 border-2 border-solid mt-0.75 flex items-center justify-center text-xs font-bold', checked === true ? 'border-accent bg-accent text-background' : 'border-text', className)} {...props} />
+  <input readOnly checked={checked} className={clsx('appearance-none size-4.5 shrink-0 border-2 border-solid mt-1.5', checked === true ? 'border-accent bg-accent markdown-checkbox-check' : 'border-text', className)} {...props} />
 );
+
+export const MarkdownBlockquote: FC<ComponentProps<'blockquote'>> = ({ className, children, ...props }) => (
+  <blockquote className={clsx('m-0 border-s-4 border-solid border-accent px-1 pb-5.5 flex flex-col gap-2.5 text-article [&_p]:ms-6.5 [&_p]:text-[20px] [&_p]:font-light [&_p]:leading-[1.6]', className)} {...props}>
+    {children}
+  </blockquote>
+);
+
+export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { className?: string | undefined }> = ({ className, children, ...props }) => {
+  const language = /language-(?<lang>\w+)/u.exec(className ?? '')?.groups?.['lang'];
+
+  return (
+    <SyntaxHighlighter className={clsx('', className)} language={language} PreTag="pre" {...props} style={oneDark}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};

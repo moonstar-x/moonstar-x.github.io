@@ -1,5 +1,5 @@
 import {
-  MarkdownA,
+  MarkdownA, MarkdownBlockquote,
   MarkdownCode,
   MarkdownDel,
   MarkdownEm,
@@ -7,11 +7,12 @@ import {
   MarkdownH2,
   MarkdownH3,
   MarkdownH4, MarkdownInput, MarkdownKbd, MarkdownLi, MarkdownOl,
-  MarkdownP,
+  MarkdownP, MarkdownPre,
   MarkdownStrong, MarkdownSup, MarkdownUl
 } from '@components/markdown/MarkdownStyledComponents';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
+import { onlyText } from 'react-children-utilities';
 import ReactMarkdown from 'react-markdown';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFigure from 'rehype-figure';
@@ -107,32 +108,18 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
         ),
         input: ({ node: _node, ...innerProps }) => (
           <MarkdownInput {...innerProps} />
+        ),
+        blockquote: ({ children: innerChildren, node: _node, ...innerProps }) => (
+          <MarkdownBlockquote {...innerProps}>
+            {innerChildren}
+          </MarkdownBlockquote>
+        ),
+        pre: ({ children: innerChildren, className: innerClassName, node: _node }) => (
+          <MarkdownPre className={innerClassName}>
+            {onlyText(innerChildren).replace(/n$/u, '')}
+          </MarkdownPre>
         )
       }}
-      // components={{
-      //   a: ({ color, href, node, ref, ...props }) => {
-      //     if (!href) {
-      //       return null;
-      //     }
-      //
-      //     return (
-      //       <Link withUnderline color="primary" href={href} {...props} />
-      //     );
-      //   },
-      //   blockquote: ({ children, className, node, ref, ...props }) => (
-      //     <Blockquote className={className} {...props}>
-      //       {children}
-      //     </Blockquote>
-      //   ),
-      //   code: ({ children, className, node, ref, ...props }) => {
-      //     const language = /language-(\w+)/u.exec(className || '')?.[1];
-      //
-      //     return (
-      //       <Code className={className} language={language} {...props}>
-      //         {children}
-      //       </Code>
-      //     );
-      //   },
       //   hr: ({ className, node, ref, ...props }) => (
       //     <Divider className={clsx('mb-0', className)} {...props} />
       //   ),
