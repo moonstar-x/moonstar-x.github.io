@@ -20,13 +20,21 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
 
   return (
     <section className={clsx(className)} {...props}>
-      <div className="bg-text text-background py-2.5 px-10 flex flex-row gap-6.5 items-center">
-        <span className="font-title font-bold text-sm tracking-[0.2em] uppercase pt-1.25 pb-1">
+      <div className="bg-text text-background py-3 xl:py-2.5 px-5 xl:px-10 flex flex-row gap-2 xl:gap-6.5 items-center overflow-hidden">
+        <span className="hidden xl:inline-block font-title font-bold text-sm tracking-[0.2em] uppercase pt-1.25 pb-1">
           Filter
         </span>
 
         {[null, ...orderedWorkTypes].map((type) => (
-          <button className={clsx('text-sm font-medium tracking-widest uppercase text-background py-1.25 px-3.25 cursor-pointer hover:font-semibold hover:text-text hover:bg-background', filter === type && 'font-semibold text-text bg-background')} key={type ?? 'all'} type="button" onClick={createHandleFilterClick(type)}>
+          <button
+            key={type ?? 'all'}
+            type="button"
+            onClick={createHandleFilterClick(type)}
+            className={clsx(
+              'text-[13px] xl:text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase text-background py-2.25 xl:py-1.25 px-3.5 xl:px-3.25 cursor-pointer hover:font-semibold hover:text-text hover:bg-background',
+              filter === type ? 'font-semibold text-text bg-background' : 'border xl:border-0 border-solid border-border-darker'
+            )}
+          >
             {type ?? 'all'}
           </button>
         ))}

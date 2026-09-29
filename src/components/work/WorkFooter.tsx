@@ -13,16 +13,16 @@ interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
 }
 
 export const WorkFooter: FC<Props> = ({ links, className, ...props }) => (
-  <footer className={clsx('bg-text text-background py-6.5 px-10 flex flex-row items-center justify-between', className)} {...props}>
+  <footer className={clsx('bg-text text-background py-5.5 xl:py-6.5 px-5 xl:px-10 flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-between', className)} {...props}>
     <div className="-mb-1.5">
-      <Link className="font-title font-black text-[40px] tracking-[-0.04em] uppercase border-solid border-b-2 border-transparent hover:border-accent" href={RouteDefs.contact}>
+      <Link className="font-title font-black text-[34px] xl:text-[40px] tracking-[-0.04em] uppercase border-solid" href={RouteDefs.contact}>
         Let's connect →
       </Link>
     </div>
 
-    <nav className="flex flex-row gap-5.5 text-sm font-medium tracking-widest uppercase">
+    <nav className="flex flex-row gap-4.5 xl:gap-5.5 text-xs xl:text-sm font-medium tracking-widest uppercase">
       {links.map(({ url, label }) => (
-        <Link className="border-solid border-b-2 border-transparent hover:border-accent" href={url} key={label}>
+        <Link href={url} key={label}>
           {label}
         </Link>
       ))}
