@@ -13,20 +13,20 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
 }
 
 export const SocialsGrid: FC<Props> = ({ socials, className, ...props }) => (
-  <section className={clsx('grow grid grid-cols-3 auto-rows-fr grid-flat-bottom-3', className)} {...props}>
+  <section className={clsx('grow grid grid-cols-1 xl:grid-cols-3 auto-rows-fr', className)} {...props}>
     {socials.map(({ label, url }) => (
-      <Link className="min-h-64 text-text p-7 border-solid border-border border-r border-b flex flex-col justify-between" href={url} key={label}>
-        <h2 className="font-title font-black text-[36px] tracking-[-0.035em] uppercase">
-          {label}
-        </h2>
-        <div className="flex flex-row items-end justify-between">
-          <span className="text-[15px] font-light text-lighter">
+      <Link className="xl:min-h-64 text-text p-5 xl:p-7 border-solid border-border xl:border-r border-b flex flex-row justify-between gap-3.5 xl:gap-0" href={url} key={label}>
+        <div className="flex flex-col justify-between">
+          <h2 className="font-title font-black text-[28px] xl:text-[36px] tracking-[-0.035em] uppercase">
+            {label}
+          </h2>
+          <span className="text-sm xl:text-[15px] font-light text-lighter">
             {simplifyUrl(url)}
           </span>
-          <span className="text-[26px] text-accent">
-            ↗
-          </span>
         </div>
+        <span className="text-[24px] xl:text-[26px] text-accent self-center xl:self-end">
+          ↗
+        </span>
       </Link>
     ))}
   </section>
