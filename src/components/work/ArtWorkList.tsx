@@ -24,7 +24,7 @@ export const ArtWorkList: FC<Props> = ({ items, className, ...props }) => (
             <h3 className="font-title font-black text-[22px] xl:text-[28px] leading-none xl:leading-[0.98] tracking-[-0.03em] uppercase">
               {name}
             </h3>
-            <p className="text-[14px] xl:text-[15px] font-light leading-normal xl:leading-[1.55] text-lighter">
+            <p className="xl:mt-1 text-[14px] xl:text-[15px] font-light leading-normal xl:leading-[1.55] text-lighter">
               {description}
             </p>
           </div>

@@ -16,9 +16,9 @@ const ContactPage: FC = async () => {
   return (
     <Fragment>
       <main className="flex-1">
-        <ContactHero />
-        <EmailRow email={config.profile.email} />
-        <SocialsGrid socials={socialsInGrid} />
+        <ContactHero className="page-horizontal-align" />
+        <EmailRow className="page-horizontal-align" email={config.profile.email} />
+        <SocialsGrid className="page-horizontal-align" socials={socialsInGrid} />
       </main>
       <ContactFooter blurb={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} />
     </Fragment>

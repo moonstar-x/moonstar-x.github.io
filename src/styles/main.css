@@ -41,6 +41,12 @@ body {
   max-width: 100vw;
 }
 
+@utility page-horizontal-align {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @utility grid-flat-bottom-2 {
   & > :nth-child(2n + 1):nth-last-child(-n + 2),
   & > :nth-child(2n + 1):nth-last-child(-n + 2) ~ * {

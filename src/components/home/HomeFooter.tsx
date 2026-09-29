@@ -13,7 +13,7 @@ interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
 }
 
 export const HomeFooter: FC<Props> = ({ links, className, ...props }) => (
-  <footer className={clsx('py-7.5 xl:py-8.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-4 items-center justify-center xl:justify-between', className)} {...props}>
+  <footer className={clsx('py-7.5 xl:py-8.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-4 items-center justify-center xl:justify-between border-t border-solid border-border', className)} {...props}>
     <div className="flex flex-col gap-3 xl:gap-2 -mb-2">
       <span className="text-xs xl:text-sm font-medium tracking-[0.16em] uppercase text-muted">
         Nice to meet you

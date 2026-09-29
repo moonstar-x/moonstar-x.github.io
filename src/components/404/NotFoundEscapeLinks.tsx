@@ -23,7 +23,7 @@ export const NotFoundEscapeLinks: FC<Props> = ({ links, className, ...props }) =
     </div>
     <div className="grow flex flex-col">
       {links.map(({ href, label, description }, index) => (
-        <Link className="min-h-41.75 xl:min-h-48.5 grow text-text pt-4 xl:pt-5 pb-4 px-5 xl:px-10 border-t xl:border-t-0 xl:border-b border-solid border-border flex flex-row items-center gap-4 xl:gap-7.5" href={href} key={href}>
+        <Link className="min-h-41.75 xl:min-h-48.5 grow text-text pt-4 xl:pt-5 pb-4 px-5 xl:px-10 border-t xl:border-t-0 not-last:xl:border-b border-solid border-border flex flex-row items-center gap-4 xl:gap-7.5" href={href} key={href}>
           <span className="font-title font-black text-[15px] xl:text-[20px] text-accent w-7.5 xl:w-15 shrink-0">
             {padNumber(index + 1)}
           </span>

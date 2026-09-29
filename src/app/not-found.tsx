@@ -38,9 +38,9 @@ const NotFoundPage: FC = async () => {
   return (
     <Fragment>
       <main className="flex-1">
-        <NotFoundHero />
-        <NotFoundMarquee />
-        <NotFoundEscapeLinks links={escapeLinks} />
+        <NotFoundHero className="page-horizontal-align" />
+        <NotFoundMarquee className="page-horizontal-align" />
+        <NotFoundEscapeLinks className="page-horizontal-align" links={escapeLinks} />
       </main>
       <NotFoundFooter links={config.profile.socials} />
     </Fragment>

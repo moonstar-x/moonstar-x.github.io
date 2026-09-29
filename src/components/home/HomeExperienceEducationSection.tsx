@@ -10,7 +10,7 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
 }
 
 export const HomeExperienceEducationSection: FC<Props> = ({ experience, education, educationLanguagesBlurb, className, ...props }) => (
-  <section className={clsx('py-5.5 xl:py-9 px-5 xl:px-10 border-b border-solid border-border flex flex-col xl:flex-row gap-3.5 xl:gap-12.5', className)} id={RouteHashDefs.experience} {...props}>
+  <section className={clsx('py-5.5 xl:py-9 px-5 xl:px-10 flex flex-col xl:flex-row gap-3.5 xl:gap-12.5', className)} id={RouteHashDefs.experience} {...props}>
     <div className="flex grow flex-col gap-4">
       <h2 className="font-title font-black text-[24px] xl:text-[26px] tracking-[-0.03em] xl:tracking-[-0.02em] uppercase">
         Experience

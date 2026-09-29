@@ -49,10 +49,10 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   return (
     <Fragment>
       <main className="flex-1">
-        <Breadcrumb items={breadcrumbItems} />
-        <WorkArticleHero metadata={article.metadata} />
-        <WorkArticleFacts metadata={article.metadata} />
-        <Markdown className="mb-8">
+        <Breadcrumb className="page-horizontal-align" items={breadcrumbItems} />
+        <WorkArticleHero className="page-horizontal-align" metadata={article.metadata} />
+        <WorkArticleFacts className="page-horizontal-align" metadata={article.metadata} />
+        <Markdown className="mb-8 page-horizontal-align">
           {article.markdown}
         </Markdown>
       </main>

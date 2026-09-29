@@ -18,8 +18,8 @@ const WorkPage: FC = async () => {
   return (
     <Fragment>
       <main className="flex-1">
-        <WorkHero items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
-        <FilteringWorkList items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+        <WorkHero className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+        <FilteringWorkList className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
       </main>
       <WorkFooter links={config.profile.socials} />
     </Fragment>
