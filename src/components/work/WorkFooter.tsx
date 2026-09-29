@@ -14,7 +14,7 @@ interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
 
 export const WorkFooter: FC<Props> = ({ links, className, ...props }) => (
   <footer className={clsx('bg-text text-background py-5.5 xl:py-6.5 px-5 xl:px-10 flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-between', className)} {...props}>
-    <div className="-mb-1.5">
+    <div className="xl:-mb-1.5">
       <Link className="font-title font-black text-[34px] xl:text-[40px] tracking-[-0.04em] uppercase border-solid" href={RouteDefs.contact}>
         Let's connect →
       </Link>

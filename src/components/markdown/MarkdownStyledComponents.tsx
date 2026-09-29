@@ -5,91 +5,91 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export const MarkdownH1: FC<ComponentProps<'h1'>> = ({ className, children, ...props }) => (
-  <h1 className={clsx('font-title font-black text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>
+  <h1 className={clsx('font-title font-black text-[42px] xl:text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>
     {children}
   </h1>
 );
 
 export const MarkdownH2: FC<ComponentProps<'h2'>> = ({ className, children, ...props }) => (
-  <h2 className={clsx('font-title font-black text-[42px] leading-[0.95] tracking-[-0.035em] uppercase pt-2.5 border-t-[3px] border-solid border-text', className)} {...props}>
+  <h2 className={clsx('font-title font-black text-[30px] xl:text-[42px] leading-[0.95] tracking-[-0.035em] uppercase pt-2.5 border-t-[3px] border-solid border-text', className)} {...props}>
     {children}
   </h2>
 );
 
 export const MarkdownH3: FC<ComponentProps<'h3'>> = ({ className, children, ...props }) => (
-  <h3 className={clsx('font-title font-black text-[28px] leading-none tracking-tight', className)} {...props}>
+  <h3 className={clsx('font-title font-black text-[22px] xl:text-[28px] leading-none tracking-tight', className)} {...props}>
     {children}
   </h3>
 );
 
 export const MarkdownH4: FC<ComponentProps<'h4'>> = ({ className, children, ...props }) => (
-  <h4 className={clsx('text-[15px] font-semibold tracking-[0.16em] uppercase text-accent', className)} {...props}>
+  <h4 className={clsx('text-[14px] xl:text-[15px] font-semibold tracking-[0.16em] uppercase text-accent', className)} {...props}>
     {children}
   </h4>
 );
 
 export const MarkdownP: FC<ComponentProps<'p'>> = ({ className, children, ...props }) => (
-  <p className={clsx('m-0 text-[17px] font-light leading-[1.75] text-article', className)} {...props}>
+  <p className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-article', className)} {...props}>
     {children}
   </p>
 );
 
 export const MarkdownStrong: FC<ComponentProps<'strong'>> = ({ className, children, ...props }) => (
-  <strong className={clsx('m-0 text-[17px] font-semibold leading-[1.75] text-article', className)} {...props}>
+  <strong className={clsx('m-0 text-[16px] xl:text-[17px] font-semibold leading-[1.75] text-article', className)} {...props}>
     {children}
   </strong>
 );
 
 export const MarkdownEm: FC<ComponentProps<'em'>> = ({ className, children, ...props }) => (
-  <em className={clsx('m-0 text-[17px] font-light leading-[1.75] text-article', className)} {...props}>
+  <em className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-article', className)} {...props}>
     {children}
   </em>
 );
 
 export const MarkdownDel: FC<ComponentProps<'del'>> = ({ className, children, ...props }) => (
-  <del className={clsx('m-0 text-[17px] font-light leading-[1.75] text-dark', className)} {...props}>
+  <del className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-dark', className)} {...props}>
     {children}
   </del>
 );
 
 export const MarkdownCode: FC<ComponentProps<'code'>> = ({ className, children, ...props }) => (
-  <code className={clsx('m-0 font-code text-[15px] font-light leading-[1.75] text-article bg-background-dark border border-solid border-border py-px px-0.75', className)} {...props}>
+  <code className={clsx('m-0 font-code text-[14px] xl:text-[15px] font-light leading-[1.75] text-article bg-background-dark border border-solid border-border py-px px-0.75', className)} {...props}>
     {children}
   </code>
 );
 
 export const MarkdownA: FC<ComponentProps<'a'>> = ({ className, children, ...props }) => (
-  <a className={clsx('m-0 text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent', className)} {...props}>
+  <a className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent', className)} {...props}>
     {children}
   </a>
 );
 
 export const MarkdownKbd: FC<ComponentProps<'kbd'>> = ({ className, children, ...props }) => (
-  <kbd className={clsx('m-0 font-code text-[13px] font-medium leading-[1.75] text-article bg-background-light border border-solid border-border-dark border-b-[3px] py-0.5 px-1.75', className)} {...props}>
+  <kbd className={clsx('m-0 font-code text-xs xl:text-[13px] font-medium leading-[1.75] text-article bg-background-light border border-solid border-border-dark border-b-[3px] py-0.5 px-1.5 xl:px-1.75', className)} {...props}>
     {children}
   </kbd>
 );
 
 export const MarkdownSup: FC<ComponentProps<'sup'>> = ({ className, children, ...props }) => (
-  <sup className={clsx('m-0 font-semibold leading-[1.75] text-accent [&_a]:border-none [&_a]:text-[11px]', className)} {...props}>
+  <sup className={clsx('m-0 font-semibold leading-[1.75] text-accent [&_a]:border-none [&_a]:text-[10px] [&_a]:xl:text-[11px]', className)} {...props}>
     {children}
   </sup>
 );
 
 export const MarkdownUl: FC<ComponentProps<'ul'>> = ({ className, children, ...props }) => (
-  <ul className={clsx('m-0 ps-5 text-[17px] font-light leading-[1.85] text-article list-disc [&_ul]:list-[circle] [&_ul_ul]:list-[square]', className)} {...props}>
+  <ul className={clsx('m-0 ps-5 text-[16px] xl:text-[17px] font-light leading-[1.85] text-article list-disc [&_ul]:list-[circle] [&_ul_ul]:list-[square]', className)} {...props}>
     {children}
   </ul>
 );
 
 export const MarkdownOl: FC<ComponentProps<'ol'>> = ({ className, children, ...props }) => (
-  <ol className={clsx('m-0 ps-5.5 text-[17px] font-light leading-[1.85] text-article list-decimal', className)} {...props}>
+  <ol className={clsx('m-0 ps-5.5 text-[16px] xl:text-[17px] font-light leading-[1.85] text-article list-decimal', className)} {...props}>
     {children}
   </ol>
 );
 
 export const MarkdownLi: FC<ComponentProps<'li'>> = ({ className, children, ...props }) => (
-  <li className={clsx('m-0 text-[17px] font-light leading-[1.85] text-article [&.task-list-item]:flex [&.task-list-item]:gap-2.5 [&.task-list-item]:items-start', className)} {...props}>
+  <li className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.85] text-article [&.task-list-item]:flex [&.task-list-item]:gap-2.5 [&.task-list-item]:items-start', className)} {...props}>
     {children}
   </li>
 );
@@ -99,7 +99,7 @@ export const MarkdownInput: FC<ComponentProps<'input'>> = ({ className, checked,
 );
 
 export const MarkdownBlockquote: FC<ComponentProps<'blockquote'>> = ({ className, children, ...props }) => (
-  <blockquote className={clsx('m-0 border-s-4 border-solid border-accent px-1 pb-5.5 flex flex-col gap-2.5 text-article [&_p]:ms-6.5 [&_p]:text-[20px] [&_p]:font-light [&_p]:leading-[1.6]', className)} {...props}>
+  <blockquote className={clsx('m-0 border-s-4 border-solid border-accent px-1 pb-5.5 flex flex-col gap-2.5 text-article [&_p]:ms-6.5 [&_p]:text-[18px] [&_p]:xl:text-[20px] [&_p]:font-light [&_p]:leading-[1.6]', className)} {...props}>
     {children}
   </blockquote>
 );
@@ -114,7 +114,7 @@ export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { classN
           {language}
         </span>
       </div>
-      <div className="m-0 font-code text-sm leading-[1.75] text-code overflow-hidden **:bg-text!">
+      <div className="m-0 font-code text-xs xl:text-sm leading-[1.75] text-code overflow-hidden **:bg-text!">
         <SyntaxHighlighter language={language} PreTag="pre" {...props} style={oneDark}>
           {children}
         </SyntaxHighlighter>
@@ -124,7 +124,7 @@ export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { classN
 };
 
 export const MarkdownTable: FC<ComponentProps<'table'>> = ({ className, children, ...props }) => (
-  <table className={clsx('w-full border-collapse text-[16px]', className)} {...props}>
+  <table className={clsx('w-full border-collapse text-sm xl:text-[16px]', className)} {...props}>
     {children}
   </table>
 );
@@ -136,7 +136,7 @@ export const MarkdownTHead: FC<ComponentProps<'thead'>> = ({ className, children
 );
 
 export const MarkdownTh: FC<ComponentProps<'th'>> = ({ className, children, ...props }) => (
-  <th className={clsx('text-left font-title font-black text-[13px] tracking-[0.14em] uppercase py-2.75 px-4', className)} {...props}>
+  <th className={clsx('text-left font-title font-black text-[11px] xl:text-[13px] tracking-[0.14em] uppercase py-2.25 xl:py-2.75 px-3.5 xl:px-4', className)} {...props}>
     {children}
   </th>
 );
@@ -154,32 +154,30 @@ export const MarkdownTr: FC<ComponentProps<'tr'>> = ({ className, children, ...p
 );
 
 export const MarkdownTd: FC<ComponentProps<'td'>> = ({ className, children, ...props }) => (
-  <td className={clsx('py-2.75 px-4', className)} {...props}>
+  <td className={clsx('py-2.25 xl:py-2.75 px-3.5 xl:px-4', className)} {...props}>
     {children}
   </td>
 );
 
-export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => {
-  const parseImgDimension = (value: ComponentProps<'img'>['width']): number => {
-    const parsed = Number(value);
-    return Number.isFinite(parsed) ? parsed : 0;
-  };
-
-  return (
-    <ExpandableImage
-      alt={alt ?? 'image'}
-      className={clsx('w-full h-auto object-cover', className)}
-      height={parseImgDimension(height)}
-      sizes="100vw"
-      src={typeof src === 'string' ? src : ''}
-      width={parseImgDimension(width)}
-      {...props}
-    />
-  );
+const parseImgDimension = (value: ComponentProps<'img'>['width']): number => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
 };
 
+export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => (
+  <ExpandableImage
+    alt={alt ?? 'image'}
+    className={clsx('w-full h-auto object-cover', className)}
+    height={parseImgDimension(height)}
+    sizes="100vw"
+    src={typeof src === 'string' ? src : ''}
+    width={parseImgDimension(width)}
+    {...props}
+  />
+);
+
 export const MarkdownFigCaption: FC<ComponentProps<'figcaption'>> = ({ className, children, ...props }) => (
-  <figcaption className={clsx('text-sm font-light leading-[1.55] text-muted', className)} {...props}>
+  <figcaption className={clsx('text-center text-[13px] xl:text-sm font-light leading-[1.55] text-muted', className)} {...props}>
     {children}
   </figcaption>
 );
@@ -196,8 +194,8 @@ export const MarkdownHr: FC<ComponentProps<'hr'>> = ({ className, ...props }) =>
 export const MarkdownSection: FC<ComponentProps<'section'>> = ({ className, children, ...props }) => (
   <section
     className={clsx(
-      '[&[data-footnotes]_h2]:text-xs [&[data-footnotes]_h2]:font-semibold [&[data-footnotes]_h2]:tracking-[0.16em] [&[data-footnotes]_h2]:uppercase [&[data-footnotes]_h2]:text-muted',
-      '[&[data-footnotes]_ol]:flex [&[data-footnotes]_ol]:gap-2.5 [&[data-footnotes]_ol]:text-[15px] [&[data-footnotes]_ol]:font-light [&[data-footnotes]_ol]:leading-[1.65] [&[data-footnotes]_ol]:text-light',
+      '[&[data-footnotes]_h2]:text-[11px] [&[data-footnotes]_h2]:xl:text-xs [&[data-footnotes]_h2]:font-semibold [&[data-footnotes]_h2]:tracking-[0.16em] [&[data-footnotes]_h2]:uppercase [&[data-footnotes]_h2]:text-muted',
+      '[&[data-footnotes]_ol]:flex [&[data-footnotes]_ol]:gap-2.5 [&[data-footnotes]_ol]:text-sm [&[data-footnotes]_ol]:xl:text-[15px] [&[data-footnotes]_ol]:font-light [&[data-footnotes]_ol]:leading-[1.65] [&[data-footnotes]_ol]:text-light',
       '[&[data-footnotes]_li]:marker:text-accent [&[data-footnotes]_li]:marker:font-semibold',
       '[&[data-footnotes]_li_p]:ms-2',
       className)}

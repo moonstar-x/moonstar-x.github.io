@@ -62,6 +62,20 @@ body {
   }
 }
 
+@utility grid-flat-right-2 {
+  & > :nth-child(2n),
+  & > :last-child {
+    border-right-width: 0;
+  }
+}
+
+@utility grid-flat-right-3 {
+  & > :nth-child(3n),
+  & > :last-child {
+    border-right-width: 0;
+  }
+}
+
 @utility grid-flat-right-4 {
   & > :nth-child(4n),
   & > :last-child {
