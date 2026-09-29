@@ -4,9 +4,10 @@ import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
 import { WorkArticleHero } from '@components/work/WorkArticleHero';
 import { WorkFooter } from '@components/work/WorkFooter';
+import { WorkFooterNavigation } from '@components/work/WorkFooterNavigation';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
-import { getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
+import { getAllWorkMetadata, getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
 import { createPageMetadata } from '@core/utils/metadata';
 import { capitalize } from '@core/utils/string';
 import type { Metadata } from 'next';
@@ -25,6 +26,9 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   const awaitedParams = await params;
   const config = await getConfig();
   const article = await getWorkBySlug(awaitedParams.slug);
+  const allArticles = await getAllWorkMetadata({ sort: 'date' });
+  const currentArticleIndex = allArticles.findIndex((a) => a.slug === article.metadata.slug);
+  const nextArticle = allArticles[currentArticleIndex + 1];
   const breadcrumbItems: BreadcrumbItem[] = [
     {
       id: 'work',
@@ -52,6 +56,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
           {article.markdown}
         </Markdown>
       </main>
+      <WorkFooterNavigation nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
       <WorkFooter links={config.profile.socials} />
     </Fragment>
   );
