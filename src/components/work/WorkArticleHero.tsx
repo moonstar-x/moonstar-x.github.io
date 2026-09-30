@@ -22,7 +22,7 @@ export const WorkArticleHero: FC<Props> = ({ metadata, className, ...props }) =>
         {getWorkStatusLabel(metadata.status)}
       </span>
     </div>
-    <h1 className="m-0 font-title font-black text-[62px] xl:text-[148px] leading-[0.83] xl:leading-[0.8] tracking-[-0.055em] xl:tracking-[-0.06em] uppercase">
+    <h1 className="m-0 font-title font-black text-[length:min(62px,calc((100vw-2.5rem)/7))] xl:text-[148px] leading-[0.83] xl:leading-[0.8] tracking-[-0.055em] xl:tracking-[-0.06em] uppercase">
       <span className="sr-only">
         {metadata.name}
       </span>

@@ -2,6 +2,7 @@ import { Markdown } from '@components/markdown/Markdown';
 import { JsonLd } from '@components/seo/JsonLd';
 import { Breadcrumbs } from '@components/ui/Breadcrumbs';
 import type { BreadcrumbItem } from '@components/ui/Breadcrumbs';
+import { WorkArticleCover } from '@components/work/WorkArticleCover';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
 import { WorkArticleHero } from '@components/work/WorkArticleHero';
 import { WorkFooter } from '@components/work/WorkFooter';
@@ -54,6 +55,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
     <Fragment>
       <main className="flex-1">
         <Breadcrumbs className="page-horizontal-align" items={breadcrumbItems} />
+        <WorkArticleCover className="page-horizontal-align" metadata={article.metadata} />
         <WorkArticleHero className="page-horizontal-align" metadata={article.metadata} />
         <WorkArticleFacts className="page-horizontal-align" metadata={article.metadata} />
         <Markdown className="mb-8 page-horizontal-align">
