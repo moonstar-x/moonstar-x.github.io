@@ -1,3 +1,5 @@
+import { MotionLink } from '@components/motion/MotionLink';
+import { fadeUp, REVEAL_VIEWPORT, staggerChildren } from '@components/motion/variants';
 import type { WorkFact, WorkLink, WorkMetadata, WorkStats } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { getDockerHubRepoData } from '@core/services/third-party/dockerhub';
@@ -7,7 +9,7 @@ import { compactNumber } from '@core/utils/number';
 import { objectEntries } from '@core/utils/object';
 import { simplifyUrl } from '@core/utils/string';
 import { clsx } from 'clsx';
-import Link from 'next/link';
+import * as motion from 'framer-motion/client';
 import { Fragment } from 'react';
 import type { ComponentProps, FC, ReactNode } from 'react';
 
@@ -47,12 +49,12 @@ interface WorkFactItemContainerProps {
 }
 
 const WorkFactItemContainer: FC<WorkFactItemContainerProps> = ({ children, className, label }) => (
-  <div className={clsx(ITEM_CLASS_NAME, className)}>
-    <span className={LABEL_CLASS_NAME}>
+  <motion.div className={clsx(ITEM_CLASS_NAME, className)} variants={staggerChildren(0.06)}>
+    <motion.span className={LABEL_CLASS_NAME} variants={fadeUp(0, 12)}>
       {label}
-    </span>
+    </motion.span>
     {children}
-  </div>
+  </motion.div>
 );
 
 type ResolvedStats = Array<[label: string, value: number]>;
@@ -114,9 +116,9 @@ const StatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, resour
     <Fragment>
       {stats.map(([label, value]) => (
         <WorkFactItemContainer className={className} key={label} label={label}>
-          <span className={STAT_VALUE_CLASS_NAME}>
+          <motion.span className={STAT_VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
             {compactNumber(value)}
-          </span>
+          </motion.span>
         </WorkFactItemContainer>
       ))}
     </Fragment>
@@ -133,30 +135,30 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
     case 'featured':
       return (
         <WorkFactItemContainer className={className} label={fact.label}>
-          <span className={FEATURED_VALUE_CLASS_NAME}>
+          <motion.span className={FEATURED_VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
             {fact.value}
-          </span>
+          </motion.span>
         </WorkFactItemContainer>
       );
     case 'link':
       return (
         <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
-          <Link className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url}>
+          <MotionLink className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url} variants={fadeUp(0, 12)}>
             <span className="truncate link-underline">
               {simplifyUrl(fact.url)}
             </span>
             <span className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               ↗
             </span>
-          </Link>
+          </MotionLink>
         </WorkFactItemContainer>
       );
     case 'role':
       return (
         <WorkFactItemContainer className={className} label="Role">
-          <span className={VALUE_CLASS_NAME}>
+          <motion.span className={VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
             {fact.role}
-          </span>
+          </motion.span>
         </WorkFactItemContainer>
       );
     case 'unfetched_stats':
@@ -166,7 +168,7 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
   }
 };
 
-interface Props extends Omit<ComponentProps<'section'>, 'children'> {
+interface Props extends Omit<ComponentProps<typeof motion.section>, 'children'> {
   metadata: ContentMetadata<WorkMetadata>;
 }
 
@@ -191,10 +193,10 @@ export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) =
   ];
 
   return (
-    <section className={clsx('grid grid-cols-2 xl:grid-cols-4 border-t border-b border-solid border-border grid-flat-bottom-2 grid-flat-right-2 xl:grid-flat-bottom-4 xl:grid-flat-right-4', className)} {...props}>
+    <motion.section className={clsx('grid grid-cols-2 xl:grid-cols-4 border-t border-b border-solid border-border grid-flat-bottom-2 grid-flat-right-2 xl:grid-flat-bottom-4 xl:grid-flat-right-4', className)} initial="hidden" variants={staggerChildren(0.06, 0.3)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
       {facts.map((fact) => (
         <WorkFactItem fact={fact} key={fact.id} />
       ))}
-    </section>
+    </motion.section>
   );
 };
