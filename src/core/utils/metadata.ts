@@ -13,7 +13,7 @@ const openGraphLocale = OPEN_GRAPH_LOCALE_MAP[APP_CONTENT_LANG] ?? APP_CONTENT_L
 export interface Params {
   description?: string;
   images?: string[];
-  noIndex?: boolean;
+  skipCanonical?: boolean;
   title?: string;
 
   twitterCard?: 'summary' | 'summary_large_image';
@@ -32,9 +32,7 @@ export const createPageMetadata = async (path: string, params: Params = {}): Pro
     title: pageTitle,
     description: pageDescription,
     metadataBase: new URL(BASE_URL),
-    ...params.noIndex === true
-      ? { robots: { index: false, follow: false } }
-      : { alternates: { canonical: path } },
+    ...params.skipCanonical !== true && { alternates: { canonical: path } },
     openGraph: {
       title: pageTitle,
       description: pageDescription,
@@ -44,7 +42,7 @@ export const createPageMetadata = async (path: string, params: Params = {}): Pro
       type: params.type ?? 'website'
     },
     twitter: {
-      card: params.twitterCard ?? 'summary',
+      card: params.twitterCard ?? 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
       images,
