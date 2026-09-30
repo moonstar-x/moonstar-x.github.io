@@ -18,14 +18,18 @@ export const HomeFooter: FC<Props> = ({ links, className, ...props }) => (
       <span className="text-xs xl:text-sm font-medium tracking-[0.16em] uppercase text-muted">
         Nice to meet you
       </span>
-      <Link className="font-title font-black text-[52px] xl:text-[56px] leading-[0.88] xl:leading-normal tracking-[-0.045em] uppercase" href={RouteDefs.contact}>
-        Let's connect →
+      <Link className="group font-title font-black text-[52px] xl:text-[56px] leading-[0.88] xl:leading-normal tracking-[-0.045em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.contact}>
+        Let's connect
+        {' '}
+        <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
+          →
+        </span>
       </Link>
     </div>
 
     <nav className="flex flex-row flex-wrap xl:flex-nowrap gap-2 xl:gap-5.5 text-sm font-medium tracking-widest uppercase">
       {links.map(({ url, label }) => (
-        <Link className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0" href={url} key={label}>
+        <Link className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0 transition-colors duration-200 ease-out hover:text-accent hover:border-accent xl:accent-underline xl:hover:accent-underline-shown xl:focus-visible:accent-underline-shown" href={url} key={label}>
           {label}
         </Link>
       ))}

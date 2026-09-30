@@ -23,18 +23,20 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           Some of my work
         </h2>
         <hr className="hidden xl:block grow h-px border-border" />
-        <Link className="text-xs xl:text-sm font-medium tracking-widest uppercase text-accent" href={RouteDefs.work}>
+        <Link className="group shrink-0 text-xs xl:text-sm font-medium tracking-widest uppercase text-accent" href={RouteDefs.work}>
           <span className="hidden xl:inline-block">See</span>
           {' '}
           all
           {' '}
           {items.length}
           {' '}
-          →
+          <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
+            →
+          </span>
         </Link>
       </div>
 
-      <div className="flex flex-col">
+      <ul className="flex flex-col">
         {slicedItems.map(({ status, type, technologies, slug, name, description, cover }, index) => {
           const statusText = status === 'in-development'
             ? 'In Development'
@@ -42,41 +44,43 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           const completeStatus = statusText.length > 0 ? `${type} · ${statusText}` : type;
 
           return (
-            <Link className="min-h-54.75 grow flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-7.5 p-5 xl:px-10 xl:pt-6 xl:pb-4 border-t last:border-b xl:border-t-0 xl:border-b border-solid border-border" href={DynamicRouteDefs.workBySlug(slug)} key={slug}>
-              <div className="w-full h-auto aspect-[2.32] relative xl:hidden">
-                <Image fill alt={slug} className="w-full h-full object-cover" src={cover} />
-              </div>
-
-              <span className="hidden xl:inline-block font-title font-black text-[20px] text-accent w-15 shrink-0">
-                {padNumber(index + 1)}
-              </span>
-
-              <div className="flex flex-col grow gap-2">
-                <div className="flex flex-row items-end gap-2.5">
-                  <span className="inline-block xl:hidden font-title font-black text-[15px] text-accent">
-                    {padNumber(index + 1)}
-                  </span>
-                  <h3 className="font-title font-black text-[34px] xl:text-[54px] leading-[0.95] xl:leading-[0.92] tracking-[-0.035em] xl:tracking-[-0.04em] uppercase">
-                    {name}
-                  </h3>
+            <li className="flex border-t last:border-b xl:border-t-0 xl:border-b border-solid border-border" key={slug}>
+              <Link className="group min-h-54.75 grow flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-7.5 p-5 xl:px-10 xl:pt-6 xl:pb-4 transition-colors duration-200 ease-out hover:bg-background-light" href={DynamicRouteDefs.workBySlug(slug)}>
+                <div className="w-full h-auto aspect-[2.32] relative xl:hidden">
+                  <Image fill alt={slug} className="w-full h-full object-cover" src={cover} />
                 </div>
-                <p className="text-[15px] xl:text-[16px] font-light leading-[1.55] xl:leading-normal text-lighter max-w-[70ch]">
-                  {description}
-                </p>
-              </div>
 
-              <div className="shrink-0 text-right flex flex-col gap-1.5">
-                <span className="text-[12px] font-medium tracking-[0.08em] xl:tracking-widest uppercase text-muted">
-                  {completeStatus}
+                <span className="hidden xl:inline-block font-title font-black text-[20px] text-accent w-15 shrink-0">
+                  {padNumber(index + 1)}
                 </span>
-                <span className="hidden xl:inlint-block font-title font-black text-[34px] text-accent">
-                  ↗
-                </span>
-              </div>
-            </Link>
+
+                <div className="flex flex-col grow gap-2">
+                  <div className="flex flex-row items-end gap-2.5">
+                    <span className="inline-block xl:hidden font-title font-black text-[15px] text-accent">
+                      {padNumber(index + 1)}
+                    </span>
+                    <h3 className="font-title font-black text-[34px] xl:text-[54px] leading-[0.95] xl:leading-[0.92] tracking-[-0.035em] xl:tracking-[-0.04em] uppercase transition-colors duration-200 ease-out group-hover:text-accent">
+                      {name}
+                    </h3>
+                  </div>
+                  <p className="text-[15px] xl:text-[16px] font-light leading-[1.55] xl:leading-normal text-lighter max-w-[70ch]">
+                    {description}
+                  </p>
+                </div>
+
+                <div className="shrink-0 text-right flex flex-col gap-1.5">
+                  <span className="text-[12px] font-medium tracking-[0.08em] xl:tracking-widest uppercase text-muted transition-colors duration-200 ease-out group-hover:text-lighter">
+                    {completeStatus}
+                  </span>
+                  <span className="hidden xl:inline-block font-title font-black text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                </div>
+              </Link>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };

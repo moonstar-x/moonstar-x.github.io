@@ -4,26 +4,30 @@ import type { ComponentProps, FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+export const HEADING_ANCHOR_CLASS_NAME = 'heading-anchor';
+
+const HEADING_CLASS_NAME = 'relative [&>.heading-anchor]:hidden xl:[&>.heading-anchor]:block [&>.heading-anchor]:absolute [&>.heading-anchor]:right-full [&>.heading-anchor]:top-0 [&>.heading-anchor]:pe-[0.35em] [&>.heading-anchor]:font-title [&>.heading-anchor]:font-black [&>.heading-anchor]:text-accent [&>.heading-anchor]:opacity-0 [&>.heading-anchor]:transition-opacity [&>.heading-anchor]:duration-200 [&>.heading-anchor]:ease-out [&:hover>.heading-anchor]:opacity-100';
+
 export const MarkdownH1: FC<ComponentProps<'h1'>> = ({ className, children, ...props }) => (
-  <h1 className={clsx('font-title font-black text-[42px] xl:text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>
+  <h1 className={clsx(HEADING_CLASS_NAME, 'font-title font-black text-[42px] xl:text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>
     {children}
   </h1>
 );
 
 export const MarkdownH2: FC<ComponentProps<'h2'>> = ({ className, children, ...props }) => (
-  <h2 className={clsx('font-title font-black text-[30px] xl:text-[42px] leading-[0.95] tracking-[-0.035em] uppercase pt-2.5 border-t-[3px] border-solid border-text', className)} {...props}>
+  <h2 className={clsx(HEADING_CLASS_NAME, 'font-title font-black text-[30px] xl:text-[42px] leading-[0.95] tracking-[-0.035em] uppercase pt-2.5 border-t-[3px] border-solid border-text', className)} {...props}>
     {children}
   </h2>
 );
 
 export const MarkdownH3: FC<ComponentProps<'h3'>> = ({ className, children, ...props }) => (
-  <h3 className={clsx('font-title font-black text-[22px] xl:text-[28px] leading-none tracking-tight', className)} {...props}>
+  <h3 className={clsx(HEADING_CLASS_NAME, 'font-title font-black text-[22px] xl:text-[28px] leading-none tracking-tight', className)} {...props}>
     {children}
   </h3>
 );
 
 export const MarkdownH4: FC<ComponentProps<'h4'>> = ({ className, children, ...props }) => (
-  <h4 className={clsx('text-[14px] xl:text-[15px] font-semibold tracking-[0.16em] uppercase text-accent', className)} {...props}>
+  <h4 className={clsx(HEADING_CLASS_NAME, 'text-[14px] xl:text-[15px] font-semibold tracking-[0.16em] uppercase text-accent', className)} {...props}>
     {children}
   </h4>
 );
@@ -58,11 +62,21 @@ export const MarkdownCode: FC<ComponentProps<'code'>> = ({ className, children, 
   </code>
 );
 
-export const MarkdownA: FC<ComponentProps<'a'>> = ({ className, children, ...props }) => (
-  <a className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent', className)} {...props}>
-    {children}
-  </a>
-);
+export const MarkdownA: FC<ComponentProps<'a'>> = ({ className, children, ...props }) => {
+  if (className?.includes(HEADING_ANCHOR_CLASS_NAME) === true) {
+    return (
+      <a className={className} {...props}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <a className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent transition-colors duration-200 ease-out hover:bg-accent hover:text-background-light', className)} {...props}>
+      {children}
+    </a>
+  );
+};
 
 export const MarkdownKbd: FC<ComponentProps<'kbd'>> = ({ className, children, ...props }) => (
   <kbd className={clsx('m-0 font-code text-xs xl:text-[13px] font-medium leading-[1.75] text-article bg-background-light border border-solid border-border-dark border-b-[3px] py-0.5 px-1.5 xl:px-1.75', className)} {...props}>
@@ -167,7 +181,7 @@ const parseImgDimension = (value: ComponentProps<'img'>['width']): number => {
 export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => (
   <ExpandableImage
     alt={alt ?? 'image'}
-    className={clsx('w-full h-auto object-cover', className)}
+    className={clsx('w-full h-auto object-cover transition-opacity duration-200 ease-out hover:opacity-85', className)}
     height={parseImgDimension(height)}
     sizes="100vw"
     src={typeof src === 'string' ? src : ''}

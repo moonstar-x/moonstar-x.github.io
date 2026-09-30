@@ -10,8 +10,14 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
 
 export const WorkFooterNavigation: FC<Props> = ({ nextArticleName, nextArticleSlug, className, ...props }) => (
   <section className={clsx('border-t border-solid border-border pt-5 pb-3 xl:py-5.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-1 xl:items-center justify-between', className)} {...props}>
-    <Link className="hidden xl:inline-block text-[13px] font-medium tracking-widest uppercase text-muted" href={RouteDefs.work}>
-      ← All work
+    <Link className="group hidden xl:inline-block text-[13px] font-medium tracking-widest uppercase text-muted transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.work}>
+      <span className="inline-block transition-transform duration-200 ease-out group-hover:-translate-x-1">
+        ←
+      </span>
+      {' '}
+      <span className="inline-block accent-underline group-hover:accent-underline-shown group-focus-visible:accent-underline-shown">
+        All work
+      </span>
     </Link>
     {
       nextArticleName !== undefined && nextArticleSlug !== undefined && (
@@ -19,10 +25,12 @@ export const WorkFooterNavigation: FC<Props> = ({ nextArticleName, nextArticleSl
           <span className="text-xs xl:text-[13px] font-medium tracking-widest uppercase text-muted">
             Next Up
           </span>
-          <Link className="font-title font-black text-[30px] xl:text-[34px] tracking-[-0.035em] uppercase" href={DynamicRouteDefs.workBySlug(nextArticleSlug)}>
+          <Link className="group font-title font-black text-[30px] xl:text-[34px] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={DynamicRouteDefs.workBySlug(nextArticleSlug)}>
             {nextArticleName}
             {' '}
-            →
+            <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
       )

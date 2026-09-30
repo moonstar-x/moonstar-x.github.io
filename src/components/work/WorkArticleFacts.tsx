@@ -14,7 +14,7 @@ import type { ComponentProps, FC, ReactNode } from 'react';
 const ITEM_CLASS_NAME = 'py-4 xl:py-5 px-5 xl:px-6.5 min-w-0 border-r border-b border-solid border-border flex flex-col justify-between gap-1 xl:gap-3';
 const LABEL_CLASS_NAME = 'text-[10px] xl:text-[11px] font-semibold tracking-[0.16em] uppercase text-muted';
 const FEATURED_VALUE_CLASS_NAME = 'font-title font-black text-[30px] xl:text-[42px] leading-none text-accent break-words';
-const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[30px] text-[42px] leading-none text-text break-words';
+const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[30px] xl:text-[42px] leading-none text-text break-words';
 const VALUE_CLASS_NAME = 'text-[15px] xl:text-[17px] font-medium leading-[1.35] break-words';
 
 const LINK_TYPE_TO_LABEL: Record<WorkLink, string> = {
@@ -141,11 +141,11 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
     case 'link':
       return (
         <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
-          <Link className={clsx(VALUE_CLASS_NAME, 'text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url}>
-            <span className="truncate">
+          <Link className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url}>
+            <span className="truncate link-underline">
               {simplifyUrl(fact.url)}
             </span>
-            <span className="shrink-0">
+            <span className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               ↗
             </span>
           </Link>

@@ -1,4 +1,5 @@
 import {
+  HEADING_ANCHOR_CLASS_NAME,
   MarkdownA, MarkdownBlockquote,
   MarkdownCode,
   MarkdownDel,
@@ -46,7 +47,6 @@ const articleSpacing = clsx(
 export const Markdown: FC<Props> = ({ children, className, ...props }) => (
   <article className={clsx('max-w-3xl mx-auto', articleSpacing, className)} {...props}>
     <ReactMarkdown
-      rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeFigure, [rehypeVideo, { details: false }], rehypeRaw]}
       remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ children: innerChildren, node: _node, ...innerProps }) => (
@@ -198,6 +198,17 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
           </MarkdownSection>
         )
       }}
+      rehypePlugins={[
+        rehypeSlug,
+        [rehypeAutolinkHeadings, {
+          behavior: 'prepend',
+          properties: { className: HEADING_ANCHOR_CLASS_NAME, ariaHidden: true, tabIndex: -1 },
+          content: { type: 'text', value: '#' }
+        }],
+        rehypeFigure,
+        [rehypeVideo, { details: false }],
+        rehypeRaw
+      ]}
     >
       {children}
     </ReactMarkdown>

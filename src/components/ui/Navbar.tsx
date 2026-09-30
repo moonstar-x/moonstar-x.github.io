@@ -14,6 +14,8 @@ import type { ComponentProps, FC } from 'react';
 
 const DESKTOP_MEDIA_QUERY = '(min-width: 80rem)';
 
+const LINK_CLASS_NAME = 'accent-underline pb-0.5 text-sm font-medium tracking-widest uppercase transition-colors duration-200 ease-out hover:text-accent';
+
 interface NavbarLink {
   accented?: boolean;
   href: string;
@@ -75,23 +77,30 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
     setOpen(false);
   };
 
-  // TODO: Revise this when everything is properly sized.
   return (
     <header className={clsx('px-5 xl:px-10 pt-3.5 pb-2.5 xl:pt-5.5 xl:pb-5 flex flex-row gap-4 items-center justify-between border-b border-solid border-border', className)} {...props}>
-      <Link className="font-black font-title text-[15px] xl:text-lg" href={RouteDefs.home}>
+      <Link className="font-black font-title text-[15px] xl:text-lg transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.home}>
         {title}
       </Link>
 
       <nav className="hidden xl:flex flex-row gap-7.5">
         {links.map(({ href, label, accented }) => (
-          <Link className={clsx('pb-0.5 text-sm font-medium tracking-widest uppercase hover:text-accent', Boolean(accented) && 'text-accent', isActive(href) && 'border-b-2 border-solid border-accent')} href={href} key={label}>
+          <Link
+            href={href}
+            key={label}
+            className={clsx(
+              LINK_CLASS_NAME,
+              Boolean(accented) && 'text-accent',
+              isActive(href) ? 'accent-underline-shown' : 'hover:accent-underline-shown focus-visible:accent-underline-shown'
+            )}
+          >
             {label}
           </Link>
         ))}
       </nav>
 
-      <button aria-expanded={open} aria-label="Open menu" className="xl:hidden cursor-pointer" type="button" onClick={handleOpen}>
-        <Icon className="fill-text" icon={BarsIcon} size="1.5x" />
+      <button aria-expanded={open} aria-label="Open menu" className="group xl:hidden cursor-pointer" type="button" onClick={handleOpen}>
+        <Icon className="fill-text transition-colors duration-200 ease-out group-hover:fill-accent" icon={BarsIcon} size="1.5x" />
       </button>
 
       <AnimatePresence>
@@ -114,17 +123,21 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
                 initial={{ x: '100%' }}
                 transition={{ ease: 'easeInOut', duration: 0.3 }}
               >
-                <button aria-label="Close menu" className="self-end cursor-pointer" type="button" onClick={handleClose}>
-                  <Icon className="fill-text" icon={XMarkIcon} size="1.5x" />
+                <button aria-label="Close menu" className="group self-end cursor-pointer" type="button" onClick={handleClose}>
+                  <Icon className="fill-text transition duration-200 ease-out group-hover:fill-accent group-hover:rotate-90" icon={XMarkIcon} size="1.5x" />
                 </button>
 
                 <div className="flex flex-col items-start gap-6">
                   {links.map(({ href, label, accented }) => (
                     <Link
-                      className={clsx('pb-0.5 text-sm font-medium tracking-widest uppercase hover:text-accent', Boolean(accented) && 'text-accent', isActive(href) && 'border-b-2 border-solid border-accent')}
                       href={href}
                       key={label}
                       onClick={handleClose}
+                      className={clsx(
+                        LINK_CLASS_NAME,
+                        Boolean(accented) && 'text-accent',
+                        isActive(href) ? 'accent-underline-shown' : 'hover:accent-underline-shown focus-visible:accent-underline-shown'
+                      )}
                     >
                       {label}
                     </Link>

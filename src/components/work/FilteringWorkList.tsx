@@ -27,12 +27,15 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
 
         {[null, ...orderedWorkTypes].map((type) => (
           <button
+            aria-pressed={filter === type}
             key={type ?? 'all'}
             type="button"
             onClick={createHandleFilterClick(type)}
             className={clsx(
-              'text-[13px] xl:text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase text-background py-2.25 xl:py-1.25 px-3.5 xl:px-3.25 cursor-pointer hover:font-semibold hover:text-text hover:bg-background',
-              filter === type ? 'font-semibold text-text bg-background' : 'border xl:border-0 border-solid border-border-darker'
+              'text-[13px] xl:text-sm font-semibold tracking-[0.08em] xl:tracking-widest uppercase py-2.25 xl:py-1.25 px-3.5 xl:px-3.25 cursor-pointer transition-colors duration-200 ease-out',
+              filter === type
+                ? 'text-text bg-background'
+                : 'text-background border xl:border-0 border-solid border-border-darker transition-colors duration-200 ease-out hover:text-text hover:bg-background-dark'
             )}
           >
             {type ?? 'all'}

@@ -10,6 +10,10 @@ import Image from 'next/image';
 import { Fragment, useState } from 'react';
 import type { FC, MouseEvent } from 'react';
 
+const stopPropagation = (event: MouseEvent): void => {
+  event.stopPropagation();
+};
+
 export interface Props extends ImageProps {
   initialOpen?: boolean;
 }
@@ -18,10 +22,6 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
   const [open, setOpen] = useState<boolean>(() => initialOpen);
   useDisableBodyScroll(open);
   useOnEscapePressed(() => setOpen(false));
-
-  const stopPropagation = (event: MouseEvent): void => {
-    event.stopPropagation();
-  };
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -34,7 +34,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
   return (
     <Fragment>
       <Image
-        className={clsx('cursor-pointer', className)}
+        className={clsx('cursor-zoom-in', className)}
         onClick={handleOpen}
         {...props}
       />
@@ -52,19 +52,18 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
             >
               <div className="w-full h-full flex flex-col gap-4 px-4 py-8">
                 <div className="flex flex-row justify-end px-2">
-                  <button className="cursor-pointer" type="button">
+                  <button aria-label="Close image" className="cursor-pointer group" type="button" onClick={handleClose}>
                     <Icon
-                      className="self-end justify-self-center fill-white opacity-50 hover:opacity-100"
+                      className="self-end justify-self-center fill-white opacity-50 transition-opacity duration-200 ease-out group-hover:opacity-100"
                       icon={XMarkIcon}
                       size="2x"
-                      onClick={handleClose}
                     />
                   </button>
                 </div>
 
                 <div className="flex-1 h-0 relative">
                   <Image
-                    className={clsx('h-auto w-auto max-w-full max-h-full m-auto absolute top-0 right-0 bottom-0 left-0', className)}
+                    className={clsx('h-auto w-auto max-w-full max-h-full m-auto absolute top-0 right-0 bottom-0 left-0 cursor-default', className)}
                     onClick={stopPropagation}
                     {...props}
                   />

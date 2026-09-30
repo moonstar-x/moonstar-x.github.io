@@ -1,6 +1,6 @@
 import { Markdown } from '@components/markdown/Markdown';
-import { Breadcrumb } from '@components/ui/Breadcrumb';
-import type { BreadcrumbItem } from '@components/ui/Breadcrumb';
+import { Breadcrumbs } from '@components/ui/Breadcrumbs';
+import type { BreadcrumbItem } from '@components/ui/Breadcrumbs';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
 import { WorkArticleHero } from '@components/work/WorkArticleHero';
 import { WorkFooter } from '@components/work/WorkFooter';
@@ -49,7 +49,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   return (
     <Fragment>
       <main className="flex-1">
-        <Breadcrumb className="page-horizontal-align" items={breadcrumbItems} />
+        <Breadcrumbs className="page-horizontal-align" items={breadcrumbItems} />
         <WorkArticleHero className="page-horizontal-align" metadata={article.metadata} />
         <WorkArticleFacts className="page-horizontal-align" metadata={article.metadata} />
         <Markdown className="mb-8 page-horizontal-align">

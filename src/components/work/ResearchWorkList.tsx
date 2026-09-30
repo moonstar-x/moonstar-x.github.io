@@ -30,36 +30,44 @@ interface Props extends Omit<ComponentProps<'div'>, 'children'> {
 export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
   <div className={clsx('pt-5.5 xl:pt-7.5 px-5 xl:px-10 pb-4.5 xl:pb-6.5 flex flex-col gap-4 not-last:border-b border-solid border-border', className)} {...props}>
     <WorkListTitle count={items.length} title="Research Work" />
-    {
-      items.map(({ slug, name, description, technologies, cover, status }) => (
-        <Link className="text-text flex flex-col xl:flex-row gap-2.75 xl:gap-6.5 xl:items-center pt-4 xl:pt-8 xl:pb-3.5 border-t border-solid border-border-light" href={DynamicRouteDefs.workBySlug(slug)} key={slug}>
-          <div className="w-full xl:w-52.5 h-35 xl:h-32 relative">
-            <Image fill alt={slug} className="shrink-0 object-cover" src={cover} />
-          </div>
-          <div className="grow flex flex-col gap-2.25 mt-1 xl:mt-0">
-            <h3 className="font-title font-black text-[32px] xl:text-[44px] leading-[0.95] tracking-[-0.035em] uppercase">
-              {name}
-            </h3>
-            <p className="text-[15px] xl:text-[16px] font-light leading-[1.55] text-lighter max-w-[64ch]">
-              {description}
-            </p>
-            <ul className="flex flex-row flex-wrap gap-1.5">
-              {technologies.map((technology) => (
-                <li className="text-xs font-medium border border-solid border-border-lighter py-1 xl:py-0.75 px-2.25 text-lighter uppercase" key={technology}>
-                  {technology}
-                </li>
-              ))}
-              <InDevelopmentBadge className="inline-block xl:hidden" status={status} />
-            </ul>
-          </div>
-          <div className="shrink-0 flex flex-col items-end gap-2">
-            <InDevelopmentBadge className="hidden xl:inline-block" status={status} />
-            <span className="hidden xl:inline-block font-title font-black text-[30px] text-accent">
-              ↗
-            </span>
-          </div>
-        </Link>
-      ))
-    }
+    <ul className="flex flex-col gap-4">
+      {items.map(({ slug, name, description, technologies, cover, status }) => (
+        <li className="flex border-t border-solid border-border-light" key={slug}>
+          <Link className="group grow text-text flex flex-col xl:flex-row gap-2.75 xl:gap-6.5 xl:items-center pt-4 xl:pt-8 xl:pb-3.5" href={DynamicRouteDefs.workBySlug(slug)}>
+            <div className="w-full xl:w-52.5 h-35 xl:h-32 relative overflow-hidden">
+              <Image fill alt={slug} className="shrink-0 object-cover transition-transform duration-300 ease-out group-hover:scale-105" src={cover} />
+            </div>
+            <div className="grow flex flex-col gap-2.25 mt-1 xl:mt-0">
+              <h3 className="font-title font-black text-[32px] xl:text-[44px] leading-[0.95] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out group-hover:text-accent">
+                {name}
+              </h3>
+              <p className="text-[15px] xl:text-[16px] font-light leading-[1.55] text-lighter max-w-[64ch]">
+                {description}
+              </p>
+              <ul className="flex flex-row flex-wrap gap-1.5">
+                {technologies.map((technology) => (
+                  <li className="text-xs font-medium border border-solid border-border-lighter py-1 xl:py-0.75 px-2.25 text-lighter uppercase transition-colors duration-200 ease-out group-hover:border-border-darker" key={technology}>
+                    {technology}
+                  </li>
+                ))}
+                {
+                  status === 'in-development' && (
+                    <li className="inline-block xl:hidden">
+                      <InDevelopmentBadge status={status} />
+                    </li>
+                  )
+                }
+              </ul>
+            </div>
+            <div className="shrink-0 flex flex-col items-end gap-2">
+              <InDevelopmentBadge className="hidden xl:inline-block" status={status} />
+              <span className="hidden xl:inline-block font-title font-black text-[30px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
+                ↗
+              </span>
+            </div>
+          </Link>
+        </li>
+      ))}
+    </ul>
   </div>
 );

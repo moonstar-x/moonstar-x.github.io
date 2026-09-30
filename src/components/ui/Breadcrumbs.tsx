@@ -21,16 +21,17 @@ const BreadcrumbLink: FC<BreadcrumbLinkProps> = ({ className, item, isFirst }) =
   }
 
   return (
-    <Link className={clsx(sharedClassName, activeClassName, className)} href={item.href}>
+    <Link className={clsx('group', sharedClassName, activeClassName, className)} href={item.href}>
       {
         isFirst === true && (
-          <span className="inline-block xl:hidden me-1">
+          <span className="inline-block xl:hidden me-1 transition-transform duration-200 ease-out group-hover:-translate-x-1">
             ←
-            {' '}
           </span>
         )
       }
-      {item.label}
+      <span className="inline-block accent-underline transition-colors duration-200 ease-out group-hover:text-accent group-hover:accent-underline-shown group-focus-visible:accent-underline-shown">
+        {item.label}
+      </span>
     </Link>
   );
 };
@@ -46,7 +47,7 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
   items: BreadcrumbItem[];
 }
 
-export const Breadcrumb: FC<Props> = ({ items, className, ...props }) => (
+export const Breadcrumbs: FC<Props> = ({ items, className, ...props }) => (
   <section className={clsx('py-3.5 xl:py-4 px-5 xl:px-10 border-b border-solid border-border flex flex-row items-center gap-1.5 xl:gap-3 text-[13px] xl:text-sm font-medium text-muted tracking-widest xl:tracking-normal uppercase xl:normal-case', className)} {...props}>
     {items.map((item, index) => (
       <BreadcrumbLink
@@ -54,7 +55,7 @@ export const Breadcrumb: FC<Props> = ({ items, className, ...props }) => (
         item={item}
         key={item.id}
         className={clsx(
-          'not-last:after:content-[\'/\'] after:ms-1.5 after:xl:ms-3',
+          'not-last:after:content-["/"] after:ms-1.5 after:xl:ms-3',
           items[index + 1]?.active === true && 'after:hidden after:xl:inline-block'
         )}
       />
