@@ -48,7 +48,8 @@ const NotFoundPage: FC = async () => {
 };
 
 export const generateMetadata = async (): Promise<Metadata> => await createPageMetadata('/404', {
-  title: 'Not Found'
+  title: 'Not Found',
+  noIndex: true
 });
 
 export default NotFoundPage;

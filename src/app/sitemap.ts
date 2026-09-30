@@ -7,8 +7,10 @@ type SingleSitemap = MetadataRoute.Sitemap[number];
 
 const now = new Date();
 
+const withTrailingSlash = (path: string): string => path.endsWith('/') ? path : `${path}/`;
+
 const makeSitemap = (path: string, priority?: number, changeFrequency?: SingleSitemap['changeFrequency']): SingleSitemap => ({
-  url: `${BASE_URL}${path}`,
+  url: `${BASE_URL}${withTrailingSlash(path)}`,
   lastModified: now,
   changeFrequency: changeFrequency ?? 'weekly',
   priority: priority ?? 1

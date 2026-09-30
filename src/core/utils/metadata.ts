@@ -5,9 +5,15 @@ import type { Metadata } from 'next';
 const MAX_IMAGES = 4;
 const SITE_CATEGORY = 'technology';
 
+const OPEN_GRAPH_LOCALE_MAP: Record<string, string> = {
+  en: 'en_US'
+};
+const openGraphLocale = OPEN_GRAPH_LOCALE_MAP[APP_CONTENT_LANG] ?? APP_CONTENT_LANG;
+
 export interface Params {
   description?: string;
   images?: string[];
+  noIndex?: boolean;
   title?: string;
 
   twitterCard?: 'summary' | 'summary_large_image';
@@ -25,15 +31,15 @@ export const createPageMetadata = async (path: string, params: Params = {}): Pro
     title: pageTitle,
     description: pageDescription,
     metadataBase: new URL(BASE_URL),
-    alternates: {
-      canonical: path
-    },
+    ...params.noIndex === true
+      ? { robots: { index: false, follow: false } }
+      : { alternates: { canonical: path } },
     openGraph: {
       title: pageTitle,
       description: pageDescription,
       siteName: config.profile.pageTitle,
       images,
-      locale: APP_CONTENT_LANG,
+      locale: openGraphLocale,
       type: params.type ?? 'website'
     },
     twitter: {

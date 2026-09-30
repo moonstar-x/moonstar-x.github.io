@@ -64,9 +64,7 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
               </span>
               <br className="hidden xl:inline-block" />
               {dateStart.getFullYear()}
-              {' '}
-              —
-              {dateEnd?.getFullYear() ?? 'now'}
+              {` — ${dateEnd?.getFullYear().toString() ?? 'now'}`}
             </p>
 
             <span className="inline-block self-start mt-1 font-title font-bold text-xs xl:text-[13px] tracking-[0.08em] uppercase bg-accent text-background pt-1.5 pb-0.75 xl:pb-1 px-3">
