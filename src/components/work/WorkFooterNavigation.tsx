@@ -1,3 +1,5 @@
+import { ArrowLeftIcon } from '@components/icons/ArrowLeftIcon';
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { umamiEvent, UmamiEvents } from '@core/analytics/events';
@@ -15,7 +17,7 @@ export const WorkFooterNavigation: FC<Props> = ({ nextArticleName, nextArticleSl
   <motion.section className={clsx('border-t border-solid border-border pt-5 pb-3 xl:py-5.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-1 xl:items-center justify-between', className)} initial="hidden" variants={staggerChildren(0.12)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
     <MotionLink className="group hidden xl:inline-block text-[13px] font-medium tracking-widest uppercase text-muted transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.work} variants={fadeUp(0, 12)}>
       <span className="inline-block transition-transform duration-200 ease-out group-hover:-translate-x-1">
-        ←
+        <ArrowLeftIcon />
       </span>
       {' '}
       <span className="inline-block accent-underline group-hover:accent-underline-shown group-focus-visible:accent-underline-shown">
@@ -32,7 +34,7 @@ export const WorkFooterNavigation: FC<Props> = ({ nextArticleName, nextArticleSl
             {nextArticleName}
             {' '}
             <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
-              →
+              <ArrowRightIcon />
             </span>
           </MotionLink>
         </motion.div>

@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { fadeUp, REVEAL_VIEWPORT, settleIn } from '@components/motion/variants';
 import { WorkListTitle } from '@components/work/WorkListTitle';
 import { DynamicRouteDefs } from '@core/routes/routes';
@@ -67,7 +68,7 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
             <div className="shrink-0 flex flex-col items-end gap-2">
               <InDevelopmentBadge className="hidden xl:inline-block" status={status} />
               <span aria-hidden="true" className="hidden xl:inline-block font-title font-black text-[30px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
-                →
+                <ArrowRightIcon />
               </span>
             </div>
           </Link>

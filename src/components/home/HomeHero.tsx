@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { MaskedWords } from '@components/motion/MaskedWords';
 import { MotionLink } from '@components/motion/MotionLink';
 import { revealStyle, WORD_STAGGER } from '@components/motion/revealStyle';
@@ -50,7 +51,7 @@ export const HomeHero: FC<Props> = ({ subtitle, subCta, className, ...props }) =
           Let's connect
           {' '}
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
-            →
+            <ArrowRightIcon />
           </span>
         </MotionLink>
 

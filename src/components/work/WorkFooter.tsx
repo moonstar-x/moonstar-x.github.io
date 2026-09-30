@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { umamiEvent, UmamiEvents } from '@core/analytics/events';
@@ -22,7 +23,7 @@ export const WorkFooter: FC<Props> = ({ links, className, ...props }) => (
         Let's connect
         {' '}
         <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
-          →
+          <ArrowRightIcon />
         </span>
       </MotionLink>
     </motion.div>

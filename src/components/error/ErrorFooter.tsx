@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from '@components/icons/ArrowLeftIcon';
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { umamiEvent, UmamiEvents } from '@core/analytics/events';
@@ -21,7 +22,7 @@ export const ErrorFooter: FC<Props> = ({ links, className, ...props }) => (
   <motion.footer className={clsx('py-5.5 xl:py-7 px-5 xl:px-10 flex flex-col xl:flex-row gap-3.5 xl:gap-0 items-start xl:items-center justify-between border-t border-solid border-border', className)} initial="hidden" variants={staggerChildren(0.2)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
     <MotionLink className="xl:-mb-2 group font-title font-black text-[36px] xl:text-[44px] tracking-[-0.045em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.home} variants={fadeUp()} whileTap={TAP_SCALE}>
       <span className="inline-block transition-transform duration-200 ease-out group-hover:-translate-x-1">
-        ←
+        <ArrowLeftIcon />
       </span>
       {' '}
       Back home

@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { drawLine, fadeUp, REVEAL_VIEWPORT, staggerChildren } from '@components/motion/variants';
 import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { padNumber } from '@core/utils/number';
@@ -40,7 +41,7 @@ export const NotFoundEscapeLinks: FC<Props> = ({ links, className, ...props }) =
               </p>
             </div>
             <span aria-hidden="true" className="shrink-0 font-title font-black text-[26px] xl:text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
-              →
+              <ArrowRightIcon />
             </span>
           </Link>
         </motion.li>
