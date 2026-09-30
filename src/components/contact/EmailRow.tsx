@@ -1,3 +1,4 @@
+import { CopyEmailButton } from '@components/contact/CopyEmailButton';
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { clsx } from 'clsx';
@@ -18,12 +19,15 @@ export const EmailRow: FC<Props> = ({ email, className, ...props }: Props) => (
         {email}
       </motion.span>
     </motion.div>
-    <MotionLink className="group shrink-0 font-title font-bold text-[16px] xl:text-[17px] tracking-[0.06em] uppercase bg-accent text-background pt-4.25 xl:pt-4.5 pb-3.25 xl:pb-3.75 px-6 xl:px-8 text-center xl:text-start transition-colors duration-200 ease-out hover:bg-background hover:text-text" href={`mailto:${email}`} variants={fadeUp()} whileTap={TAP_SCALE}>
-      Write to me
-      {' '}
-      <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
-        →
-      </span>
-    </MotionLink>
+    <div className="flex flex-col xl:flex-row gap-3 xl:gap-4">
+      <CopyEmailButton email={email} />
+      <MotionLink className="group shrink-0 font-title font-bold text-[16px] xl:text-[17px] tracking-[0.06em] uppercase bg-accent text-background pt-4.25 xl:pt-4.5 pb-3.25 xl:pb-3.75 px-6 xl:px-8 text-center xl:text-start transition-colors duration-200 ease-out hover:bg-background hover:text-text" href={`mailto:${email}`} variants={fadeUp()} whileTap={TAP_SCALE}>
+        Write to me
+        {' '}
+        <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
+          →
+        </span>
+      </MotionLink>
+    </div>
   </motion.section>
 );
