@@ -1,0 +1,23 @@
+name: On Schedule (Weekly)
+
+on:
+  schedule:
+    - cron: '0 8 * * 0'
+
+jobs:
+  test:
+    name: Run Tests
+    uses: ./.github/workflows/callable-test.yml
+
+  deploy:
+    name: Deploy Site
+    needs:
+      - test
+    uses: ./.github/workflows/callable-deploy.yml
+    with:
+      base_url: ${{ vars.BASE_URL }}
+      umami_src: ${{ vars.UMAMI_SRC }}
+      umami_id: ${{ vars.UMAMI_WEBSITE_ID }}
+      publish_dir: ./build
+    secrets:
+      machine_account_token: ${{ secrets.MACHINE_ACCOUNT_TOKEN }}
