@@ -41,6 +41,7 @@ export interface Config {
       url: string;
     }>;
     timezone: string;
+    twitterHandle?: string | undefined;
   };
 }
 
@@ -56,7 +57,8 @@ const ConfigSchema: z.ZodType<Config> = z.object({
       url: z.string()
     })),
     timezone: z.string(),
-    pageTitle: z.string()
+    pageTitle: z.string(),
+    twitterHandle: z.string().optional()
   }),
   experience: z.array(z.object({
     title: z.string(),

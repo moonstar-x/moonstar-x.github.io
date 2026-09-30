@@ -46,7 +46,8 @@ export const createPageMetadata = async (path: string, params: Params = {}): Pro
       card: params.twitterCard ?? 'summary',
       title: pageTitle,
       description: pageDescription,
-      images
+      images,
+      ...config.profile.twitterHandle !== undefined && { creator: config.profile.twitterHandle }
     },
     category: SITE_CATEGORY
   };
