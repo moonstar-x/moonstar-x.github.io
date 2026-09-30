@@ -1,4 +1,5 @@
 import { Markdown } from '@components/markdown/Markdown';
+import { JsonLd } from '@components/seo/JsonLd';
 import { Breadcrumbs } from '@components/ui/Breadcrumbs';
 import type { BreadcrumbItem } from '@components/ui/Breadcrumbs';
 import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
@@ -9,6 +10,7 @@ import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata, getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
 import { getWorkTypeLabel } from '@core/services/data/work-type';
+import { createWorkJsonLd } from '@core/utils/json-ld';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
@@ -59,6 +61,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
       </main>
       <WorkFooterNavigation className="mt-4" nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
       <WorkFooter links={config.profile.socials} />
+      <JsonLd data={createWorkJsonLd(config, article.metadata, DynamicRouteDefs.workBySlug(article.metadata.slug))} />
     </Fragment>
   );
 };

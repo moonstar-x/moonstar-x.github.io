@@ -2,11 +2,13 @@ import { HomeExperienceEducationSection } from '@components/home/HomeExperienceE
 import { HomeFooter } from '@components/home/HomeFooter';
 import { HomeHero } from '@components/home/HomeHero';
 import { HomeWorkSection } from '@components/home/HomeWorkSection';
+import { JsonLd } from '@components/seo/JsonLd';
 import { TechnologiesMarquee } from '@components/ui/TechnologiesMarquee';
 import { RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getTechLabel } from '@core/services/data/tech';
 import { getAllWorkMetadata } from '@core/services/data/work';
+import { createHomeJsonLd } from '@core/utils/json-ld';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
@@ -26,6 +28,7 @@ const HomePage: FC = async () => {
         <HomeExperienceEducationSection className="page-horizontal-align" education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
       </main>
       <HomeFooter className="mt-4" links={config.profile.socials} />
+      <JsonLd data={createHomeJsonLd(config, RouteDefs.home)} />
     </Fragment>
   );
 };
