@@ -78,3 +78,19 @@ export const createWorkJsonLd = (config: Config, metadata: WorkMetadata, path: s
     ]
   };
 };
+
+export interface BreadcrumbJsonLdItem {
+  label: string;
+  path: string;
+}
+
+export const createBreadcrumbJsonLd = (items: BreadcrumbJsonLdItem[]): JsonLdNode => ({
+  '@context': SCHEMA_CONTEXT,
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: absoluteUrl(item.path)
+  }))
+});

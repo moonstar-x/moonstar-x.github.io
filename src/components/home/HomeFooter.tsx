@@ -31,7 +31,7 @@ export const HomeFooter: FC<Props> = ({ links, className, ...props }) => (
 
     <motion.nav className="flex flex-row flex-wrap xl:flex-nowrap gap-2 xl:gap-5.5 text-sm font-medium tracking-widest uppercase" variants={staggerChildren(0.06)}>
       {links.map(({ url, label }) => (
-        <MotionLink className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0 transition-colors duration-200 ease-out hover:text-accent hover:border-accent xl:accent-underline xl:hover:accent-underline-shown xl:focus-visible:accent-underline-shown" href={url} key={label} rel="me" variants={fadeUp(0, 12)}>
+        <MotionLink className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0 transition-colors duration-200 ease-out hover:text-accent hover:border-accent xl:accent-underline xl:hover:accent-underline-shown xl:focus-visible:accent-underline-shown" href={url} key={label} rel="me noopener noreferrer" target="_blank" variants={fadeUp(0, 12)}>
           {label}
         </MotionLink>
       ))}

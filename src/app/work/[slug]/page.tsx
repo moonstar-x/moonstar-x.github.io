@@ -10,7 +10,7 @@ import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata, getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
 import { getWorkTypeLabel } from '@core/services/data/work-type';
-import { createWorkJsonLd } from '@core/utils/json-ld';
+import { createBreadcrumbJsonLd, createWorkJsonLd } from '@core/utils/json-ld';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
@@ -31,6 +31,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   const allArticles = await getAllWorkMetadata({ sort: 'date' });
   const currentArticleIndex = allArticles.findIndex((a) => a.slug === article.metadata.slug);
   const nextArticle = allArticles[(currentArticleIndex + 1) % allArticles.length];
+  const articlePath = DynamicRouteDefs.workBySlug(article.metadata.slug);
   const breadcrumbItems: BreadcrumbItem[] = [
     {
       id: 'work',
@@ -61,7 +62,8 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
       </main>
       <WorkFooterNavigation className="mt-4" nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
       <WorkFooter links={config.profile.socials} />
-      <JsonLd data={createWorkJsonLd(config, article.metadata, DynamicRouteDefs.workBySlug(article.metadata.slug))} />
+      <JsonLd data={createWorkJsonLd(config, article.metadata, articlePath)} />
+      <JsonLd data={createBreadcrumbJsonLd(breadcrumbItems.map((item) => ({ label: item.label, path: item.href ?? articlePath })))} />
     </Fragment>
   );
 };

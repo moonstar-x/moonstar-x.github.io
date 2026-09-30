@@ -4,12 +4,13 @@ import { XMarkIcon } from '@components/icons/XMarkIcon';
 import { Icon } from '@components/ui/Icon';
 import { RouteDefs, RouteHashDefs } from '@core/routes/routes';
 import { useDisableBodyScroll } from '@hooks/useDisableBodyScroll';
+import { useFocusTrap } from '@hooks/useFocusTrap';
 import { useOnEscapePressed } from '@hooks/useOnEscapePressed';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useId, useRef, useState } from 'react';
 import type { ComponentProps, FC } from 'react';
 
 const DESKTOP_MEDIA_QUERY = '(min-width: 80rem)';
@@ -45,6 +46,8 @@ interface Props extends Omit<ComponentProps<'header'>, 'children'> {
 export const Navbar: FC<Props> = ({ title, className, ...props }) => {
   const pathname = usePathname();
   const [open, setOpen] = useState<boolean>(false);
+  const menuId = useId();
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const handleClose = useCallback((): void => {
     setOpen(false);
@@ -52,6 +55,7 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
 
   useDisableBodyScroll(open);
   useOnEscapePressed(handleClose, open);
+  useFocusTrap(dialogRef, open);
 
   // The drawer is mobile-only, so it must not stay open (and keep the body scroll locked) when the
   // viewport grows past the breakpoint that hides it.
@@ -106,7 +110,7 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
         ))}
       </nav>
 
-      <button aria-expanded={open} aria-label="Open menu" className="group xl:hidden cursor-pointer" type="button" onClick={handleOpen}>
+      <button aria-controls={open ? menuId : undefined} aria-expanded={open} aria-haspopup="dialog" aria-label="Open menu" className="group xl:hidden cursor-pointer" type="button" onClick={handleOpen}>
         <Icon className="fill-text transition-colors duration-200 ease-out group-hover:fill-accent" icon={BarsIcon} size="1.5x" />
       </button>
 
@@ -123,18 +127,25 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
                 onClick={handleClose}
               />
 
-              <motion.nav
+              {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- Animated drawer with its own focus management; native <dialog> would fight the exit animation. */}
+              <motion.div
                 animate={{ x: 0 }}
+                aria-label="Menu"
+                aria-modal="true"
                 className="fixed top-0 right-0 bottom-0 z-20 w-64 max-w-3/4 px-5 pt-3.5 pb-5 flex flex-col gap-8 bg-background-light border-l border-solid border-border xl:hidden"
                 exit={{ x: '100%' }}
+                id={menuId}
                 initial={{ x: '100%' }}
+                ref={dialogRef}
+                role="dialog"
+                tabIndex={-1}
                 transition={{ ease: 'easeInOut', duration: 0.3 }}
               >
                 <button aria-label="Close menu" className="group self-end cursor-pointer" type="button" onClick={handleClose}>
                   <Icon className="fill-text transition duration-200 ease-out group-hover:fill-accent group-hover:rotate-90" icon={XMarkIcon} size="1.5x" />
                 </button>
 
-                <div className="flex flex-col items-start gap-6">
+                <nav className="flex flex-col items-start gap-6">
                   {links.map(({ href, label, accented }) => (
                     <Link
                       aria-current={isActive(href) ? 'page' : undefined}
@@ -150,8 +161,8 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
                       {label}
                     </Link>
                   ))}
-                </div>
-              </motion.nav>
+                </nav>
+              </motion.div>
             </Fragment>
           )
         }

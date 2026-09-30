@@ -1,4 +1,5 @@
 import { ExpandableImage } from '@components/ui/ExpandableImage';
+import { ExternalLinkArrow } from '@components/ui/ExternalLinkArrow';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -72,8 +73,21 @@ export const MarkdownA: FC<ComponentProps<'a'>> = ({ className, children, ...pro
     );
   }
 
+  const isExternal = /^(?:https?:)?\/\//iu.test(props.href ?? '');
+  const linkClassName = clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent transition-colors duration-200 ease-out hover:bg-accent hover:text-background-light', className);
+
+  if (isExternal) {
+    return (
+      <a className={linkClassName} rel="noopener noreferrer" target="_blank" {...props}>
+        {children}
+        {' '}
+        <ExternalLinkArrow />
+      </a>
+    );
+  }
+
   return (
-    <a className={clsx('m-0 text-[16px] xl:text-[17px] font-light leading-[1.75] text-accent border-b-2 border-solid border-accent transition-colors duration-200 ease-out hover:bg-accent hover:text-background-light', className)} {...props}>
+    <a className={linkClassName} {...props}>
       {children}
     </a>
   );

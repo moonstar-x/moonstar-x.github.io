@@ -160,7 +160,7 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
     case 'link':
       return (
         <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
-          <MotionLink className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} title={fact.url} variants={fadeUp(0, 12)}>
+          <MotionLink className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} rel="noopener noreferrer" target="_blank" title={fact.url} variants={fadeUp(0, 12)}>
             <span className="truncate link-underline">
               {simplifyUrl(fact.url)}
             </span>
