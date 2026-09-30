@@ -1,5 +1,7 @@
 /* eslint-disable unicorn/max-nested-calls */
 import path from 'node:path';
+import { TECH_TYPES } from '@core/services/data/tech';
+import type { TechType } from '@core/services/data/tech';
 import { ContentMetadataSchema, getAllMetadata, getAllSlugs, getContent } from '@core/services/markdown';
 import type { ContentMetadata, Markdown } from '@core/services/markdown';
 import { objectFromEntries } from '@core/utils/object';
@@ -7,18 +9,6 @@ import { betterZodParse } from '@core/utils/zod';
 import { z } from 'zod';
 
 const directory = path.join(process.cwd(), 'data/work');
-
-export const TECH_TYPES = [
-  'nodejs', 'mongo', 'docker', 'javascript', 'react',
-  'typescript', 'svelte', 'lua', 'python', 'markdown',
-  'nextjs', 'redis', 'neo4j', 'flask', 'nginx',
-  'githubActions', 'jenkins', 'tailwind', 'sass', 'opencv',
-  'flutter', 'dart', 'vite', 'postgres', 'express',
-  'sqlite', 'jest', 'html', 'css', 'level',
-  'selenium', 'puppeteer', 'mariadb', 'pytest', 'strapi',
-  'fastapi', 'ruby'
-] as const;
-export type TechType = typeof TECH_TYPES[number];
 
 export const WORK_STATUS_TYPES = ['completed', 'maintained', 'in-development', 'on-hold', 'deprecated', 'abandoned'] as const;
 export type WorkStatus = typeof WORK_STATUS_TYPES[number];

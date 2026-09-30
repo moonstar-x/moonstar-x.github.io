@@ -1,6 +1,7 @@
 import { fadeUp, REVEAL_VIEWPORT } from '@components/motion/variants';
 import { WorkListTitle } from '@components/work/WorkListTitle';
 import { DynamicRouteDefs } from '@core/routes/routes';
+import { getTechLabel } from '@core/services/data/tech';
 import type { WorkMetadata } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
@@ -26,7 +27,7 @@ export const HobbyWorkList: FC<Props> = ({ items, className, ...props }) => (
               {description}
             </p>
             <p className="text-xs font-medium text-accent mt-0.5 uppercase">
-              {technologies.join(' · ')}
+              {technologies.map((technology) => getTechLabel(technology)).join(' · ')}
             </p>
           </Link>
         </motion.li>

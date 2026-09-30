@@ -1,6 +1,7 @@
 import { MotionLink } from '@components/motion/MotionLink';
 import { drawLine, fadeUp, REVEAL_VIEWPORT, settleIn, staggerChildren } from '@components/motion/variants';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
+import { getTechLabel } from '@core/services/data/tech';
 import type { WorkMetadata } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { padNumber } from '@core/utils/number';
@@ -43,7 +44,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
         {slicedItems.map(({ status, type, technologies, slug, name, description, cover }, index) => {
           const statusText = status === 'in-development'
             ? 'In Development'
-            : technologies.slice(0, maxTechnologiesInStatus).join('·');
+            : technologies.slice(0, maxTechnologiesInStatus).map((technology) => getTechLabel(technology)).join('·');
           const completeStatus = statusText.length > 0 ? `${type} · ${statusText}` : type;
 
           return (

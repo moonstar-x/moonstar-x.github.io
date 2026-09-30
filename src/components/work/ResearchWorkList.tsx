@@ -1,6 +1,7 @@
 import { fadeUp, REVEAL_VIEWPORT, settleIn } from '@components/motion/variants';
 import { WorkListTitle } from '@components/work/WorkListTitle';
 import { DynamicRouteDefs } from '@core/routes/routes';
+import { getTechLabel } from '@core/services/data/tech';
 import type { WorkMetadata, WorkStatus } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
@@ -51,7 +52,7 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
               <ul className="flex flex-row flex-wrap gap-1.5">
                 {technologies.map((technology) => (
                   <li className="text-xs font-medium border border-solid border-border-lighter py-1 xl:py-0.75 px-2.25 text-lighter uppercase transition-colors duration-200 ease-out group-hover:border-border-darker" key={technology}>
-                    {technology}
+                    {getTechLabel(technology)}
                   </li>
                 ))}
                 {

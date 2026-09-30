@@ -5,6 +5,7 @@ import { HomeWorkSection } from '@components/home/HomeWorkSection';
 import { TechnologiesMarquee } from '@components/ui/TechnologiesMarquee';
 import { RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
+import { getTechLabel } from '@core/services/data/tech';
 import { getAllWorkMetadata } from '@core/services/data/work';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
@@ -14,7 +15,7 @@ import type { FC } from 'react';
 const HomePage: FC = async () => {
   const config = await getConfig();
   const workMetadata = await getAllWorkMetadata({ sort: 'date' });
-  const workTechnologies = workMetadata.flatMap((metadata) => metadata.technologies);
+  const workTechnologies = workMetadata.flatMap((metadata) => metadata.technologies.map((technology) => getTechLabel(technology)));
 
   return (
     <Fragment>
