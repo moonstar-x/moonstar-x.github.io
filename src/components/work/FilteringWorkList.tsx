@@ -3,6 +3,7 @@ import { EASE_OUT_EXPO } from '@components/motion/variants';
 import { TypedWorkList } from '@components/work/TypedWorkList';
 import type { WorkMetadata, WorkType } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
+import { useStateFromParams } from '@hooks/useStateFromParams';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
@@ -14,7 +15,11 @@ interface Props extends Omit<ComponentProps<'section'>, 'children'> {
 }
 
 export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, className, ...props }) => {
-  const [filter, setFilter] = useState<null | WorkType>(null);
+  const [filter, setFilter] = useStateFromParams<WorkType>(
+    'type',
+    null,
+    (raw) => orderedWorkTypes.find((type) => type === raw) ?? null
+  );
   const [announcement, setAnnouncement] = useState<string>('');
 
   const createHandleFilterClick = (type: null | WorkType) => (): void => {
