@@ -1,5 +1,6 @@
 import { MaskedWords } from '@components/motion/MaskedWords';
 import { revealStyle } from '@components/motion/revealStyle';
+import { getTechLabel } from '@core/services/data/tech';
 import { getWorkStatusLabel } from '@core/services/data/work';
 import type { WorkMetadata } from '@core/services/data/work';
 import { getWorkTypeLabel } from '@core/services/data/work-type';
@@ -32,5 +33,16 @@ export const WorkArticleHero: FC<Props> = ({ metadata, className, ...props }) =>
     <p className="mt-3.5 xl:mt-6.5 text-[19px] xl:text-[26px] font-light leading-[1.45] xl:max-w-[46ch] text-light animate-fade-up" style={revealStyle(0.4)}>
       {metadata.description}
     </p>
+    {
+      metadata.technologies.length > 0 && (
+        <ul aria-label="Technologies" className="mt-5 xl:mt-7 flex flex-row flex-wrap justify-center xl:justify-start gap-2 animate-fade-up" style={revealStyle(0.5)}>
+          {metadata.technologies.map((technology) => (
+            <li className="text-sm font-medium border border-solid border-border-lighter py-1 xl:py-0.75 px-2.25 text-lighter uppercase" key={technology}>
+              {getTechLabel(technology)}
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </section>
 );
