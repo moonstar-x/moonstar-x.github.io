@@ -11,7 +11,7 @@ import type { ComponentProps, FC } from 'react';
 const HEADING_TEXT = 'I build software';
 const HEADING_OPTIONS: string[] = [
   'that lasts.',
-  'that scales.',
+  'that ships.',
   'that rocks.'
 ];
 
