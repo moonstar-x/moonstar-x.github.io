@@ -1,5 +1,4 @@
 User-Agent: *
-Disallow: /img/
-Disallow: /assets/
+Allow: /
 
 Sitemap: https://moonstar-x.dev/sitemap.xml
