@@ -24,6 +24,7 @@ import remarkGfm from 'remark-gfm';
 
 export interface Props extends Omit<ComponentProps<'article'>, 'children'> {
   children?: string;
+  noInternalMargins?: boolean | undefined;
 }
 
 const articleSpacing = clsx(
@@ -37,40 +38,39 @@ const articleSpacing = clsx(
   '[&>ol]:mt-3.5',
   '[&>blockquote]:mt-5',
   '[&>div]:mt-5',
-  '[&>table]:mt-5',
   '[&>figure]:mt-5',
   '[&>video]:mt-5',
   '[&>hr]:mt-2',
   '[&>section]:mt-7'
 );
 
-export const Markdown: FC<Props> = ({ children, className, ...props }) => (
+export const Markdown: FC<Props> = ({ children, className, noInternalMargins = false, ...props }) => (
   <article className={clsx('max-w-3xl mx-auto', articleSpacing, className)} {...props}>
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        h1: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownH1 {...innerProps}>
+        h1: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownH1 className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownH1>
         ),
-        h2: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownH2 {...innerProps}>
+        h2: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownH2 className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownH2>
         ),
-        h3: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownH3 {...innerProps}>
+        h3: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownH3 className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownH3>
         ),
-        h4: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownH4 {...innerProps}>
+        h4: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownH4 className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownH4>
         ),
-        p: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownP {...innerProps}>
+        p: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownP className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownP>
         ),
@@ -109,13 +109,13 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
             {innerChildren}
           </MarkdownSup>
         ),
-        ul: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownUl {...innerProps}>
+        ul: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownUl className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownUl>
         ),
-        ol: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownOl {...innerProps}>
+        ol: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownOl className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownOl>
         ),
@@ -127,23 +127,23 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
         input: ({ node: _node, ...innerProps }) => (
           <MarkdownInput {...innerProps} />
         ),
-        blockquote: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownBlockquote {...innerProps}>
+        blockquote: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownBlockquote className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownBlockquote>
         ),
-        pre: ({ children: innerChildren, node }) => {
+        pre: ({ children: innerChildren, className: innerClassName, node }) => {
           const codeChild = node?.children.find((child) => child.type === 'element' && child.tagName === 'code');
           const codeClassName = codeChild?.type === 'element' ? codeChild.properties.className : undefined;
 
           return (
-            <MarkdownPre className={clsx(codeClassName)}>
+            <MarkdownPre className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName, codeClassName)}>
               {onlyText(innerChildren).replace(/\n$/u, '')}
             </MarkdownPre>
           );
         },
-        table: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownTable {...innerProps}>
+        table: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownTable className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownTable>
         ),
@@ -177,8 +177,8 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
             {innerChildren}
           </MarkdownImg>
         ),
-        figcaption: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownFigCaption {...innerProps}>
+        figcaption: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownFigCaption className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownFigCaption>
         ),
@@ -187,8 +187,8 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
             {innerChildren}
           </MarkdownVideo>
         ),
-        hr: ({ children: innerChildren, node: _node, ...innerProps }) => (
-          <MarkdownHr {...innerProps}>
+        hr: ({ children: innerChildren, className: innerClassName, node: _node, ...innerProps }) => (
+          <MarkdownHr className={clsx(!noInternalMargins && 'mx-5 xl:mx-0', innerClassName)} {...innerProps}>
             {innerChildren}
           </MarkdownHr>
         ),

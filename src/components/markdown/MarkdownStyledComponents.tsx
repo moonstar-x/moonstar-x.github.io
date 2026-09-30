@@ -142,9 +142,11 @@ export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { classN
 };
 
 export const MarkdownTable: FC<ComponentProps<'table'>> = ({ className, children, ...props }) => (
-  <table className={clsx('w-full border-collapse text-sm xl:text-[16px]', className)} {...props}>
-    {children}
-  </table>
+  <div className={clsx('overflow-x-auto', className)}>
+    <table className="w-full border-collapse text-sm xl:text-[16px]" {...props}>
+      {children}
+    </table>
+  </div>
 );
 
 export const MarkdownTHead: FC<ComponentProps<'thead'>> = ({ className, children, ...props }) => (
