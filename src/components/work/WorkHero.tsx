@@ -1,9 +1,11 @@
 import { MaskedWords } from '@components/motion/MaskedWords';
 import { fadeUp, staggerChildren } from '@components/motion/variants';
+import { RouteDefs } from '@core/routes/routes';
 import type { WorkMetadata, WorkType } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
+import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
 
 const HEADING_TEXT = 'The Work';
@@ -39,13 +41,19 @@ export const WorkHero: FC<Props> = ({ items, orderedWorkTypes, className, ...pro
 
       <motion.div className="mt-1 xl:mt-0 shrink-0 flex flex-row gap-6.5 xl:gap-7.5 xl:text-right" variants={staggerChildren(0.08)}>
         {orderedWorkTypes.map((type) => (
-          <motion.div className="flex flex-col xl:gap-0.75" key={type} variants={fadeUp(0, 16)}>
-            <span className="font-title font-black text-[36px] xl:text-[52px] leading-none text-accent">
-              {countsByType[type]}
-            </span>
-            <span className="text-[11px] xl:text-xs font-medium tracking-[0.12em] uppercase text-muted">
-              {type}
-            </span>
+          <motion.div key={type} variants={fadeUp(0, 16)}>
+            <Link
+              className="group flex flex-col xl:gap-0.75"
+              href={`${RouteDefs.work}?type=${type}`}
+              scroll={false}
+            >
+              <span className="font-title font-black text-[36px] xl:text-[52px] leading-none text-accent">
+                {countsByType[type]}
+              </span>
+              <span className="text-[11px] xl:text-xs font-medium tracking-[0.12em] uppercase text-muted transition-colors duration-200 ease-out group-hover:text-text group-focus-visible:text-text">
+                {type}
+              </span>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

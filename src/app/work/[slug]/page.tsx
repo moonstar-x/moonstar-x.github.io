@@ -37,7 +37,8 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
     },
     {
       id: article.metadata.type,
-      label: capitalize(article.metadata.type)
+      label: capitalize(article.metadata.type),
+      href: `${RouteDefs.work}?type=${article.metadata.type}`
     },
     {
       id: article.metadata.slug,
