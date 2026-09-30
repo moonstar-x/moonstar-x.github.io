@@ -75,15 +75,11 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
           exit={{ opacity: 0, transition: { duration: 0.15, ease: 'easeIn' } }}
           key={filter ?? 'all'}
         >
-          {
-            filter === null
-              ? orderedWorkTypes.map((type) => (
-                  <TypedWorkList items={items[type]} key={type} type={type} />
-                ))
-              : (
-                  <TypedWorkList items={items[filter]} type={filter} />
-                )
-          }
+          {orderedWorkTypes.map((type) => (
+            <div hidden={filter !== null && filter !== type} key={type}>
+              <TypedWorkList items={items[type]} type={type} />
+            </div>
+          ))}
         </motion.div>
       </AnimatePresence>
     </section>

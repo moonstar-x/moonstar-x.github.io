@@ -1,17 +1,29 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useSyncExternalStore } from 'react';
 import type { SetStateAction } from 'react';
+
+const listeners = new Set<() => void>();
+
+const subscribe = (listener: () => void): () => void => {
+  listeners.add(listener);
+  addEventListener('popstate', listener);
+
+  return () => {
+    listeners.delete(listener);
+    removeEventListener('popstate', listener);
+  };
+};
+
+const getSearchSnapshot = (): string => location.search;
+const getServerSearchSnapshot = (): string => '';
 
 export const useStateFromParams = <T extends string>(
   key: string,
   initialValue: null | T,
   parse: (raw: string) => null | T
 ): [null | T, (action: SetStateAction<null | T>) => void] => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const search = useSyncExternalStore(subscribe, getSearchSnapshot, getServerSearchSnapshot);
 
-  const raw = searchParams.get(key);
+  const raw = new URLSearchParams(search).get(key);
   const value = (raw === null ? null : parse(raw)) ?? initialValue;
 
   const setValue = useCallback((action: SetStateAction<null | T>): void => {
@@ -25,8 +37,11 @@ export const useStateFromParams = <T extends string>(
     }
 
     const query = params.toString();
-    router.replace(query === '' ? pathname : `${pathname}?${query}`, { scroll: false });
-  }, [key, initialValue, value, pathname, router]);
+    history.replaceState(history.state, '', query === '' ? location.pathname : `${location.pathname}?${query}`);
+    listeners.forEach((listener) => {
+      listener();
+    });
+  }, [key, initialValue, value]);
 
   return [value, setValue];
 };

@@ -7,7 +7,7 @@ import { getAllWorkMetadataByType } from '@core/services/data/work';
 import type { WorkType } from '@core/services/data/work-type';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
-import { Fragment, Suspense } from 'react';
+import { Fragment } from 'react';
 import type { FC } from 'react';
 
 const WorkPage: FC = async () => {
@@ -19,9 +19,7 @@ const WorkPage: FC = async () => {
     <Fragment>
       <main className="flex-1">
         <WorkHero className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
-        <Suspense>
-          <FilteringWorkList className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
-        </Suspense>
+        <FilteringWorkList className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
       </main>
       <WorkFooter className="mt-4" links={config.profile.socials} />
     </Fragment>
