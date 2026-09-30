@@ -82,7 +82,6 @@ const resolveStats = async (type: WorkStats, resource: string): Promise<null | R
       return [
         ['GitHub Stars', data.stars],
         ['GitHub Forks', data.forks],
-        ['GitHub Open Issues', data.openIssues],
         ['GitHub Watchers', data.watchers]
       ];
     }
@@ -115,13 +114,15 @@ const StatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, resour
 
   return (
     <Fragment>
-      {stats.map(([label, value]) => (
-        <WorkFactItemContainer className={className} key={label} label={label}>
-          <motion.span className={STAT_VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
-            {compactNumber(value)}
-          </motion.span>
-        </WorkFactItemContainer>
-      ))}
+      {stats
+        .filter(([, value]) => value > 0)
+        .map(([label, value]) => (
+          <WorkFactItemContainer className={className} key={label} label={label}>
+            <motion.span className={STAT_VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
+              {compactNumber(value)}
+            </motion.span>
+          </WorkFactItemContainer>
+        ))}
     </Fragment>
   );
 };
