@@ -7,8 +7,8 @@ import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import { Fragment, useRef, useState } from 'react';
-import type { FC, MouseEvent } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import type { FC, KeyboardEvent, MouseEvent } from 'react';
 
 const ZOOM_SCALE = 2.5;
 
@@ -24,15 +24,40 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
   const [origin, setOrigin] = useState<string>('50% 50%');
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   useDisableBodyScroll(open);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    closeButtonRef.current?.focus();
+  }, [open]);
 
   const handleOpen = (): void => {
     setOpen(true);
   };
 
   const handleClose = (): void => {
+    if (!open) {
+      return;
+    }
+
     setOpen(false);
     setZoomed(false);
+    triggerRef.current?.focus();
+  };
+
+  // The close button is the only focusable element in the dialog, so Tab keeps focus on it.
+  const handleDialogKeyDown = (event: KeyboardEvent<HTMLDialogElement>): void => {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    event.preventDefault();
+    closeButtonRef.current?.focus();
   };
 
   useOnEscapePressed(handleClose);
@@ -69,26 +94,31 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
 
   return (
     <Fragment>
-      <Image
-        className={clsx('cursor-zoom-in', className)}
-        onClick={handleOpen}
-        {...props}
-      />
+      <button className="block w-full cursor-zoom-in" ref={triggerRef} type="button" onClick={handleOpen}>
+        <Image
+          className={className}
+          {...props}
+        />
+      </button>
 
       <AnimatePresence>
         {
           open && (
-            <motion.div
+            <motion.dialog
+              open
               animate={{ opacity: 1 }}
-              className="fixed top-0 right-0 bottom-0 left-0 bg-black/80 z-10 transition-none"
+              aria-label={props.alt}
+              aria-modal="true"
+              className="fixed top-0 right-0 bottom-0 left-0 m-0 p-0 w-full h-full max-w-none max-h-none bg-black/80 z-10 transition-none"
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               transition={{ ease: 'easeInOut', duration: 0.2 }}
               onClick={handleClose}
+              onKeyDown={handleDialogKeyDown}
             >
               <div className="w-full h-full flex flex-col gap-4 px-4 py-8">
                 <div className="flex flex-row justify-end px-2">
-                  <button aria-label="Close image" className="cursor-pointer group" type="button" onClick={handleClose}>
+                  <button aria-label="Close image" className="cursor-pointer group" ref={closeButtonRef} type="button" onClick={handleClose}>
                     <Icon
                       className="self-end justify-self-center fill-white opacity-50 transition-opacity duration-200 ease-out group-hover:opacity-100"
                       icon={XMarkIcon}
@@ -111,7 +141,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
                   />
                 </div>
               </div>
-            </motion.div>
+            </motion.dialog>
           )
         }
       </AnimatePresence>
