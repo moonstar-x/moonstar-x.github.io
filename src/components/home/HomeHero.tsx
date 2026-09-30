@@ -1,13 +1,13 @@
+import { MaskedWords } from '@components/motion/MaskedWords';
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, maskReveal, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { SlidingText } from '@components/ui/SlidingText';
 import { RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
-import { Fragment } from 'react';
 import type { ComponentProps, FC } from 'react';
 
-const HEADING_WORDS: string[] = ['I', 'build', 'software'];
+const HEADING_TEXT = 'I build software';
 const HEADING_OPTIONS: string[] = [
   'that lasts.',
   'that scales.',
@@ -23,22 +23,14 @@ export const HomeHero: FC<Props> = ({ subtitle, subCta, className, ...props }) =
   <motion.section animate="shown" className={clsx('pt-8.5 px-5 pb-6.5 xl:pt-15.5 xl:px-10 xl:pb-10.5', className)} initial="hidden" variants={staggerChildren(0.45)} {...props}>
     <h1 className="m-0 font-title font-black text-[68px] xl:text-[160px] leading-[0.82] xl:leading-[0.78] tracking-tighter xl:tracking-[-0.055em] uppercase">
       <span className="sr-only">
-        I build software
+        {HEADING_TEXT}
         {' '}
         {HEADING_OPTIONS[0]}
       </span>
 
       <motion.span aria-hidden variants={staggerChildren(0.07)}>
-        {HEADING_WORDS.map((word) => (
-          <Fragment key={word}>
-            <span className="reveal-mask">
-              <motion.span className="inline-block" variants={maskReveal}>
-                {word}
-              </motion.span>
-            </span>
-            {' '}
-          </Fragment>
-        ))}
+        <MaskedWords text={HEADING_TEXT} />
+        {' '}
         <span className="reveal-mask">
           <motion.span className="inline-block" variants={maskReveal}>
             <SlidingText className="text-accent" options={HEADING_OPTIONS} />
