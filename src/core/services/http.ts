@@ -20,7 +20,7 @@ export const fetchHttp = async <T>(Schema: z.ZodType<T>, url: string, searchPara
   const response = await fetch(finalUrl, mergedOptions);
 
   if (!response.ok) {
-    throw new Error(`Request to ${finalUrl} failed with status ${response.status} ${response.statusText}`);
+    throw new Error(`Request to ${finalUrl} failed with status ${response.status.toString()} ${response.statusText}`);
   }
 
   const data: unknown = await response.json();

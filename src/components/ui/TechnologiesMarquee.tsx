@@ -35,7 +35,7 @@ export const TechnologiesMarquee: FC<Props> = ({ technologies, className, ...pro
         ))}
       </ul>
       <div aria-hidden>
-        <Marquee gradient pauseOnHover className="bg-text text-background overflow-hidden whitespace-nowrap" gradientColor="black" gradientWidth={gradientWidth} play={!shouldReduceMotion} {...props}>
+        <Marquee gradient className="bg-text text-background overflow-hidden whitespace-nowrap" gradientColor="black" gradientWidth={gradientWidth} play={!shouldReduceMotion} {...props}>
           <div className="pt-2.5 xl:pt-3 pb-2">
             {repeatedUniqueTechnologies.map(([key, technology]) => (
               <span className="font-title font-black text-[17px] xl:text-[22px] uppercase after:content-['✦'] after:ml-2 mr-2" key={key}>
