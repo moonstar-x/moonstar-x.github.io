@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CopyCodeButton } from './CopyCodeButton';
 
 export const HEADING_ANCHOR_CLASS_NAME = 'heading-anchor';
 
@@ -121,12 +122,15 @@ export const MarkdownBlockquote: FC<ComponentProps<'blockquote'>> = ({ className
 export const MarkdownPre: FC<ComponentProps<typeof SyntaxHighlighter> & { className?: string | undefined }> = ({ className, children, ...props }) => {
   const language = /language-(?<lang>\w+)/u.exec(className ?? '')?.groups?.['lang'];
 
+  const code = Array.isArray(children) ? children.join('') : children;
+
   return (
     <div className={clsx('bg-text flex flex-col', className)}>
-      <div className="py-2.5 px-4.5 border-b border-solid border-code flex items-center justify-end">
+      <div className="py-2.5 px-4.5 border-b border-solid border-code flex items-center justify-between gap-4">
         <span className="font-code text-[11px] tracking-widest uppercase text-accent-light">
           {language}
         </span>
+        <CopyCodeButton code={code} />
       </div>
       <div className="m-0 font-code text-xs xl:text-sm leading-[1.75] text-code overflow-hidden **:bg-text!">
         <SyntaxHighlighter language={language} PreTag="pre" {...props} style={oneDark}>
