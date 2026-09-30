@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import type { FC, KeyboardEvent, MouseEvent } from 'react';
 
 const ZOOM_SCALE = 2.5;
@@ -40,15 +40,15 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
     setOpen(true);
   };
 
-  const handleClose = (): void => {
-    if (!open) {
-      return;
-    }
-
+  const closeDialog = useCallback((): void => {
     setOpen(false);
     setZoomed(false);
+  }, []);
+
+  const handleClose = useCallback((): void => {
+    closeDialog();
     triggerRef.current?.focus();
-  };
+  }, [closeDialog]);
 
   // The close button is the only focusable element in the dialog, so Tab keeps focus on it.
   const handleDialogKeyDown = (event: KeyboardEvent<HTMLDialogElement>): void => {
@@ -60,7 +60,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
     closeButtonRef.current?.focus();
   };
 
-  useOnEscapePressed(handleClose);
+  useOnEscapePressed(closeDialog, open);
 
   const updateOrigin = (clientX: number, clientY: number): void => {
     const container = containerRef.current;

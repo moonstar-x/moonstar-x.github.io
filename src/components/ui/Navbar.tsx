@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import type { ComponentProps, FC } from 'react';
 
 const DESKTOP_MEDIA_QUERY = '(min-width: 80rem)';
@@ -46,8 +46,12 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
   const pathname = usePathname();
   const [open, setOpen] = useState<boolean>(false);
 
+  const handleClose = useCallback((): void => {
+    setOpen(false);
+  }, []);
+
   useDisableBodyScroll(open);
-  useOnEscapePressed(() => setOpen(false));
+  useOnEscapePressed(handleClose, open);
 
   // The drawer is mobile-only, so it must not stay open (and keep the body scroll locked) when the
   // viewport grows past the breakpoint that hides it.
@@ -75,10 +79,6 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
 
   const handleOpen = (): void => {
     setOpen(true);
-  };
-
-  const handleClose = (): void => {
-    setOpen(false);
   };
 
   return (

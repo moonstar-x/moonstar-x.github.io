@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 
-export const useOnEscapePressed = (function_: VoidFunction): void => {
+export const useOnEscapePressed = (function_: VoidFunction, isEnabled = true): void => {
   useEffect(() => {
+    if (!isEnabled) {
+      return;
+    }
+
     const handler = (event: KeyboardEvent): void => {
       if (event.key === 'Escape') {
         function_();
@@ -13,5 +17,5 @@ export const useOnEscapePressed = (function_: VoidFunction): void => {
     return (): void => {
       document.removeEventListener('keydown', handler);
     };
-  }, [function_]);
+  }, [function_, isEnabled]);
 };
