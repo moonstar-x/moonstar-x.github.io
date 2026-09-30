@@ -97,6 +97,11 @@ body {
   --accent-underline-scale: 1;
 }
 
+@utility reveal-mask {
+  display: inline-block;
+  clip-path: inset(-0.3em -0.15em 0 -0.15em);
+}
+
 @utility page-horizontal-align {
   max-width: 1280px;
   margin-left: auto;

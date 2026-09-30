@@ -1,5 +1,6 @@
 import { GoogleAnalytics } from '@components/analytics/GoogleAnalytics';
 import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
+import { MotionProvider } from '@components/motion/MotionProvider';
 import { Navbar } from '@components/ui/Navbar';
 import { APP_CONTENT_LANG } from '@core/config/app';
 import { getConfig } from '@core/services/data/config';
@@ -40,8 +41,10 @@ const RootLayout: FC<Props> = async ({ children }) => {
         <UmamiAnalytics />
       </head>
       <body className="flex flex-col min-h-svh">
-        <Navbar title={config.profile.alias} />
-        {children}
+        <MotionProvider>
+          <Navbar title={config.profile.alias} />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );
