@@ -25,7 +25,8 @@ export const createPageMetadata = async (path: string, params: Params = {}): Pro
 
   const pageTitle = params.title !== undefined && params.title !== '' ? `${params.title} | ${config.profile.pageTitle}` : config.profile.pageTitle;
   const pageDescription = params.description ?? config.profile.shortBio;
-  const images = params.images?.slice(0, MAX_IMAGES);
+  const images = params.images?.slice(0, MAX_IMAGES).map((img) => new URL(img, BASE_URL)) ??
+    [new URL('/assets/opengraph-image.png', BASE_URL)];
 
   return {
     title: pageTitle,
