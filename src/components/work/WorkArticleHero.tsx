@@ -1,5 +1,6 @@
 import { MaskedWords } from '@components/motion/MaskedWords';
 import { fadeUp, staggerChildren } from '@components/motion/variants';
+import { getWorkStatusLabel } from '@core/services/data/work';
 import type { WorkMetadata } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
@@ -17,7 +18,7 @@ export const WorkArticleHero: FC<Props> = ({ metadata, className, ...props }) =>
         {metadata.type}
       </motion.span>
       <motion.span className="text-[11px] xl:text-xs font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase bg-accent text-background py-1.5 px-3" variants={fadeUp(0, 12)}>
-        {metadata.status}
+        {getWorkStatusLabel(metadata.status)}
       </motion.span>
     </motion.div>
     <h1 className="m-0 font-title font-black text-[62px] xl:text-[148px] leading-[0.83] xl:leading-[0.8] tracking-[-0.055em] xl:tracking-[-0.06em] uppercase">

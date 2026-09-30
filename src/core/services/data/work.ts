@@ -13,6 +13,17 @@ const directory = path.join(process.cwd(), 'data/work');
 export const WORK_STATUS_TYPES = ['completed', 'maintained', 'in-development', 'on-hold', 'deprecated', 'abandoned'] as const;
 export type WorkStatus = typeof WORK_STATUS_TYPES[number];
 
+const WORK_STATUS_LABELS: Record<WorkStatus, string> = {
+  completed: 'Completed',
+  maintained: 'Maintained',
+  'in-development': 'In Development',
+  'on-hold': 'On Hold',
+  deprecated: 'Deprecated',
+  abandoned: 'Abandoned'
+};
+
+export const getWorkStatusLabel = (status: WorkStatus): string => WORK_STATUS_LABELS[status];
+
 export const WORK_TYPE_TYPES = ['art', 'hobby', 'research'] as const;
 export type WorkType = typeof WORK_TYPE_TYPES[number];
 

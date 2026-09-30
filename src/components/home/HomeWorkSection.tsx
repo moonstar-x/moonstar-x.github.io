@@ -44,7 +44,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
         {slicedItems.map(({ status, type, technologies, slug, name, description, cover }, index) => {
           const statusText = status === 'in-development'
             ? 'In Development'
-            : technologies.slice(0, maxTechnologiesInStatus).map((technology) => getTechLabel(technology)).join('·');
+            : technologies.slice(0, maxTechnologiesInStatus).map((technology) => getTechLabel(technology)).join(' · ');
           const completeStatus = statusText.length > 0 ? `${type} · ${statusText}` : type;
 
           return (
