@@ -120,20 +120,6 @@ export const getAllWorkMetadata = async (options: Partial<GetAllWorkMetadataOpti
     .sort(resolveSortFunction(mergedOptions.sort));
 };
 
-export const getAllWorkMetadataForType = async (type: WorkType, options: Partial<GetAllWorkMetadataOptions> = {}): Promise<Array<ContentMetadata<WorkMetadata>>> => {
-  const mergedOptions: GetAllWorkMetadataOptions = {
-    sort: 'name',
-    ...options
-  };
-
-  const work = await getAllMetadata<WorkMetadata>(directory);
-  return work
-    .filter((data) => data.type === type)
-    .map((data) => betterZodParse(WorkMetadataSchema, data, 'slug'))
-    .filter(resolveTechFilterFunction(mergedOptions.techFilter))
-    .sort(resolveSortFunction(mergedOptions.sort));
-};
-
 export const getAllWorkMetadataByType = async (options: Partial<GetAllWorkMetadataOptions> = {}): Promise<Record<WorkType, Array<WorkArticle['metadata']>>> => {
   const work = await getAllWorkMetadata(options);
   const initialResult = objectFromEntries(
