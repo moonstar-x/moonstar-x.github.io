@@ -28,7 +28,7 @@ export const WorkFooter: FC<Props> = ({ links, className, ...props }) => (
 
     <motion.nav className="flex flex-row gap-4.5 xl:gap-5.5 text-xs xl:text-sm font-medium tracking-widest uppercase" variants={staggerChildren(0.06)}>
       {links.map(({ url, label }) => (
-        <MotionLink className="accent-underline accent-underline-light transition-colors duration-200 ease-out hover:text-accent-light hover:accent-underline-shown focus-visible:accent-underline-shown" href={url} key={label} variants={fadeUp(0, 12)}>
+        <MotionLink className="accent-underline accent-underline-light transition-colors duration-200 ease-out hover:text-accent-light hover:accent-underline-shown focus-visible:accent-underline-shown" href={url} key={label} rel="me" variants={fadeUp(0, 12)}>
           {label}
         </MotionLink>
       ))}

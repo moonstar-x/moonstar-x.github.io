@@ -20,7 +20,7 @@ export const SocialsGrid: FC<Props> = ({ socials, className, ...props }) => (
     <ul className="h-full grid grid-cols-1 xl:grid-cols-3 auto-rows-fr">
       {socials.map(({ label, url }, index) => (
         <motion.li className="flex border-solid border-border border-x border-b xl:border-l-0 xl:nth-[3n+1]:border-l" initial="hidden" key={label} variants={fadeUp(index * 0.1, 32)} viewport={REVEAL_VIEWPORT} whileInView="shown">
-          <Link className="group grow xl:min-h-64 text-text p-5 xl:p-7 flex flex-row justify-between gap-3.5 xl:gap-0 transition-colors duration-200 ease-out hover:bg-background-light" href={url}>
+          <Link className="group grow xl:min-h-64 text-text p-5 xl:p-7 flex flex-row justify-between gap-3.5 xl:gap-0 transition-colors duration-200 ease-out hover:bg-background-light" href={url} rel="me">
             <div className="flex flex-col justify-between">
               <h2 className="font-title font-black text-[28px] xl:text-[36px] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out group-hover:text-accent">
                 {label}

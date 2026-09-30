@@ -27,7 +27,7 @@ export const NotFoundFooter: FC<Props> = ({ links, className, ...props }) => (
     </MotionLink>
     <motion.div className="flex gap-4 xl:gap-5.5 text-xs xl:text-[13px] font-medium tracking-widest uppercase" variants={staggerChildren(0.06)}>
       {links.map(({ label, url }) => (
-        <MotionLink className={LINK_CLASS_NAME} href={url} key={url} variants={fadeUp(0, 12)}>
+        <MotionLink className={LINK_CLASS_NAME} href={url} key={url} rel="me" variants={fadeUp(0, 12)}>
           {label}
         </MotionLink>
       ))}
