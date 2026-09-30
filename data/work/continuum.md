@@ -69,9 +69,6 @@ colorful blurry silhouettes on a black space.
 
 https://moonstar-x.dev/assets/work/continuum/hologram-preview.mp4
 
-If you're curious about what other videos have been taken, check out the official
-[video archive](https://collcontinuum.com/archivos-de-videoarte/).
-
 Next, in order to display these videos on the screen, I opted for a web application that would refresh
 the page once new videos had been taken and display them fullscreen.
 
@@ -134,6 +131,3 @@ glad that the museum had a great notion of cyber-security.
 This exposition will be publicly available from 2024 Q1, currently the opening date was postponed due
 to the poor socio-political conditions in my country which forced the museum to close to the public
 until the situation improves due to security concerns.
-
-In any case, make sure to check the project's [official site](https://collcontinuum.com/) to check
-what it's all about and see the work of the talented artists that make part of the collective.
