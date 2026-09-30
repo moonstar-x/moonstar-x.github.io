@@ -1,7 +1,9 @@
 'use client';
 import { EASE_OUT_EXPO } from '@components/motion/variants';
 import { TypedWorkList } from '@components/work/TypedWorkList';
-import type { WorkMetadata, WorkType } from '@core/services/data/work';
+import type { WorkMetadata } from '@core/services/data/work';
+import { getWorkTypeLabel } from '@core/services/data/work-type';
+import type { WorkType } from '@core/services/data/work-type';
 import type { ContentMetadata } from '@core/services/markdown';
 import { useStateFromParams } from '@hooks/useStateFromParams';
 import { clsx } from 'clsx';
@@ -58,7 +60,7 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
               )
             }
             <span className="relative">
-              {type ?? 'all'}
+              {type === null ? 'All' : getWorkTypeLabel(type)}
             </span>
           </button>
         ))}

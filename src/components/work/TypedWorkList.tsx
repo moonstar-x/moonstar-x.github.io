@@ -1,7 +1,8 @@
 import { ArtWorkList } from '@components/work/ArtWorkList';
 import { HobbyWorkList } from '@components/work/HobbyWorkList';
 import { ResearchWorkList } from '@components/work/ResearchWorkList';
-import type { WorkMetadata, WorkType } from '@core/services/data/work';
+import type { WorkMetadata } from '@core/services/data/work';
+import type { WorkType } from '@core/services/data/work-type';
 import type { ContentMetadata } from '@core/services/markdown';
 import type { ComponentProps, FC } from 'react';
 

@@ -2,6 +2,8 @@
 import path from 'node:path';
 import { TECH_TYPES } from '@core/services/data/tech';
 import type { TechType } from '@core/services/data/tech';
+import { WORK_TYPE_TYPES } from '@core/services/data/work-type';
+import type { WorkType } from '@core/services/data/work-type';
 import { ContentMetadataSchema, getAllMetadata, getAllSlugs, getContent } from '@core/services/markdown';
 import type { ContentMetadata, Markdown } from '@core/services/markdown';
 import { objectFromEntries } from '@core/utils/object';
@@ -23,9 +25,6 @@ const WORK_STATUS_LABELS: Record<WorkStatus, string> = {
 };
 
 export const getWorkStatusLabel = (status: WorkStatus): string => WORK_STATUS_LABELS[status];
-
-export const WORK_TYPE_TYPES = ['art', 'hobby', 'research'] as const;
-export type WorkType = typeof WORK_TYPE_TYPES[number];
 
 export const WORK_LINK_TYPES = ['github', 'dockerhub', 'website', 'discord', 'npm', 'steam', 'appstore', 'playstore'] as const;
 export type WorkLink = typeof WORK_LINK_TYPES[number];

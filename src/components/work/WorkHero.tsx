@@ -1,7 +1,9 @@
 import { MaskedWords } from '@components/motion/MaskedWords';
 import { fadeUp, staggerChildren } from '@components/motion/variants';
 import { RouteDefs } from '@core/routes/routes';
-import type { WorkMetadata, WorkType } from '@core/services/data/work';
+import type { WorkMetadata } from '@core/services/data/work';
+import { getWorkTypeLabel } from '@core/services/data/work-type';
+import type { WorkType } from '@core/services/data/work-type';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -51,7 +53,7 @@ export const WorkHero: FC<Props> = ({ items, orderedWorkTypes, className, ...pro
                 {countsByType[type]}
               </span>
               <span className="text-[11px] xl:text-xs font-medium tracking-[0.12em] uppercase text-muted transition-colors duration-200 ease-out group-hover:text-text group-focus-visible:text-text">
-                {type}
+                {getWorkTypeLabel(type)}
               </span>
             </Link>
           </motion.div>

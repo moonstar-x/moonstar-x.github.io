@@ -4,7 +4,7 @@ import { WorkHero } from '@components/work/WorkHero';
 import { RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadataByType } from '@core/services/data/work';
-import type { WorkType } from '@core/services/data/work';
+import type { WorkType } from '@core/services/data/work-type';
 import { createPageMetadata } from '@core/utils/metadata';
 import type { Metadata } from 'next';
 import { Fragment, Suspense } from 'react';

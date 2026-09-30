@@ -8,8 +8,8 @@ import { WorkFooterNavigation } from '@components/work/WorkFooterNavigation';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata, getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
+import { getWorkTypeLabel } from '@core/services/data/work-type';
 import { createPageMetadata } from '@core/utils/metadata';
-import { capitalize } from '@core/utils/string';
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import type { FC } from 'react';
@@ -37,7 +37,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
     },
     {
       id: article.metadata.type,
-      label: capitalize(article.metadata.type),
+      label: getWorkTypeLabel(article.metadata.type),
       href: `${RouteDefs.work}?type=${article.metadata.type}`
     },
     {

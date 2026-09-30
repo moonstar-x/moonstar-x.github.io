@@ -2,6 +2,7 @@ import { MaskedWords } from '@components/motion/MaskedWords';
 import { fadeUp, staggerChildren } from '@components/motion/variants';
 import { getWorkStatusLabel } from '@core/services/data/work';
 import type { WorkMetadata } from '@core/services/data/work';
+import { getWorkTypeLabel } from '@core/services/data/work-type';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -15,7 +16,7 @@ export const WorkArticleHero: FC<Props> = ({ metadata, className, ...props }) =>
   <motion.section animate="shown" className={clsx('px-5 xl:px-10 pt-7 xl:pt-11.5 pb-6 xl:pb-9', className)} initial="hidden" variants={staggerChildren(0.2)} {...props}>
     <motion.div className="flex flex-row items-center gap-2 xl:gap-3 pb-6 xl:pb-5" variants={staggerChildren(0.08)}>
       <motion.span className="text-[11px] xl:text-xs font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase bg-text text-background py-1.5 px-3" variants={fadeUp(0, 12)}>
-        {metadata.type}
+        {getWorkTypeLabel(metadata.type)}
       </motion.span>
       <motion.span className="text-[11px] xl:text-xs font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase bg-accent text-background py-1.5 px-3" variants={fadeUp(0, 12)}>
         {getWorkStatusLabel(metadata.status)}
