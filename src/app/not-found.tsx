@@ -42,7 +42,7 @@ const NotFoundPage: FC = async () => {
         <NotFoundMarquee className="page-horizontal-align" />
         <NotFoundEscapeLinks className="page-horizontal-align" links={escapeLinks} />
       </main>
-      <NotFoundFooter links={config.profile.socials} />
+      <NotFoundFooter className="mt-4" links={config.profile.socials} />
     </Fragment>
   );
 };

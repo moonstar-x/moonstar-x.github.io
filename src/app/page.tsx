@@ -24,7 +24,7 @@ const HomePage: FC = async () => {
         <HomeWorkSection className="page-horizontal-align" items={workMetadata} />
         <HomeExperienceEducationSection className="page-horizontal-align" education={config.education} educationLanguagesBlurb={config.educationLanguages.blurb} experience={config.experience} />
       </main>
-      <HomeFooter links={config.profile.socials} />
+      <HomeFooter className="mt-4" links={config.profile.socials} />
     </Fragment>
   );
 };

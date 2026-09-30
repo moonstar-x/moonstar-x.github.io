@@ -20,7 +20,7 @@ const ContactPage: FC = async () => {
         <EmailRow className="page-horizontal-align" email={config.profile.email} />
         <SocialsGrid className="page-horizontal-align" socials={socialsInGrid} />
       </main>
-      <ContactFooter blurb={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} />
+      <ContactFooter blurb={`${config.profile.location} · ${config.profile.timezone} · ${config.profile.languages}`} className="mt-4" />
     </Fragment>
   );
 };

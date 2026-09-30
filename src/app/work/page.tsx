@@ -21,7 +21,7 @@ const WorkPage: FC = async () => {
         <WorkHero className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
         <FilteringWorkList className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
       </main>
-      <WorkFooter links={config.profile.socials} />
+      <WorkFooter className="mt-4" links={config.profile.socials} />
     </Fragment>
   );
 };

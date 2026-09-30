@@ -56,7 +56,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
           {article.markdown}
         </Markdown>
       </main>
-      <WorkFooterNavigation nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
+      <WorkFooterNavigation className="mt-4" nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
       <WorkFooter links={config.profile.socials} />
     </Fragment>
   );
