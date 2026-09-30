@@ -13,7 +13,7 @@ import * as motion from 'framer-motion/client';
 import { Fragment } from 'react';
 import type { ComponentProps, FC, ReactNode } from 'react';
 
-const ITEM_CLASS_NAME = 'py-4 xl:py-5 px-5 xl:px-6.5 min-w-0 border-r border-b border-solid border-border flex flex-col justify-between gap-1 xl:gap-3';
+const ITEM_CLASS_NAME = 'py-4 xl:py-5 px-5 xl:px-6.5 min-w-0 border-r border-b max-xl:nth-[2n+1]:border-l xl:nth-[4n+1]:border-l max-xl:nth-[-n+2]:border-t xl:nth-[-n+4]:border-t border-solid border-border flex flex-col justify-between gap-1 xl:gap-3';
 const LABEL_CLASS_NAME = 'text-[10px] xl:text-[11px] font-semibold tracking-[0.16em] uppercase text-muted';
 const FEATURED_VALUE_CLASS_NAME = 'font-title font-black text-[30px] xl:text-[42px] leading-none text-accent break-words';
 const STAT_VALUE_CLASS_NAME = 'font-title font-black text-[30px] xl:text-[42px] leading-none text-text break-words';
@@ -193,7 +193,7 @@ export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) =
   ];
 
   return (
-    <motion.section className={clsx('grid grid-cols-2 xl:grid-cols-4 border-t border-b border-solid border-border grid-flat-bottom-2 grid-flat-right-2 xl:grid-flat-bottom-4 xl:grid-flat-right-4', className)} initial="hidden" variants={staggerChildren(0.06, 0.3)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
+    <motion.section className={clsx('grid grid-cols-2 xl:grid-cols-4', className)} initial="hidden" variants={staggerChildren(0.06, 0.3)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
       {facts.map((fact) => (
         <WorkFactItem fact={fact} key={fact.id} />
       ))}

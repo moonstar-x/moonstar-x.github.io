@@ -112,48 +112,6 @@ body {
   margin-right: auto;
 }
 
-@utility grid-flat-bottom-2 {
-  & > :nth-child(2n + 1):nth-last-child(-n + 2),
-  & > :nth-child(2n + 1):nth-last-child(-n + 2) ~ * {
-    border-bottom-width: 0;
-  }
-}
-
-@utility grid-flat-bottom-3 {
-  & > :nth-child(3n + 1):nth-last-child(-n + 3),
-  & > :nth-child(3n + 1):nth-last-child(-n + 3) ~ * {
-    border-bottom-width: 0;
-  }
-}
-
-@utility grid-flat-bottom-4 {
-  & > :nth-child(4n + 1):nth-last-child(-n + 4),
-  & > :nth-child(4n + 1):nth-last-child(-n + 4) ~ * {
-    border-bottom-width: 0;
-  }
-}
-
-@utility grid-flat-right-2 {
-  & > :nth-child(2n),
-  & > :last-child {
-    border-right-width: 0;
-  }
-}
-
-@utility grid-flat-right-3 {
-  & > :nth-child(3n),
-  & > :last-child {
-    border-right-width: 0;
-  }
-}
-
-@utility grid-flat-right-4 {
-  & > :nth-child(4n),
-  & > :last-child {
-    border-right-width: 0;
-  }
-}
-
 @utility markdown-checkbox-check {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23F2F1EB' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.5 8.5 3 3 6-7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
