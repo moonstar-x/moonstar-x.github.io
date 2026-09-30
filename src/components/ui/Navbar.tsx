@@ -67,7 +67,11 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
     };
   }, []);
 
-  const isActive = (href: string): boolean => href !== RouteDefs.home && pathname.startsWith(href);
+  const isActive = (href: string): boolean => {
+    const [path = href] = href.split('#', 1);
+
+    return path === RouteDefs.home ? pathname === RouteDefs.home : pathname.startsWith(path);
+  };
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -86,6 +90,7 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
       <nav className="hidden xl:flex flex-row gap-7.5">
         {links.map(({ href, label, accented }) => (
           <Link
+            aria-current={isActive(href) ? 'page' : undefined}
             href={href}
             key={label}
             className={clsx(
@@ -130,6 +135,7 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
                 <div className="flex flex-col items-start gap-6">
                   {links.map(({ href, label, accented }) => (
                     <Link
+                      aria-current={isActive(href) ? 'page' : undefined}
                       href={href}
                       key={label}
                       onClick={handleClose}
