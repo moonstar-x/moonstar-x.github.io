@@ -17,9 +17,11 @@ const GetNpmPackageDataResponseSchema = z.object({
 
 export const getNpmPackageData = async (package_: string): Promise<NpmPackageData | null> => {
   try {
-    const weekData = await fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-week/${package_}`);
-    const monthData = await fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-month/${package_}`);
-    const yearData = await fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-year/${package_}`);
+    const [weekData, monthData, yearData] = await Promise.all([
+      fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-week/${package_}`),
+      fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-month/${package_}`),
+      fetchHttp(GetNpmPackageDataResponseSchema, `${BASE_URL}/downloads/point/last-year/${package_}`)
+    ]);
 
     return {
       downloads: {

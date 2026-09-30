@@ -18,6 +18,11 @@ export const fetchHttp = async <T>(Schema: z.ZodType<T>, url: string, searchPara
   const finalUrl = searchQuery ? `${url}?${searchQuery.toString()}` : url;
 
   const response = await fetch(finalUrl, mergedOptions);
+
+  if (!response.ok) {
+    throw new Error(`Request to ${finalUrl} failed with status ${response.status} ${response.statusText}`);
+  }
+
   const data: unknown = await response.json();
 
   return Schema.parse(data);
