@@ -2,6 +2,7 @@ import { GoogleAnalytics } from '@components/analytics/GoogleAnalytics';
 import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
 import { MotionProvider } from '@components/motion/MotionProvider';
 import { Navbar } from '@components/ui/Navbar';
+import { ScrollToTopButton } from '@components/ui/ScrollToTopButton';
 import { APP_CONTENT_LANG } from '@core/config/app';
 import { getConfig } from '@core/services/data/config';
 import { clsx } from 'clsx';
@@ -44,6 +45,7 @@ const RootLayout: FC<Props> = async ({ children }) => {
         <MotionProvider>
           <Navbar title={config.profile.alias} />
           {children}
+          <ScrollToTopButton />
         </MotionProvider>
       </body>
     </html>
