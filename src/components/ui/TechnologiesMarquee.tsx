@@ -1,5 +1,6 @@
 'use client';
 import { useMobile } from '@hooks/useMobile';
+import { useShouldReduceMotion } from '@hooks/useShouldReduceMotion';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import Marquee from 'react-fast-marquee';
@@ -10,6 +11,7 @@ interface Props extends Omit<ComponentProps<typeof Marquee>, 'children'> {
 
 export const TechnologiesMarquee: FC<Props> = ({ technologies, className, ...props }) => {
   const isMobile = useMobile();
+  const shouldReduceMotion = useShouldReduceMotion();
   const technologyCounts = technologies.reduce<Record<string, number>>((counts, technology) => ({
     ...counts,
     [technology]: (counts[technology] ?? 0) + 1
@@ -25,7 +27,7 @@ export const TechnologiesMarquee: FC<Props> = ({ technologies, className, ...pro
   const gradientWidth = isMobile ? 0 : 100;
 
   return (
-    <Marquee gradient className={clsx('bg-text text-background overflow-hidden whitespace-nowrap', className)} gradientColor="black" gradientWidth={gradientWidth} {...props}>
+    <Marquee gradient pauseOnHover className={clsx('bg-text text-background overflow-hidden whitespace-nowrap', className)} gradientColor="black" gradientWidth={gradientWidth} play={!shouldReduceMotion} {...props}>
       <div className="pt-2.5 xl:pt-3 pb-2">
         {repeatedUniqueTechnologies.map(([key, technology]) => (
           <span className="font-title font-black text-[17px] xl:text-[22px] uppercase after:content-['✦'] after:ml-2 mr-2" key={key}>

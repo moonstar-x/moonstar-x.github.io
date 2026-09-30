@@ -1,6 +1,8 @@
+import { MotionLink } from '@components/motion/MotionLink';
+import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
 import { RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
-import Link from 'next/link';
+import * as motion from 'framer-motion/client';
 import type { ComponentProps, FC } from 'react';
 
 export interface FooterLink {
@@ -8,31 +10,31 @@ export interface FooterLink {
   url: string;
 }
 
-interface Props extends Omit<ComponentProps<'footer'>, 'children'> {
+interface Props extends Omit<ComponentProps<typeof motion.footer>, 'children'> {
   links: FooterLink[];
 }
 
 export const HomeFooter: FC<Props> = ({ links, className, ...props }) => (
-  <footer className={clsx('py-7.5 xl:py-8.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-4 items-center justify-center xl:justify-between border-t border-solid border-border', className)} {...props}>
-    <div className="flex flex-col gap-3 xl:gap-2 -mb-2">
-      <span className="text-xs xl:text-sm font-medium tracking-[0.16em] uppercase text-muted">
+  <motion.footer className={clsx('py-7.5 xl:py-8.5 px-5 xl:px-10 flex flex-col xl:flex-row gap-4 items-center justify-center xl:justify-between border-t border-solid border-border', className)} initial="hidden" variants={staggerChildren(0.2)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
+    <motion.div className="flex flex-col gap-3 xl:gap-2 -mb-2" variants={staggerChildren(0.08)}>
+      <motion.span className="text-xs xl:text-sm font-medium tracking-[0.16em] uppercase text-muted" variants={fadeUp(0, 12)}>
         Nice to meet you
-      </span>
-      <Link className="group font-title font-black text-[52px] xl:text-[56px] leading-[0.88] xl:leading-normal tracking-[-0.045em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.contact}>
+      </motion.span>
+      <MotionLink className="group self-start font-title font-black text-[52px] xl:text-[56px] leading-[0.88] xl:leading-normal tracking-[-0.045em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={RouteDefs.contact} variants={fadeUp()} whileTap={TAP_SCALE}>
         Let's connect
         {' '}
         <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
           →
         </span>
-      </Link>
-    </div>
+      </MotionLink>
+    </motion.div>
 
-    <nav className="flex flex-row flex-wrap xl:flex-nowrap gap-2 xl:gap-5.5 text-sm font-medium tracking-widest uppercase">
+    <motion.nav className="flex flex-row flex-wrap xl:flex-nowrap gap-2 xl:gap-5.5 text-sm font-medium tracking-widest uppercase" variants={staggerChildren(0.06)}>
       {links.map(({ url, label }) => (
-        <Link className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0 transition-colors duration-200 ease-out hover:text-accent hover:border-accent xl:accent-underline xl:hover:accent-underline-shown xl:focus-visible:accent-underline-shown" href={url} key={label}>
+        <MotionLink className="text-sm font-medium tracking-[0.08em] xl:tracking-widest uppercase border xl:border-0 border-solid border-text py-2.75 xl:py-0 px-4 xl:px-0 transition-colors duration-200 ease-out hover:text-accent hover:border-accent xl:accent-underline xl:hover:accent-underline-shown xl:focus-visible:accent-underline-shown" href={url} key={label} variants={fadeUp(0, 12)}>
           {label}
-        </Link>
+        </MotionLink>
       ))}
-    </nav>
-  </footer>
+    </motion.nav>
+  </motion.footer>
 );

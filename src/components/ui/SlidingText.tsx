@@ -1,10 +1,12 @@
 'use client';
+import { EASE_OUT_EXPO } from '@components/motion/variants';
+import { useShouldReduceMotion } from '@hooks/useShouldReduceMotion';
 import { clsx } from 'clsx';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { ComponentProps, FC } from 'react';
 
-const DEFAULT_INTERVAL = 2000;
+const DEFAULT_INTERVAL = 2500;
 
 interface Props extends Omit<ComponentProps<typeof motion.span>, 'children'> {
   interval?: number;
@@ -12,10 +14,16 @@ interface Props extends Omit<ComponentProps<typeof motion.span>, 'children'> {
 }
 
 export const SlidingText: FC<Props> = ({ options, interval = DEFAULT_INTERVAL, className, ...props }) => {
+  const shouldReduceMotion = useShouldReduceMotion();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const currentValue = options[currentIndex] ?? '';
+  const activeIndex = shouldReduceMotion ? 0 : currentIndex;
+  const currentValue = options[activeIndex] ?? '';
 
   useEffect(() => {
+    if (shouldReduceMotion) {
+      return;
+    }
+
     const handle = setInterval(() => {
       setCurrentIndex((index) => (index + 1) % options.length);
     }, interval);
@@ -23,32 +31,22 @@ export const SlidingText: FC<Props> = ({ options, interval = DEFAULT_INTERVAL, c
     return (): void => {
       clearInterval(handle);
     };
-  }, [options, interval]);
+  }, [options, interval, shouldReduceMotion]);
 
   return (
-    <motion.span
-      key={currentIndex}
-      {...props}
-      animate="show"
-      className={clsx('inline-block', className)}
-      initial="hide"
-      whileTap={{ scale: 0.9 }}
-      variants={{
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            ease: 'easeOut',
-            duration: 0.8
-          }
-        },
-        hide: {
-          y: -60,
-          opacity: 0
-        }
-      }}
-    >
-      {currentValue}
+    <motion.span {...props} className={clsx('reveal-mask', className)}>
+      <AnimatePresence initial={false} mode="wait">
+        <motion.span
+          animate={{ y: '0%', opacity: 1, transition: { duration: 0.55, ease: EASE_OUT_EXPO } }}
+          className="inline-block"
+          exit={{ y: '-60%', opacity: 0, transition: { duration: 0.3, ease: 'easeIn' } }}
+          initial={{ y: '110%', opacity: 1 }}
+          key={activeIndex}
+          whileTap={{ scale: 0.9 }}
+        >
+          {currentValue}
+        </motion.span>
+      </AnimatePresence>
     </motion.span>
   );
 };

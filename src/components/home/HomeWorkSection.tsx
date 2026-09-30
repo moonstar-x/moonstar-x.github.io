@@ -1,8 +1,11 @@
+import { MotionLink } from '@components/motion/MotionLink';
+import { drawLine, fadeUp, REVEAL_VIEWPORT, settleIn, staggerChildren } from '@components/motion/variants';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import type { WorkMetadata } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { padNumber } from '@core/utils/number';
 import { clsx } from 'clsx';
+import * as motion from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
@@ -18,12 +21,12 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
 
   return (
     <section className={clsx(className)} {...props}>
-      <div className="px-5 xl:px-10 pt-6.5 pb-3 xl:pt-8.5 xl:pb-2.5 flex flex-row items-baseline justify-between xl:justify-baseline gap-4">
-        <h2 className="font-title font-black text-[24px] xl:text-[30px] tracking-[-0.03em] uppercase">
+      <motion.div className="px-5 xl:px-10 pt-6.5 pb-3 xl:pt-8.5 xl:pb-2.5 flex flex-row items-baseline justify-between xl:justify-baseline gap-4" initial="hidden" variants={staggerChildren(0.1)} viewport={REVEAL_VIEWPORT} whileInView="shown">
+        <motion.h2 className="font-title font-black text-[24px] xl:text-[30px] tracking-[-0.03em] uppercase" variants={fadeUp()}>
           Some of my work
-        </h2>
-        <hr className="hidden xl:block grow h-px border-border" />
-        <Link className="group shrink-0 text-xs xl:text-sm font-medium tracking-widest uppercase text-accent" href={RouteDefs.work}>
+        </motion.h2>
+        <motion.hr className="hidden xl:block grow h-px border-border origin-left" variants={drawLine} />
+        <MotionLink className="group shrink-0 text-xs xl:text-sm font-medium tracking-widest uppercase text-accent" href={RouteDefs.work} variants={fadeUp()}>
           <span className="hidden xl:inline-block">See</span>
           {' '}
           all
@@ -33,8 +36,8 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
             →
           </span>
-        </Link>
-      </div>
+        </MotionLink>
+      </motion.div>
 
       <ul className="flex flex-col">
         {slicedItems.map(({ status, type, technologies, slug, name, description, cover }, index) => {
@@ -44,10 +47,12 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           const completeStatus = statusText.length > 0 ? `${type} · ${statusText}` : type;
 
           return (
-            <li className="flex border-t last:border-b xl:border-t-0 xl:border-b border-solid border-border" key={slug}>
+            <motion.li className="flex border-t last:border-b xl:border-t-0 xl:border-b border-solid border-border" initial="hidden" key={slug} variants={fadeUp(index * 0.1, 32)} viewport={REVEAL_VIEWPORT} whileInView="shown">
               <Link className="group min-h-54.75 grow flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-7.5 p-5 xl:px-10 xl:pt-6 xl:pb-4 transition-colors duration-200 ease-out hover:bg-background-light" href={DynamicRouteDefs.workBySlug(slug)}>
-                <div className="w-full h-auto aspect-[2.32] relative xl:hidden">
-                  <Image fill alt={slug} className="w-full h-full object-cover" src={cover} />
+                <div className="w-full h-auto aspect-[2.32] relative overflow-hidden xl:hidden">
+                  <motion.div className="absolute inset-0" variants={settleIn}>
+                    <Image fill alt={slug} className="w-full h-full object-cover" src={cover} />
+                  </motion.div>
                 </div>
 
                 <span className="hidden xl:inline-block font-title font-black text-[20px] text-accent w-15 shrink-0">
@@ -77,7 +82,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
                   </span>
                 </div>
               </Link>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
