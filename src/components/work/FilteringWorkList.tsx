@@ -1,6 +1,7 @@
 'use client';
 import { EASE_OUT_EXPO } from '@components/motion/variants';
 import { TypedWorkList } from '@components/work/TypedWorkList';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import type { WorkMetadata } from '@core/services/data/work';
 import { getWorkTypeLabel } from '@core/services/data/work-type';
 import type { WorkType } from '@core/services/data/work-type';
@@ -47,6 +48,7 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
             aria-pressed={filter === type}
             key={type ?? 'all'}
             type="button"
+            {...umamiEvent(UmamiEvents.workFilter, { filter: type ?? 'all' })}
             onClick={() => {
               setFilter(type);
             }}

@@ -1,5 +1,6 @@
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -27,7 +28,7 @@ export const WorkFooterNavigation: FC<Props> = ({ nextArticleName, nextArticleSl
           <motion.span className="text-xs xl:text-[13px] font-medium tracking-widest uppercase text-muted" variants={fadeUp(0, 12)}>
             Next Up
           </motion.span>
-          <MotionLink className="group font-title font-black text-[30px] xl:text-[34px] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={DynamicRouteDefs.workBySlug(nextArticleSlug)} variants={fadeUp()} whileTap={TAP_SCALE}>
+          <MotionLink className="group font-title font-black text-[30px] xl:text-[34px] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out hover:text-accent" href={DynamicRouteDefs.workBySlug(nextArticleSlug)} variants={fadeUp()} whileTap={TAP_SCALE} {...umamiEvent(UmamiEvents.nextArticle, { slug: nextArticleSlug })}>
             {nextArticleName}
             {' '}
             <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">

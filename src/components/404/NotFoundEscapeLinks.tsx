@@ -1,4 +1,5 @@
 import { drawLine, fadeUp, REVEAL_VIEWPORT, staggerChildren } from '@components/motion/variants';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { padNumber } from '@core/utils/number';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -26,7 +27,7 @@ export const NotFoundEscapeLinks: FC<Props> = ({ links, className, ...props }) =
     <ul className="grow flex flex-col">
       {links.map(({ href, label, description }, index) => (
         <motion.li className="flex grow border-t xl:border-t-0 not-last:xl:border-b border-solid border-border" initial="hidden" key={href} variants={fadeUp(index * 0.1, 32)} viewport={REVEAL_VIEWPORT} whileInView="shown">
-          <Link className="group min-h-41.75 xl:min-h-48.5 grow text-text pt-4 xl:pt-5 pb-4 px-5 xl:px-10 flex flex-row items-center gap-4 xl:gap-7.5 transition-colors duration-200 ease-out hover:bg-background-light" href={href}>
+          <Link className="group min-h-41.75 xl:min-h-48.5 grow text-text pt-4 xl:pt-5 pb-4 px-5 xl:px-10 flex flex-row items-center gap-4 xl:gap-7.5 transition-colors duration-200 ease-out hover:bg-background-light" href={href} {...umamiEvent(UmamiEvents.notFoundLink, { destination: href })}>
             <span className="font-title font-black text-[15px] xl:text-[20px] text-accent w-7.5 xl:w-15 shrink-0">
               {padNumber(index + 1)}
             </span>

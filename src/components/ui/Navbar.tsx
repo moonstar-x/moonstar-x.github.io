@@ -2,6 +2,8 @@
 import { BarsIcon } from '@components/icons/BarsIcon';
 import { XMarkIcon } from '@components/icons/XMarkIcon';
 import { Icon } from '@components/ui/Icon';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
+import type { UmamiEventAttributes } from '@core/analytics/events';
 import { RouteDefs, RouteHashDefs } from '@core/routes/routes';
 import { useDisableBodyScroll } from '@hooks/useDisableBodyScroll';
 import { useFocusTrap } from '@hooks/useFocusTrap';
@@ -19,6 +21,7 @@ const LINK_CLASS_NAME = 'accent-underline pb-0.5 text-sm font-medium tracking-wi
 
 interface NavbarLink {
   accented?: boolean;
+  analytics?: UmamiEventAttributes | undefined;
   href: string;
   label: string;
 }
@@ -35,7 +38,8 @@ const links: NavbarLink[] = [
   {
     label: "Let's Connect",
     href: RouteDefs.contact,
-    accented: true
+    accented: true,
+    analytics: umamiEvent(UmamiEvents.contactCta, { location: 'navbar' })
   }
 ];
 
@@ -94,11 +98,12 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
       </Link>
 
       <nav className="hidden xl:flex flex-row gap-7.5">
-        {links.map(({ href, label, accented }) => (
+        {links.map(({ href, label, accented, analytics }) => (
           <Link
             aria-current={isActive(href) ? 'page' : undefined}
             href={href}
             key={label}
+            {...analytics}
             className={clsx(
               LINK_CLASS_NAME,
               Boolean(accented) && 'text-accent',
@@ -146,11 +151,12 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
                 </button>
 
                 <nav className="flex flex-col items-start gap-6">
-                  {links.map(({ href, label, accented }) => (
+                  {links.map(({ href, label, accented, analytics }) => (
                     <Link
                       aria-current={isActive(href) ? 'page' : undefined}
                       href={href}
                       key={label}
+                      {...analytics}
                       onClick={handleClose}
                       className={clsx(
                         LINK_CLASS_NAME,

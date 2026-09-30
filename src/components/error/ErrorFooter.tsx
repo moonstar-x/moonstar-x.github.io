@@ -1,5 +1,6 @@
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren, TAP_SCALE } from '@components/motion/variants';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -27,7 +28,7 @@ export const ErrorFooter: FC<Props> = ({ links, className, ...props }) => (
     </MotionLink>
     <motion.div className="flex gap-4 xl:gap-5.5 text-xs xl:text-[13px] font-medium tracking-widest uppercase" variants={staggerChildren(0.06)}>
       {links.map(({ label, url }) => (
-        <MotionLink className={LINK_CLASS_NAME} href={url} key={url} rel="me noopener noreferrer" target="_blank" variants={fadeUp(0, 12)}>
+        <MotionLink className={LINK_CLASS_NAME} href={url} key={url} rel="me noopener noreferrer" target="_blank" variants={fadeUp(0, 12)} {...umamiEvent(UmamiEvents.socialLink, { platform: label, location: 'error-footer' })}>
           {label}
         </MotionLink>
       ))}

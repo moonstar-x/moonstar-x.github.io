@@ -1,4 +1,5 @@
 'use client';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { useEffect, useRef, useState } from 'react';
 import type { FC } from 'react';
 
@@ -34,6 +35,7 @@ export const CopyCodeButton: FC<Props> = ({ code }: Props) => {
     <button
       className="font-code text-[11px] tracking-widest uppercase text-accent-light cursor-pointer transition-colors duration-200 ease-out hover:text-background"
       type="button"
+      {...umamiEvent(UmamiEvents.copyCode)}
       onClick={handleClick}
     >
       {status === 'copied' && 'Copied!'}

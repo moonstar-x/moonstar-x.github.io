@@ -1,6 +1,7 @@
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren } from '@components/motion/variants';
 import { ExternalLinkArrow } from '@components/ui/ExternalLinkArrow';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import type { WorkFact, WorkLink, WorkMetadata, WorkStats } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { getDockerHubRepoData } from '@core/services/third-party/dockerhub';
@@ -137,9 +138,10 @@ const StatsWorkFactItem: FC<StatsWorkFactItemProps> = async ({ className, resour
 interface WorkFactItemProps {
   className?: string | undefined;
   fact: AggregatedWorkFact;
+  slug: string;
 }
 
-const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
+const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact, slug }) => {
   switch (fact.type) {
     case 'date':
       return (
@@ -160,7 +162,7 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
     case 'link':
       return (
         <WorkFactItemContainer className={className} label={LINK_TYPE_TO_LABEL[fact.linkType]}>
-          <MotionLink className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} rel="noopener noreferrer" target="_blank" title={fact.url} variants={fadeUp(0, 12)}>
+          <MotionLink className={clsx(VALUE_CLASS_NAME, 'group text-accent flex flex-row items-center gap-1.5 min-w-0')} href={fact.url} rel="noopener noreferrer" target="_blank" title={fact.url} variants={fadeUp(0, 12)} {...umamiEvent(UmamiEvents.workLink, { type: fact.linkType, slug })}>
             <span className="truncate link-underline">
               {simplifyUrl(fact.url)}
             </span>
@@ -232,7 +234,7 @@ export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) =
   return (
     <motion.section className={clsx('grid grid-cols-2 xl:grid-cols-4', className)} initial="hidden" variants={staggerChildren(0.06, 0.3)} viewport={REVEAL_VIEWPORT} whileInView="shown" {...props}>
       {facts.map((fact) => (
-        <WorkFactItem fact={fact} key={fact.id} />
+        <WorkFactItem fact={fact} key={fact.id} slug={metadata.slug} />
       ))}
     </motion.section>
   );

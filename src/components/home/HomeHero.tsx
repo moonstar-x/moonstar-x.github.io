@@ -3,6 +3,7 @@ import { MotionLink } from '@components/motion/MotionLink';
 import { revealStyle, WORD_STAGGER } from '@components/motion/revealStyle';
 import { TAP_SCALE } from '@components/motion/variants';
 import { SlidingText } from '@components/ui/SlidingText';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { RouteDefs } from '@core/routes/routes';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -45,7 +46,7 @@ export const HomeHero: FC<Props> = ({ subtitle, subCta, className, ...props }) =
       </p>
 
       <div className="w-full xl:w-[initial] flex flex-col gap-3 xl:gap-2.5 items-end shrink-0 animate-fade-up" style={revealStyle(0.57)}>
-        <MotionLink className="group w-full xl:w-[initial] text-center xl:text-start font-title font-bold text-[16px] tracking-[0.06em] uppercase bg-text text-background pt-4 pb-2.75 px-6 xl:px-7.5 transition-colors duration-200 ease-out hover:bg-accent" href={RouteDefs.contact} whileTap={TAP_SCALE}>
+        <MotionLink className="group w-full xl:w-[initial] text-center xl:text-start font-title font-bold text-[16px] tracking-[0.06em] uppercase bg-text text-background pt-4 pb-2.75 px-6 xl:px-7.5 transition-colors duration-200 ease-out hover:bg-accent" href={RouteDefs.contact} whileTap={TAP_SCALE} {...umamiEvent(UmamiEvents.contactCta, { location: 'home-hero' })}>
           Let's connect
           {' '}
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">

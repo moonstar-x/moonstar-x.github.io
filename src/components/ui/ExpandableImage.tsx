@@ -1,6 +1,7 @@
 'use client';
 import { XMarkIcon } from '@components/icons/XMarkIcon';
 import { Icon } from '@components/ui/Icon';
+import { umamiEvent, UmamiEvents } from '@core/analytics/events';
 import { useDisableBodyScroll } from '@hooks/useDisableBodyScroll';
 import { useOnEscapePressed } from '@hooks/useOnEscapePressed';
 import { clsx } from 'clsx';
@@ -115,7 +116,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
 
   return (
     <Fragment>
-      <button className="block w-full cursor-zoom-in" ref={triggerRef} type="button" onClick={handleOpen}>
+      <button className="block w-full cursor-zoom-in" ref={triggerRef} type="button" {...umamiEvent(UmamiEvents.expandImage)} onClick={handleOpen}>
         <Image
           className={className}
           {...props}
