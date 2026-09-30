@@ -50,6 +50,10 @@ body {
   outline-offset: 3px;
 }
 
+main:focus-visible {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -142,23 +146,6 @@ body {
 @utility reveal-mask {
   display: inline-block;
   clip-path: inset(-0.3em -0.15em 0 -0.15em);
-}
-
-@utility expandable {
-  display: grid;
-  grid-template-rows: 1fr;
-  opacity: 1;
-  transition: grid-template-rows 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms ease-out;
-
-  @media (hover: hover) {
-    grid-template-rows: 0fr;
-    opacity: 0;
-
-    :is(.group:hover, .group:focus-within) & {
-      grid-template-rows: 1fr;
-      opacity: 1;
-    }
-  }
 }
 
 @utility page-horizontal-align {

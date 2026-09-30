@@ -23,16 +23,17 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
     (raw) => orderedWorkTypes.find((type) => type === raw) ?? null
   );
   const [announcement, setAnnouncement] = useState<string>('');
+  const [previousFilter, setPreviousFilter] = useState<null | WorkType>(filter);
 
-  const createHandleFilterClick = (type: null | WorkType) => (): void => {
-    const count = type === null
+  if (previousFilter !== filter) {
+    const count = filter === null
       ? orderedWorkTypes.reduce((total, workType) => total + items[workType].length, 0)
-      : items[type].length;
+      : items[filter].length;
     const noun = count === 1 ? 'project' : 'projects';
 
-    setFilter(type);
-    setAnnouncement(type === null ? `Showing all ${count.toString()} ${noun}.` : `Showing ${count.toString()} ${type} ${noun}.`);
-  };
+    setPreviousFilter(filter);
+    setAnnouncement(filter === null ? `Showing all ${count.toString()} ${noun}.` : `Showing ${count.toString()} ${filter} ${noun}.`);
+  }
 
   return (
     <section className={clsx(className)} {...props}>
@@ -46,7 +47,9 @@ export const FilteringWorkList: FC<Props> = ({ items, orderedWorkTypes, classNam
             aria-pressed={filter === type}
             key={type ?? 'all'}
             type="button"
-            onClick={createHandleFilterClick(type)}
+            onClick={() => {
+              setFilter(type);
+            }}
             className={clsx(
               'relative text-[13px] xl:text-sm font-semibold tracking-[0.08em] xl:tracking-widest uppercase py-2.25 xl:py-1.25 px-3.5 xl:px-3.25 cursor-pointer transition-colors duration-200 ease-out',
               filter === type

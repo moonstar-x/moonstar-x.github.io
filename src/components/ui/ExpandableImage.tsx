@@ -8,9 +8,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import type { FC, KeyboardEvent, MouseEvent } from 'react';
+import type { FC, KeyboardEvent, MouseEvent, PointerEvent } from 'react';
 
 const ZOOM_SCALE = 2.5;
+const DRAG_THRESHOLD_PX = 8;
 
 const clampPercentage = (value: number): number => Math.min(100, Math.max(0, value));
 
@@ -26,6 +27,8 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
   const imageRef = useRef<HTMLImageElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const pointerStartRef = useRef<null | { x: number; y: number }>(null);
+  const draggedRef = useRef<boolean>(false);
   useDisableBodyScroll(open);
 
   useEffect(() => {
@@ -60,7 +63,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
     closeButtonRef.current?.focus();
   };
 
-  useOnEscapePressed(closeDialog, open);
+  useOnEscapePressed(handleClose, open);
 
   const updateOrigin = (clientX: number, clientY: number): void => {
     const container = containerRef.current;
@@ -79,6 +82,12 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
   const handleImageClick = (event: MouseEvent<HTMLImageElement>): void => {
     event.stopPropagation();
 
+    // A touch drag used for panning must not end with a click that toggles the zoom.
+    if (draggedRef.current) {
+      draggedRef.current = false;
+      return;
+    }
+
     if (!zoomed) {
       updateOrigin(event.clientX, event.clientY);
     }
@@ -86,10 +95,22 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
     setZoomed((current) => !current);
   };
 
-  const handleMouseMove = (event: MouseEvent<HTMLDivElement>): void => {
-    if (zoomed) {
-      updateOrigin(event.clientX, event.clientY);
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>): void => {
+    pointerStartRef.current = { x: event.clientX, y: event.clientY };
+    draggedRef.current = false;
+  };
+
+  const handlePointerMove = (event: PointerEvent<HTMLDivElement>): void => {
+    if (!zoomed) {
+      return;
     }
+
+    const start = pointerStartRef.current;
+    if (start && event.pointerType !== 'mouse' && Math.hypot(event.clientX - start.x, event.clientY - start.y) > DRAG_THRESHOLD_PX) {
+      draggedRef.current = true;
+    }
+
+    updateOrigin(event.clientX, event.clientY);
   };
 
   return (
@@ -127,8 +148,7 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
                   </button>
                 </div>
 
-                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- pointer-only pan, zoom stays keyboard-independent */}
-                <div className="flex-1 h-0 relative overflow-hidden" ref={containerRef} onMouseMove={handleMouseMove}>
+                <div className="flex-1 h-0 relative overflow-hidden touch-none" ref={containerRef} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove}>
                   <Image
                     ref={imageRef}
                     style={{ transform: zoomed ? `scale(${ZOOM_SCALE.toString()})` : 'scale(1)', transformOrigin: origin }}

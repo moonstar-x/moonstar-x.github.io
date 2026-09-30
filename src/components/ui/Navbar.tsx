@@ -72,9 +72,11 @@ export const Navbar: FC<Props> = ({ title, className, ...props }) => {
   }, []);
 
   const isActive = (href: string): boolean => {
-    const [path = href] = href.split('#', 1);
+    if (href.includes('#')) {
+      return false;
+    }
 
-    return path === RouteDefs.home ? pathname === RouteDefs.home : pathname.startsWith(path);
+    return href === RouteDefs.home ? pathname === RouteDefs.home : pathname.startsWith(href);
   };
 
   const handleOpen = (): void => {

@@ -30,7 +30,7 @@ const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
   const article = await getWorkBySlug(awaitedParams.slug);
   const allArticles = await getAllWorkMetadata({ sort: 'date' });
   const currentArticleIndex = allArticles.findIndex((a) => a.slug === article.metadata.slug);
-  const nextArticle = allArticles[currentArticleIndex + 1];
+  const nextArticle = allArticles[(currentArticleIndex + 1) % allArticles.length];
   const breadcrumbItems: BreadcrumbItem[] = [
     {
       id: 'work',

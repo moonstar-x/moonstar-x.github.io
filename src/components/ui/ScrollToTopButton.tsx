@@ -34,6 +34,14 @@ export const ScrollToTopButton: FC = () => {
 
   const handleClick = (): void => {
     window.scrollTo({ top: 0, behavior: shouldReduceMotion ? 'instant' : 'smooth' });
+
+    // The button unmounts once the page is scrolled to the top, so hand focus to <main> to avoid losing it.
+    const main = document.querySelector('main');
+
+    if (main) {
+      main.tabIndex = -1;
+      main.focus({ preventScroll: true });
+    }
   };
 
   return (

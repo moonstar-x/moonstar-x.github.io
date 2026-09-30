@@ -11,10 +11,11 @@ import {
   MarkdownP, MarkdownPre, MarkdownSection,
   MarkdownStrong, MarkdownSup, MarkdownTable, MarkdownTBody, MarkdownTd, MarkdownTh, MarkdownTHead, MarkdownTr, MarkdownUl, MarkdownVideo
 } from '@components/markdown/MarkdownStyledComponents';
+import { rehypeImageDimensions } from '@core/utils/rehype-image-dimensions';
 import { clsx } from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { onlyText } from 'react-children-utilities';
-import ReactMarkdown from 'react-markdown';
+import { MarkdownAsync as ReactMarkdown } from 'react-markdown';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFigure from 'rehype-figure';
 import rehypeRaw from 'rehype-raw';
@@ -200,6 +201,7 @@ export const Markdown: FC<Props> = ({ children, className, noInternalMargins = f
       }}
       rehypePlugins={[
         rehypeRaw,
+        rehypeImageDimensions,
         rehypeSlug,
         [rehypeAutolinkHeadings, {
           behavior: 'prepend',

@@ -20,7 +20,7 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
 
       <div className="flex flex-col gap-3.5 xl:gap-2.75 text-[15px]">
         {experience.map(({ company, title, description, location, dateEnd, dateStart }, index) => (
-          <motion.div className="group flex flex-col border-solid border-border not-last:border-b pb-2.5" initial="hidden" key={`${company}-${title}`} variants={fadeUp(0.1 + (index * 0.06), 16)} viewport={REVEAL_VIEWPORT} whileInView="shown">
+          <motion.div className="flex flex-col border-solid border-border not-last:border-b pb-2.5" initial="hidden" key={`${company}-${title}`} variants={fadeUp(0.1 + (index * 0.06), 16)} viewport={REVEAL_VIEWPORT} whileInView="shown">
             <div className="flex flex-col xl:flex-row gap-0.75 xl:gap-5.5">
               <span className={clsx('w-32.5 shrink-0 font-semibold xl:font-medium uppercase text-xs xl:text-[15px] tracking-widest xl:tracking-normal', dateEnd === undefined ? 'text-accent' : 'text-muted')}>
                 {dateStart.getFullYear()}
@@ -41,16 +41,14 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
               </span>
             </div>
 
-            <div className="expandable">
-              <div className="overflow-hidden xl:pl-[calc(var(--spacing)*(32.5+5.5))]">
-                <div className="flex flex-col gap-1 pt-2 text-sm leading-[1.6]">
-                  <span className="font-semibold uppercase text-xs tracking-widest text-muted">
-                    {location}
-                  </span>
-                  <p className="text-lighter">
-                    {description}
-                  </p>
-                </div>
+            <div className="xl:pl-[calc(var(--spacing)*(32.5+5.5))]">
+              <div className="flex flex-col gap-1 pt-2 text-sm leading-[1.6]">
+                <span className="font-semibold uppercase text-xs tracking-widest text-muted">
+                  {location}
+                </span>
+                <p className="text-lighter">
+                  {description}
+                </p>
               </div>
             </div>
           </motion.div>
@@ -65,7 +63,7 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
 
       <div className="flex flex-col gap-3.5 xl:gap-2.75">
         {education.map(({ university, degree, bulletPoints, dateEnd, dateStart, grade }, index) => (
-          <motion.div className="group flex flex-col gap-0 xl:gap-2 text-[15px] leading-[1.6]" initial="hidden" key={`${university}-${degree}`} variants={fadeUp(0.1 + (index * 0.06), 16)} viewport={REVEAL_VIEWPORT} whileInView="shown">
+          <motion.div className="flex flex-col gap-0 xl:gap-2 text-[15px] leading-[1.6]" initial="hidden" key={`${university}-${degree}`} variants={fadeUp(0.1 + (index * 0.06), 16)} viewport={REVEAL_VIEWPORT} whileInView="shown">
             <span className="font-semibold">
               {degree}
             </span>
@@ -88,18 +86,16 @@ export const HomeExperienceEducationSection: FC<Props> = ({ experience, educatio
               </span>
 
               {bulletPoints.length > 0 && (
-                <div className="expandable">
-                  <ul className="overflow-hidden flex flex-col gap-1 text-sm leading-[1.6] text-lighter">
-                    {bulletPoints.map((point, bulletIndex) => (
-                      <li className={clsx('flex gap-2', bulletIndex === 0 && 'mt-2')} key={point}>
-                        <span aria-hidden className="shrink-0 text-accent">
-                          —
-                        </span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="flex flex-col gap-1 text-sm leading-[1.6] text-lighter">
+                  {bulletPoints.map((point, bulletIndex) => (
+                    <li className={clsx('flex gap-2', bulletIndex === 0 && 'mt-2')} key={point}>
+                      <span aria-hidden className="shrink-0 text-accent">
+                        —
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
           </motion.div>

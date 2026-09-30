@@ -37,7 +37,11 @@ export const useStateFromParams = <T extends string>(
     }
 
     const query = params.toString();
-    history.replaceState(history.state, '', query === '' ? location.pathname : `${location.pathname}?${query}`);
+    if (query === location.search.replace(/^\?/u, '')) {
+      return;
+    }
+
+    history.pushState(history.state, '', query === '' ? location.pathname : `${location.pathname}?${query}`);
     listeners.forEach((listener) => {
       listener();
     });

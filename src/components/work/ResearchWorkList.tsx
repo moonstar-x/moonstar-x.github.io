@@ -37,9 +37,9 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
       {items.map(({ slug, name, description, technologies, cover, status }, index) => (
         <motion.li className="flex border-t border-solid border-border-light" initial="hidden" key={slug} variants={fadeUp((index % 3) * 0.1, 32)} viewport={REVEAL_VIEWPORT} whileInView="shown">
           <Link className="group grow text-text flex flex-col xl:flex-row gap-2.75 xl:gap-6.5 xl:items-center pt-4 xl:pt-8 xl:pb-3.5" href={DynamicRouteDefs.workBySlug(slug)}>
-            <div className="w-full xl:w-52.5 h-35 xl:h-32 relative overflow-hidden">
-              <motion.div className="absolute inset-0" variants={settleIn}>
-                <Image fill alt={slug} className="shrink-0 object-cover transition-transform duration-300 ease-out group-hover:scale-105" src={cover} />
+            <div className="shrink-0 w-full xl:w-52.5 h-35 xl:h-32 relative overflow-hidden">
+              <motion.div className="absolute inset-0 w-full h-full" variants={settleIn}>
+                <Image fill alt={slug} className="shrink-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105" src={cover} />
               </motion.div>
             </div>
             <div className="grow flex flex-col gap-2.25 mt-1 xl:mt-0">
