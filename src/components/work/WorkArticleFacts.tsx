@@ -40,6 +40,9 @@ type AggregatedWorkFact = (WorkFact | {
   type: 'link';
   url: string;
 } | {
+  minutes: number;
+  type: 'reading_time';
+} | {
   resource: string;
   statsType: WorkStats;
   type: 'unfetched_stats';
@@ -165,6 +168,16 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
           </MotionLink>
         </WorkFactItemContainer>
       );
+    case 'reading_time':
+      return (
+        <WorkFactItemContainer className={className} label="Reading Time">
+          <motion.span className={VALUE_CLASS_NAME} variants={fadeUp(0, 12)}>
+            {fact.minutes}
+            {' '}
+            min read
+          </motion.span>
+        </WorkFactItemContainer>
+      );
     case 'role':
       return (
         <WorkFactItemContainer className={className} label="Role">
@@ -206,7 +219,14 @@ export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) =
       type: 'link',
       linkType,
       url
-    }))
+    })),
+    ...metadata.readingTime > 0
+      ? [{
+        id: 'reading-time',
+        type: 'reading_time',
+        minutes: metadata.readingTime
+      } satisfies AggregatedWorkFact]
+      : []
   ];
 
   return (
