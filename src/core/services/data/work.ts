@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/max-nested-calls */
 import path from 'node:path';
-import { TECH_TYPES } from '@core/services/data/tech';
+import { getTechLabel, TECH_TYPES } from '@core/services/data/tech';
 import type { TechType } from '@core/services/data/tech';
 import { WORK_TYPE_TYPES } from '@core/services/data/work-type';
 import type { WorkType } from '@core/services/data/work-type';
@@ -81,8 +81,10 @@ export type WorkArticle = Markdown<WorkMetadata>;
 
 type SortType = 'date' | 'name';
 type CompareFunction = (a: ContentMetadata<WorkMetadata>, b: ContentMetadata<WorkMetadata>) => number;
+type FilterFunction = (data: ContentMetadata<WorkMetadata>) => boolean;
 interface GetAllWorkMetadataOptions {
   sort: SortType;
+  techFilter?: string | undefined;
 }
 
 const resolveSortFunction = (sort: SortType): CompareFunction => {
@@ -92,6 +94,15 @@ const resolveSortFunction = (sort: SortType): CompareFunction => {
     case 'name':
       return (a, b) => a.name.localeCompare(b.name);
   }
+};
+
+const resolveTechFilterFunction = (techFilter?: string): FilterFunction => {
+  const normalizedFilter = techFilter?.trim().toLowerCase() ?? '';
+  if (normalizedFilter === '') {
+    return () => true;
+  }
+
+  return (data) => data.technologies.some((technology) => technology.toLowerCase() === normalizedFilter || getTechLabel(technology).toLowerCase() === normalizedFilter);
 };
 
 export const getAllWorkSlugs = async (): Promise<string[]> => await getAllSlugs(directory);
@@ -105,6 +116,7 @@ export const getAllWorkMetadata = async (options: Partial<GetAllWorkMetadataOpti
   const work = await getAllMetadata<WorkMetadata>(directory);
   return work
     .map((data) => betterZodParse(WorkMetadataSchema, data, 'slug'))
+    .filter(resolveTechFilterFunction(mergedOptions.techFilter))
     .sort(resolveSortFunction(mergedOptions.sort));
 };
 
@@ -118,6 +130,7 @@ export const getAllWorkMetadataForType = async (type: WorkType, options: Partial
   return work
     .filter((data) => data.type === type)
     .map((data) => betterZodParse(WorkMetadataSchema, data, 'slug'))
+    .filter(resolveTechFilterFunction(mergedOptions.techFilter))
     .sort(resolveSortFunction(mergedOptions.sort));
 };
 
