@@ -59,6 +59,44 @@ body {
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance, 24px));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mask-reveal {
+  from {
+    transform: translateY(110%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@utility animate-mask-reveal {
+  animation: mask-reveal 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
 @utility link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;

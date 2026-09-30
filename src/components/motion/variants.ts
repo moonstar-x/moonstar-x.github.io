@@ -33,19 +33,6 @@ export const fadeUp = (delay = 0, distance = 24): Variants => ({
   }
 });
 
-export const maskReveal: Variants = {
-  hidden: {
-    y: '110%'
-  },
-  shown: {
-    y: '0%',
-    transition: {
-      duration: 0.9,
-      ease: EASE_OUT_EXPO
-    }
-  }
-};
-
 export const drawLine: Variants = {
   hidden: {
     scaleX: 0
