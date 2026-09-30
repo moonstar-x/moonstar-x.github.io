@@ -173,22 +173,31 @@ export const MarkdownTd: FC<ComponentProps<'td'>> = ({ className, children, ...p
   </td>
 );
 
-const parseImgDimension = (value: ComponentProps<'img'>['width']): number => {
+const FALLBACK_IMG_WIDTH = 1600;
+const FALLBACK_IMG_HEIGHT = 900;
+
+const parseImgDimension = (value: ComponentProps<'img'>['width']): null | number => {
   const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : 0;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
 };
 
-export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => (
-  <ExpandableImage
-    alt={alt ?? 'image'}
-    className={clsx('w-full h-auto object-cover transition-opacity duration-200 ease-out hover:opacity-85', className)}
-    height={parseImgDimension(height)}
-    sizes="100vw"
-    src={typeof src === 'string' ? src : ''}
-    width={parseImgDimension(width)}
-    {...props}
-  />
-);
+export const MarkdownImg: FC<ComponentProps<'img'>> = ({ className, alt, src, width, height, ...props }) => {
+  const parsedWidth = parseImgDimension(width);
+  const parsedHeight = parseImgDimension(height);
+  const hasDimensions = parsedWidth !== null && parsedHeight !== null;
+
+  return (
+    <ExpandableImage
+      alt={alt ?? 'image'}
+      className={clsx('w-full h-auto object-cover transition-opacity duration-200 ease-out hover:opacity-85', className)}
+      height={hasDimensions ? parsedHeight : FALLBACK_IMG_HEIGHT}
+      sizes="100vw"
+      src={typeof src === 'string' ? src : ''}
+      width={hasDimensions ? parsedWidth : FALLBACK_IMG_WIDTH}
+      {...props}
+    />
+  );
+};
 
 export const MarkdownFigCaption: FC<ComponentProps<'figcaption'>> = ({ className, children, ...props }) => (
   <figcaption className={clsx('text-center text-[13px] xl:text-sm font-light leading-[1.55] text-muted', className)} {...props}>

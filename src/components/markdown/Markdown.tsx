@@ -199,6 +199,7 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
         )
       }}
       rehypePlugins={[
+        rehypeRaw,
         rehypeSlug,
         [rehypeAutolinkHeadings, {
           behavior: 'prepend',
@@ -206,8 +207,7 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
           content: { type: 'text', value: '#' }
         }],
         rehypeFigure,
-        [rehypeVideo, { details: false }],
-        rehypeRaw
+        [rehypeVideo, { details: false }]
       ]}
     >
       {children}

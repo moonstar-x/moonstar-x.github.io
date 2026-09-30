@@ -7,12 +7,12 @@ import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import type { FC, MouseEvent } from 'react';
 
-const stopPropagation = (event: MouseEvent): void => {
-  event.stopPropagation();
-};
+const ZOOM_SCALE = 2.5;
+
+const clampPercentage = (value: number): number => Math.min(100, Math.max(0, value));
 
 export interface Props extends ImageProps {
   initialOpen?: boolean;
@@ -20,8 +20,11 @@ export interface Props extends ImageProps {
 
 export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...props }) => {
   const [open, setOpen] = useState<boolean>(() => initialOpen);
+  const [zoomed, setZoomed] = useState<boolean>(false);
+  const [origin, setOrigin] = useState<string>('50% 50%');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   useDisableBodyScroll(open);
-  useOnEscapePressed(() => setOpen(false));
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -29,6 +32,39 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
 
   const handleClose = (): void => {
     setOpen(false);
+    setZoomed(false);
+  };
+
+  useOnEscapePressed(handleClose);
+
+  const updateOrigin = (clientX: number, clientY: number): void => {
+    const container = containerRef.current;
+    const image = imageRef.current;
+    if (!container || !image) {
+      return;
+    }
+
+    // offset* ignores the zoom transform, so the mapping stays stable while zoomed.
+    const rect = container.getBoundingClientRect();
+    const x = clampPercentage(((clientX - rect.left - image.offsetLeft) / image.offsetWidth) * 100);
+    const y = clampPercentage(((clientY - rect.top - image.offsetTop) / image.offsetHeight) * 100);
+    setOrigin(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+  };
+
+  const handleImageClick = (event: MouseEvent<HTMLImageElement>): void => {
+    event.stopPropagation();
+
+    if (!zoomed) {
+      updateOrigin(event.clientX, event.clientY);
+    }
+
+    setZoomed((current) => !current);
+  };
+
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>): void => {
+    if (zoomed) {
+      updateOrigin(event.clientX, event.clientY);
+    }
   };
 
   return (
@@ -61,10 +97,16 @@ export const ExpandableImage: FC<Props> = ({ initialOpen = false, className, ...
                   </button>
                 </div>
 
-                <div className="flex-1 h-0 relative">
+                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- pointer-only pan, zoom stays keyboard-independent */}
+                <div className="flex-1 h-0 relative overflow-hidden" ref={containerRef} onMouseMove={handleMouseMove}>
                   <Image
-                    className={clsx('h-auto w-auto max-w-full max-h-full m-auto absolute top-0 right-0 bottom-0 left-0 cursor-default', className)}
-                    onClick={stopPropagation}
+                    ref={imageRef}
+                    style={{ transform: zoomed ? `scale(${ZOOM_SCALE.toString()})` : 'scale(1)', transformOrigin: origin }}
+                    onClick={handleImageClick}
+                    className={clsx(
+                      'object-contain h-auto w-auto max-w-full max-h-full m-auto absolute top-0 right-0 bottom-0 left-0 transition-transform duration-200 ease-out',
+                      zoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
+                    )}
                     {...props}
                   />
                 </div>
