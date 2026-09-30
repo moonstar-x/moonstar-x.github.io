@@ -1,0 +1,61 @@
+profile:
+  alias: moonstar-x
+  email: christian.lopez99@outlook.com
+  socials:
+    - label: Email
+      url: mailto:christian.lopez99@outlook.com
+    - label: GitHub
+      url: https://github.com/moonstar-x
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/moonstar-x
+    - label: x.com
+      url: https://x.com/moonstar_x99
+  shortBio: A software engineer with a passion for programming and delivering quality software. Based in Quito, Ecuador — currently Semi Senior Software Developer at Devsu.
+  location: Quito
+  timezone: GMT-5
+  languages: EN / ES / FR / PT
+  twitterHandle: '@moonstar_x99'
+  pageTitle: moonstar-x | Software Engineer
+
+experience:
+  - title: Semi Senior Software Developer
+    company: Devsu
+    description: Currently working as a Semi Senior Software Developer remotely.
+    location: Quito, Ecuador
+    dateStart: 2024-10-30
+  - title: Junior Software Developer
+    company: Devsu
+    description: Worked in multiple projects both internal and for clients with an emphasis on web technologies such as Next.js, Remix, and AWS.
+    location: Quito, Ecuador
+    dateStart: 2023-10-30
+    dateEnd: 2024-10-30
+  - title: Full-stack Developer
+    company: Universidad San Francisco de Quito
+    description: Built a crowdsourcing React web repository for biomass transformation opportunities applicable in Latin America and the Caribbean for the Inter-American Development Bank.
+    location: Quito, Ecuador
+    dateStart: 2022-06-15
+    dateEnd: 2023-04-15
+  - title: Freelance Software Developer
+    company: Devsu
+    description: Prepared an MVP of a novel E-Commerce service in a popular video game platform for a renowned American fast-food chain.
+    location: Quito, Ecuador
+    dateStart: 2021-11-15
+    dateEnd: 2021-12-15
+  - title: Freelance Web Developer
+    company: Devsu
+    description: Developed the React front end of a custom-made business process manager in a team of 5 engineers.
+    location: Quito, Ecuador
+    dateStart: 2019-07-15
+    dateEnd: 2019-09-15
+
+education:
+  - degree: BSc., Engineering in Computer Science
+    university: Universidad San Francisco de Quito
+    bulletPoints:
+      - Founding member of the IEEE Computer Society Chapter for the USFQ.
+    dateStart: 2017-08-15
+    dateEnd: 2023-02-15
+    grade: Magna Cum Laude
+
+educationLanguages:
+  blurb: Speaks English, Español, Français and Português — 한국어 in progress.

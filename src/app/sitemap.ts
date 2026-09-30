@@ -1,37 +1,32 @@
-import { MetadataRoute } from 'next';
-import { BASE_URL } from '@lib/config';
-import { RouteDefs } from '@lib/constants/routes';
-import { getAllWorkSlugs } from '@lib/services/work';
-import { getAllPostSlugs } from '@lib/services/blog';
+import { BASE_URL } from '@core/config/app';
+import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
+import { getAllWorkMetadata } from '@core/services/data/work';
+import type { MetadataRoute } from 'next';
 
 type SingleSitemap = MetadataRoute.Sitemap[number];
 
-const now = new Date();
+const withTrailingSlash = (path: string): string => path.endsWith('/') ? path : `${path}/`;
 
-const makeSitemap = (path: string, priority?: number, changeFrequency?: SingleSitemap['changeFrequency']): SingleSitemap => {
-  return {
-    url: `${BASE_URL}${path}`,
-    lastModified: now,
-    changeFrequency: changeFrequency ?? 'weekly',
-    priority: priority ?? 1
-  };
-};
+const makeSitemap = (path: string, lastModified?: Date, priority?: number, changeFrequency?: SingleSitemap['changeFrequency']): SingleSitemap => ({
+  url: `${BASE_URL}${withTrailingSlash(path)}`,
+  ...lastModified && { lastModified },
+  changeFrequency: changeFrequency ?? 'weekly',
+  priority: priority ?? 1
+});
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const workSlugs = await getAllWorkSlugs();
-  const postsSlugs = await getAllPostSlugs();
-
-  const workSitemap: SingleSitemap[] = workSlugs.map((slug) => makeSitemap(RouteDefs.workBySlug(slug), 0.5));
-  const postsSitemap: SingleSitemap[] = postsSlugs.map((slug) => makeSitemap(RouteDefs.postBySlug(slug), 0.5));
+  const work = await getAllWorkMetadata({ sort: 'date' });
+  const latestWorkDate = work[0]?.date;
+  const workSitemap: SingleSitemap[] = work.map(({ slug, date }) => makeSitemap(DynamicRouteDefs.workBySlug(slug), date, 0.5));
 
   return [
-    makeSitemap(RouteDefs.home),
-    makeSitemap(RouteDefs.about, 0.8, 'yearly'),
-    makeSitemap(RouteDefs.work, 0.7),
-    ...workSitemap,
-    makeSitemap(RouteDefs.blog, 0.7),
-    ...postsSitemap
+    makeSitemap(RouteDefs.home, latestWorkDate),
+    makeSitemap(RouteDefs.contact, undefined, 0.8, 'yearly'),
+    makeSitemap(RouteDefs.work, latestWorkDate, 0.7),
+    ...workSitemap
   ];
 };
+
+export const dynamic = 'force-static';
 
 export default sitemap;

@@ -1,42 +1,33 @@
-import React from 'react';
-import { Metadata } from 'next';
-import { NoArticlesAvailable, WorkGrid } from '@components/work/workGrid';
-import { getAllWorkMetadata, getAllWorkMetadataByType, WorkType } from '@lib/services/work';
-import { str } from '@lib/services/strings';
-import { resolveMetadataObject } from '@lib/utils/metadata';
-import { RouteDefs } from '@lib/constants/routes';
+import { FilteringWorkList } from '@components/work/FilteringWorkList';
+import { WorkFooter } from '@components/work/WorkFooter';
+import { WorkHero } from '@components/work/WorkHero';
+import { RouteDefs } from '@core/routes/routes';
+import { getConfig } from '@core/services/data/config';
+import { getAllWorkMetadataByType } from '@core/services/data/work';
+import type { WorkType } from '@core/services/data/work-type';
+import { createPageMetadata } from '@core/utils/metadata';
+import type { Metadata } from 'next';
+import { Fragment } from 'react';
+import type { FC } from 'react';
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const work = await getAllWorkMetadata({ sort: 'date' });
-
-  return resolveMetadataObject(RouteDefs.work, {
-    title: str('pages.titles.work'),
-    images: work.map((work) => work.cover)
-  });
-};
-
-const WorkPage = async () => {
-  const workByType = await getAllWorkMetadataByType({ sort: 'name' });
-  const count = Object.values(workByType)
-    .reduce((acc, cur) => acc + cur.length, 0);
+const WorkPage: FC = async () => {
+  const config = await getConfig();
+  const workMetadataByType = await getAllWorkMetadataByType({ sort: 'date' });
+  const orderedWorkTypes: WorkType[] = ['research', 'art', 'hobby'];
 
   return (
-    <div className="flex flex-col gap-[4rem] my-[4rem] animate__animated animate__fadeIn">
-      {
-        count < 1 ? (
-          <NoArticlesAvailable />
-        ) : Object.entries(workByType).map(([type, work], idx) => {
-          if (!work.length) {
-            return null;
-          }
-
-          return (
-            <WorkGrid key={idx} work={work} type={type as WorkType} />
-          );
-        })
-      }
-    </div>
+    <Fragment>
+      <main className="flex-1">
+        <WorkHero className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+        <FilteringWorkList className="page-horizontal-align" items={workMetadataByType} orderedWorkTypes={orderedWorkTypes} />
+      </main>
+      <WorkFooter className="mt-4" links={config.profile.socials} />
+    </Fragment>
   );
 };
+
+export const generateMetadata = async (): Promise<Metadata> => await createPageMetadata(RouteDefs.work, {
+  title: 'The Work'
+});
 
 export default WorkPage;

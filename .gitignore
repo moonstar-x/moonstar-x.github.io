@@ -130,5 +130,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Build
 build
 build-ts
+
+# Old Versions
+_old
+
+# Next.js generated types
+next-env.d.ts

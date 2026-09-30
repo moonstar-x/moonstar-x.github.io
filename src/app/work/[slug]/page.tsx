@@ -1,59 +1,91 @@
-import React, { Fragment } from 'react';
-import { Metadata } from 'next';
-import { Work } from '@components/work/work';
-import { ShareCard } from '@components/ui/shareCard';
-import { WorkSuggestions } from '@components/work/workSuggestions';
-import { getAllWorkMetadataForType, getAllWorkSlugs, getWorkBySlug } from '@lib/services/work';
-import { getWorkData } from '@lib/services/data';
-import { resolveMetadataObject } from '@lib/utils/metadata';
-import { RouteDefs } from '@lib/constants/routes';
+import { Markdown } from '@components/markdown/Markdown';
+import { JsonLd } from '@components/seo/JsonLd';
+import { Breadcrumbs } from '@components/ui/Breadcrumbs';
+import type { BreadcrumbItem } from '@components/ui/Breadcrumbs';
+import { WorkArticleCover } from '@components/work/WorkArticleCover';
+import { WorkArticleFacts } from '@components/work/WorkArticleFacts';
+import { WorkArticleHero } from '@components/work/WorkArticleHero';
+import { WorkFooter } from '@components/work/WorkFooter';
+import { WorkFooterNavigation } from '@components/work/WorkFooterNavigation';
+import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
+import { getConfig } from '@core/services/data/config';
+import { getAllWorkMetadata, getAllWorkSlugs, getWorkBySlug } from '@core/services/data/work';
+import { getWorkTypeLabel } from '@core/services/data/work-type';
+import { createBreadcrumbJsonLd, createWorkJsonLd } from '@core/utils/json-ld';
+import { createPageMetadata } from '@core/utils/metadata';
+import type { Metadata } from 'next';
+import { Fragment } from 'react';
+import type { FC } from 'react';
 
 interface Params {
-  slug: string
+  slug: string;
 }
-
-export const generateStaticParams = async (): Promise<Params[]> => {
-  const slugs = await getAllWorkSlugs();
-
-  return slugs.map((slug) => {
-    return { slug };
-  });
-};
-
-interface GenerateMetadataParameters {
-  params: Params
-}
-
-export const generateMetadata = async ({ params }: GenerateMetadataParameters): Promise<Metadata> => {
-  const { metadata } = await getWorkBySlug(params.slug);
-
-  return resolveMetadataObject(RouteDefs.workBySlug(params.slug), {
-    title: metadata.name,
-    description: metadata.description,
-    images: [metadata.cover],
-    type: 'article',
-    twitterCard: 'summary_large_image'
-  });
-};
 
 interface Props {
-  params: Params
+  params: Promise<Params>;
 }
 
-const SingleWorkPage: React.FC<Props> = async ({ params }) => {
-  const work = await getWorkBySlug(params.slug);
-  const allWorkForCurrentType = await getAllWorkMetadataForType(work.metadata.type);
-  const { author } = getWorkData();
+const WorkArticleBySlugPage: FC<Props> = async ({ params }) => {
+  const awaitedParams = await params;
+  const config = await getConfig();
+  const article = await getWorkBySlug(awaitedParams.slug);
+  const allArticles = await getAllWorkMetadata({ sort: 'date' });
+  const currentArticleIndex = allArticles.findIndex((a) => a.slug === article.metadata.slug);
+  const nextArticle = allArticles[(currentArticleIndex + 1) % allArticles.length];
+  const articlePath = DynamicRouteDefs.workBySlug(article.metadata.slug);
+  const breadcrumbItems: BreadcrumbItem[] = [
+    {
+      id: 'work',
+      label: 'Work',
+      href: RouteDefs.work
+    },
+    {
+      id: article.metadata.type,
+      label: getWorkTypeLabel(article.metadata.type),
+      href: `${RouteDefs.work}?type=${article.metadata.type}`
+    },
+    {
+      id: article.metadata.slug,
+      label: article.metadata.name,
+      active: true
+    }
+  ];
 
   return (
     <Fragment>
-      <Work className="mt-[4rem]" work={work} author={author} />
-
-      <ShareCard className="page-container my-[2rem] tablet:my-[4rem] !max-w-[1024px]" />
-
-      <WorkSuggestions className="!max-w-[1024px] mb-[4rem]" allWork={allWorkForCurrentType} currentSlug={params.slug} />
+      <main className="flex-1">
+        <Breadcrumbs className="page-horizontal-align" items={breadcrumbItems} />
+        <WorkArticleCover className="page-horizontal-align" metadata={article.metadata} />
+        <WorkArticleHero className="page-horizontal-align" metadata={article.metadata} />
+        <WorkArticleFacts className="page-horizontal-align" metadata={article.metadata} />
+        <Markdown className="mb-8 page-horizontal-align">
+          {article.markdown}
+        </Markdown>
+      </main>
+      <WorkFooterNavigation className="mt-4" nextArticleName={nextArticle?.name} nextArticleSlug={nextArticle?.slug} />
+      <WorkFooter links={config.profile.socials} />
+      <JsonLd data={createWorkJsonLd(config, article.metadata, articlePath)} />
+      <JsonLd data={createBreadcrumbJsonLd(breadcrumbItems.map((item) => ({ label: item.label, path: item.href ?? articlePath })))} />
     </Fragment>
   );
 };
 
-export default SingleWorkPage;
+export const generateStaticParams = async (): Promise<Params[]> => {
+  const slugs = await getAllWorkSlugs();
+  return slugs.map((slug) => ({ slug }));
+};
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const awaitedParams = await params;
+  const article = await getWorkBySlug(awaitedParams.slug);
+
+  return await createPageMetadata(DynamicRouteDefs.workBySlug(article.metadata.slug), {
+    title: article.metadata.name,
+    description: article.metadata.description,
+    images: [article.metadata.cover],
+    twitterCard: 'summary_large_image',
+    type: 'article'
+  });
+};
+
+export default WorkArticleBySlugPage;

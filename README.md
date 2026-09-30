@@ -1,41 +1,97 @@
-# Portfolio Site
+# moonstar-x.github.io
 
-This repo contains the code for my main [website](https://moonstar-x.dev), made in Next.js.
+Source code for my personal portfolio, live at [moonstar-x.dev](https://moonstar-x.dev).
 
-It is built with a bit of modularity in mind, so technically you could fork it and use it for yourself. There is no strings
-hardcoded in the code, everything comes from the `data` folder.
+It is a statically exported [Next.js](https://nextjs.org) site with a home page, a work/projects showcase, and a contact page. All content is driven by Markdown and YAML files in `data/`, so adding a project means adding a file, not writing code.
 
-More specifically:
+## Tech Stack
 
-* The `data/blog` folder contains `.md` files that act as blog entries. Creating a file and filling out its front matter is enough
-to create the entry. These entries are accessible at `https://moonstar-x.dev/blog/`.
-* The `data/work` folder acts similarly, but it's mainly for work articles. These entries are accessible at `https://moonstar-x.dev/work/`.
-* The `data/data.json` file includes some objects with settings and information that is then presented on the site.
-* The `data/strings.json` file includes the text resources used in the UI. If you wanted, you could translate the site within this file.
-I have not added support for localization, so only one of these files can exist.
+- [Next.js](https://nextjs.org) (App Router, static export) with [React](https://react.dev) 19 and TypeScript
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [Framer Motion](https://motion.dev) for animations
+- [unified](https://unifiedjs.com) / [react-markdown](https://github.com/remarkjs/react-markdown) with a rehype pipeline for rendering project write-ups
+- [gray-matter](https://github.com/jonschlinkert/gray-matter) and [Zod](https://zod.dev) for parsing and validating content
+- [Umami](https://umami.is) for optional, privacy-friendly analytics
 
-## Development
+## Getting Started
 
-To develop this site, install the dependencies:
+### Prerequisites
 
-```text
-npm install
+- Node.js `v24.20.0` (see [`.nvmrc`](.nvmrc)); with [nvm](https://github.com/nvm-sh/nvm) run `nvm use`
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/moonstar-x/moonstar-x.github.io.git
+cd moonstar-x.github.io
+npm ci
 ```
 
-And run the development server:
+### Development
 
-```text
+```bash
 npm run dev
 ```
 
-## Building
+The site is served at <http://localhost:3000>.
 
-To build the site, run:
+### Scripts
 
-```text
-npm run build
+| Script              | Description                                          |
+|---------------------|------------------------------------------------------|
+| `npm run dev`       | Start the development server                         |
+| `npm run build`     | Create the static export in `build/`                 |
+| `npm run typecheck` | Type-check the project with `tsc`                    |
+| `npm run lint`      | Lint with ESLint                                     |
+| `npm run lint:fix`  | Lint and auto-fix                                    |
+
+## Configuration
+
+Environment variables are read from a `.env` file (or the environment) at build time.
+
+| Variable                          | Default                 | Description                                         |
+|-----------------------------------|-------------------------|-----------------------------------------------------|
+| `NEXT_BASE_URL`                   | `http://localhost:3000` | Public URL of the site, used for SEO and the sitemap |
+| `NEXT_CONTENT_LANG`               | `en`                    | Content language                                    |
+| `NEXT_SHOW_DRAFT_CONTENT`         | `false`                 | Set to `true` to show draft content                 |
+| `NEXT_REVALIDATE_TIME`            | `600`                   | Revalidation time in seconds for remote data        |
+| `NEXT_ANALYTICS_UMAMI_SRC`        | unset                   | Umami script URL (analytics are off if unset)       |
+| `NEXT_ANALYTICS_UMAMI_WEBSITE_ID` | unset                   | Umami website ID                                    |
+
+## Content
+
+```
+data/
+├── config.yml    # Profile, socials, experience and education
+└── work/         # One Markdown file per project
 ```
 
-## Author
+- **Profile and CV:** edit [`data/config.yml`](data/config.yml).
+- **Projects:** add a Markdown file to `data/work/`. The front matter defines the project metadata (name, description, cover, date, technologies, status, type, links) and the body is the write-up. Project types are `art`, `hobby` and `research`.
+- **Static assets** (covers, images, videos) live in `public/assets/work/<project>/`.
 
-This site was made by [moonstar-x](https://github.com/moonstar-x).
+See any file in [`data/work/`](data/work) for a complete example.
+
+## Project Structure
+
+```
+src/
+├── app/          # Routes: home, work, work/[slug], contact, error and 404 pages
+├── components/   # UI components grouped by feature (home, work, contact, ui, ...)
+└── core/         # Config, routes, analytics events, data services and utilities
+```
+
+## Deployment
+
+The site is exported statically (`output: 'export'`) into `build/` and published to GitHub Pages through GitHub Actions:
+
+- **Pull requests:** run type-checking and linting.
+- **Pushes to `main`:** run the checks, build the site, and publish `build/` to GitHub Pages.
+- **Weekly (Sundays, 08:00 UTC):** rebuild and redeploy so remote data (GitHub, npm, Docker Hub stats) stays fresh.
+
+The deploy workflow expects these repository variables: `BASE_URL`, `UMAMI_SRC`, `UMAMI_WEBSITE_ID`; and this secret: `MACHINE_ACCOUNT_TOKEN`.
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE).

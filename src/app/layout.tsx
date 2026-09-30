@@ -1,36 +1,34 @@
-import React from 'react';
-import { Header } from '@components/ui/header';
-import { Footer } from '@components/ui/footer';
-import { UmamiAnalytics, GoogleAnalytics } from '@components/utils/analytics';
-import { getOwner, getSocials, getSettings } from '@lib/services/data';
-import { CONTENT_LANG } from '@lib/config';
-import '@styles/global.css';
-import 'animate.css/animate.min.css';
+import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
+import { MotionProvider } from '@components/motion/MotionProvider';
+import { SocialsProvider } from '@components/providers/SocialsProvider';
+import { Navbar } from '@components/ui/Navbar';
+import { ScrollToTopButton } from '@components/ui/ScrollToTopButton';
+import { APP_CONTENT_LANG } from '@core/config/app';
+import { FONT_VARIABLES_CLASS_NAME } from '@core/config/fonts';
+import { getConfig } from '@core/services/data/config';
+import type { FC, ReactNode } from 'react';
+import '@styles/main.css';
 
 interface Props {
-  children: React.ReactNode
+  children: ReactNode;
 }
 
-const RootLayout: React.FC<Props> = ({ children }) => {
-  const socials = getSocials();
-  const owner = getOwner();
-  const settings = getSettings();
+const RootLayout: FC<Props> = async ({ children }) => {
+  const config = await getConfig();
 
   return (
-    <html lang={CONTENT_LANG}>
+    <html className={FONT_VARIABLES_CLASS_NAME} lang={APP_CONTENT_LANG}>
       <head>
         <UmamiAnalytics />
-        <GoogleAnalytics />
       </head>
-
-      <body>
-        <Header brand={settings.brand} socials={socials} owner={owner.name} creationYear={settings.creationYear} />
-
-        <main>
-          {children}
-        </main>
-
-        <Footer socials={socials} owner={owner.name} creationYear={settings.creationYear} letsConnectText={owner.letsConnect} compact={false} />
+      <body className="flex flex-col min-h-svh">
+        <MotionProvider>
+          <SocialsProvider socials={config.profile.socials}>
+            <Navbar title={config.profile.alias} />
+            {children}
+            <ScrollToTopButton />
+          </SocialsProvider>
+        </MotionProvider>
       </body>
     </html>
   );

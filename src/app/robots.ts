@@ -1,14 +1,14 @@
-import { MetadataRoute } from 'next';
-import { BASE_URL } from '@lib/config';
+import { BASE_URL } from '@core/config/app';
+import type { MetadataRoute } from 'next';
 
-const robots = (): MetadataRoute.Robots => {
-  return {
-    rules: {
-      userAgent: '*',
-      disallow: ['/img/', '/assets/']
-    },
-    sitemap: `${BASE_URL}/sitemap.xml`
-  };
-};
+const robots = (): MetadataRoute.Robots => ({
+  rules: {
+    userAgent: '*',
+    allow: '/'
+  },
+  sitemap: `${BASE_URL}/sitemap.xml`
+});
+
+export const dynamic = 'force-static';
 
 export default robots;
