@@ -33,6 +33,10 @@
   --font-code: var(--font-jetbrains-mono);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: var(--font-hanken-grotesk), sans-serif;
   color: var(--color-text);
