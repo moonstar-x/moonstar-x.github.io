@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon';
 import { MotionLink } from '@components/motion/MotionLink';
 import { drawLine, fadeUp, REVEAL_VIEWPORT, settleIn, staggerChildren } from '@components/motion/variants';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
@@ -35,7 +36,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
           {items.length}
           {' '}
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">
-            →
+            <ArrowRightIcon />
           </span>
         </MotionLink>
       </motion.div>
@@ -79,7 +80,7 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
                     {completeStatus}
                   </span>
                   <span aria-hidden="true" className="hidden xl:inline-block font-title font-black text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
-                    →
+                    <ArrowRightIcon />
                   </span>
                 </div>
               </Link>

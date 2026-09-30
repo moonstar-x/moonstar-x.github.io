@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from '@components/icons/ArrowLeftIcon';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
@@ -21,7 +22,7 @@ const BreadcrumbLink: FC<BreadcrumbLinkProps> = ({ item, isFirst }) => {
       {
         isFirst === true && (
           <span aria-hidden="true" className="inline-block xl:hidden me-1 transition-transform duration-200 ease-out group-hover:-translate-x-1">
-            ←
+            <ArrowLeftIcon />
           </span>
         )
       }

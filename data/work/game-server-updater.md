@@ -13,7 +13,7 @@ stats:
   github: moonstar-x/game-server-updater
 ---
 
-Additional to [self-hosting services](../server-setup-guide) I also enjoyed self-hosting game servers. SteamCMD has always
+Additional to self-hosting services I also enjoyed self-hosting game servers. SteamCMD has always
 been the way to go for me to acquire the server binaries and get to hosting my own game servers for me and my friends.
 
 Only recently however I got the idea of creating a little tool to help me host my own game servers. More specifically,
