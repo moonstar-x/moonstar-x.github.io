@@ -1,8 +1,10 @@
+import { fadeUp, REVEAL_VIEWPORT, settleIn } from '@components/motion/variants';
 import { WorkListTitle } from '@components/work/WorkListTitle';
 import { DynamicRouteDefs } from '@core/routes/routes';
 import type { WorkMetadata, WorkStatus } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { clsx } from 'clsx';
+import * as motion from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentProps, FC } from 'react';
@@ -31,11 +33,13 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
   <div className={clsx('pt-5.5 xl:pt-7.5 px-5 xl:px-10 pb-4.5 xl:pb-6.5 flex flex-col gap-4 not-last:border-b border-solid border-border', className)} {...props}>
     <WorkListTitle count={items.length} title="Research Work" />
     <ul className="flex flex-col gap-4">
-      {items.map(({ slug, name, description, technologies, cover, status }) => (
-        <li className="flex border-t border-solid border-border-light" key={slug}>
+      {items.map(({ slug, name, description, technologies, cover, status }, index) => (
+        <motion.li className="flex border-t border-solid border-border-light" initial="hidden" key={slug} variants={fadeUp((index % 3) * 0.1, 32)} viewport={REVEAL_VIEWPORT} whileInView="shown">
           <Link className="group grow text-text flex flex-col xl:flex-row gap-2.75 xl:gap-6.5 xl:items-center pt-4 xl:pt-8 xl:pb-3.5" href={DynamicRouteDefs.workBySlug(slug)}>
             <div className="w-full xl:w-52.5 h-35 xl:h-32 relative overflow-hidden">
-              <Image fill alt={slug} className="shrink-0 object-cover transition-transform duration-300 ease-out group-hover:scale-105" src={cover} />
+              <motion.div className="absolute inset-0" variants={settleIn}>
+                <Image fill alt={slug} className="shrink-0 object-cover transition-transform duration-300 ease-out group-hover:scale-105" src={cover} />
+              </motion.div>
             </div>
             <div className="grow flex flex-col gap-2.25 mt-1 xl:mt-0">
               <h3 className="font-title font-black text-[32px] xl:text-[44px] leading-[0.95] tracking-[-0.035em] uppercase transition-colors duration-200 ease-out group-hover:text-accent">
@@ -66,7 +70,7 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
               </span>
             </div>
           </Link>
-        </li>
+        </motion.li>
       ))}
     </ul>
   </div>
