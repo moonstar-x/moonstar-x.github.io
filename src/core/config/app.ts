@@ -6,4 +6,3 @@ export const BASE_URL: string = process.env.NEXT_BASE_URL ?? 'http://localhost:3
 
 export const ANALYTICS_UMAMI_SRC: string | undefined = process.env.NEXT_ANALYTICS_UMAMI_SRC;
 export const ANALYTICS_UMAMI_WEBSITE_ID: string | undefined = process.env.NEXT_ANALYTICS_UMAMI_WEBSITE_ID;
-export const ANALYTICS_GOOGLE_TAG: string | undefined = process.env.NEXT_ANALYTICS_GOOGLE_TAG;

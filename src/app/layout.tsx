@@ -1,4 +1,3 @@
-import { GoogleAnalytics } from '@components/analytics/GoogleAnalytics';
 import { UmamiAnalytics } from '@components/analytics/UmamiAnalytics';
 import { MotionProvider } from '@components/motion/MotionProvider';
 import { Navbar } from '@components/ui/Navbar';
@@ -38,7 +37,6 @@ const RootLayout: FC<Props> = async ({ children }) => {
   return (
     <html className={clsx(hankenGrotesk.variable, leagueSpartan.variable, jetbrainsMono.variable)} lang={APP_CONTENT_LANG}>
       <head>
-        <GoogleAnalytics />
         <UmamiAnalytics />
       </head>
       <body className="flex flex-col min-h-svh">

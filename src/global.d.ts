@@ -1,6 +1,5 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    NEXT_ANALYTICS_GOOGLE_TAG?: string;
     NEXT_ANALYTICS_UMAMI_SRC?: string;
     NEXT_ANALYTICS_UMAMI_WEBSITE_ID?: string;
     NEXT_BASE_URL?: string;
