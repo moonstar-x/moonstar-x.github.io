@@ -28,7 +28,7 @@ export const fadeUp = (delay = 0, distance = 24): Variants => ({
     transition: {
       duration: 0.7,
       ease: EASE_OUT_EXPO,
-      delay
+      ...delay > 0 && { delay }
     }
   }
 });
