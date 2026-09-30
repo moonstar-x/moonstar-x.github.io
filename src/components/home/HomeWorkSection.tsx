@@ -78,8 +78,8 @@ export const HomeWorkSection: FC<Props> = ({ items, className, maxShown = 3, max
                   <span className="text-[12px] font-medium tracking-[0.08em] xl:tracking-widest uppercase text-muted transition-colors duration-200 ease-out group-hover:text-lighter">
                     {completeStatus}
                   </span>
-                  <span className="hidden xl:inline-block font-title font-black text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
-                    ↗
+                  <span aria-hidden="true" className="hidden xl:inline-block font-title font-black text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
+                    →
                   </span>
                 </div>
               </Link>

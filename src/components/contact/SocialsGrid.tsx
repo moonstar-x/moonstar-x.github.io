@@ -1,4 +1,5 @@
 import { fadeUp, REVEAL_VIEWPORT } from '@components/motion/variants';
+import { ExternalLinkArrow } from '@components/ui/ExternalLinkArrow';
 import { simplifyUrl } from '@core/utils/string';
 import { clsx } from 'clsx';
 import * as motion from 'framer-motion/client';
@@ -28,9 +29,7 @@ export const SocialsGrid: FC<Props> = ({ socials, className, ...props }) => (
                 {simplifyUrl(url)}
               </span>
             </div>
-            <span className="text-[24px] xl:text-[26px] text-accent self-center xl:self-end transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
-              ↗
-            </span>
+            <ExternalLinkArrow className="text-[24px] xl:text-[26px] text-accent self-center xl:self-end transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>
         </motion.li>
       ))}

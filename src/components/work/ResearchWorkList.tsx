@@ -66,8 +66,8 @@ export const ResearchWorkList: FC<Props> = ({ items, className, ...props }) => (
             </div>
             <div className="shrink-0 flex flex-col items-end gap-2">
               <InDevelopmentBadge className="hidden xl:inline-block" status={status} />
-              <span className="hidden xl:inline-block font-title font-black text-[30px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
+              <span aria-hidden="true" className="hidden xl:inline-block font-title font-black text-[30px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
+                →
               </span>
             </div>
           </Link>

@@ -38,8 +38,8 @@ export const NotFoundEscapeLinks: FC<Props> = ({ links, className, ...props }) =
                 {description}
               </p>
             </div>
-            <span className="shrink-0 font-title font-black text-[26px] xl:text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
-              ↗
+            <span aria-hidden="true" className="shrink-0 font-title font-black text-[26px] xl:text-[34px] text-accent transition-transform duration-200 ease-out group-hover:translate-x-1">
+              →
             </span>
           </Link>
         </motion.li>

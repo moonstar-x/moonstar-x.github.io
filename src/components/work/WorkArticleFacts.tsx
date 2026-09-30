@@ -1,5 +1,6 @@
 import { MotionLink } from '@components/motion/MotionLink';
 import { fadeUp, REVEAL_VIEWPORT, staggerChildren } from '@components/motion/variants';
+import { ExternalLinkArrow } from '@components/ui/ExternalLinkArrow';
 import type { WorkFact, WorkLink, WorkMetadata, WorkStats } from '@core/services/data/work';
 import type { ContentMetadata } from '@core/services/markdown';
 import { getDockerHubRepoData } from '@core/services/third-party/dockerhub';
@@ -147,9 +148,7 @@ const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
             <span className="truncate link-underline">
               {simplifyUrl(fact.url)}
             </span>
-            <span className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
+            <ExternalLinkArrow className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </MotionLink>
         </WorkFactItemContainer>
       );
