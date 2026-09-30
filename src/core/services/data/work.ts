@@ -136,4 +136,11 @@ export const getAllWorkMetadataByType = async (options: Partial<GetAllWorkMetada
   }, initialResult);
 };
 
-export const getWorkBySlug = async (slug: string): Promise<WorkArticle> => await getContent<WorkMetadata>(directory, slug);
+export const getWorkBySlug = async (slug: string): Promise<WorkArticle> => {
+  const { markdown, metadata } = await getContent<WorkMetadata>(directory, slug);
+
+  return {
+    markdown,
+    metadata: betterZodParse(WorkMetadataSchema, metadata, 'slug')
+  };
+};

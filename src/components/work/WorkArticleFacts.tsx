@@ -6,6 +6,7 @@ import type { ContentMetadata } from '@core/services/markdown';
 import { getDockerHubRepoData } from '@core/services/third-party/dockerhub';
 import { getGitHubRepoData } from '@core/services/third-party/github';
 import { getNpmPackageData } from '@core/services/third-party/npm';
+import { digitDate } from '@core/utils/date';
 import { compactNumber } from '@core/utils/number';
 import { objectEntries } from '@core/utils/object';
 import { simplifyUrl } from '@core/utils/string';
@@ -32,6 +33,9 @@ const LINK_TYPE_TO_LABEL: Record<WorkLink, string> = {
 };
 
 type AggregatedWorkFact = (WorkFact | {
+  date: Date;
+  type: 'date';
+} | {
   linkType: WorkLink;
   type: 'link';
   url: string;
@@ -134,6 +138,14 @@ interface WorkFactItemProps {
 
 const WorkFactItem: FC<WorkFactItemProps> = ({ className, fact }) => {
   switch (fact.type) {
+    case 'date':
+      return (
+        <WorkFactItemContainer className={className} label="Date">
+          <motion.time className={STAT_VALUE_CLASS_NAME} dateTime={fact.date.toISOString()} variants={fadeUp(0, 12)}>
+            {digitDate(fact.date)}
+          </motion.time>
+        </WorkFactItemContainer>
+      );
     case 'featured':
       return (
         <WorkFactItemContainer className={className} label={fact.label}>
@@ -174,6 +186,11 @@ interface Props extends Omit<ComponentProps<typeof motion.section>, 'children'> 
 
 export const WorkArticleFacts: FC<Props> = ({ metadata, className, ...props }) => {
   const facts: AggregatedWorkFact[] = [
+    {
+      id: 'date',
+      type: 'date',
+      date: metadata.date
+    },
     ...metadata.facts?.map((fact, index): AggregatedWorkFact => ({
       ...fact,
       id: `fact-${index.toString()}`
