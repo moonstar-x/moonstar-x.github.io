@@ -7,7 +7,7 @@ import { CopyCodeButton } from './CopyCodeButton';
 
 export const HEADING_ANCHOR_CLASS_NAME = 'heading-anchor';
 
-const HEADING_CLASS_NAME = 'relative [&>.heading-anchor]:hidden xl:[&>.heading-anchor]:block [&>.heading-anchor]:absolute [&>.heading-anchor]:right-full [&>.heading-anchor]:top-0 [&>.heading-anchor]:pe-[0.35em] [&>.heading-anchor]:font-title [&>.heading-anchor]:font-black [&>.heading-anchor]:text-accent [&>.heading-anchor]:opacity-0 [&>.heading-anchor]:transition-opacity [&>.heading-anchor]:duration-200 [&>.heading-anchor]:ease-out [&:hover>.heading-anchor]:opacity-100';
+const HEADING_CLASS_NAME = 'relative [&>.heading-anchor]:me-[0.35em] [&>.heading-anchor]:font-title [&>.heading-anchor]:font-black [&>.heading-anchor]:text-accent [&>.heading-anchor]:transition-opacity [&>.heading-anchor]:duration-200 [&>.heading-anchor]:ease-out xl:[&>.heading-anchor]:absolute xl:[&>.heading-anchor]:right-full xl:[&>.heading-anchor]:top-0 xl:[&>.heading-anchor]:me-0 xl:[&>.heading-anchor]:pe-[0.35em] xl:[&>.heading-anchor]:opacity-0 xl:[&:hover>.heading-anchor]:opacity-100 xl:[&>.heading-anchor:focus-visible]:opacity-100';
 
 export const MarkdownH1: FC<ComponentProps<'h1'>> = ({ className, children, ...props }) => (
   <h1 className={clsx(HEADING_CLASS_NAME, 'font-title font-black text-[42px] xl:text-[64px] leading-[0.9] tracking-[-0.045em] uppercase', className)} {...props}>

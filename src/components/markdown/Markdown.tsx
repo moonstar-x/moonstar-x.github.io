@@ -203,7 +203,7 @@ export const Markdown: FC<Props> = ({ children, className, ...props }) => (
         rehypeSlug,
         [rehypeAutolinkHeadings, {
           behavior: 'prepend',
-          properties: { className: HEADING_ANCHOR_CLASS_NAME, ariaHidden: true, tabIndex: -1 },
+          properties: { className: HEADING_ANCHOR_CLASS_NAME, ariaLabel: 'Link to this section' },
           content: { type: 'text', value: '#' }
         }],
         rehypeFigure,
