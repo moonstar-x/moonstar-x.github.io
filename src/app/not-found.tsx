@@ -1,8 +1,8 @@
 import { NotFoundEscapeLinks } from '@components/404/NotFoundEscapeLinks';
 import type { EscapeLink } from '@components/404/NotFoundEscapeLinks';
-import { NotFoundFooter } from '@components/404/NotFoundFooter';
 import { NotFoundHero } from '@components/404/NotFoundHero';
 import { NotFoundMarquee } from '@components/404/NotFoundMarquee';
+import { ErrorFooter } from '@components/error/ErrorFooter';
 import { DynamicRouteDefs, RouteDefs } from '@core/routes/routes';
 import { getConfig } from '@core/services/data/config';
 import { getAllWorkMetadata } from '@core/services/data/work';
@@ -42,7 +42,7 @@ const NotFoundPage: FC = async () => {
         <NotFoundMarquee className="page-horizontal-align" />
         <NotFoundEscapeLinks className="page-horizontal-align" links={escapeLinks} />
       </main>
-      <NotFoundFooter className="mt-4" links={config.profile.socials} />
+      <ErrorFooter className="mt-4" links={config.profile.socials} />
     </Fragment>
   );
 };
