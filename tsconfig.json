@@ -22,7 +22,7 @@
     "src/**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "build/dev/**/*.ts"
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
